@@ -11,9 +11,11 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public int Id { get; set; }
         public DateTime FechaDeVenta { get; set; }
         
-        public Venta()
+        public Presupuesto Presupuesto { get; set; }
+        public Venta(Presupuesto pPresupuesto)
         {
             FechaDeVenta = DateTime.Now;
+            Presupuesto = pPresupuesto;
         }
     }
 }
