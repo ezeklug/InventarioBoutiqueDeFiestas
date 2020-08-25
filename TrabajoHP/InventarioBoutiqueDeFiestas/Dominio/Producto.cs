@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.Dominio
 {
-    class Producto
+    public class Producto
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

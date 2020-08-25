@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.Dominio
 {
-    class Venta
+    public class Venta
     {
     }
 }
