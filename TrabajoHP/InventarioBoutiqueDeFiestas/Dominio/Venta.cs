@@ -8,5 +8,12 @@ namespace InventarioBoutiqueDeFiestas.Dominio
 {
     public class Venta
     {
+        public int Id { get; set; }
+        public DateTime FechaDeVenta { get; set; }
+        
+        public Venta()
+        {
+            FechaDeVenta = DateTime.Now;
+        }
     }
 }

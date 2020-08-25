@@ -16,9 +16,8 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public int Telefono { get; set; }
         public string Email { get; set; }
 
-        public Cliente(int pId, string pNombre, string pApellido, string pDireccion, int pTelefono, string pEmail)
+        public Cliente(string pNombre, string pApellido, string pDireccion, int pTelefono, string pEmail)
         {
-            Id = pId;
             Nombre = pNombre;
             Apellido = pApellido;
             Direccion = pDireccion;

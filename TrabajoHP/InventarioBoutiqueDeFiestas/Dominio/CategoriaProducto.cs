@@ -8,5 +8,16 @@ namespace InventarioBoutiqueDeFiestas.Dominio
 {
     public class CategoriaProducto
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public Boolean Vence { get; set; }
+
+        public CategoriaProducto(string pNombre, string pDescripcion, Boolean pVence)
+        {
+            Nombre = pNombre;
+            Descripcion = pDescripcion;
+            Vence = pVence;
+        }
     }
 }

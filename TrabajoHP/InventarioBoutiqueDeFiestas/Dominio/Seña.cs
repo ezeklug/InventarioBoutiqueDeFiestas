@@ -12,5 +12,10 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public DateTime Fecha { get; set; }
         public double Monto { get; set; }
 
+        public Seña(double pMonto)
+        {
+            Fecha = DateTime.Now;
+            Monto = pMonto;
+        }
     }
 }

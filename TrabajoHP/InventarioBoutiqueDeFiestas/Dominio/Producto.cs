@@ -33,9 +33,8 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         /// <param name="pDescripcion"></param>
         /// <param name="pStockMinimo"></param>
         /// <param name="pPorcentajeDeGanancia"></param>
-        public Producto(int pId, string pNombre, string pDescripcion, int pStockMinimo, double pPorcentajeDeGanancia, CategoriaProducto pCategoria)
+        public Producto(string pNombre, string pDescripcion, int pStockMinimo, double pPorcentajeDeGanancia, CategoriaProducto pCategoria)
         {
-            Id = pId;
             Nombre = pNombre;
             Descripcion = pDescripcion;
             StockMinimo = pStockMinimo;
@@ -52,9 +51,8 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         /// <param name="pCantidadEnStock"></param>
         /// <param name="pPorcentajeDeGanancia"></param>
         /// <param name="pPrecioDeCompra"></param>
-        public Producto(int pId, string pNombre, string pDescripcion, int pStockMinimo, int pCantidadEnStock, double pPorcentajeDeGanancia, double pPrecioDeCompra, CategoriaProducto pCategoria)
+        public Producto(string pNombre, string pDescripcion, int pStockMinimo, int pCantidadEnStock, double pPorcentajeDeGanancia, double pPrecioDeCompra, CategoriaProducto pCategoria)
         {
-            Id = pId;
             Nombre = pNombre;
             Descripcion = pDescripcion;
             StockMinimo = pStockMinimo;
