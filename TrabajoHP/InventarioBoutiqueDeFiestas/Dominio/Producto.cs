@@ -18,6 +18,8 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public double PorcentajeDeGanancia { get; set;}
         public double PrecioDeCompra { get; set; }
 
+        public CategoriaProducto Categoria { get; set; }
+
         public double PrecioDeVenta()
         {
             return PorcentajeDeGanancia * PrecioDeCompra + PrecioDeCompra;
@@ -31,13 +33,14 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         /// <param name="pDescripcion"></param>
         /// <param name="pStockMinimo"></param>
         /// <param name="pPorcentajeDeGanancia"></param>
-        public Producto(int pId, string pNombre, string pDescripcion, int pStockMinimo, double pPorcentajeDeGanancia)
+        public Producto(int pId, string pNombre, string pDescripcion, int pStockMinimo, double pPorcentajeDeGanancia, CategoriaProducto pCategoria)
         {
             Id = pId;
             Nombre = pNombre;
             Descripcion = pDescripcion;
             StockMinimo = pStockMinimo;
-            PorcentajeDeGanancia = pPorcentajeDeGanancia;;
+            PorcentajeDeGanancia = pPorcentajeDeGanancia;
+            Categoria = pCategoria;
         }
         /// <summary>
         /// Constructor de Producto, cuando se crea el producto desde un ingreso de mercaderia
@@ -49,7 +52,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         /// <param name="pCantidadEnStock"></param>
         /// <param name="pPorcentajeDeGanancia"></param>
         /// <param name="pPrecioDeCompra"></param>
-        public Producto(int pId, string pNombre, string pDescripcion, int pStockMinimo, int pCantidadEnStock, double pPorcentajeDeGanancia, double pPrecioDeCompra)
+        public Producto(int pId, string pNombre, string pDescripcion, int pStockMinimo, int pCantidadEnStock, double pPorcentajeDeGanancia, double pPrecioDeCompra, CategoriaProducto pCategoria)
         {
             Id = pId;
             Nombre = pNombre;
@@ -58,6 +61,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             CantidadEnStock = pCantidadEnStock;
             PorcentajeDeGanancia = pPorcentajeDeGanancia;
             PrecioDeCompra = pPrecioDeCompra;
+            Categoria=pCategoria
         }
     }
 }

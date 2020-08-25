@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\Categoria.cs" />
+    <Compile Include="Dominio\CategoriaProducto.cs" />
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\LineaPresupuesto.cs" />
     <Compile Include="Dominio\Lote.cs" />
