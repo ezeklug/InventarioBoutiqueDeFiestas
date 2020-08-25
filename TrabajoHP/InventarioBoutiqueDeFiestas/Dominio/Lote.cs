@@ -13,7 +13,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public DateTime FechaCompra { get; set; }
         public DateTime FechaVencimiento { get; set; }
         // Hay que chequear si estado es un boolean o una enum
-        public Boolean Estado { get; set; }
+        public Boolean Vencido { get; set; }
         public Producto Producto { get; set; }
     }
 }
