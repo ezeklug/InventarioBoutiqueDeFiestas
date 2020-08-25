@@ -20,11 +20,10 @@ namespace InventarioBoutiqueDeFiestas.Dominio
 
         public CategoriaProducto Categoria { get; set; }
 
-        public double PrecioDeVenta()
+        public double PrecioVenta()
         {
-            return PorcentajeDeGanancia * PrecioDeCompra + PrecioDeCompra;
+            return PrecioDeCompra * (1 + PorcentajeDeGanancia);
         }
-
         /// <summary>
         /// Constructor de Producto, cuando solo se quiere crear el producto sin un ingreso de mercaderia asociado
         /// </summary>

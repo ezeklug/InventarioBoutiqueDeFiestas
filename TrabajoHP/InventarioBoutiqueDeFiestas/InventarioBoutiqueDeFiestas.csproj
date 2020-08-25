@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\ControladorPresupuesto.cs" />
     <Compile Include="Dominio\CategoriaProducto.cs" />
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\LineaPresupuesto.cs" />
