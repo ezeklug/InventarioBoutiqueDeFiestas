@@ -22,7 +22,5 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Señado,
             Cancelado
         }
-
-     //   public Presupuesto()
     }
 }
