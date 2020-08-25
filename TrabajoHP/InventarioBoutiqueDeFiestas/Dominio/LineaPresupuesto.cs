@@ -13,12 +13,15 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public Producto Producto { get; set; }
 
         public double Subtotal { get; set; }
-        public LineaPresupuesto(int pCantidad, double pPorcentajeDescuento, Producto pProducto)
+
+        public Presupuesto Presupuesto { get; set; }
+        public LineaPresupuesto(int pCantidad, double pPorcentajeDescuento, Producto pProducto, Presupuesto pPresupuesto)
         {
             Producto = pProducto;
             Cantidad = pCantidad;
             PorcentajeDescuento = pPorcentajeDescuento;
             Subtotal = pProducto.PrecioVenta();
+            Presupuesto = pPresupuesto;
         }
     }
 }
