@@ -8,5 +8,9 @@ namespace InventarioBoutiqueDeFiestas.Dominio
 {
     public class Seña
     {
+        public int Id { get; set; }
+        public DateTime Fecha { get; set; }
+        public double Monto { get; set; }
+
     }
 }
