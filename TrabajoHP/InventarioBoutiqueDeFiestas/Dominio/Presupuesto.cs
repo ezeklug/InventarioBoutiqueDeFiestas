@@ -13,8 +13,13 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public DateTime FechaVencimiento { get; set; }
         public DateTime FechaEntrega { get; set; }
         public DateTime FechaEvento { get; set; }
-        public Boolean Estado { get; set; }
         public double TotalVenta { get; set; }
-
+        public enum Estado
+        {
+            Presupuestado,
+            Vendido,
+            Señado,
+            Cancelado
+        }
     }
 }

@@ -12,6 +12,6 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public int CantidadProductos { get; set; }
         public DateTime FechaCompra { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        public string Estado { get; set; }
+        //Falta Estado
     }
 }
