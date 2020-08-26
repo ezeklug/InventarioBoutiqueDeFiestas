@@ -61,7 +61,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             CantidadEnStock = pCantidadEnStock;
             PorcentajeDeGanancia = pPorcentajeDeGanancia;
             PrecioDeCompra = pPrecioDeCompra;
-            Categoria=pCategoria
+            Categoria = pCategoria;
         }
     }
 }
