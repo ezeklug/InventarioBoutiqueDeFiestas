@@ -11,31 +11,40 @@ namespace InventarioBoutiqueDeFiestas.Database
     class DAOProductos : IOperacionesDB<Producto>
     {
         static string TableName = "productos";
-        static string Campos = "id,nombre,descripcion,stockminimo,cantidadenstock,procentajedeganancia,preciodecompra,categoria"
+        static string Campos = "id,nombre,descripcion,stockminimo,cantidadenstock,procentajedeganancia,preciodecompra,categoria";
 
+ 
+         
+            
         public void Eliminar(int id)
         {
             var con = new NpgsqlConnection(Config.connectionString);
             string sql = "DELETE FROM " + TableName + " WHERE id=" + id.ToString();
-
             con.Open();
             var cmd = new NpgsqlCommand(sql, con);
             cmd.ExecuteScalar();
+            con.Close();
         }
 
         public bool Existe(int pId)
         {
-            throw new NotImplementedException();
+            
         }
 
         public bool Insertar(Producto pTentity)
         {
             var con = new NpgsqlConnection(Config.connectionString);
-            string datos = pTentity.Id.ToString() + "," + pTentity.Nombre.ToString() + "," + pTentity.Descripcion.ToString() + "," + pTentity.StockMinimo.ToString() + "," +
-                pTentity.CantidadEnStock.ToString() + "," + pTentity.PorcentajeDeGanancia.ToString() + "," + pTentity.PrecioDeCompra.ToString() + "," +
-                pTentity.CantidadEnStock.ToString() + "," + pTentity.Categoria.Id.ToString();
-              string sql = "INSERT INTO "+TableName+" ("+Campos+") VALUES() ";
+            //string datos = pTentity.Id.ToString() + "," + pTentity.Nombre.ToString() + "," + pTentity.Descripcion.ToString() + "," + pTentity.StockMinimo.ToString() + "," +
+            //    pTentity.CantidadEnStock.ToString() + "," + pTentity.PorcentajeDeGanancia.ToString() + "," + pTentity.PrecioDeCompra.ToString() + "," +
+            //    pTentity.CantidadEnStock.ToString() + "," + pTentity.Categoria.Id.ToString();
+            //string sql = "INSERT INTO "+TableName+" ("+Campos+") VALUES("+datos+") ";
 
+
+            using (var cmd = new NpgsqlCommand("INSERT INTO table (col1) VALUES (@p)", conn))
+            {
+                cmd.Parameters.AddWithValue("p", "some_value");
+                cmd.ExecuteNonQuery();
+            }
             con.Open();
             var cmd = new NpgsqlCommand(sql, con);
             cmd.ExecuteScalar();
