@@ -161,6 +161,7 @@
     <Compile Include="Dominio\Venta.cs" />
     <Compile Include="DTO\CategoriaProductoDTO.cs" />
     <Compile Include="DTO\LineaPresupuestoDTO.cs" />
+    <Compile Include="DTO\LoteDTO.cs" />
     <Compile Include="DTO\PresupuestoDTO.cs" />
     <Compile Include="DTO\ProductoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
