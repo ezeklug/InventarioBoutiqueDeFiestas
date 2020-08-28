@@ -159,6 +159,8 @@
     <Compile Include="Dominio\Producto.cs" />
     <Compile Include="Dominio\Senia.cs" />
     <Compile Include="Dominio\Venta.cs" />
+    <Compile Include="DTO\ClienteDTO.cs" />
+    <Compile Include="DTO\Lote.cs" />
     <Compile Include="DTO\ProductoDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
