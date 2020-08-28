@@ -161,9 +161,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008281731029_InitialCreate2.cs" />
-    <Compile Include="Migrations\202008281731029_InitialCreate2.designer.cs">
-      <DependentUpon>202008281731029_InitialCreate2.cs</DependentUpon>
+    <Compile Include="Migrations\202008281736592_InitialCreate2.cs" />
+    <Compile Include="Migrations\202008281736592_InitialCreate2.designer.cs">
+      <DependentUpon>202008281736592_InitialCreate2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202008281738253_InitialCreate.cs" />
     <Compile Include="Migrations\202008281738253_InitialCreate.designer.cs">
@@ -172,8 +172,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202008281731029_InitialCreate2.resx">
-      <DependentUpon>202008281731029_InitialCreate2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008281736592_InitialCreate2.resx">
+      <DependentUpon>202008281736592_InitialCreate2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008281738253_InitialCreate.resx">
       <DependentUpon>202008281738253_InitialCreate.cs</DependentUpon>
