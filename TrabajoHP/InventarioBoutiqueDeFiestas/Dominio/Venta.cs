@@ -17,5 +17,6 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             FechaDeVenta = DateTime.Now;
             Presupuesto = pPresupuesto;
         }
+        public Venta() { }
     }
 }

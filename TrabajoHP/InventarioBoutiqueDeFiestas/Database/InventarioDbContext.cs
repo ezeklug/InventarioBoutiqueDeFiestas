@@ -13,6 +13,13 @@ namespace InventarioBoutiqueDeFiestas.Database
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Producto> Productos { get; set; }
+        public DbSet<CategoriaProducto> CategoriaProductos { get; set; }
+        public DbSet<LineaPresupuesto> LineaPresupuestos { get; set; }
+        public DbSet<Lote> Lotes { get; set; }
+        public DbSet<Presupuesto> Presupuestos { get; set; }
+        public DbSet<Senia> Senias { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
+
 
         public InventarioDbContext() : base(nameOrConnectionString: "Default")
         {
@@ -24,7 +31,6 @@ namespace InventarioBoutiqueDeFiestas.Database
         {
             modelBuilder.HasDefaultSchema("public");
             base.OnModelCreating(modelBuilder);
-
         }
     }
 }

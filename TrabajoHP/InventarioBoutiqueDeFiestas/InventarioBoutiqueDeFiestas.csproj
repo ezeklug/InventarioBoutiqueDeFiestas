@@ -153,7 +153,7 @@
     <Compile Include="Dominio\Lote.cs" />
     <Compile Include="Dominio\Presupuesto.cs" />
     <Compile Include="Dominio\Producto.cs" />
-    <Compile Include="Dominio\Seña.cs" />
+    <Compile Include="Dominio\Senia.cs" />
     <Compile Include="Dominio\Venta.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -169,6 +169,14 @@
     <Compile Include="Migrations\202008281738253_InitialCreate.designer.cs">
       <DependentUpon>202008281738253_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008281754204_InitialCreate3.cs" />
+    <Compile Include="Migrations\202008281754204_InitialCreate3.designer.cs">
+      <DependentUpon>202008281754204_InitialCreate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008281812052_InitialCreate4.cs" />
+    <Compile Include="Migrations\202008281812052_InitialCreate4.designer.cs">
+      <DependentUpon>202008281812052_InitialCreate4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008281738253_InitialCreate.resx">
       <DependentUpon>202008281738253_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008281754204_InitialCreate3.resx">
+      <DependentUpon>202008281754204_InitialCreate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008281812052_InitialCreate4.resx">
+      <DependentUpon>202008281812052_InitialCreate4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

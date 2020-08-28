@@ -15,5 +15,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         // Hay que chequear si estado es un boolean o una enum
         public Boolean Vencido { get; set; }
         public Producto Producto { get; set; }
+
+        public Lote() { }
     }
 }

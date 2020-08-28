@@ -25,15 +25,7 @@ namespace UnitTestProject1
             cmd.ExecuteScalar();
         }
 
-      //  [TestMethod]
-        public void TestReflecion() 
-        {
-            Producto pro = new Producto(1,"asd","asd",10,9.87,null);
-            System.Reflection.PropertyInfo pi = pro.GetType().GetProperty("Id");
-            int id = (int)pi.GetValue(pro, null);
-            Console.WriteLine("El id es: "+id.ToString());
-
-        }
+     
 
 
         [TestMethod]

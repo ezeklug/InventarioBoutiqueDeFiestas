@@ -29,5 +29,6 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             FechaEvento = pFechaEvento;
             Cliente = pCliente;
         }
+        public Presupuesto() { }
     }
 }

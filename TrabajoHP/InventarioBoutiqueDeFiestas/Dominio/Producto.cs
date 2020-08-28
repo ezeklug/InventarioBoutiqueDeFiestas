@@ -60,5 +60,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             PrecioDeCompra = pPrecioDeCompra;
             Categoria = pCategoria;
         }
+
+        public Producto() { }
     }
 }

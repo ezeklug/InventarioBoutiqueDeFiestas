@@ -19,5 +19,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Descripcion = pDescripcion;
             Vence = pVence;
         }
+
+        public CategoriaProducto() { }
     }
 }
