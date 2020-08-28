@@ -147,10 +147,8 @@
     <Compile Include="Controladores\ControladorFachada.cs" />
     <Compile Include="Controladores\ControladorPresupuesto.cs" />
     <Compile Include="Controladores\ControladorProducto.cs" />
-    <Compile Include="Database\Config.cs" />
     <Compile Include="Database\InventarioDbContext.cs" />
-    <Compile Include="Database\IOperacionesDB.cs" />
-    <Compile Include="Database\Repository.cs" />
+    <Compile Include="Database\Repositorio.cs" />
     <Compile Include="Dominio\CategoriaProducto.cs" />
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\LineaPresupuesto.cs" />

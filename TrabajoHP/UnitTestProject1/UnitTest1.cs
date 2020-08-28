@@ -25,21 +25,50 @@ namespace UnitTestProject1
             cmd.ExecuteScalar();
         }
 
-     
 
 
-        [TestMethod]
+
+        //[TestMethod]
         public void testDb()
         {
             InventarioDbContext inv = new InventarioDbContext();
             var cli = inv.Clientes;
-            foreach(Cliente c in cli)
+            foreach (Cliente c in cli)
             {
                 Console.WriteLine(cli);
             }
         }
 
-        
+        [TestMethod]
+        public void TestInsertProducto()
+        {
+            CategoriaProducto cat = new CategoriaProducto("Cat1", "una descripcion", false);
+
+            Producto pro = new Producto();
+            pro.Nombre = "Producto prueba";
+            pro.Descripcion = "la descrip";
+            pro.StockMinimo = 10;
+            pro.CantidadEnStock = 20;
+            pro.PorcentajeDeGanancia = 0.8;
+            pro.PrecioDeCompra = 128.98;
+            pro.Categoria = cat;
+
+            using (var repo = new Repositorio())
+            {
+                repo.Productos.Add(pro);
+            
+            }
+        }
+
+
+        //[TestMethod]
+        public void TestRemoveProducto() {
+            using (InventarioDbContext db = new InventarioDbContext())
+            {
+                db.Productos.Remove(db.Productos.Find(1));
+                db.SaveChanges();
+            }
+        }
 
     }
 }
