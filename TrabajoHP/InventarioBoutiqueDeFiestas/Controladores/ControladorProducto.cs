@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
-    class ControladorFachada
+    class ControladorProducto
     {
-
-
     }
+}

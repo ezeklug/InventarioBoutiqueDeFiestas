@@ -143,7 +143,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\ControladorCliente.cs" />
     <Compile Include="Controladores\ControladorFachada.cs" />
+    <Compile Include="Controladores\ControladorPresupuesto.cs" />
+    <Compile Include="Controladores\ControladorProducto.cs" />
     <Compile Include="Database\Config.cs" />
     <Compile Include="Database\InventarioDbContext.cs" />
     <Compile Include="Database\IOperacionesDB.cs" />
