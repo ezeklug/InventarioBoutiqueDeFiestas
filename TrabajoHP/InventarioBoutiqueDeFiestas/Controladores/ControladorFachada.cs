@@ -29,9 +29,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>
         /// <param name="presupuesto"></param>
-        public void AgregarPresupuesto(DateTime pFechaGeneracion, DateTime pFechaVencimiento, DateTime pFechaEvento, DateTime pFechaEntrega, string pEstado, double pTotalVenta)
+        public void AgregarPresupuesto(PresupuestoDTO pPresupuesotDTO)
         {
-            controladorPresupuesto.AgregarPresupuesto(pFechaGeneracion, pFechaVencimiento, pFechaEvento, pFechaEntrega, pEstado, pTotalVenta);
+            controladorPresupuesto.AgregarPresupuesto(pPresupuesotDTO);
         }
 
         /// <summary>
@@ -42,9 +42,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescripcion"></param>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pIdProducto"></param>
-        public void AgregarLinea(double pPrecioVenta, int pCantidad, string pDescripcion, int pIdPresupuesto, int pIdProducto)
+        public void AgregarLinea(LineaPresupuestoDTO pPresupuestoDTO)
         {
-            controladorPresupuesto.AgregarLinea(pPrecioVenta, pCantidad, pDescripcion, pIdPresupuesto, pIdProducto);
+            controladorPresupuesto.AgregarLinea(pPresupuestoDTO);
         }
 
         /// <summary>
@@ -109,9 +109,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un producto a la base de datos, pasando como parámetro un ProductoDTO
         /// </summary>
         /// <param name="pIdProducto"></param>
-        public void AgregarProducto(int pIdProducto)
+        public void AgregarProducto(ProductoDTO pProductoDTO)
         {
-            controladorProducto.AgregarProducto(pIdProducto);
+            controladorProducto.AgregarProducto(pProductoDTO);
         }
     }
 }
