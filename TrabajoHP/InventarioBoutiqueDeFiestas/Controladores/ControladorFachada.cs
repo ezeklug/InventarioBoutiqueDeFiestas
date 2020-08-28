@@ -130,15 +130,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
         public List<Producto> ListarTodosLosProductos()
         {
-
+            return controladorProducto.ListarTodosLosProductos();
         }
         public List<Producto> ListarProductosBajoStockMinimo()
         {
-
+            return controladorProducto.ListarProductosBajoStockMinimo();
         }
-        public List<Producto> ListarProductosBajoStockMinimo()
+        public List<Producto> ListarProductosMasVendidos()
         {
-
+            return controladorProducto.ListarProductosMasVendidos()
         }
 
         public void GuardarPDF(List<Producto> pProductos)
