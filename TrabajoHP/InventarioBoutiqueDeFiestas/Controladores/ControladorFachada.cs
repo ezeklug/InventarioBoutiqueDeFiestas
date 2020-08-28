@@ -138,7 +138,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
         public List<Producto> ListarProductosMasVendidos()
         {
-            return controladorProducto.ListarProductosMasVendidos()
+            return controladorProducto.ListarProductosMasVendidos();
         }
 
         public void GuardarPDF(List<Producto> pProductos)
@@ -148,6 +148,22 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         public void IngresoMercarderias(List<ProductoDTO> pProductoDTOs)
         {
             controladorProducto.IngresoMercaderias(pProductoDTOs);
+        }
+        public void AgregarCliente(ClienteDTO pClienteDTO)
+        {
+            controladorCliente.AgregarCliente(pClienteDTO);
+        }
+        public void ModificaCliente(ClienteDTO pClienteDTO)
+        {
+            controladorCliente.ModificarCliente(pClienteDTO);
+        }
+        public void BajaCliente()
+        {
+            controladorCliente.BajaCliente();
+        }
+        public List<Cliente> ListarClientes()
+        {
+            return controladorCliente.ListarClientes();
         }
     }
 }
