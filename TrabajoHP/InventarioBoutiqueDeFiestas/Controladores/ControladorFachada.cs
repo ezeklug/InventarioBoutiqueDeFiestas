@@ -141,9 +141,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         }
 
-        public void GuardarPDF(List<Producto> pProductos)
+        public void GuardarPDF(List<int> pListaId)
         {
-            controladorProducto.GuardarPDF(pListaProductos);
+            controladorProducto.GuardarPDF(pListaId);
         }
         public void IngresoMercarderias(List<ProductoDTO> pProductoDTOs)
         {
