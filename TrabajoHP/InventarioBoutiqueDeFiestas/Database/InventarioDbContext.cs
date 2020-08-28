@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Entity;
+using InventarioBoutiqueDeFiestas.Dominio;
+
+namespace InventarioBoutiqueDeFiestas.Database
+{
+    public class InventarioDbContext : DbContext
+    {
+
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+
+        public InventarioDbContext() : base(nameOrConnectionString: "Default")
+        {
+        }
+
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("public");
+            base.OnModelCreating(modelBuilder);
+
+        }
+    }
+}

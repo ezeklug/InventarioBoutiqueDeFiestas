@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
 using InventarioBoutiqueDeFiestas.Dominio;
+using InventarioBoutiqueDeFiestas.Database;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Npgsql;
-
+using System.Collections.Generic;
 
 namespace UnitTestProject1
 {
@@ -34,20 +35,18 @@ namespace UnitTestProject1
 
         }
 
+
         [TestMethod]
-        public void TestGetPublicFields() {
-            Producto pro = new Producto(1, "asd", "asd", 10, 9.87, null);
-
-            Type type = pro.GetType();
-
-            foreach (var f in type.GetFields().Where(f => f.IsPublic))
+        public void testDb()
+        {
+            InventarioDbContext inv = new InventarioDbContext();
+            var cli = inv.Clientes;
+            foreach(Cliente c in cli)
             {
-                Console.WriteLine(
-                    String.Format("Name: {0} Value: {1}", f.Name, f.GetValue(pro)));
+                Console.WriteLine(cli);
             }
-            Console.WriteLine("Paso por aca");
-            Console.WriteLine(Producto.GetFields(BindingFlags.Public | BindingFlags.Instance));
         }
+
         
 
     }

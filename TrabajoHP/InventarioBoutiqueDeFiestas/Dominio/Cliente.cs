@@ -25,5 +25,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Telefono = pTelefono;
             Email = pEmail;
         }
+
+        public Cliente() { }
     }
 }
