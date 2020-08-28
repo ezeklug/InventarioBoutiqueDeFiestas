@@ -157,6 +157,14 @@
     <Compile Include="Dominio\Producto.cs" />
     <Compile Include="Dominio\Senia.cs" />
     <Compile Include="Dominio\Venta.cs" />
+    <Compile Include="DTO\CategoriaProductoDTO.cs" />
+    <Compile Include="DTO\ClienteDTO.cs" />
+    <Compile Include="DTO\LineaPresupuestoDTO.cs" />
+    <Compile Include="DTO\LoteDTO.cs" />
+    <Compile Include="DTO\PresupuestoDTO.cs" />
+    <Compile Include="DTO\ProductoDTO.cs" />
+    <Compile Include="DTO\SeniaDTO.cs" />
+    <Compile Include="DTO\VentaDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
