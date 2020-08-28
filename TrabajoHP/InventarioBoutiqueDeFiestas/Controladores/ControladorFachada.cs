@@ -113,5 +113,41 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             controladorProducto.AgregarProducto(pProductoDTO);
         }
+
+        public void CrearLote(LoteDTO pLoteDTO)
+        {
+            controladorProducto.CrearLote();
+        }
+
+        public void ModificarProducto(ProductoDTO pProductoDTO)
+        {
+            controladorProducto.ModificarProducto();
+        }
+
+        public void BajaProducto(int pIdProducto)
+        {
+            controladorProducto.BajaProducto(pIdProducto);
+        }
+        public List<Producto> ListarTodosLosProductos()
+        {
+
+        }
+        public List<Producto> ListarProductosBajoStockMinimo()
+        {
+
+        }
+        public List<Producto> ListarProductosBajoStockMinimo()
+        {
+
+        }
+
+        public void GuardarPDF(List<Producto> pProductos)
+        {
+            controladorProducto.GuardarPDF(pListaProductos);
+        }
+        public void IngresoMercarderias(List<ProductoDTO> pProductoDTOs)
+        {
+            controladorProducto.IngresoMercaderias(pProductoDTOs);
+        }
     }
 }
