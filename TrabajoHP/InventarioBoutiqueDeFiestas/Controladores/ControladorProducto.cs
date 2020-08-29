@@ -31,7 +31,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Esto se puede chequear mirando el campo Vence en CategoriaProducto del producto asociado al lote
         /// </summary>
         /// <param name="pLoteDTO"></param>
-        public void CrearLote(LoteDTO pLoteDTO)
+        public void CrearLote(Lote pLote)
         {
 
         }
@@ -100,9 +100,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 if (RepositorioCategorias.Get(p.IdCategoria).Vence)
                 {
-                    Lote lote=new Lote(p.CantidadAIngresar,ProductoDTO.FechaVencimiento, )
-                    this.CrearLote()
+                    ///habria que buscar el producto para pasarselo al lote. Como? no tenemos id.
+                    ///Quizas habria que cambiar el nombre de CrearLote -> AgregarLote para que sea mas representativo
+                    Lote lote=new Lote(p.CantidadAIngresar,p.FechaVencimiento,)
+                    this.CrearLote(lote);
                 }
+                ///Se deberia llamar a "This.ModificarProducto(p)" (afuera del IF)
+                ///Para actualizar el p.CantidadEnStock
+                ///Tambien puede ser que el producto sea nuevo y haya que llamar a "This.AgregarProducto(p)"
+                ModificarProducto(p);
             }
         }
 
