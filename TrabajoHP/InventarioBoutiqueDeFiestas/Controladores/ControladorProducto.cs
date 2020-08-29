@@ -96,7 +96,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pProductoDTOs"></param>
         public void IngresoMercarderias(List<ProductoDTO> pProductoDTOs)
         {
-
+            foreach (ProductoDTO p in pProductoDTOs)
+            {
+                if (RepositorioCategorias.Get(p.IdCategoria).Vence)
+                {
+                    Lote lote=new Lote(p.CantidadAIngresar,ProductoDTO.FechaVencimiento, )
+                    this.CrearLote()
+                }
+            }
         }
 
     }

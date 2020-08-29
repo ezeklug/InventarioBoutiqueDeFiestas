@@ -115,16 +115,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
-        /// Este método permite la creación de un lote, que pertenece a un producto que tiene vencimiento
-        /// Esto se puede chequear mirando el campo Vence en CategoriaProducto del producto asociado al lote
-        /// </summary>
-        /// <param name="pLoteDTO"></param>
-        public void CrearLote(LoteDTO pLoteDTO)
-        {
-            controladorProducto.CrearLote(pLoteDTO);
-        }
-
-        /// <summary>
         /// Este método permite la modificación de un producto. Este se modifica en pantalla y se actualiza en la BD.
         /// </summary>
         /// <param name="pProductoDTO"></param>

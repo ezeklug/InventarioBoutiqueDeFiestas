@@ -12,7 +12,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int StockMinimo { get; set; }
-        public int CantidadEnStock { get; set; }
+        public int CantidadAIngresar { get; set; }
         public double PorcentajeDeGanancia { get; set; }
         public double PrecioDeCompra { get; set; }
 
