@@ -102,7 +102,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 {
                     ///habria que buscar el producto para pasarselo al lote. Como? no tenemos id.
                     ///Quizas habria que cambiar el nombre de CrearLote -> AgregarLote para que sea mas representativo
-                    Lote lote=new Lote(p.CantidadAIngresar,p.FechaVencimiento,)
+                    Lote lote = new Lote(p.CantidadAIngresar, p.FechaVencimiento,);
                     this.CrearLote(lote);
                 }
                 ///Se deberia llamar a "This.ModificarProducto(p)" (afuera del IF)
