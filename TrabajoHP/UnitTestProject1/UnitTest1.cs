@@ -28,7 +28,25 @@ namespace UnitTestProject1
             cmd.ExecuteScalar();
         }
 
-
+        [TestMethod]
+        public void TestLoteCreado()
+        {
+            Repositorio repo = new Repositorio();
+            ControladorProducto cont = new ControladorProducto();
+            List<ProductoDTO> lista = new List<ProductoDTO>();
+            ProductoDTO dto = new ProductoDTO();
+            CategoriaProducto cat=repo.CategoriaProductos.First();
+            cat.Vence = true;
+            dto.Nombre = "hola";
+            dto.Descripcion = "";
+            dto.StockMinimo = 1;
+            dto.CantidadEnStock = 11;
+            dto.PorcentajeDeGanancia = 0.98;
+            dto.PrecioDeCompra = 100.2;
+            dto.IdCategoria = cat.Id;
+            lista.Add(dto);
+            cont.IngresoMercarderias(lista);
+        }
 
 
         //[TestMethod]
