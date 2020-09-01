@@ -19,6 +19,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
 
+
+        /// <summary>
+        /// Convierte un ProductoDTO a Producto
+        /// Si el id de la categoria de productoDTO no existe raise an exception
+        /// </summary>
+        /// <param name="pProducto"></param>
+        /// <returns></returns>
         public Producto DTOAProducto(ProductoDTO pProducto)
         {
             Producto pro = new Producto();
@@ -35,8 +42,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
             pro.PrecioDeCompra = pProducto.PrecioDeCompra;
 
+            
             CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.IdCategoria);
-            //TODO: que pasa si cat no esta en la db
+            if (cat == null)
+            {
+                throw new Exception("Id " + pProducto.IdCategoria + " no existe en CategoriaPreguntas");
+            }
+
             pro.Categoria = cat;
             return pro;
         }
