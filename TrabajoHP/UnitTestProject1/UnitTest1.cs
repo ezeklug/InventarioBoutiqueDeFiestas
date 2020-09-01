@@ -42,7 +42,7 @@ namespace UnitTestProject1
             }
         }
 
-       // [TestMethod]
+        // [TestMethod]
         public void TestDtoAProducto() {
             ProductoDTO dto = new ProductoDTO();
             dto.Nombre = "hola";
@@ -59,6 +59,15 @@ namespace UnitTestProject1
         }
 
 
+
+        [TestMethod]
+        public void TestUpdateProducto()
+        {
+            using (var repo = new Repositorio()) {
+                var pro = repo.Productos.Find(2);
+                pro.Descripcion = "una nueva descripcion";
+            }
+        }
     
         //[TestMethod]
         public void TestInsertProducto()
@@ -66,6 +75,7 @@ namespace UnitTestProject1
             CategoriaProducto cat = new CategoriaProducto("Cat1", "una descripcion", false);
 
             Producto pro = new Producto();
+            pro.Id = 2;
             pro.Nombre = "Producto prueba";
             pro.Descripcion = "la descrip";
             pro.StockMinimo = 10;
