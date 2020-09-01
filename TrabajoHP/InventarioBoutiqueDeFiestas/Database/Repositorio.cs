@@ -8,6 +8,11 @@ using InventarioBoutiqueDeFiestas.Dominio;
 
 namespace InventarioBoutiqueDeFiestas.Database
 {
+
+    /// <summary>
+    /// Proporiciona una conexion a la base de datos para hacer consulta a los repositorios
+    /// Mezcla patron repository y unit of work
+    /// </summary>
     public class Repositorio : IDisposable
     {
         private bool iDisposedValue = false;
