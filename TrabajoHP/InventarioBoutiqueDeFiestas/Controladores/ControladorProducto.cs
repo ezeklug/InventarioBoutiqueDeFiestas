@@ -65,7 +65,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void BajaProducto(int pIdProducto)
         {
-            throw new NotImplementedException();
+            using (Repositorio repo=new Repositorio())
+            {
+                Producto prod = repo.Productos.Find(pIdProducto);
+                prod.Activo = false;
+            }
         }
 
         /// <summary>
@@ -132,6 +136,5 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
             }
         }
-
     }
 }
