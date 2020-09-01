@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.DTO
 {
-    class CategoriaProductoDTO
+    public class CategoriaProductoDTO
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

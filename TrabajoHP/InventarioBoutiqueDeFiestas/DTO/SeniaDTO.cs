@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.DTO
 {
-    class SeniaDTO
+   public class SeniaDTO
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }

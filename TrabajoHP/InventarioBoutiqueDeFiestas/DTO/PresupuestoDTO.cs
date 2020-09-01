@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.DTO
 {
-    class PresupuestoDTO
+    public class PresupuestoDTO
     {
         public int Id { get; set; }
         public DateTime FechaGeneracion { get; set; }
