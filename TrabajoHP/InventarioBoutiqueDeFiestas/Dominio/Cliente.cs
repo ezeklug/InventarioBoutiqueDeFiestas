@@ -15,6 +15,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
+        public Boolean Activo { get; set; }
 
         public Cliente(string pNombre, string pApellido, string pDireccion, string pTelefono, string pEmail)
         {
@@ -23,6 +24,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Direccion = pDireccion;
             Telefono = pTelefono;
             Email = pEmail;
+            Activo = true;
         }
 
         public Cliente() { }

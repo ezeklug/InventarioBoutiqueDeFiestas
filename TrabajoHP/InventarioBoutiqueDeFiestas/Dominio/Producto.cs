@@ -19,6 +19,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public double PrecioDeCompra { get; set; }
 
         public CategoriaProducto Categoria { get; set; }
+        public Boolean Activo { get; set; }
 
         public double PrecioVenta()
         {
@@ -39,6 +40,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             StockMinimo = pStockMinimo;
             PorcentajeDeGanancia = pPorcentajeDeGanancia;
             Categoria = pCategoria;
+            Activo = true;
         }
         /// <summary>
         /// Constructor de Producto, cuando se crea el producto desde un ingreso de mercaderia
@@ -59,6 +61,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             PorcentajeDeGanancia = pPorcentajeDeGanancia;
             PrecioDeCompra = pPrecioDeCompra;
             Categoria = pCategoria;
+            Activo = true;
         }
 
 
