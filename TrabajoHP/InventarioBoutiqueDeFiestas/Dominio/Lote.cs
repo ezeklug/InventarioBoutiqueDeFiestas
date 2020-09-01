@@ -12,10 +12,26 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public int CantidadProductos { get; set; }
         public DateTime FechaCompra { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        // Hay que chequear si estado es un boolean o una enum
+
         public Boolean Vencido { get; set; }
         public Producto Producto { get; set; }
 
+        public Lote(int pCantidadProductos, DateTime pFechaVencimiento, Producto pProducto)
+        {
+            CantidadProductos = pCantidadProductos;
+            FechaCompra = DateTime.Now;
+            FechaVencimiento = pFechaVencimiento;
+            Producto = pProducto;
+            EstaVencido();
+        }
+        public void EstaVencido()
+        {
+            if (DateTime.Now < this.FechaVencimiento)
+            {
+                Vencido = true;
+            }
+            else { Vencido = false; }
+        }
         public Lote() { }
     }
 }

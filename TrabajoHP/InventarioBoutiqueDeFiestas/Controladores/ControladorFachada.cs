@@ -114,53 +114,95 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto.AgregarProducto(pProductoDTO);
         }
 
-        public void CrearLote(LoteDTO pLoteDTO)
-        {
-            controladorProducto.CrearLote();
-        }
-
+        /// <summary>
+        /// Este método permite la modificación de un producto. Este se modifica en pantalla y se actualiza en la BD.
+        /// </summary>
+        /// <param name="pProductoDTO"></param>
         public void ModificarProducto(ProductoDTO pProductoDTO)
         {
-            controladorProducto.ModificarProducto();
+            controladorProducto.ModificarProducto(pProductoDTO);
         }
 
+        /// <summary>
+        /// Este método permite realizar la baja lógica de un producto, poniendo una propiedad "Activo" en falso.
+        /// </summary>
+        /// <param name="pIdProducto"></param>
         public void BajaProducto(int pIdProducto)
         {
             controladorProducto.BajaProducto(pIdProducto);
         }
+
+        /// <summary>
+        /// Este método permite listar todos los productos que están guardados en base de datos.
+        /// </summary>
+        /// <returns></returns>
         public List<Producto> ListarTodosLosProductos()
         {
             return controladorProducto.ListarTodosLosProductos();
         }
+        /// <summary>
+        /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
+        /// Esto se puede obtener haciendo la diferencia de las propiedades CantidadEnStock y StockMinimo de cada Producto.
+        /// </summary>
+        /// <returns></returns>
         public List<Producto> ListarProductosBajoStockMinimo()
         {
             return controladorProducto.ListarProductosBajoStockMinimo();
         }
+
+        /// <summary>
+        /// Este método permite listar los productos que más se venden.
+        /// </summary>
+        /// <returns></returns>
         public List<Producto> ListarProductosMasVendidos()
         {
             return controladorProducto.ListarProductosMasVendidos();
         }
 
+        /// <summary>
+        /// Este método permite descargar una lista que se muestra en pantalla.
+        /// </summary>
+        /// <param name="pListaId"></param>
         public void GuardarPDF(List<int> pListaId)
         {
             controladorProducto.GuardarPDF(pListaId);
         }
+        /// <summary>
+        /// Este método permite realizar el ingreso de mercadería de varios productos.
+        /// Se pasa una lista de productos, y se agrega cada uno a la BD.
+        /// </summary>
+        /// <param name="pProductoDTOs"></param>
         public void IngresoMercarderias(List<ProductoDTO> pProductoDTOs)
         {
-            controladorProducto.IngresoMercaderias(pProductoDTOs);
+            controladorProducto.IngresoMercarderias(pProductoDTOs);
         }
+        /// <summary>
+        /// Este método permite agregar un cliente en la BD
+        /// </summary>
+        /// <param name="pClienteDTO"></param>
         public void AgregarCliente(ClienteDTO pClienteDTO)
         {
             controladorCliente.AgregarCliente(pClienteDTO);
         }
+        /// <summary>
+        /// Este método permite modificar un cliente ya agregado a BD
+        /// </summary>
+        /// <param name="pClienteDTO"></param>
         public void ModificaCliente(ClienteDTO pClienteDTO)
         {
             controladorCliente.ModificarCliente(pClienteDTO);
         }
+        /// <summary>
+        /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
+        /// </summary>
         public void BajaCliente()
         {
             controladorCliente.BajaCliente();
         }
+        /// <summary>
+        /// Este método permite listar todos los clientes cargados en BD.
+        /// </summary>
+        /// <returns></returns>
         public List<Cliente> ListarClientes()
         {
             return controladorCliente.ListarClientes();
