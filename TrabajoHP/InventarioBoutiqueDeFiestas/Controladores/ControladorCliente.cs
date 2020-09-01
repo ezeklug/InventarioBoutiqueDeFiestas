@@ -8,8 +8,25 @@ using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 { 
-    class ControladorCliente
+    public class ControladorCliente
     {
+        public Cliente DTOACliente(ClienteDTO pCliente)
+        {
+            Cliente cliente = new Cliente();
+
+            if (pCliente.Id != null)
+            {
+                cliente.Id = pCliente.Id;
+            }
+            cliente.Id = pCliente.Id;
+            cliente.Nombre = pCliente.Nombre;
+            cliente.Apellido = pCliente.Apellido;
+            cliente.Telefono = pCliente.Telefono;
+            cliente.Email = pCliente.Email;
+            cliente.Direccion = pCliente.Direccion;
+            return cliente;
+        }
+
         /// <summary>
         /// Este método permite agregar un cliente en la BD
         /// </summary>
