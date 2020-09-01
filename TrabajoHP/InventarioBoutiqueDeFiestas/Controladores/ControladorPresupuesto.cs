@@ -3,15 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InventarioBoutiqueDeFiestas.Database;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
-    class ControladorPresupuesto
+    public class ControladorPresupuesto
     {
-    
 
+        public Senia DTOASenia(SeniaDTO pSenia)  // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
+        {
+            Senia senia = new Senia();
+            Repositorio repo = new Repositorio();
+
+            senia.Id = pSenia.Id;
+            senia.Fecha = pSenia.Fecha;
+            senia.Monto = pSenia.Monto;
+            Presupuesto presupuesto = repo.Presupuestos.Find(pSenia.IdPresupuesto);
+            if (presupuesto == null)
+            {
+                throw new Exception("Id " + pSenia.IdPresupuesto + " no existe en Presupuestos");
+            }
+
+            senia.Presupuesto = presupuesto;
+            return senia;
+        }
         public ControladorPresupuesto()
         {
            
