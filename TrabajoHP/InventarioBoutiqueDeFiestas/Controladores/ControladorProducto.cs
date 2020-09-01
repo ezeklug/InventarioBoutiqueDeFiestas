@@ -55,23 +55,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void AgregarProducto(ProductoDTO pProductoDTO)
         {
-            using (var repo = new Repositorio())
-            {
-                var pro = repo.Productos.Find(pProductoDTO.Id);
-                if (pro != null)
-                {
-                    pro = DTOAProducto(pProductoDTO);
-
-                }
-                else
-                {
-                    pro.Categoria = repo.CategoriaProductos.Find(pro.Categoria.Id);
-                    repo.Productos.Add(pro);
-                }
-            }
+            Producto pro = this.DTOAProducto(pProductoDTO);
         }
-
-
 
 
         /// <summary>
@@ -118,6 +103,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             throw new NotImplementedException();
         }
+
+        public void GuardarLote(LoteDTO pLoteDTO)
+        {
+            using (Repositorio repo=new Repositorio())
+            {
+                Lote lote = new Lote(pLoteDTO.CantidadAIngresar, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
+            }
+        }
         /// <summary>
         /// Este método permite realizar el ingreso de mercadería de varios productos.
         /// Se pasa una lista de productos, y se agrega cada uno a la BD.
@@ -129,17 +122,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 foreach (ProductoDTO p in pProductoDTOs)
                 {
-                    if (repo.CategoriaProductos.Find(p.IdCategoria).Vence)
+                    int idProducto = AgregarProducto(p);
+                    
+                    foreach (LoteDTO loteDto in p.LotesDTO)
                     {
-                        Producto pProducto = this.DTOAProducto(p);
-                        Lote lote = new Lote(p.CantidadAIngresar, p.FechaVencimiento, pProducto);
-                        repo.Lotes.Add(lote);
-                    }
-                    if (p.Id==0)
-                    {
-                        AgregarProducto(p);
-                    }
-                    else { //ModificarProducto(p); 
+                        loteDto.IdProducto = idProducto;
+                        GuardarLote(loteDto);
                     }
                 }
             }

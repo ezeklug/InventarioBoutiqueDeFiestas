@@ -13,11 +13,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         public Cliente DTOACliente(ClienteDTO pCliente)
         {
             Cliente cliente = new Cliente();
-
-            if (pCliente.Id != null)
-            {
-                cliente.Id = pCliente.Id;
-            }
+            
+            cliente.Id = pCliente.Id;
             cliente.Id = pCliente.Id;
             cliente.Nombre = pCliente.Nombre;
             cliente.Apellido = pCliente.Apellido;

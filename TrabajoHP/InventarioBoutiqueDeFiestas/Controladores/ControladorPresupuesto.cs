@@ -3,14 +3,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InventarioBoutiqueDeFiestas.Database;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
-    class ControladorPresupuesto
+    public class ControladorPresupuesto
     {
-    
+
+        public Senia DTOASenia(SeniaDTO pSenia)  // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
+        {
+            Senia senia = new Senia();
+            Repositorio repo = new Repositorio();
+
+            senia.Id = pSenia.Id;
+            senia.Fecha = pSenia.Fecha;
+            senia.Monto = pSenia.Monto;
+            Presupuesto presupuesto = repo.Presupuestos.Find(pSenia.IdPresupuesto);
+            if (presupuesto == null)
+            {
+                throw new Exception("Id " + pSenia.IdPresupuesto + " no existe en Presupuestos");
+            }
+
+            senia.Presupuesto = presupuesto;
+            return senia;
+        }
+
+        public Venta DTOAVenta(VentaDTO pVenta)  // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
+        {
+            Venta ven = new Venta();
+            Repositorio repo = new Repositorio();
+
+            ven.Id = pVenta.Id;
+            ven.FechaDeVenta = pVenta.FechaDeVenta;
+            Presupuesto presupuesto = repo.Presupuestos.Find(pVenta.IdPresupuesto);
+            if (presupuesto == null)
+            {
+                throw new Exception("Id " + pVenta.IdPresupuesto + " no existe en Presupuestos");
+            }
+
+            ven.Presupuesto = presupuesto;
+            return ven;
+        }
+
+        public LineaPresupuesto DTOALineaPresupuesto(LineaPresupuestoDTO pLinea) // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
+        {
+            LineaPresupuesto lin = new LineaPresupuesto();
+            Repositorio repo = new Repositorio();
+
+            lin.Id = pLinea.Id;
+            lin.Cantidad = pLinea.Cantidad;
+            lin.PorcentajeDescuento = pLinea.PorcentajeDescuento;
+            Presupuesto presupuesto = repo.Presupuestos.Find(pLinea.IdPresupuesto);
+            if (presupuesto == null)
+            {
+                throw new Exception("Id " + pLinea.IdPresupuesto + " no existe en Presupuestos");
+            }
+            lin.Presupuesto = presupuesto;
+            Producto producto = repo.Productos.Find(pLinea.IdProducto);
+            if (presupuesto == null)
+            {
+                throw new Exception("Id " + pLinea.IdProducto + " no existe en Productos");
+            }
+            lin.Producto = producto;
+
+            return lin;
+        }
 
         public ControladorPresupuesto()
         {

@@ -12,8 +12,10 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public int CantidadProductos { get; set; }
         public DateTime FechaCompra { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        // Hay que chequear si estado es un boolean o una enum
         public Boolean Vencido { get; set; }
         public int IdProducto { get; set; }
+
+        public int CantidadAIngresar { get; set; }
+
     }
 }
