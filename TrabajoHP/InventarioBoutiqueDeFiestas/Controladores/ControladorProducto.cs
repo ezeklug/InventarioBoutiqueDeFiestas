@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using InventarioBoutiqueDeFiestas.DTO;
 using InventarioBoutiqueDeFiestas.Dominio;
+using InventarioBoutiqueDeFiestas.Database;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
-    class ControladorProducto
+    public class ControladorProducto
     {
         
 
@@ -17,13 +18,35 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             
         }
 
+
+        public Producto DTOAProducto(ProductoDTO pProducto)
+        {
+            Producto pro = new Producto();
+            Repositorio repo = new Repositorio();
+
+            if (pProducto.Id != null)
+            {
+                pro.Id = pProducto.Id;
+            }
+            pro.Nombre = pProducto.Nombre;
+            pro.Descripcion = pProducto.Descripcion;
+            pro.StockMinimo = pProducto.StockMinimo;
+            pro.CantidadEnStock = pProducto.CantidadEnStock;
+            pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
+            pro.PrecioDeCompra = pProducto.PrecioDeCompra;
+
+            CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.IdCategoria);
+            //TODO: que pasa si cat no esta en la db
+            pro.Categoria = cat;
+            return pro;
+        }
         /// <summary>
         /// Este método permite agregar un producto a la base de datos, pasando como parámetro un ProductoDTO
         /// </summary>
         /// <param name="pIdProducto"></param>
         public void AgregarProducto(ProductoDTO pProductoDTO)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -33,7 +56,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pLoteDTO"></param>
         public void CrearLote(Lote pLote)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -42,7 +65,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pProductoDTO"></param>
         public void ModificarProducto(ProductoDTO pProductoDTO)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -51,7 +74,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void BajaProducto(int pIdProducto)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -60,7 +83,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarTodosLosProductos()
         {
-            return 
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
@@ -69,7 +92,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarProductosBajoStockMinimo()
         {
-            return 
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -78,7 +101,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarProductosMasVendidos()
         {
-            return 
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -87,7 +110,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pListaId"></param>
         public void GuardarPDF(List<int> pListaId)
         {
-
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Este método permite realizar el ingreso de mercadería de varios productos.
@@ -96,20 +119,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pProductoDTOs"></param>
         public void IngresoMercarderias(List<ProductoDTO> pProductoDTOs)
         {
-            foreach (ProductoDTO p in pProductoDTOs)
-            {
-                if (RepositorioCategorias.Get(p.IdCategoria).Vence)
-                {
-                    ///habria que buscar el producto para pasarselo al lote. Como? no tenemos id.
-                    ///Quizas habria que cambiar el nombre de CrearLote -> AgregarLote para que sea mas representativo
-                    Lote lote = new Lote(p.CantidadAIngresar, p.FechaVencimiento,);
-                    this.CrearLote(lote);
-                }
-                ///Se deberia llamar a "This.ModificarProducto(p)" (afuera del IF)
-                ///Para actualizar el p.CantidadEnStock
-                ///Tambien puede ser que el producto sea nuevo y haya que llamar a "This.AgregarProducto(p)"
-                ModificarProducto(p);
-            }
+            throw new NotImplementedException();
+            //foreach (ProductoDTO p in pProductoDTOs)
+            //{
+            //    if (RepositorioCategorias.Get(p.IdCategoria).Vence)
+            //    {
+            //        /habria que buscar el producto para pasarselo al lote. Como? no tenemos id.
+            //        /Quizas habria que cambiar el nombre de CrearLote -> AgregarLote para que sea mas representativo
+            //        Lote lote = new Lote(p.CantidadAIngresar, p.FechaVencimiento,);
+            //        this.CrearLote(lote);
+            //    }
+            //    /Se deberia llamar a "This.ModificarProducto(p)" (afuera del IF)
+            //    /Para actualizar el p.CantidadEnStock
+            //    /Tambien puede ser que el producto sea nuevo y haya que llamar a "This.AgregarProducto(p)"
+            //    ModificarProducto(p);
+            //}
         }
 
     }

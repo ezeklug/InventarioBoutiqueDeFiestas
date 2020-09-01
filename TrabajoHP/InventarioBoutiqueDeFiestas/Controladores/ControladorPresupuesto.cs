@@ -23,7 +23,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="presupuesto"></param>
         public void AgregarPresupuesto(PresupuestoDTO pPresupuesotDTO)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void AgregarLinea(LineaPresupuestoDTO pPresupuestoDTO)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pMontoSenia"></param>
         public void SeniarPresupuesto(int pIdPresupuesto, double pMontoSenia)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdPresupuesto"></param>
         public void Vender(int pIdPresupuesto)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdPresupuesto"></param>
         public void AsociarCliente(int pIdCliente, int pIdPresupuesto)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescuento"></param>
         public void AplicarDescuentoTotal(int pIdPresupuesto, float pDescuento)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Presupuesto> ListarPresupuesto()
         {
-            return 
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Este método permite aplicar un descuento a una linea de presupuesto, pasando como parámetro el id de la linea y el porcentaje de descuento.
@@ -94,7 +94,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescuento"></param>
         public void AplicarDescuentoLinea(int pIdLinea, float pDescuento)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

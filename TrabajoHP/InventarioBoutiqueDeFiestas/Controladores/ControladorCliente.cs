@@ -16,7 +16,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pClienteDTO"></param>
         public void AgregarCliente(ClienteDTO pClienteDTO)
         {
-
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Este método permite modificar un cliente ya agregado a BD
@@ -24,14 +24,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pClienteDTO"></param>
         public void ModificaCliente(ClienteDTO pClienteDTO)
         {
-
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
         /// </summary>
         public void BajaCliente()
         {
-
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Este método permite listar todos los clientes cargados en BD.
@@ -39,7 +39,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Cliente> ListarClientes()
         {
-            return 
+            throw new NotImplementedException();
         }
     }
 }

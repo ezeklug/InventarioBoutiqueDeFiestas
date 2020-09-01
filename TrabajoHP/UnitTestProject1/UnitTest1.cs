@@ -2,9 +2,12 @@
 using System.Linq;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.Database;
+using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.DTO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Npgsql;
 using System.Collections.Generic;
+
 
 namespace UnitTestProject1
 {
@@ -40,6 +43,19 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void TestDtoAProducto() {
+            ProductoDTO dto = new ProductoDTO();
+            dto.Nombre = "hola";
+            dto.Descripcion = "";
+            dto.StockMinimo = 1;
+            dto.CantidadEnStock = 11;
+            dto.PorcentajeDeGanancia = 0.98;
+            dto.PrecioDeCompra = 100.2;
+            dto.IdCategoria = 100;
+            new ControladorProducto().DTOAProducto(dto);
+        }
+        
+        //[TestMethod]
         public void TestInsertProducto()
         {
             CategoriaProducto cat = new CategoriaProducto("Cat1", "una descripcion", false);

@@ -190,7 +190,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pClienteDTO"></param>
         public void ModificaCliente(ClienteDTO pClienteDTO)
         {
-            controladorCliente.ModificarCliente(pClienteDTO);
+            throw new NotImplementedException();
+            //controladorCliente.ModificarCliente(pClienteDTO);
         }
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso

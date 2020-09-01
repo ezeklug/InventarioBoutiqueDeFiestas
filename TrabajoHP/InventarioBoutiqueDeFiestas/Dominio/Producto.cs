@@ -61,6 +61,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Categoria = pCategoria;
         }
 
+
         public Producto() { }
     }
 }
