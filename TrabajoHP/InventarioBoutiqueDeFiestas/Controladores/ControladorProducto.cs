@@ -55,18 +55,24 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void AgregarProducto(ProductoDTO pProductoDTO)
         {
-            Producto pro = this.DTOAProducto(pProductoDTO);
+            using (var repo = new Repositorio())
+            {
+                var pro = repo.Productos.Find(pProductoDTO.Id);
+                if (pro != null)
+                {
+                    pro = DTOAProducto(pProductoDTO);
 
+                }
+                else
+                {
+                    pro.Categoria = repo.CategoriaProductos.Find(pro.Categoria.Id);
+                    repo.Productos.Add(pro);
+                }
+            }
         }
 
-        /// <summary>
-        /// Este método permite la modificación de un producto. Este se modifica en pantalla y se actualiza en la BD.
-        /// </summary>
-        /// <param name="pProductoDTO"></param>
-        public void ModificarProducto(ProductoDTO pProductoDTO)
-        {
-            throw new NotImplementedException();
-        }
+
+
 
         /// <summary>
         /// Este método permite realizar la baja lógica de un producto, poniendo una propiedad "Activo" en falso.
@@ -133,7 +139,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     {
                         AgregarProducto(p);
                     }
-                    else { ModificarProducto(p); }
+                    else { //ModificarProducto(p); 
+                    }
                 }
             }
         }

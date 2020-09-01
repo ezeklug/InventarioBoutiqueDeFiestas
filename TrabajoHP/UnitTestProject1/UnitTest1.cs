@@ -28,7 +28,7 @@ namespace UnitTestProject1
             cmd.ExecuteScalar();
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void TestLoteCreado()
         {
             using (var repo = new Repositorio())
@@ -92,8 +92,6 @@ namespace UnitTestProject1
         //[TestMethod]
         public void TestInsertProducto()
         {
-            CategoriaProducto cat = new CategoriaProducto("Cat1", "una descripcion", false);
-
             Producto pro = new Producto();
             pro.Id = 2;
             pro.Nombre = "Producto prueba";
@@ -102,12 +100,11 @@ namespace UnitTestProject1
             pro.CantidadEnStock = 20;
             pro.PorcentajeDeGanancia = 0.8;
             pro.PrecioDeCompra = 128.98;
-            pro.Categoria = cat;
 
             using (var repo = new Repositorio())
             {
+                pro.Categoria = repo.CategoriaProductos.Find(1);
                 repo.Productos.Add(pro);
-            
             }
         }
 

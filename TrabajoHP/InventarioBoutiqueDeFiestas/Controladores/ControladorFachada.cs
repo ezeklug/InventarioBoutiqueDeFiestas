@@ -120,7 +120,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pProductoDTO"></param>
         public void ModificarProducto(ProductoDTO pProductoDTO)
         {
-            controladorProducto.ModificarProducto(pProductoDTO);
+            //controladorProducto.ModificarProducto(pProductoDTO);
         }
 
         /// <summary>
