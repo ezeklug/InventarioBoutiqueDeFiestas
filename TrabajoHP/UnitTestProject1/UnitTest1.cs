@@ -31,21 +31,23 @@ namespace UnitTestProject1
         //[TestMethod]
         public void TestLoteCreado()
         {
-            Repositorio repo = new Repositorio();
-            ControladorProducto cont = new ControladorProducto();
-            List<ProductoDTO> lista = new List<ProductoDTO>();
-            ProductoDTO dto = new ProductoDTO();
-            CategoriaProducto cat=repo.CategoriaProductos.First();
-            cat.Vence = true;
-            dto.Nombre = "hola";
-            dto.Descripcion = "";
-            dto.StockMinimo = 1;
-            dto.CantidadEnStock = 11;
-            dto.PorcentajeDeGanancia = 0.98;
-            dto.PrecioDeCompra = 100.2;
-            dto.IdCategoria = cat.Id;
-            lista.Add(dto);
-            cont.IngresoMercarderias(lista);
+            using (var repo = new Repositorio())
+            {
+                ControladorProducto cont = new ControladorProducto();
+                List<ProductoDTO> lista = new List<ProductoDTO>();
+                ProductoDTO dto = new ProductoDTO();
+                CategoriaProducto cat = repo.CategoriaProductos.Find(1);
+                cat.Vence = true;
+                dto.Nombre = "hola";
+                dto.Descripcion = "";
+                dto.StockMinimo = 1;
+                dto.CantidadEnStock = 11;
+                dto.PorcentajeDeGanancia = 0.98;
+                dto.PrecioDeCompra = 100.2;
+                dto.IdCategoria = cat.Id;
+                lista.Add(dto);
+                cont.IngresoMercarderias(lista);
+            }
         }
 
 
@@ -60,7 +62,7 @@ namespace UnitTestProject1
             }
         }
 
-       // [TestMethod]
+        // [TestMethod]
         public void TestDtoAProducto() {
             ProductoDTO dto = new ProductoDTO();
             dto.Nombre = "hola";
@@ -77,6 +79,15 @@ namespace UnitTestProject1
         }
 
 
+
+       // [TestMethod]
+        public void TestUpdateProducto()
+        {
+            using (var repo = new Repositorio()) {
+                var pro = repo.Productos.Find(2);
+                pro.Descripcion = "una nueva descripcion";
+            }
+        }
     
         //[TestMethod]
         public void TestInsertProducto()
@@ -84,6 +95,7 @@ namespace UnitTestProject1
             CategoriaProducto cat = new CategoriaProducto("Cat1", "una descripcion", false);
 
             Producto pro = new Producto();
+            pro.Id = 2;
             pro.Nombre = "Producto prueba";
             pro.Descripcion = "la descrip";
             pro.StockMinimo = 10;

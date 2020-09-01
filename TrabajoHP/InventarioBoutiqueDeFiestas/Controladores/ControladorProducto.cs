@@ -31,10 +31,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             Producto pro = new Producto();
             Repositorio repo = new Repositorio();
 
-            if (pProducto.Id != null)
-            {
-                pro.Id = pProducto.Id;
-            }
+            pro.Id = pProducto.Id;
             pro.Nombre = pProducto.Nombre;
             pro.Descripcion = pProducto.Descripcion;
             pro.StockMinimo = pProducto.StockMinimo;
@@ -58,7 +55,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void AgregarProducto(ProductoDTO pProductoDTO)
         {
-            throw new NotImplementedException();
+            Producto pro = this.DTOAProducto(pProductoDTO);
+
         }
 
         /// <summary>
