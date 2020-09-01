@@ -28,7 +28,7 @@ namespace UnitTestProject1
             cmd.ExecuteScalar();
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void TestLoteCreado()
         {
             using (var repo = new Repositorio())
@@ -119,7 +119,20 @@ namespace UnitTestProject1
                 db.Productos.Remove(db.Productos.Find(1));
                 db.SaveChanges();
             }
+
+
         }
+        [TestMethod]
+        public void TestDTOASenia()
+        {
+            SeniaDTO sen = new SeniaDTO();
+            sen.Fecha = DateTime.Now;
+            sen.Monto = 120;
+            sen.IdPresupuesto = 1;
+
+            new ControladorPresupuesto().DTOASenia(sen);
+        }
+
 
     }
 }
