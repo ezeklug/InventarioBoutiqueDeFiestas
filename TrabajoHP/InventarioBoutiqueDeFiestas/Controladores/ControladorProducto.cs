@@ -53,9 +53,22 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un producto a la base de datos, pasando como parámetro un ProductoDTO
         /// </summary>
         /// <param name="pIdProducto"></param>
-        public void AgregarProducto(ProductoDTO pProductoDTO)
+        public int AgregarProducto(ProductoDTO pProductoDTO)
         {
-            Producto pro = this.DTOAProducto(pProductoDTO);
+            using(var repo = new Repositorio())
+            {
+                Producto pro = repo.Productos.Find(pProductoDTO.Id);
+                if (pro == null)
+                {
+
+                }
+                else
+                {
+
+                }
+
+            }
+            
         }
 
 

@@ -89,7 +89,7 @@ namespace UnitTestProject1
             }
         }
     
-        //[TestMethod]
+        [TestMethod]
         public void TestInsertProducto()
         {
             Producto pro = new Producto();
@@ -119,7 +119,7 @@ namespace UnitTestProject1
 
 
         }
-        [TestMethod]
+        //[TestMethod]
         public void TestDTOASenia()
         {
             SeniaDTO sen = new SeniaDTO();
