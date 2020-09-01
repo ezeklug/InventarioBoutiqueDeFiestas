@@ -108,10 +108,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (Repositorio repo=new Repositorio())
             {
-                if (pLoteDTO.IdProducto!=0)
-                {
-                    Lote lote = new Lote(pLoteDTO.CantidadAIngresar, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
-                }
+                Lote lote = new Lote(pLoteDTO.CantidadAIngresar, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
             }
         }
         /// <summary>
@@ -129,6 +126,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     
                     foreach (LoteDTO loteDto in p.LotesDTO)
                     {
+                        loteDto.IdProducto = idProducto;
                         GuardarLote(loteDto);
                     }
                 }
