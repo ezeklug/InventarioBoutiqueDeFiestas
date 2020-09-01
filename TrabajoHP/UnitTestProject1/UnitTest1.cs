@@ -60,7 +60,7 @@ namespace UnitTestProject1
             }
         }
 
-        [TestMethod]
+       // [TestMethod]
         public void TestDtoAProducto() {
             ProductoDTO dto = new ProductoDTO();
             dto.Nombre = "hola";
@@ -69,10 +69,15 @@ namespace UnitTestProject1
             dto.CantidadEnStock = 11;
             dto.PorcentajeDeGanancia = 0.98;
             dto.PrecioDeCompra = 100.2;
-            dto.IdCategoria = 100;
-            new ControladorProducto().DTOAProducto(dto);
+            dto.IdCategoria = 1;
+            Producto pro = new ControladorProducto().DTOAProducto(dto);
+            Console.WriteLine(pro.Categoria);
+            Console.WriteLine(dto.Id);
+            Console.WriteLine(new Producto().Id);
         }
-        
+
+
+    
         //[TestMethod]
         public void TestInsertProducto()
         {
