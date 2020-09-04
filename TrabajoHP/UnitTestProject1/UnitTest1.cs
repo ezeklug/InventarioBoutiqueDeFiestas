@@ -142,24 +142,5 @@ namespace UnitTestProject1
 
 
         }
-        //[TestMethod]
-        public void TestDTOASenia()
-        {
-            using (Repositorio repo = new Repositorio())
-            {
-                Presupuesto pito = new Presupuesto();
-                pito.Cliente = null;
-                pito.FechaEvento = DateTime.Now;
-                repo.Presupuestos.Add(pito);
-            }
-            SeniaDTO sen = new SeniaDTO();
-            sen.Fecha = DateTime.Now;
-            sen.Monto = 120;
-            sen.IdPresupuesto = 1;
-
-            new ControladorPresupuesto().DTOASenia(sen);
-        }
-
-
     }
 }
