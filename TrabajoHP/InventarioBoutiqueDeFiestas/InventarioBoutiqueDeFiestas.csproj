@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202009041926199_InitialCreate7.designer.cs">
       <DependentUpon>202009041926199_InitialCreate7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009041932107_InitialCreate8.cs" />
+    <Compile Include="Migrations\202009041932107_InitialCreate8.designer.cs">
+      <DependentUpon>202009041932107_InitialCreate8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202009042118047_InitialCreate1.cs" />
     <Compile Include="Migrations\202009042118047_InitialCreate1.designer.cs">
       <DependentUpon>202009042118047_InitialCreate1.cs</DependentUpon>
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009041926199_InitialCreate7.resx">
       <DependentUpon>202009041926199_InitialCreate7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041932107_InitialCreate8.resx">
+      <DependentUpon>202009041932107_InitialCreate8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009042118047_InitialCreate1.resx">
       <DependentUpon>202009042118047_InitialCreate1.cs</DependentUpon>

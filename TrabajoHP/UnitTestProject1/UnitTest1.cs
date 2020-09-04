@@ -50,6 +50,7 @@ namespace UnitTestProject1
             }
         }
 
+       
         //[TestMethod]
         public void testDb()
         {
@@ -60,22 +61,7 @@ namespace UnitTestProject1
                 Console.WriteLine(cli);
             }
         }
-        [TestMethod]
-        public void TestAgregarPresupuesto()
-        {
-            PresupuestoDTO pres = new PresupuestoDTO();
-            pres.Id = 12;
-            pres.FechaEntrega = DateTime.Now;
-            pres.FechaEvento = DateTime.Now;
-            pres.FechaGeneracion = DateTime.Now;
-            pres.FechaVencimiento = DateTime.Now;
-            pres.Estado = "ativisimo";
-            pres.IdCliente = 1;
 
-            ControladorPresupuesto cont = new ControladorPresupuesto();
-            Console.WriteLine("Id del presupuesto agregado es: " + cont.AgregarPresupuesto(pres));
-
-        }
         // [TestMethod]
         public void TestDtoAProducto() {
             ProductoDTO dto = new ProductoDTO();
@@ -92,9 +78,24 @@ namespace UnitTestProject1
             Console.WriteLine(new Producto().Id);
         }
 
+        [TestMethod]
+        public void InsertAgregarCliente()
+        {
+            ClienteDTO clienteDTO = new ClienteDTO();
+            clienteDTO.Id = 3;
+            clienteDTO.Nombre = "VicTestPROBANDO";
+            clienteDTO.Telefono = "unTelmod";
+            clienteDTO.Email = "unEmail";
+            clienteDTO.Apellido = "unApe";
+            clienteDTO.Direccion = "unaDir";
+            clienteDTO.Activo = true;
+
+            ControladorCliente controladorCliente = new ControladorCliente();
+            controladorCliente.AgregarCliente(clienteDTO);
+        }
 
 
-       // [TestMethod]
+        // [TestMethod]
         public void TestUpdateProducto()
         {
             using (var repo = new Repositorio()) {
@@ -103,7 +104,7 @@ namespace UnitTestProject1
             }
         }
     
-      //  [TestMethod]
+       // [TestMethod]
         public void TestInsertProducto()
         {
             ProductoDTO pro = new ProductoDTO();
@@ -121,7 +122,7 @@ namespace UnitTestProject1
 
         }
 
-      //  [TestMethod]
+        [TestMethod]
         public void TestListarTodosLosProductos() {
             ControladorProducto cont = new ControladorProducto();
             var Productos = cont.ListarTodosLosProductos();
