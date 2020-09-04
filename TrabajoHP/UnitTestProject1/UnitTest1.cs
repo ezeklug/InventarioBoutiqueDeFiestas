@@ -89,7 +89,7 @@ namespace UnitTestProject1
             }
         }
     
-        //[TestMethod]
+        [TestMethod]
         public void TestInsertProducto()
         {
             ProductoDTO pro = new ProductoDTO();
