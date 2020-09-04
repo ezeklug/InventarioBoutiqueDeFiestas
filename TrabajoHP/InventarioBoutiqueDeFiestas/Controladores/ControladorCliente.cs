@@ -22,6 +22,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             cliente.Telefono = pCliente.Telefono;
             cliente.Email = pCliente.Email;
             cliente.Direccion = pCliente.Direccion;
+            cliente.Activo = pCliente.Activo;
             return cliente;
         }
 
@@ -29,18 +30,34 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un cliente en la BD
         /// </summary>
         /// <param name="pClienteDTO"></param>
-        public void AgregarCliente(ClienteDTO pClienteDTO)
+        public int AgregarModificarCliente(ClienteDTO pClienteDTO)
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                Cliente cliente = repo.Clientes.Find(pClienteDTO.Id);
+                Cliente clienteAAgregar = this.DTOACliente(pClienteDTO);
+             
+                if (cliente == null)
+                {
+                    clienteAAgregar.Activo = true;
+                    repo.Clientes.Add(clienteAAgregar);
+                    return 0; //TODO
+                }
+                else  /// Modifcar cliente
+                {
+                    cliente.Id = clienteAAgregar.Id;
+                    cliente.Nombre = clienteAAgregar.Nombre;
+                    cliente.Apellido = clienteAAgregar.Apellido;
+                    cliente.Direccion = clienteAAgregar.Direccion;
+                    cliente.Telefono = clienteAAgregar.Telefono;
+                    cliente.Email = clienteAAgregar.Email;
+                    cliente.Activo= clienteAAgregar.Activo;
+                    return cliente.Id;
+                }
+
+            }
         }
-        /// <summary>
-        /// Este método permite modificar un cliente ya agregado a BD
-        /// </summary>
-        /// <param name="pClienteDTO"></param>
-        public void ModificaCliente(ClienteDTO pClienteDTO)
-        {
-            throw new NotImplementedException();
-        }
+
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
         /// </summary>
