@@ -89,7 +89,7 @@ namespace UnitTestProject1
             }
         }
     
-        [TestMethod]
+        //[TestMethod]
         public void TestInsertProducto()
         {
             ProductoDTO pro = new ProductoDTO();
@@ -107,6 +107,15 @@ namespace UnitTestProject1
 
         }
 
+        [TestMethod]
+        public void TestListarTodosLosProductos() {
+            ControladorProducto cont = new ControladorProducto();
+            var Productos = cont.ListarTodosLosProductos();
+            foreach (Producto pro in Productos)
+            {
+                Console.WriteLine(pro.Id);
+            }
+        }
 
         //[TestMethod]
         public void TestRemoveProducto() {

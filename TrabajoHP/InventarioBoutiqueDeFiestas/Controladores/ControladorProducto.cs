@@ -38,7 +38,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pro.CantidadEnStock = pProducto.CantidadEnStock;
             pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
             pro.PrecioDeCompra = pProducto.PrecioDeCompra;
-
+            pro.Activo = pProducto.Activo;
             
             CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.IdCategoria);
             if (cat == null)
@@ -49,6 +49,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pro.Categoria = cat;
             return pro;
         }
+    
+
         /// <summary>
         /// Este método permite agregar o modificar un producto a la base de datos, pasando como parámetro un ProductoDTO
         /// Devuelve el Id del producto agregado/modificado
@@ -77,6 +79,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     pro.CantidadEnStock = proAAgregar.CantidadEnStock;
                     pro.PorcentajeDeGanancia = proAAgregar.PorcentajeDeGanancia;
                     pro.PrecioDeCompra = proAAgregar.PrecioDeCompra;
+                    pro.Activo = proAAgregar.Activo;
                     repo.SaveChanges();
                     return pro.Id;
                 }
@@ -105,7 +108,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarTodosLosProductos()
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                return repo.Productos.ToList<Producto>();
+            }
         }
         /// <summary>
         /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
@@ -114,7 +120,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarProductosBajoStockMinimo()
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                return repo.Productos.Where<Producto>(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
+            }
         }
 
         /// <summary>
