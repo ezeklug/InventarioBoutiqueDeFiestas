@@ -92,19 +92,23 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestInsertProducto()
         {
+
+            CategoriaProducto cat = new CategoriaProducto("Luces", "luces de fiesta", false);
             Producto pro = new Producto();
-            pro.Id = 2;
+            pro.Id = 1;
             pro.Nombre = "Producto prueba";
-            pro.Descripcion = "la descrip";
+            pro.Descripcion = "asdasdas";
             pro.StockMinimo = 10;
             pro.CantidadEnStock = 20;
             pro.PorcentajeDeGanancia = 0.8;
             pro.PrecioDeCompra = 128.98;
+            pro.Categoria = cat;
 
             using (var repo = new Repositorio())
             {
-                pro.Categoria = repo.CategoriaProductos.Find(1);
-                repo.Productos.Add(pro);
+                //pro.Categoria = repo.CategoriaProductos.Find(1);
+                repo.Productos.Attach(pro);
+                //repo.Productos.Add(pro);
             }
         }
 

@@ -6,14 +6,14 @@ namespace InventarioBoutiqueDeFiestas.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
+    public sealed partial class InitialCreate6 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate6));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008281738253_InitialCreate"; }
+            get { return "202009042132502_InitialCreate6"; }
         }
         
         string IMigrationMetadata.Source

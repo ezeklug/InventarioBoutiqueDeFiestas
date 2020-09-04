@@ -50,7 +50,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return pro;
         }
         /// <summary>
-        /// Este método permite agregar un producto a la base de datos, pasando como parámetro un ProductoDTO
+        /// Este método permite agregar o modificar un producto a la base de datos, pasando como parámetro un ProductoDTO
+        /// Devuelve el Id del producto agregado/modificado
+        /// Precondicion: El producto siempre tiene una categoria
         /// </summary>
         /// <param name="pIdProducto"></param>
         public int AgregarProducto(ProductoDTO pProductoDTO)
@@ -58,13 +60,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             using(var repo = new Repositorio())
             {
                 Producto pro = repo.Productos.Find(pProductoDTO.Id);
+                Producto proAAgregar = this.DTOAProducto(pProductoDTO);
+                CategoriaProducto cat = repo.CategoriaProductos.Find(pProductoDTO.IdCategoria);
+                proAAgregar.Categoria = cat;
                 if (pro == null)
                 {
-
+                    repo.Productos.Add(proAAgregar);
+                    return 0; //TODO
                 }
-                else
+                else  /// Modifcar producto
                 {
-
+                    pro = proAAgregar;
+                    return pro.Id;
                 }
 
             }

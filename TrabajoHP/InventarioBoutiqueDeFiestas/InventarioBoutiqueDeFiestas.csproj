@@ -175,10 +175,6 @@
     <Compile Include="Migrations\202008281731029_InitialCreate2.designer.cs">
       <DependentUpon>202008281731029_InitialCreate2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008281738253_InitialCreate.cs" />
-    <Compile Include="Migrations\202008281738253_InitialCreate.designer.cs">
-      <DependentUpon>202008281738253_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202008281754204_InitialCreate3.cs" />
     <Compile Include="Migrations\202008281754204_InitialCreate3.designer.cs">
       <DependentUpon>202008281754204_InitialCreate3.cs</DependentUpon>
@@ -187,20 +183,31 @@
     <Compile Include="Migrations\202008281812052_InitialCreate4.designer.cs">
       <DependentUpon>202008281812052_InitialCreate4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009042118047_InitialCreate1.cs" />
+    <Compile Include="Migrations\202009042118047_InitialCreate1.designer.cs">
+      <DependentUpon>202009042118047_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009042132502_InitialCreate6.cs" />
+    <Compile Include="Migrations\202009042132502_InitialCreate6.designer.cs">
+      <DependentUpon>202009042132502_InitialCreate6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\202008281731029_InitialCreate2.resx">
       <DependentUpon>202008281731029_InitialCreate2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008281738253_InitialCreate.resx">
-      <DependentUpon>202008281738253_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008281754204_InitialCreate3.resx">
       <DependentUpon>202008281754204_InitialCreate3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008281812052_InitialCreate4.resx">
       <DependentUpon>202008281812052_InitialCreate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009042118047_InitialCreate1.resx">
+      <DependentUpon>202009042118047_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009042132502_InitialCreate6.resx">
+      <DependentUpon>202009042132502_InitialCreate6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
