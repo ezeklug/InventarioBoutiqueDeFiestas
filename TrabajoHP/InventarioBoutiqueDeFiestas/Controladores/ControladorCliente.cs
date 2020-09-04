@@ -30,7 +30,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un cliente en la BD
         /// </summary>
         /// <param name="pClienteDTO"></param>
-        public int AgregarCliente(ClienteDTO pClienteDTO)
+        public int AgregarModificarCliente(ClienteDTO pClienteDTO)
         {
             using (var repo = new Repositorio())
             {
@@ -43,7 +43,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     repo.Clientes.Add(clienteAAgregar);
                     return 0; //TODO
                 }
-                else  /// Modifcar producto
+                else  /// Modifcar cliente
                 {
                     cliente.Id = clienteAAgregar.Id;
                     cliente.Nombre = clienteAAgregar.Nombre;
@@ -58,14 +58,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
-        /// <summary>
-        /// Este método permite modificar un cliente ya agregado a BD
-        /// </summary>
-        /// <param name="pClienteDTO"></param>
-        public void ModificaCliente(ClienteDTO pClienteDTO)
-        {
-            throw new NotImplementedException();
-        }
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
         /// </summary>

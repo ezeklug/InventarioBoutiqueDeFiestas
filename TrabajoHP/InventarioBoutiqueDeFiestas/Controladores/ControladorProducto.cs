@@ -57,7 +57,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Precondicion: El producto siempre tiene una categoria
         /// </summary>
         /// <param name="pIdProducto"></param>
-        public int AgregarProducto(ProductoDTO pProductoDTO)
+        public int AgregarModificarProducto(ProductoDTO pProductoDTO)
         {
             using(var repo = new Repositorio())
             {
