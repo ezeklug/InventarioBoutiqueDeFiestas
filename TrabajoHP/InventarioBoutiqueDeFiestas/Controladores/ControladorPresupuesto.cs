@@ -100,9 +100,31 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>
         /// <param name="presupuesto"></param>
-        public void AgregarPresupuesto(PresupuestoDTO pPresupuesotDTO)
+        public int AgregarPresupuesto(PresupuestoDTO pPrespuestoDTO)
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                Presupuesto pres = repo.Presupuestos.Find(pPrespuestoDTO.Id);
+                Presupuesto presAAgregar = this.DTOAPresupuesto(pPrespuestoDTO);
+                Cliente cli = repo.Clientes.Find(pPrespuestoDTO.IdCliente);
+                presAAgregar.Cliente = cli;
+                if (pres == null)  // Crear presupuesto (si no existe)
+                {
+                    repo.Presupuestos.Add(presAAgregar);
+                    repo.SaveChanges();
+                    return presAAgregar.Id;
+                }
+                else  // Modificar Presupuesto (si existe)
+                {
+                    pres.Estado = presAAgregar.Estado;
+                    pres.FechaEntrega = presAAgregar.FechaEntrega;
+                    pres.FechaEvento = presAAgregar.FechaEvento;
+                    pres.FechaVencimiento = presAAgregar.FechaVencimiento;
+                    pres.FechaGeneracion = presAAgregar.FechaGeneracion;
+                    repo.SaveChanges();
+                    return pres.Id;
+                }
+            }
         }
 
         /// <summary>
