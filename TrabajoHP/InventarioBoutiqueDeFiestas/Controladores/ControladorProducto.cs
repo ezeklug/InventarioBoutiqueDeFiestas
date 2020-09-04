@@ -162,7 +162,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 foreach (ProductoDTO p in pProductoDTOs)
                 {
-                    int idProducto = AgregarProducto(p);
+                    int idProducto = AgregarModificarProducto(p);
                     
                     foreach (LoteDTO loteDto in p.LotesDTO)
                     {

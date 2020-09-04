@@ -111,7 +111,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void AgregarProducto(ProductoDTO pProductoDTO)
         {
-            controladorProducto.AgregarProducto(pProductoDTO);
+            controladorProducto.AgregarModificarProducto(pProductoDTO);
         }
 
         /// <summary>
