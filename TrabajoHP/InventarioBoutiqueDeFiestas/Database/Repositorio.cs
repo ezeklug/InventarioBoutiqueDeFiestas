@@ -43,6 +43,10 @@ namespace InventarioBoutiqueDeFiestas.Database
             this.db.SaveChanges();
         }
 
+        public void SaveChanges()
+        {
+            this.db.SaveChanges();
+        }
         public DbSet<Cliente> Clientes { get; private set; }
         public DbSet<Producto> Productos { get; private set; }
         public DbSet<CategoriaProducto> CategoriaProductos { get; private set; }

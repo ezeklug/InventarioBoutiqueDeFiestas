@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,25 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 {
     public class ControladorPresupuesto
     {
+        public Presupuesto DTOAPresupuesto (PresupuestoDTO pPresupuesto)
+        {
+            Presupuesto pres = new Presupuesto();
+            Repositorio repo = new Repositorio();
+
+            pres.Id = pPresupuesto.Id;
+            pres.FechaEntrega = pPresupuesto.FechaEntrega;
+            pres.FechaEvento = pPresupuesto.FechaEvento;
+            pres.FechaGeneracion = pPresupuesto.FechaGeneracion;
+            pres.FechaVencimiento = pPresupuesto.FechaVencimiento;
+            pres.Estado = pPresupuesto.Estado;
+            Cliente cliente = repo.Clientes.Find(pPresupuesto.IdCliente);
+            if (cliente == null)
+            {
+                throw new Exception("Id " + pPresupuesto.IdCliente + " no existe en Clientes");
+            }
+            pres.Cliente = cliente;
+            return pres;
+        }
 
         public Senia DTOASenia(SeniaDTO pSenia)  // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
         {
@@ -80,9 +100,31 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>
         /// <param name="presupuesto"></param>
-        public void AgregarPresupuesto(PresupuestoDTO pPresupuesotDTO)
+        public int AgregarPresupuesto(PresupuestoDTO pPrespuestoDTO)
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                Presupuesto pres = repo.Presupuestos.Find(pPrespuestoDTO.Id);
+                Presupuesto presAAgregar = this.DTOAPresupuesto(pPrespuestoDTO);
+                Cliente cli = repo.Clientes.Find(pPrespuestoDTO.IdCliente);
+                presAAgregar.Cliente = cli;
+                if (pres == null)  // Crear presupuesto (si no existe)
+                {
+                    repo.Presupuestos.Add(presAAgregar);
+                    repo.SaveChanges();
+                    return presAAgregar.Id;
+                }
+                else  // Modificar Presupuesto (si existe)
+                {
+                    pres.Estado = presAAgregar.Estado;
+                    pres.FechaEntrega = presAAgregar.FechaEntrega;
+                    pres.FechaEvento = presAAgregar.FechaEvento;
+                    pres.FechaVencimiento = presAAgregar.FechaVencimiento;
+                    pres.FechaGeneracion = presAAgregar.FechaGeneracion;
+                    repo.SaveChanges();
+                    return pres.Id;
+                }
+            }
         }
 
         /// <summary>

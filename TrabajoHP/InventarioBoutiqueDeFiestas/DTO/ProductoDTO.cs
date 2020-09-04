@@ -16,6 +16,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public double PorcentajeDeGanancia { get; set; }
         public double PrecioDeCompra { get; set; }
 
+        public Boolean Activo { get; set; }
         public int IdCategoria { get; set; }
         public List<LoteDTO> LotesDTO { get; set; }
     }

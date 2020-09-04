@@ -92,26 +92,30 @@ namespace UnitTestProject1
        // [TestMethod]
         public void TestInsertProducto()
         {
-
-            CategoriaProducto cat = new CategoriaProducto("Luces", "luces de fiesta", false);
-            Producto pro = new Producto();
-            pro.Id = 1;
+            ProductoDTO pro = new ProductoDTO();
+            pro.Id = 20;
             pro.Nombre = "Producto prueba";
-            pro.Descripcion = "asdasdas";
+            pro.Descripcion = "La nueva descripc";
             pro.StockMinimo = 10;
             pro.CantidadEnStock = 20;
             pro.PorcentajeDeGanancia = 0.8;
             pro.PrecioDeCompra = 128.98;
-            pro.Categoria = cat;
+            pro.IdCategoria = 1;
 
-            using (var repo = new Repositorio())
-            {
-                //pro.Categoria = repo.CategoriaProductos.Find(1);
-                repo.Productos.Attach(pro);
-                //repo.Productos.Add(pro);
-            }
+            ControladorProducto cont = new ControladorProducto();
+            Console.WriteLine("Id del producto agregado: " + cont.AgregarProducto(pro).ToString());
+
         }
 
+        [TestMethod]
+        public void TestListarTodosLosProductos() {
+            ControladorProducto cont = new ControladorProducto();
+            var Productos = cont.ListarTodosLosProductos();
+            foreach (Producto pro in Productos)
+            {
+                Console.WriteLine(pro.Id);
+            }
+        }
 
         //[TestMethod]
         public void TestRemoveProducto() {

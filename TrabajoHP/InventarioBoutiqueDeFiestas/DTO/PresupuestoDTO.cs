@@ -15,6 +15,14 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public DateTime FechaEvento { get; set; }
         //    public double TotalVenta { get; set; }
         public int IdCliente { get; set; }
+        public string Estado { get; set; }
 
+        /*public enum Estado
+    {
+        Presupuestado,
+        Vendido,
+        Señado,
+        Cancelado
+    } */
     }
 }
