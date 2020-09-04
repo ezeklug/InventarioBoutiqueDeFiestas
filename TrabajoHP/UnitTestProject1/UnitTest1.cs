@@ -50,7 +50,7 @@ namespace UnitTestProject1
             }
         }
 
-       
+
         //[TestMethod]
         public void testDb()
         {
@@ -63,7 +63,8 @@ namespace UnitTestProject1
         }
 
         // [TestMethod]
-        public void TestDtoAProducto() {
+        public void TestDtoAProducto()
+        {
             ProductoDTO dto = new ProductoDTO();
             dto.Nombre = "hola";
             dto.Descripcion = "";
@@ -78,7 +79,7 @@ namespace UnitTestProject1
             Console.WriteLine(new Producto().Id);
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void InsertAgregarCliente()
         {
             ClienteDTO clienteDTO = new ClienteDTO();
@@ -91,20 +92,21 @@ namespace UnitTestProject1
             clienteDTO.Activo = true;
 
             ControladorCliente controladorCliente = new ControladorCliente();
-            controladorCliente.AgregarCliente(clienteDTO);
+            controladorCliente.AgregarModificarCliente(clienteDTO);
         }
 
 
         // [TestMethod]
         public void TestUpdateProducto()
         {
-            using (var repo = new Repositorio()) {
+            using (var repo = new Repositorio())
+            {
                 var pro = repo.Productos.Find(2);
                 pro.Descripcion = "una nueva descripcion";
             }
         }
-    
-       // [TestMethod]
+
+        // [TestMethod]
         public void TestInsertProducto()
         {
             ProductoDTO pro = new ProductoDTO();
@@ -118,12 +120,13 @@ namespace UnitTestProject1
             pro.IdCategoria = 1;
 
             ControladorProducto cont = new ControladorProducto();
-            Console.WriteLine("Id del producto agregado: " + cont.AgregarProducto(pro).ToString());
+            Console.WriteLine("Id del producto agregado: " + cont.AgregarModificarProducto(pro).ToString());
 
         }
 
-        [TestMethod]
-        public void TestListarTodosLosProductos() {
+        //[TestMethod]
+        public void TestListarTodosLosProductos()
+        {
             ControladorProducto cont = new ControladorProducto();
             var Productos = cont.ListarTodosLosProductos();
             foreach (Producto pro in Productos)
@@ -132,8 +135,25 @@ namespace UnitTestProject1
             }
         }
 
+        [TestMethod]
+        public void TestAgregarPresupuesto()
+        {
+            PresupuestoDTO pres = new PresupuestoDTO();
+            pres.Id = 12;
+            pres.FechaEntrega = DateTime.Now;
+            pres.FechaEvento = DateTime.Now;
+            pres.FechaGeneracion = DateTime.Now;
+            pres.FechaVencimiento = DateTime.Now;
+            pres.Estado = "ativisimo";
+            pres.IdCliente = 1;
+
+            ControladorPresupuesto cont = new ControladorPresupuesto();
+            Console.WriteLine("Id del presupuesto agregado es: " + cont.AgregarPresupuesto(pres));
+
+        }
         //[TestMethod]
-        public void TestRemoveProducto() {
+        public void TestRemoveProducto()
+        {
             using (InventarioDbContext db = new InventarioDbContext())
             {
                 db.Productos.Remove(db.Productos.Find(1));

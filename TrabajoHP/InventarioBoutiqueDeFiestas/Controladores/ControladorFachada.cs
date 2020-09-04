@@ -182,7 +182,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pClienteDTO"></param>
         public void AgregarCliente(ClienteDTO pClienteDTO)
         {
-            controladorCliente.AgregarCliente(pClienteDTO);
+            controladorCliente.AgregarModificarCliente(pClienteDTO);
         }
         /// <summary>
         /// Este método permite modificar un cliente ya agregado a BD
