@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
+using InventarioBoutiqueDeFiestas.Database;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 { 
@@ -43,9 +44,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
         /// </summary>
-        public void BajaCliente()
+        public void BajaCliente(int pIdCliente)
         {
-            throw new NotImplementedException();
+            using (Repositorio repo = new Repositorio())
+            {
+                Cliente prod = repo.Clientes.Find(pIdCliente);
+                prod.Activo = false;
+            }
         }
         /// <summary>
         /// Este método permite listar todos los clientes cargados en BD.
