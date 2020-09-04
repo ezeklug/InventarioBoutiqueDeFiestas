@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,25 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 {
     public class ControladorPresupuesto
     {
+        public Presupuesto DTOAPresupuesto (PresupuestoDTO pPresupuesto)
+        {
+            Presupuesto pres = new Presupuesto();
+            Repositorio repo = new Repositorio();
+
+            pres.Id = pPresupuesto.Id;
+            pres.FechaEntrega = pPresupuesto.FechaEntrega;
+            pres.FechaEvento = pPresupuesto.FechaEvento;
+            pres.FechaGeneracion = pPresupuesto.FechaGeneracion;
+            pres.FechaVencimiento = pPresupuesto.FechaVencimiento;
+            pres.Estado = pPresupuesto.Estado;
+            Cliente cliente = repo.Clientes.Find(pPresupuesto.IdCliente);
+            if (cliente == null)
+            {
+                throw new Exception("Id " + pPresupuesto.IdCliente + " no existe en Clientes");
+            }
+            pres.Cliente = cliente;
+            return pres;
+        }
 
         public Senia DTOASenia(SeniaDTO pSenia)  // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
         {
