@@ -50,24 +50,7 @@ namespace UnitTestProject1
             }
         }
 
-        [TestMethod]
-        public void InsertAgregarCliente()
-        {
-            ClienteDTO clienteDTO = new ClienteDTO();
-            clienteDTO.Id = 3;
-            clienteDTO.Nombre = "VicTestPROBANDO";
-            clienteDTO.Telefono = "unTelmod";
-            clienteDTO.Email = "unEmail";
-            clienteDTO.Apellido = "unApe";
-            clienteDTO.Direccion = "unaDir";
-            clienteDTO.Activo = true;
-
-            ControladorCliente controladorCliente = new ControladorCliente();
-            controladorCliente.AgregarCliente(clienteDTO);
-        }
-
-
-
+       
         //[TestMethod]
         public void testDb()
         {
