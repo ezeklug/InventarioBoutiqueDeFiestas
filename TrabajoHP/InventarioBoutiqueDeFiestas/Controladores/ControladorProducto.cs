@@ -66,11 +66,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 if (pro == null)
                 {
                     repo.Productos.Add(proAAgregar);
-                    return 0; //TODO
+                    repo.SaveChanges();
+                    return proAAgregar.Id;
                 }
                 else  /// Modifcar producto
                 {
-                    pro = proAAgregar;
+                    pro.Nombre = proAAgregar.Nombre;
+                    pro.Descripcion = proAAgregar.Descripcion;
+                    pro.StockMinimo = proAAgregar.StockMinimo;
+                    pro.CantidadEnStock = proAAgregar.CantidadEnStock;
+                    pro.PorcentajeDeGanancia = proAAgregar.PorcentajeDeGanancia;
+                    pro.PrecioDeCompra = proAAgregar.PrecioDeCompra;
+                    repo.SaveChanges();
                     return pro.Id;
                 }
 
