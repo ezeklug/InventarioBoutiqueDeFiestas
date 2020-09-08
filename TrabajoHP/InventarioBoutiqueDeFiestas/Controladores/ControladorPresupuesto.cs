@@ -136,15 +136,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescripcion"></param>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pIdProducto"></param>
-        public int AgregarModificarLinea(LineaPresupuestoDTO pPresupuestoDTO)
+        public int AgregarModificarLinea(LineaPresupuestoDTO pLineaPresupuestoDTO)
         {
             using (var repo = new Repositorio())
             {
-                LineaPresupuesto lineapres = repo.LineaPresupuestos.Find(pPresupuestoDTO.Id);
-                LineaPresupuesto lineaAAgregar = this.DTOALineaPresupuesto(pPresupuestoDTO);
-                Producto pro = repo.Productos.Find(pPresupuestoDTO.IdProducto);
+                LineaPresupuesto lineapres = repo.LineaPresupuestos.Find(pLineaPresupuestoDTO.Id);
+                LineaPresupuesto lineaAAgregar = this.DTOALineaPresupuesto(pLineaPresupuestoDTO);
+                Producto pro = repo.Productos.Find(pLineaPresupuestoDTO.IdProducto);
                 lineaAAgregar.Producto = pro;
-                Presupuesto pres = repo.Presupuestos.Find(pPresupuestoDTO.IdPresupuesto);
+                Presupuesto pres = repo.Presupuestos.Find(pLineaPresupuestoDTO.IdPresupuesto);
                 lineaAAgregar.Presupuesto = pres;
                 if (lineapres == null)  // Crear linea presupuesto (si no existe)
                 {
@@ -160,6 +160,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     lineapres.Subtotal = lineaAAgregar.Subtotal;
                     return lineapres.Id;
                 }
+
             }
         }
 
