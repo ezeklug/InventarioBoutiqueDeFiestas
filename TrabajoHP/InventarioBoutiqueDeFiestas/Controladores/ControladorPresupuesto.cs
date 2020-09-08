@@ -209,7 +209,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Presupuesto> ListarPresupuesto()
         {
-            throw new NotImplementedException();
+            using(var repo=new Repositorio())
+            {
+                return repo.Presupuestos.ToList();
+            }
         }
         /// <summary>
         /// Este método permite aplicar un descuento a una linea de presupuesto, pasando como parámetro el id de la linea y el porcentaje de descuento.
