@@ -146,16 +146,16 @@ namespace UnitTestProject1
             }
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void TestAgregarPresupuesto()
         {
             PresupuestoDTO pres = new PresupuestoDTO();
             pres.Id = 12;
-            pres.FechaEntrega = DateTime.Now;
-            pres.FechaEvento = DateTime.Now;
+            pres.FechaEntrega = new DateTime(2021, 2, 3);
+            pres.FechaEvento = new DateTime(2021, 5, 3);
             pres.FechaGeneracion = DateTime.Now;
-            pres.FechaVencimiento = DateTime.Now;
-            pres.Estado = "ativisimo";
+            pres.FechaVencimiento = new DateTime(2021, 5, 3);
+            pres.Estado = "activo";
             pres.IdCliente = 1;
 
             ControladorPresupuesto cont = new ControladorPresupuesto();
@@ -173,5 +173,7 @@ namespace UnitTestProject1
 
 
         }
+
+     
     }
 }

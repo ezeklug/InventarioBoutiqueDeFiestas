@@ -44,7 +44,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdProducto"></param>
         public void AgregarLinea(LineaPresupuestoDTO pPresupuestoDTO)
         {
-            controladorPresupuesto.AgregarLinea(pPresupuestoDTO);
+            controladorPresupuesto.AgregarModificarLinea(pPresupuestoDTO);
         }
 
         /// <summary>

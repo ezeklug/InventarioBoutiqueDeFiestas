@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
@@ -135,9 +136,32 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescripcion"></param>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pIdProducto"></param>
-        public void AgregarLinea(LineaPresupuestoDTO pPresupuestoDTO)
+        public int AgregarModificarLinea(LineaPresupuestoDTO pLineaPresupuestoDTO)
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                LineaPresupuesto lineapres = repo.LineaPresupuestos.Find(pLineaPresupuestoDTO.Id);
+                LineaPresupuesto lineaAAgregar = this.DTOALineaPresupuesto(pLineaPresupuestoDTO);
+                Producto pro = repo.Productos.Find(pLineaPresupuestoDTO.IdProducto);
+                lineaAAgregar.Producto = pro;
+                Presupuesto pres = repo.Presupuestos.Find(pLineaPresupuestoDTO.IdPresupuesto);
+                lineaAAgregar.Presupuesto = pres;
+                if (lineapres == null)  // Crear linea presupuesto (si no existe)
+                {
+                    repo.LineaPresupuestos.Add(lineaAAgregar);
+                    repo.SaveChanges();
+                    return lineaAAgregar.Id;
+                }
+                else  // Modificar linea presupuesto (si ya existe)
+                {
+                    lineapres.Id = lineaAAgregar.Id;
+                    lineapres.Cantidad = lineaAAgregar.Cantidad;
+                    lineapres.PorcentajeDescuento = lineaAAgregar.PorcentajeDescuento;
+                    lineapres.Subtotal = lineaAAgregar.Subtotal;
+                    return lineapres.Id;
+                }
+
+            }
         }
 
         /// <summary>
