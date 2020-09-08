@@ -239,14 +239,23 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
         /// <summary>
-        /// Este método permite aplicar un descuento a una linea de presupuesto, pasando como parámetro el id de la linea y el porcentaje de descuento.
+        /// Aplica el descento a una linea
+        /// pDescuento debe estar entre [0,1]. 0.2 significa que queda un 80% del precio total
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="idProducto"></param>
         /// <param name="pDescuento"></param>
         public void AplicarDescuentoLinea(int pIdLinea, float pDescuento)
         {
-            throw new NotImplementedException();
+            using(var repo = new Repositorio())
+            {
+                var linea = repo.LineaPresupuestos.Find(pIdLinea);
+                if(linea == null)
+                {
+                    throw new Exception("Linea " + pIdLinea + " no existe");
+                }
+                linea.PorcentajeDescuento = (double)pDescuento;
+            }
         }
     }
 }
