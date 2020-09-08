@@ -154,7 +154,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar los productos que más se venden.
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarProductosMasVendidos()
+        public List<ProductoVendidoDTO> ListarProductosMasVendidos()
         {
             return controladorProducto.ListarProductosMasVendidos();
         }

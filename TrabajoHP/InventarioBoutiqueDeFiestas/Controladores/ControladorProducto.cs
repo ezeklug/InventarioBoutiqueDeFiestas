@@ -130,15 +130,33 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar los productos que más se venden.
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarProductosMasVendidos()
+        public List<ProductoVendidoDTO> ListarProductosMasVendidos()
         {
+            List<ProductoVendidoDTO> listaAMostrar = new List<ProductoVendidoDTO>();
             using(var repo=new Repositorio())
             {
                 foreach (Venta venta in repo.Ventas.Where<Venta>(v =>((DateTime.Now - v.FechaDeVenta).TotalDays<=30)).ToList())
                 {
-                    venta.Presupuesto.
+                    foreach(LineaPresupuesto linea in venta.Presupuesto.Lineas)
+                    {
+                        ProductoVendidoDTO pDTO = new ProductoVendidoDTO();
+                        pDTO.Producto = linea.Producto;
+                        pDTO.VendidoMes = linea.Cantidad;
+                        ProductoVendidoDTO prod = listaAMostrar.Find(p => p.Producto.Id == pDTO.Producto.Id);
+                        if (prod!=null)
+                        {
+                            prod.VendidoMes += linea.Cantidad;
+                            listaAMostrar.Remove(prod);
+                            listaAMostrar.Add(pDTO);
+                        }
+                        else
+                        {
+                            listaAMostrar.Add(pDTO);
+                        }
+                    }
                 }
             }
+            return listaAMostrar;
         }
 
         /// <summary>
