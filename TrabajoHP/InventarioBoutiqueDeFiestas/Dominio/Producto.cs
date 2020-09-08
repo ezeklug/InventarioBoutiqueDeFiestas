@@ -19,7 +19,8 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public double PrecioDeCompra { get; set; }
 
         public CategoriaProducto Categoria { get; set; }
-        public Boolean? Activo { get; set; }
+        public Boolean Activo { get; set; }
+
 
         public double PrecioVenta()
         {

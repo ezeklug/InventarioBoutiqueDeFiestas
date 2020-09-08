@@ -11,6 +11,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 { 
     public class ControladorCliente
     {
+
+        /// <summary>
+        /// Dado un DTO, devuelve un objeto cliente
+        /// </summary>
+        /// <param name="pCliente"></param>
+        /// <returns>Cliente</returns>
         public Cliente DTOACliente(ClienteDTO pCliente)
         {
             Cliente cliente = new Cliente();
@@ -27,7 +33,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
-        /// Este método permite agregar un cliente en la BD
+        /// Agrega o modifica un cliente la BD
+        /// Devuelve el ID del cliente agregado/modificado
         /// </summary>
         /// <param name="pClienteDTO"></param>
         public int AgregarModificarCliente(ClienteDTO pClienteDTO)
@@ -61,7 +68,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
-        /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
+        /// Da de baja un cliente
         /// </summary>
         public void BajaCliente(int pIdCliente)
         {
@@ -72,12 +79,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
         /// <summary>
-        /// Este método permite listar todos los clientes cargados en BD.
+        /// Devuelve una lista con todos los clientes
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista de clientes</returns>
         public List<Cliente> ListarClientes()
         {
-            throw new NotImplementedException();
+            using (var repo = new Repositorio())
+            {
+                return repo.Clientes.ToList<Cliente>();
+            }
         }
     }
 }
