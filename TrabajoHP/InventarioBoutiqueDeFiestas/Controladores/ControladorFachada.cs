@@ -114,14 +114,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto.AgregarModificarProducto(pProductoDTO);
         }
 
-        /// <summary>
-        /// Este método permite la modificación de un producto. Este se modifica en pantalla y se actualiza en la BD.
-        /// </summary>
-        /// <param name="pProductoDTO"></param>
-        public void ModificarProducto(ProductoDTO pProductoDTO)
-        {
-            //controladorProducto.ModificarProducto(pProductoDTO);
-        }
 
         /// <summary>
         /// Este método permite realizar la baja lógica de un producto, poniendo una propiedad "Activo" en falso.
