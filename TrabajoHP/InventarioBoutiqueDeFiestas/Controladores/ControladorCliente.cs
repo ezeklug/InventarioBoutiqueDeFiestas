@@ -41,7 +41,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 {
                     clienteAAgregar.Activo = true;
                     repo.Clientes.Add(clienteAAgregar);
-                    return 0; //TODO
+                    repo.SaveChanges();
+                    return clienteAAgregar.Id;
                 }
                 else  /// Modifcar cliente
                 {
@@ -52,6 +53,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     cliente.Telefono = clienteAAgregar.Telefono;
                     cliente.Email = clienteAAgregar.Email;
                     cliente.Activo= clienteAAgregar.Activo;
+                    repo.SaveChanges();
                     return cliente.Id;
                 }
 
