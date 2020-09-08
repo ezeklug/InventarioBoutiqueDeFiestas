@@ -13,19 +13,12 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public DateTime FechaVencimiento { get; set; }
         public DateTime FechaEntrega { get; set; }
         public DateTime FechaEvento { get; set; }
-        //    public double TotalVenta { get; set; }
         public Cliente Cliente { get; set; }
 
         public string Estado { get; set; }
         public virtual ICollection<LineaPresupuesto> Lineas {get ;set ;}
         
-        /*public enum Estado
-        {
-            Presupuestado,
-            Vendido,
-            Señado,
-            Cancelado
-        } */
+
         public Presupuesto(DateTime pFechaGeneracion, DateTime pFechaVencimiento, DateTime pFechaEvento, Cliente pCliente)
         {
             FechaGeneracion = pFechaGeneracion;
