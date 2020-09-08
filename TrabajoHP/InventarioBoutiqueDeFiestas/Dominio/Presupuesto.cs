@@ -17,7 +17,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public Cliente Cliente { get; set; }
 
         public string Estado { get; set; }
-        public List<LineaPresupuesto> Lineas {get ;set ;}
+        public virtual ICollection<LineaPresupuesto> Lineas {get ;set ;}
         
         /*public enum Estado
         {
