@@ -100,7 +100,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>
         /// <param name="presupuesto"></param>
-        public int AgregarPresupuesto(PresupuestoDTO pPrespuestoDTO)
+        public int AgregarModificarPresupuesto(PresupuestoDTO pPrespuestoDTO)
         {
             using (var repo = new Repositorio())
             {

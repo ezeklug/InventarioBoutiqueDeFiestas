@@ -148,7 +148,7 @@ namespace UnitTestProject1
             pres.IdCliente = 1;
 
             ControladorPresupuesto cont = new ControladorPresupuesto();
-            Console.WriteLine("Id del presupuesto agregado es: " + cont.AgregarPresupuesto(pres));
+            Console.WriteLine("Id del presupuesto agregado es: " + cont.AgregarModificarPresupuesto(pres));
 
         }
         //[TestMethod]
