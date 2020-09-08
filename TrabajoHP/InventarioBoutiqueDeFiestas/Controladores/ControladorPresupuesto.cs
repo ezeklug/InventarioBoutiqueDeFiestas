@@ -171,17 +171,37 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pMontoSenia"></param>
         public void SeniarPresupuesto(int pIdPresupuesto, double pMontoSenia)
         {
-            throw new NotImplementedException();
+            using(var repo = new Repositorio())
+            {
+                var presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
+                if (presupuesto == null)
+                {
+                    throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
+                }
+                var senia = new Senia(pMontoSenia, presupuesto);
+                repo.Senias.Add(senia);
+            }
         }
 
         /// <summary>
-        /// Este método permite vender un presupuesto, pasando como parámetro el id del presupuesto
+        /// Vende un presupuesto y guarda la venta en la base de datos
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
         public void Vender(int pIdPresupuesto)
         {
-            throw new NotImplementedException();
-        }
+            using (var repo = new Repositorio()) {
+                var presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
+                if (presupuesto == null)
+                {
+                    throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
+                }
+
+                var venta = new Venta(presupuesto);
+                presupuesto.Estado = EstadoPresupuesto.Vendido;
+
+                repo.Ventas.Add(venta);
+            }
+        }   
 
         /// <summary>
         /// Este metodo permite asociar un cliente a un presupuesto, pasando como parámetro el id del presupuesto y el id del cliente.
