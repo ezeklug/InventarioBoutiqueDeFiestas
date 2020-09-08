@@ -13,7 +13,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public double Monto { get; set; }
         public Presupuesto Presupuesto { get; set; }
         /// <summary>
-        /// constructor de seña.
+        /// Construye una seña y le asigna la fecha actual
         /// </summary>
         /// <param name="pMonto"></param>
         public Senia(double pMonto,Presupuesto pPresupuesto)

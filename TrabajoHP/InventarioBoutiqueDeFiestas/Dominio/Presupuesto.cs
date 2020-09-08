@@ -6,6 +6,32 @@ using System.Threading.Tasks;
 
 namespace InventarioBoutiqueDeFiestas.Dominio
 {
+
+    /// <summary>
+    /// Clase usadad para unificar los estados del presupuesto
+    /// </summary>
+    public static class EstadoPresupuesto
+    {
+        public static string Presupuestado {
+            get { return "Presupuestado"; } }
+
+        public static string Vendido
+        {
+            get { return "Vendido"; }
+        }
+
+        public static string Seniado
+        {
+            get { return "Seniado"; }
+        }
+
+        public static string Cancelado
+        {
+            get { return "Cancelado"; }
+        }
+    }
+
+
     public class Presupuesto
     {
         public int Id { get; set; }
