@@ -210,7 +210,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdPresupuesto"></param>
         public void AsociarCliente(int pIdCliente, int pIdPresupuesto)
         {
-            throw new NotImplementedException();
+            using (var repo=new Repositorio())
+            {
+                Cliente cli=repo.Clientes.Find(pIdCliente);
+                repo.Presupuestos.Find(pIdPresupuesto).Cliente=cli;
+            }
         }
 
         /// <summary>
@@ -229,7 +233,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Presupuesto> ListarPresupuesto()
         {
-            throw new NotImplementedException();
+            using(var repo=new Repositorio())
+            {
+                return repo.Presupuestos.ToList();
+            }
         }
         /// <summary>
         /// Este método permite aplicar un descuento a una linea de presupuesto, pasando como parámetro el id de la linea y el porcentaje de descuento.
