@@ -132,7 +132,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarProductosMasVendidos()
         {
-            throw new NotImplementedException();
+            using(var repo=new Repositorio())
+            {
+                foreach (Venta venta in repo.Ventas.Where<Venta>(v =>((DateTime.Now - v.FechaDeVenta).TotalDays<=30)).ToList())
+                {
+                    venta.Presupuesto.
+                }
+            }
         }
 
         /// <summary>
