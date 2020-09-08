@@ -190,7 +190,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdPresupuesto"></param>
         public void AsociarCliente(int pIdCliente, int pIdPresupuesto)
         {
-            throw new NotImplementedException();
+            using (var repo=new Repositorio())
+            {
+                Cliente cli=repo.Clientes.Find(pIdCliente);
+                repo.Presupuestos.Find(pIdPresupuesto).Cliente=cli;
+            }
         }
 
         /// <summary>
