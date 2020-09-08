@@ -19,9 +19,16 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public int Cantidad { get; set; }
         public double PorcentajeDescuento { get; set; }
 
-       
         public double Subtotal { get; set; }
 
+
+        /// <summary>
+        /// Devuelve el precio con descuento de una linea
+        /// </summary>
+        /// <returns></returns>
+        public double PrecioConDescuento() {
+            return Subtotal * (1 - PorcentajeDescuento);
+        }
         
         public LineaPresupuesto(int pCantidad, double pPorcentajeDescuento, Producto pProducto, Presupuesto pPresupuesto)
         {
