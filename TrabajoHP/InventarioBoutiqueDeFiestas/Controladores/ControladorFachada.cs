@@ -29,9 +29,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>
         /// <param name="presupuesto"></param>
-        public void AgregarPresupuesto(PresupuestoDTO pPresupuesotDTO)
+        public void AgregarModificarPresupuesto(PresupuestoDTO pPresupuesotDTO)
         {
-            controladorPresupuesto.AgregarPresupuesto(pPresupuesotDTO);
+            controladorPresupuesto.AgregarModificarPresupuesto(pPresupuesotDTO);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un producto a la base de datos, pasando como parámetro un ProductoDTO
         /// </summary>
         /// <param name="pIdProducto"></param>
-        public void AgregarProducto(ProductoDTO pProductoDTO)
+        public void AgregarModificarProducto(ProductoDTO pProductoDTO)
         {
             controladorProducto.AgregarModificarProducto(pProductoDTO);
         }
@@ -180,18 +180,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un cliente en la BD
         /// </summary>
         /// <param name="pClienteDTO"></param>
-        public void AgregarCliente(ClienteDTO pClienteDTO)
+        public void AgregarModificarCliente(ClienteDTO pClienteDTO)
         {
             controladorCliente.AgregarModificarCliente(pClienteDTO);
-        }
-        /// <summary>
-        /// Este método permite modificar un cliente ya agregado a BD
-        /// </summary>
-        /// <param name="pClienteDTO"></param>
-        public void ModificaCliente(ClienteDTO pClienteDTO)
-        {
-            throw new NotImplementedException();
-            //controladorCliente.ModificarCliente(pClienteDTO);
         }
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
