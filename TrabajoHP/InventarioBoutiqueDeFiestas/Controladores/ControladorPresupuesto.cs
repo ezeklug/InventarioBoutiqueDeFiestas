@@ -223,8 +223,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pDescuento"></param>
         public void AplicarDescuentoTotal(int pIdPresupuesto, float pDescuento)
-        {
-            throw new NotImplementedException();
+        {//PrecioConDescuento
+            using (var repo=new Repositorio())
+            {
+                repo.Presupuestos.Find(pIdPresupuesto).Descuento=pDescuento;
+            }
         }
 
         /// <summary>
