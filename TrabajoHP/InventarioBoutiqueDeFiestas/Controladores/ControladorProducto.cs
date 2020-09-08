@@ -71,7 +71,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     repo.SaveChanges();
                     return proAAgregar.Id;
                 }
-                else  /// Modifcar producto
+                else  /// Modificar producto
                 {
                     pro.Nombre = proAAgregar.Nombre;
                     pro.Descripcion = proAAgregar.Descripcion;
