@@ -41,13 +41,13 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public DateTime FechaEvento { get; set; }
         public Cliente Cliente { get; set; }
 
-        public float Descuento { get; set; }
+        public double Descuento { get; set; }
         public string Estado { get; set; }
         public virtual ICollection<LineaPresupuesto> Lineas {get ;set ;}
         
-        public float TotalVenta()
+        public double TotalVenta()
         {
-            float precio=0;
+            double precio=0;
             foreach(LineaPresupuesto linea in Lineas)
             {
                 precio += linea.PrecioConDescuento();
