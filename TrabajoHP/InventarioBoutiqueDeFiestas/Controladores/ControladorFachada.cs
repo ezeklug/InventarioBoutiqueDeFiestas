@@ -180,18 +180,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite agregar un cliente en la BD
         /// </summary>
         /// <param name="pClienteDTO"></param>
-        public void AgregarCliente(ClienteDTO pClienteDTO)
+        public void AgregarModificarCliente(ClienteDTO pClienteDTO)
         {
             controladorCliente.AgregarModificarCliente(pClienteDTO);
-        }
-        /// <summary>
-        /// Este método permite modificar un cliente ya agregado a BD
-        /// </summary>
-        /// <param name="pClienteDTO"></param>
-        public void ModificaCliente(ClienteDTO pClienteDTO)
-        {
-            throw new NotImplementedException();
-            //controladorCliente.ModificarCliente(pClienteDTO);
         }
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
