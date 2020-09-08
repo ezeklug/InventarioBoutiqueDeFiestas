@@ -199,6 +199,10 @@
     <Compile Include="Migrations\202009042132502_InitialCreate6.designer.cs">
       <DependentUpon>202009042132502_InitialCreate6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009082134486_InitialCreate9.cs" />
+    <Compile Include="Migrations\202009082134486_InitialCreate9.designer.cs">
+      <DependentUpon>202009082134486_InitialCreate9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009042132502_InitialCreate6.resx">
       <DependentUpon>202009042132502_InitialCreate6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082134486_InitialCreate9.resx">
+      <DependentUpon>202009082134486_InitialCreate9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

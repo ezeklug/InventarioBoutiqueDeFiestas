@@ -124,7 +124,7 @@ namespace UnitTestProject1
 
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void TestListarTodosLosProductos()
         {
             ControladorProducto cont = new ControladorProducto();
@@ -135,7 +135,7 @@ namespace UnitTestProject1
             }
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void TestAgregarPresupuesto()
         {
             PresupuestoDTO pres = new PresupuestoDTO();
