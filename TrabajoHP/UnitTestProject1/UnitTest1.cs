@@ -124,7 +124,18 @@ namespace UnitTestProject1
 
         }
 
-        [TestMethod]
+
+        //[TestMethod]
+        public void TestListarCliente()
+        {
+            var con = new ControladorCliente();
+            foreach(var cli in con.ListarClientes())
+            {
+                Console.WriteLine(cli.Id);
+            }
+        }
+
+        //[TestMethod]
         public void TestListarTodosLosProductos()
         {
             ControladorProducto cont = new ControladorProducto();
