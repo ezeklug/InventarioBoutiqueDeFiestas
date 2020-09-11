@@ -70,12 +70,35 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <summary>
         /// Da de baja un cliente
         /// </summary>
-        public void BajaCliente(int pIdCliente)
+        public Boolean BajaCliente(int pIdCliente)
         {
             using (Repositorio repo = new Repositorio())
             {
-                Cliente prod = repo.Clientes.Find(pIdCliente);
-                prod.Activo = false;
+                Cliente cli = repo.Clientes.Find(pIdCliente);
+                if(cli.Activo)
+                {
+                    cli.Activo = false;
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+        /// <summary>
+        /// Este método permite dar de alta a un cliente ya cargado que se encontraba inactivo
+        /// </summary>
+        /// <param name="pIdCliente"></param>
+        /// <returns></returns>
+        public Boolean AltaCliente(int pIdCliente)
+        {
+            using (Repositorio repo = new Repositorio())
+            {
+                Cliente cli = repo.Clientes.Find(pIdCliente);
+                if (!cli.Activo)
+                {
+                    cli.Activo = true;
+                    return true;
+                }
+                else { return false; }
             }
         }
         /// <summary>

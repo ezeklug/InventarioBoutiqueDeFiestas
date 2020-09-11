@@ -179,9 +179,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <summary>
         /// Este método permite realizar la Baja lógica de un cliente poniendo una propiedad "Activo" en Falso
         /// </summary>
-        public void BajaCliente(int pIdCliente)
+        public Boolean BajaCliente(int pIdCliente)
         {
-            controladorCliente.BajaCliente(pIdCliente);
+            return controladorCliente.BajaCliente(pIdCliente);
+        }
+
+        /// <summary>
+        /// Este método permite dar de alta a un cliente ya cargado que se encontraba inactivo
+        /// </summary>
+        /// <param name="pIdCliente"></param>
+        /// <returns></returns>
+        public Boolean AltaCliente(int pIdCliente)
+        {
+            return controladorCliente.AltaCliente(pIdCliente);
         }
         /// <summary>
         /// Este método permite listar todos los clientes cargados en BD.

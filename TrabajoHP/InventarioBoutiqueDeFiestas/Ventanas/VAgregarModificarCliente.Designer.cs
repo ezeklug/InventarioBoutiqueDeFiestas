@@ -39,8 +39,9 @@
             this.Direccion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Confirmar = new System.Windows.Forms.Button();
+            this.Cancelar = new System.Windows.Forms.Button();
+            this.Principal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -138,31 +139,44 @@
             this.Email.Size = new System.Drawing.Size(262, 20);
             this.Email.TabIndex = 10;
             // 
-            // button1
+            // Confirmar
             // 
-            this.button1.Location = new System.Drawing.Point(159, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Confirmar.Location = new System.Drawing.Point(159, 358);
+            this.Confirmar.Name = "Confirmar";
+            this.Confirmar.Size = new System.Drawing.Size(75, 23);
+            this.Confirmar.TabIndex = 11;
+            this.Confirmar.Text = "Confirmar";
+            this.Confirmar.UseVisualStyleBackColor = true;
+            this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
             // 
-            // button2
+            // Cancelar
             // 
-            this.button2.Location = new System.Drawing.Point(388, 358);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Cancelar.Location = new System.Drawing.Point(388, 358);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar.TabIndex = 12;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(71, 12);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 13;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // VAgregarModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 414);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Principal);
+            this.Controls.Add(this.Cancelar);
+            this.Controls.Add(this.Confirmar);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Direccion);
@@ -194,7 +208,8 @@
         private System.Windows.Forms.TextBox Direccion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Email;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Confirmar;
+        private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button Principal;
     }
 }

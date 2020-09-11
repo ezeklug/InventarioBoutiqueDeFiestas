@@ -32,14 +32,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             //   dataGridView1.DataSource = lista;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Modificar_Click(object sender, EventArgs e)
         {
+            Boolean seleccion = false;
             ClienteDTO clienteDTO = new ClienteDTO();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
                 if (isSelected)
                 {
+                    seleccion = true;
                     clienteDTO.Id = Convert.ToInt32(row.Cells[1].Value);
                     clienteDTO.Nombre = row.Cells[2].Value.ToString();
                     clienteDTO.Apellido= row.Cells[3].Value.ToString();
@@ -49,10 +51,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     clienteDTO.Activo = Convert.ToBoolean(row.Cells[7].Value);
                 }
             }
-            this.Hide();
-            VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(clienteDTO);
-            vAgregarModificarCliente.ShowDialog();
-            this.Close();
+            if(seleccion)
+            {
+                this.Hide();
+                VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(clienteDTO);
+                vAgregarModificarCliente.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,12 +91,29 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Agregar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente();
-            vAgregarModificarCliente.ShowDialog();
-            this.Close();
+            Boolean seleccion = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                }
+            }
+            if(seleccion)
+            {
+                MessageBox.Show("No puede agregar con un elemento seleccionado");
+            }
+            else
+            {
+                this.Hide();
+                VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente();
+                vAgregarModificarCliente.ShowDialog();
+                this.Close();
+            }
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -95,6 +122,70 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             VPrincipal vPrincipal = new VPrincipal();
             vPrincipal.ShowDialog();
             this.Close();
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            Boolean seleccion = false;
+            int idCliente=0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                    idCliente = Convert.ToInt32(row.Cells[1].Value);
+                }
+            }
+            if (seleccion)
+            {
+                Boolean baja=controladorfachada.BajaCliente(idCliente);
+                if(baja)
+                {
+                    MessageBox.Show("Usuario dado de baja con éxito");
+                }
+                else
+                {
+                    MessageBox.Show("El usuario ya se encontraba dado de baja");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+        }
+
+        private void Alta_Click(object sender, EventArgs e)
+        {
+            Boolean seleccion = false;
+            int idCliente = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                    idCliente = Convert.ToInt32(row.Cells[1].Value);
+                }
+            }
+            if (seleccion)
+            {
+                Boolean alta = controladorfachada.AltaCliente(idCliente);
+                if (alta)
+                {
+                    MessageBox.Show("Usuario dado de alta con éxito");
+                }
+                else
+                {
+                    MessageBox.Show("El usuario ya se encontraba activo");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
         }
     }
 }
