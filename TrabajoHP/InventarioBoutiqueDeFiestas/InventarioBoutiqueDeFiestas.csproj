@@ -154,6 +154,7 @@
     <Compile Include="Controladores\ControladorFachada.cs" />
     <Compile Include="Controladores\ControladorPresupuesto.cs" />
     <Compile Include="Controladores\ControladorProducto.cs" />
+    <Compile Include="Controladores\GenPdf.cs" />
     <Compile Include="Database\InventarioDbContext.cs" />
     <Compile Include="Database\Repositorio.cs" />
     <Compile Include="Dominio\CategoriaProducto.cs" />
