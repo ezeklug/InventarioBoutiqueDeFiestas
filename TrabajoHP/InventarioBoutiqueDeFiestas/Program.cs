@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventarioBoutiqueDeFiestas.Ventanas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,8 +17,7 @@ namespace InventarioBoutiqueDeFiestas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            // Hola mundo
+            Application.Run(new VControlClientes());
         }
     }
 }
