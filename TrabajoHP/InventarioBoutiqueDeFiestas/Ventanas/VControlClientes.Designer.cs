@@ -91,7 +91,7 @@
             this.PDF.TabIndex = 6;
             this.PDF.Text = "GuardarPDF";
             this.PDF.UseVisualStyleBackColor = true;
-            this.PDF.Click += new System.EventHandler(this.PDF_Click);
+            //this.PDF.Click += new System.EventHandler(this.PDF_Click);
             // 
             // VControlClientes
             // 
