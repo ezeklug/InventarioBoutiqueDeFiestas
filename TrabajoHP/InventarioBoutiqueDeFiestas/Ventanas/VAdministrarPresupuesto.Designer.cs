@@ -37,17 +37,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.DescuentoTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Total = new System.Windows.Forms.TextBox();
             this.Guardar = new System.Windows.Forms.Button();
             this.Seniar = new System.Windows.Forms.Button();
             this.Vender = new System.Windows.Forms.Button();
+            this.CargarProductos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(24, 122);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(794, 301);
             this.dataGridView1.TabIndex = 0;
@@ -75,7 +76,7 @@
             // 
             // Cliente
             // 
-            this.Cliente.Location = new System.Drawing.Point(96, 404);
+            this.Cliente.Location = new System.Drawing.Point(96, 438);
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
             this.Cliente.Size = new System.Drawing.Size(144, 20);
@@ -85,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 405);
+            this.label2.Location = new System.Drawing.Point(35, 439);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 16;
@@ -93,18 +94,19 @@
             // 
             // BuscarCliente
             // 
-            this.BuscarCliente.Location = new System.Drawing.Point(64, 435);
+            this.BuscarCliente.Location = new System.Drawing.Point(64, 469);
             this.BuscarCliente.Name = "BuscarCliente";
             this.BuscarCliente.Size = new System.Drawing.Size(113, 23);
             this.BuscarCliente.TabIndex = 17;
             this.BuscarCliente.Text = "Buscar Cliente";
             this.BuscarCliente.UseVisualStyleBackColor = true;
+            this.BuscarCliente.Click += new System.EventHandler(this.BuscarCliente_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(257, 405);
+            this.label3.Location = new System.Drawing.Point(257, 439);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 16);
             this.label3.TabIndex = 18;
@@ -112,7 +114,7 @@
             // 
             // DescuentoTotal
             // 
-            this.DescuentoTotal.Location = new System.Drawing.Point(393, 404);
+            this.DescuentoTotal.Location = new System.Drawing.Point(393, 438);
             this.DescuentoTotal.Name = "DescuentoTotal";
             this.DescuentoTotal.Size = new System.Drawing.Size(34, 20);
             this.DescuentoTotal.TabIndex = 19;
@@ -121,23 +123,23 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(581, 406);
+            this.label4.Location = new System.Drawing.Point(581, 440);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 20;
             this.label4.Text = "Total: $";
             // 
-            // textBox1
+            // Total
             // 
-            this.textBox1.Location = new System.Drawing.Point(649, 404);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 21;
+            this.Total.Location = new System.Drawing.Point(649, 438);
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Size = new System.Drawing.Size(106, 20);
+            this.Total.TabIndex = 21;
             // 
             // Guardar
             // 
-            this.Guardar.Location = new System.Drawing.Point(517, 435);
+            this.Guardar.Location = new System.Drawing.Point(517, 469);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -146,7 +148,7 @@
             // 
             // Seniar
             // 
-            this.Seniar.Location = new System.Drawing.Point(623, 435);
+            this.Seniar.Location = new System.Drawing.Point(623, 469);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
@@ -155,22 +157,32 @@
             // 
             // Vender
             // 
-            this.Vender.Location = new System.Drawing.Point(722, 435);
+            this.Vender.Location = new System.Drawing.Point(722, 469);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
             this.Vender.Text = "Vender";
             this.Vender.UseVisualStyleBackColor = true;
             // 
+            // CargarProductos
+            // 
+            this.CargarProductos.Location = new System.Drawing.Point(672, 89);
+            this.CargarProductos.Name = "CargarProductos";
+            this.CargarProductos.Size = new System.Drawing.Size(123, 23);
+            this.CargarProductos.TabIndex = 25;
+            this.CargarProductos.Text = "Cargar Productos";
+            this.CargarProductos.UseVisualStyleBackColor = true;
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 470);
+            this.ClientSize = new System.Drawing.Size(904, 510);
+            this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
             this.Controls.Add(this.Seniar);
             this.Controls.Add(this.Guardar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Total);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DescuentoTotal);
             this.Controls.Add(this.label3);
@@ -200,9 +212,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox DescuentoTotal;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Total;
         private System.Windows.Forms.Button Guardar;
         private System.Windows.Forms.Button Seniar;
         private System.Windows.Forms.Button Vender;
+        private System.Windows.Forms.Button CargarProductos;
     }
 }

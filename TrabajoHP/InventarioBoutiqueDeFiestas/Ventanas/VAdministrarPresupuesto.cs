@@ -35,6 +35,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[3].Name = "Precio Unitario";
             dataGridView1.Columns[4].Name = "Porcentaje Descuento";
             dataGridView1.Columns[5].Name = "Subtotal";
+            dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            Total.ReadOnly = true;
+            Cliente.ReadOnly = true;
 
         }
 
@@ -49,6 +55,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BuscarCliente_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto();
+            vControlClientesPresupuesto.ShowDialog();
+            this.Close();
         }
     }
 }
