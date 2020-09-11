@@ -7,6 +7,7 @@ using InventarioBoutiqueDeFiestas.DTO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Npgsql;
 using System.Collections.Generic;
+using System.IO;
 
 
 namespace UnitTestProject1
@@ -146,7 +147,7 @@ namespace UnitTestProject1
             }
         }
 
-        [TestMethod]
+       // [TestMethod]
         public void TestAgregarPresupuesto()
         {
             PresupuestoDTO pres = new PresupuestoDTO();
@@ -171,9 +172,31 @@ namespace UnitTestProject1
                 db.SaveChanges();
             }
 
+        }
+
+
+
+       // [TestMethod]
+        public void generarPDFHTML()
+        {
+            ControladorProducto cont = new ControladorProducto();
+            List<Producto> pros = cont.ListarTodosLosProductos();
+            string doc = File.ReadAllText("C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/List.html");
+            string lista = "";
+            foreach (var pro in pros)
+            {
+                lista += $"<tr><td>{pro.Id}</td><td>{pro.Nombre}</td><td>{pro.CantidadEnStock}</td></tr>\n";
+            }
+            doc = doc.Replace("{}", lista);
+
+            string temp_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/lista_temp.html";
+
+            File.WriteAllText(temp_file, doc);
+            System.Diagnostics.Process.Start(temp_file);
 
         }
 
-     
+        []
+
     }
 }
