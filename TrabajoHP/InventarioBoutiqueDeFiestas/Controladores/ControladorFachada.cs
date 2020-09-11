@@ -193,6 +193,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorCliente.AltaCliente(pIdCliente);
         }
+
+        /// <summary>
+        /// Este metodo busca un cliente por su id y devuelve el objeto cliente
+        /// </summary>
+        /// <param name="pIdCliente"></param>
+        /// <returns></returns>
+        public string BuscarCliente(int pIdCliente)
+        {
+            return controladorCliente.BuscarCliente(pIdCliente);
+        }
         /// <summary>
         /// Este método permite listar todos los clientes cargados en BD.
         /// </summary>

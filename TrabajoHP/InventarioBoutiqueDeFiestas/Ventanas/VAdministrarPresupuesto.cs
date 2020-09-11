@@ -41,9 +41,30 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[5].ReadOnly = true;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
+            if(IdCliente!=0)
+            {
+                Cliente.Text = controladorFachada.BuscarCliente(IdCliente);
+            }
+            DescuentoTotal.Text = "0";
 
         }
+        private void CalcularSubtotal()
+        {
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells[5].Value = (Convert.ToInt32(row.Cells[2].Value) * Convert.ToInt32(row.Cells[3].Value));
+            }
+        }
 
+        private double PrecioVenta()
+        {
+            double precioVenta = 0;
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+               precioVenta+=Convert.ToDouble(row.Cells[5].Value)*(1+(Convert.ToDouble(row.Cells[4].Value)/100));
+            }
+            return precioVenta;
+        }
         private void Principal_Click(object sender, EventArgs e)
         {
             this.Hide();

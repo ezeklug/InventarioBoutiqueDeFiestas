@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 using InventarioBoutiqueDeFiestas.Database;
+using System.Runtime.Remoting.Messaging;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 { 
@@ -110,6 +111,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             using (var repo = new Repositorio())
             {
                 return repo.Clientes.ToList<Cliente>();
+            }
+        }
+        /// <summary>
+        /// Este metodo busca un cliente por su id y devuelve el objeto cliente
+        /// </summary>
+        /// <param name="pIdCliente"></param>
+        /// <returns></returns>
+        public string BuscarCliente(int pIdCliente)
+        {
+            using (var repo = new Repositorio())
+            {
+                Cliente cli = repo.Clientes.Find(pIdCliente);
+                return cli.Nombre + " " + cli.Apellido; ;
             }
         }
     }
