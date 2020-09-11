@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventarioBoutiqueDeFiestas.Controladores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VAdministrarPresupuesto : Form
     {
         int IdCliente { get; set; }
+        ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
             InitializeComponent();
@@ -28,9 +30,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Principal_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            VPrincipal vPrincipal = new VPrincipal();
+            vPrincipal.ShowDialog();
+            this.Close();
         }
     }
 }

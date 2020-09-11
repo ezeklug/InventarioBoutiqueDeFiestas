@@ -30,5 +30,13 @@ namespace InventarioBoutiqueDeFiestas
         {
 
         }
+
+        private void AdministrarPresupuesto_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto();
+            vAdministrarPresupuesto.ShowDialog();
+            this.Close();
+        }
     }
 }

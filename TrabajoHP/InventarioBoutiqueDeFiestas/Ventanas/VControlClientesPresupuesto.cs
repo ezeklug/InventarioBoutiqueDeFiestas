@@ -22,7 +22,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlClientesPresupuesto_Load(object sender, EventArgs e)
         {
-
+            DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+            dgvCmb.ValueType = typeof(bool);
+            dgvCmb.Name = "Cb";
+            dgvCmb.HeaderText = "";
+            dataGridView1.Columns.Add(dgvCmb);
+            dataGridView1.DataSource = controladorFachada.ListarClientes();
         }
 
         private void Principal_Click(object sender, EventArgs e)

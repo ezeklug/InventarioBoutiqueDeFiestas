@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ControlClientes = new System.Windows.Forms.Button();
+            this.AdministrarPresupuesto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ControlClientes
@@ -41,11 +42,22 @@
             this.ControlClientes.UseVisualStyleBackColor = true;
             this.ControlClientes.Click += new System.EventHandler(this.ControlClientes_Click);
             // 
+            // AdministrarPresupuesto
+            // 
+            this.AdministrarPresupuesto.Location = new System.Drawing.Point(545, 186);
+            this.AdministrarPresupuesto.Name = "AdministrarPresupuesto";
+            this.AdministrarPresupuesto.Size = new System.Drawing.Size(141, 77);
+            this.AdministrarPresupuesto.TabIndex = 1;
+            this.AdministrarPresupuesto.Text = "AdministrarPresupuesto";
+            this.AdministrarPresupuesto.UseVisualStyleBackColor = true;
+            this.AdministrarPresupuesto.Click += new System.EventHandler(this.AdministrarPresupuesto_Click);
+            // 
             // VPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AdministrarPresupuesto);
             this.Controls.Add(this.ControlClientes);
             this.Name = "VPrincipal";
             this.Text = "Principal";
@@ -57,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button ControlClientes;
+        private System.Windows.Forms.Button AdministrarPresupuesto;
     }
 }
 
