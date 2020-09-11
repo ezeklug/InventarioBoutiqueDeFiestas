@@ -17,7 +17,7 @@ namespace InventarioBoutiqueDeFiestas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VControlClientes());
+            Application.Run(new VPrincipal());
         }
     }
 }

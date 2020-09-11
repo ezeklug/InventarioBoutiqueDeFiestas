@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventarioBoutiqueDeFiestas.Ventanas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace InventarioBoutiqueDeFiestas
         public VPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void ControlClientes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlClientes vControlClientes = new VControlClientes();
+            vControlClientes.ShowDialog();
+            this.Close();
+        }
+
+        private void VPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

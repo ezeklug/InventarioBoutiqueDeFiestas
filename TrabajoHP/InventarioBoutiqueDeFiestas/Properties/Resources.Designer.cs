@@ -63,26 +63,6 @@ namespace InventarioBoutiqueDeFiestas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Anotación_2020_09_02_220354 {
-            get {
-                object obj = ResourceManager.GetObject("Anotación 2020-09-02 220354", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UTN_logo {
-            get {
-                object obj = ResourceManager.GetObject("UTN_logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap UTN_logo__1_ {
             get {
                 object obj = ResourceManager.GetObject("UTN_logo (1)", resourceCulture);
