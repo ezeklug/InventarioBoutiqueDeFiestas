@@ -28,6 +28,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
             dataGridView1.AllowUserToAddRows = true;
+            dataGridView1.ColumnCount = 6;
+            dataGridView1.Columns[0].Name = "Id";
+            dataGridView1.Columns[1].Name = "Nombre";
+            dataGridView1.Columns[2].Name = "Cantidad";
+            dataGridView1.Columns[3].Name = "Precio Unitario";
+            dataGridView1.Columns[4].Name = "Porcentaje Descuento";
+            dataGridView1.Columns[5].Name = "Subtotal";
+
         }
 
         private void Principal_Click(object sender, EventArgs e)
