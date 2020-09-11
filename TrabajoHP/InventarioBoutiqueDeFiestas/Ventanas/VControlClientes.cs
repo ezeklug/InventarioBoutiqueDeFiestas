@@ -15,7 +15,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VControlClientes : Form
     {
-        ControladorFachada controladorfachada =new ControladorFachada();
+        ControladorFachada controladorfachada = new ControladorFachada();
         public VControlClientes()
         {
             InitializeComponent();
@@ -23,35 +23,60 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlClientes_Load(object sender, EventArgs e)
         {
-
-
-
-            /*  List<Cliente> lista = new List<Cliente>();
-               Cliente cli = new Cliente("Ezequiel", "Klug", "Callefalsa123", "1515151515", "ezepiyo@gmail.com");
-               Cliente cli2 = new Cliente("Federico", "Lombardi", "callefalsa456", "1232414123", "nose");
-               lista.Add(cli);
-               lista.Add(cli2);*/
-             //   DataGridViewRadio dgvCmb = new DataGridViewCheckBoxColumn();
-                //dgvCmb.ValueType = typeof(bool);
-                //dgvCmb.Name = "Cb";
-                //dgvCmb.HeaderText = "";
-                //dataGridView1.Columns.Add(dgvCmb);
-                //dataGridView1.DataSource = controladorfachada.ListarClientes();
-         //   dataGridView1.DataSource = lista;
+            DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+            dgvCmb.ValueType = typeof(bool);
+            dgvCmb.Name = "Cb";
+            dgvCmb.HeaderText = "";
+            dataGridView1.Columns.Add(dgvCmb);
+            dataGridView1.DataSource = controladorfachada.ListarClientes();
+            //   dataGridView1.DataSource = lista;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-              //  var selectedPerson = dataGridView1.SelectedRows[0].DataBoundItem as ClienteDTO;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
                 {
-                    bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
-                    if (isSelected)
-                    {
-                    this.Nombre.Text = "Holaquetal";
-                    }
+                    ClienteDTO clienteDTO = new ClienteDTO();
+                    clienteDTO.Id = Convert.ToInt32(row.Cells[1].Value);
+                    clienteDTO.Nombre = row.Cells[2].Value.ToString();
+                    clienteDTO.Apellido= row.Cells[3].Value.ToString();
+                    clienteDTO.Direccion = row.Cells[4].Value.ToString();
+                    clienteDTO.Telefono = row.Cells[5].Value.ToString();
+                    clienteDTO.Email = row.Cells[6].Value.ToString();
+                    clienteDTO.Activo = Convert.ToBoolean(row.Cells[7].Value);
+
+                    controladorfachada.AgregarModificarCliente(clienteDTO);
                 }
+            }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var columnIndex = 0;
+            if (e.ColumnIndex == columnIndex)
+            {
+                var isChecked = false;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[e.ColumnIndex].Value))
+                    {
+                        isChecked = true;
+                    }
+                }
+                if (isChecked)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Index != e.RowIndex)
+                        {
+                            row.Cells[columnIndex].Value = !isChecked;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
