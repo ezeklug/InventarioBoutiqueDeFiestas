@@ -174,11 +174,11 @@
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
-    <Compile Include="Ventanas\Form1.cs">
+    <Compile Include="Ventanas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Ventanas\VPrincipal.Designer.cs">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202008281731029_InitialCreate2.cs" />
     <Compile Include="Migrations\202008281731029_InitialCreate2.designer.cs">
@@ -280,12 +280,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Ventanas\VAgregarModificarCliente.resx">
       <DependentUpon>VAgregarModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlClientes.resx">
       <DependentUpon>VControlClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VPrincipal.resx">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -301,7 +305,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Anotación 2020-09-02 220354.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UTN_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UTN_logo %281%29.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

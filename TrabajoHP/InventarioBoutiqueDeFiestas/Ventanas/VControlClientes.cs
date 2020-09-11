@@ -80,5 +80,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente();
+            vAgregarModificarCliente.ShowDialog();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VPrincipal vPrincipal = new VPrincipal();
+            vPrincipal.ShowDialog();
+            this.Close();
+        }
     }
 }

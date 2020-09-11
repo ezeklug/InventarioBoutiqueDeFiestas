@@ -19,6 +19,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
             ClienteDTO = pClienteDTO;
         }
+        public VAgregarModificarCliente()
+        {
+            InitializeComponent();
+        }
 
     }
 }
