@@ -10,10 +10,6 @@ using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System.IO;
-
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -35,7 +31,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                Cliente cli2 = new Cliente("Federico", "Lombardi", "callefalsa456", "1232414123", "nose");
                lista.Add(cli);
                lista.Add(cli2);*/
-             //  DataGridViewRadio dgvCmb = new DataGridViewCheckBoxColumn();
+                DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
                 dgvCmb.ValueType = typeof(bool);
                 dgvCmb.Name = "Cb";
                 dgvCmb.HeaderText = "";
@@ -57,8 +53,31 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
         }
 
-        private void PDF_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var columnIndex = 0;
+            if (e.ColumnIndex == columnIndex)
+            {
+                var isChecked=false;
+                foreach(DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if(Convert.ToBoolean(row.Cells[e.ColumnIndex].Value))
+                    {
+                        isChecked = true;
+                    }
+                }
+                this.Nombre.Text = isChecked.ToString(); 
+                if (isChecked)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Index != e.RowIndex)
+                        {
+                            row.Cells[columnIndex].Value = !isChecked;
+                        }
+                    }
+                }
+            }
         }
     }
 }
