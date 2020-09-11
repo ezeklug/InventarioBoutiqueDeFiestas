@@ -34,12 +34,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ClienteDTO clienteDTO = new ClienteDTO();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
                 if (isSelected)
                 {
-                    ClienteDTO clienteDTO = new ClienteDTO();
                     clienteDTO.Id = Convert.ToInt32(row.Cells[1].Value);
                     clienteDTO.Nombre = row.Cells[2].Value.ToString();
                     clienteDTO.Apellido= row.Cells[3].Value.ToString();
@@ -47,10 +47,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     clienteDTO.Telefono = row.Cells[5].Value.ToString();
                     clienteDTO.Email = row.Cells[6].Value.ToString();
                     clienteDTO.Activo = Convert.ToBoolean(row.Cells[7].Value);
-
-                    controladorfachada.AgregarModificarCliente(clienteDTO);
                 }
             }
+            this.Hide();
+            VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(clienteDTO);
+            vAgregarModificarCliente.ShowDialog();
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
