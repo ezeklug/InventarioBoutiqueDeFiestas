@@ -33,8 +33,8 @@
             this.Modificar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
             this.Agregar = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.Alta = new System.Windows.Forms.Button();
+            this.Principal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,16 +87,6 @@
             this.Agregar.UseVisualStyleBackColor = true;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
-            // button4
-            // 
-            this.button4.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
-            this.button4.Location = new System.Drawing.Point(45, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(70, 74);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // Alta
             // 
             this.Alta.Location = new System.Drawing.Point(365, 367);
@@ -107,20 +97,30 @@
             this.Alta.UseVisualStyleBackColor = true;
             this.Alta.Click += new System.EventHandler(this.Alta_Click);
             // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(45, 0);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 6;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
+            // 
             // VControlClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
             this.Controls.Add(this.Alta);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.Principal);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Modificar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "VControlClientes";
-            this.Text = "Form2";
+            this.Text = "Control Clientes";
             this.Load += new System.EventHandler(this.VControlClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.Button Modificar;
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.Button Agregar;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.Button Alta;
     }
 }

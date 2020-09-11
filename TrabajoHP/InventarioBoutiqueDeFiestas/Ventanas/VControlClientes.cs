@@ -116,7 +116,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Principal_Click(object sender, EventArgs e)
         {
             this.Hide();
             VPrincipal vPrincipal = new VPrincipal();

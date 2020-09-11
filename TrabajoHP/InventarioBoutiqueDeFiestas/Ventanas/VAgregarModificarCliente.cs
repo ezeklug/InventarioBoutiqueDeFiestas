@@ -66,7 +66,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 VControlClientes vControlClientes = new VControlClientes();
                 vControlClientes.ShowDialog();
                 this.Close();
-            }  
+            }
         }
     }
 }
