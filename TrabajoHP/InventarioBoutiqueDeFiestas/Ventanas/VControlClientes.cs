@@ -29,6 +29,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dgvCmb.HeaderText = "";
             dataGridView1.Columns.Add(dgvCmb);
             dataGridView1.DataSource = controladorfachada.ListarClientes();
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[2].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[4].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            dataGridView1.Columns[6].ReadOnly = true;
         }
 
         private void Modificar_Click(object sender, EventArgs e)

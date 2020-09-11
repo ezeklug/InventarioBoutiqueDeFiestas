@@ -27,7 +27,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.AllowUserToAddRows = true;
         }
 
         private void Principal_Click(object sender, EventArgs e)
@@ -36,6 +36,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             VPrincipal vPrincipal = new VPrincipal();
             vPrincipal.ShowDialog();
             this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
