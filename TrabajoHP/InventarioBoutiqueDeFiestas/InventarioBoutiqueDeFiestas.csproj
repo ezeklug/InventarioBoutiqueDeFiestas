@@ -306,12 +306,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Anotación 2020-09-02 220354.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UTN_logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\UTN_logo %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
