@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -31,7 +35,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                Cliente cli2 = new Cliente("Federico", "Lombardi", "callefalsa456", "1232414123", "nose");
                lista.Add(cli);
                lista.Add(cli2);*/
-             //   DataGridViewRadio dgvCmb = new DataGridViewCheckBoxColumn();
+             //  DataGridViewRadio dgvCmb = new DataGridViewCheckBoxColumn();
                 dgvCmb.ValueType = typeof(bool);
                 dgvCmb.Name = "Cb";
                 dgvCmb.HeaderText = "";
@@ -53,5 +57,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
         }
 
+        private void PDF_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
