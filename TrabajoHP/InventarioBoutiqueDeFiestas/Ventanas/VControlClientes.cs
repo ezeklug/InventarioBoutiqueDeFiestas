@@ -32,11 +32,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                lista.Add(cli);
                lista.Add(cli2);*/
              //   DataGridViewRadio dgvCmb = new DataGridViewCheckBoxColumn();
-                dgvCmb.ValueType = typeof(bool);
-                dgvCmb.Name = "Cb";
-                dgvCmb.HeaderText = "";
-                dataGridView1.Columns.Add(dgvCmb);
-                dataGridView1.DataSource = controladorfachada.ListarClientes();
+                //dgvCmb.ValueType = typeof(bool);
+                //dgvCmb.Name = "Cb";
+                //dgvCmb.HeaderText = "";
+                //dataGridView1.Columns.Add(dgvCmb);
+                //dataGridView1.DataSource = controladorfachada.ListarClientes();
          //   dataGridView1.DataSource = lista;
         }
 

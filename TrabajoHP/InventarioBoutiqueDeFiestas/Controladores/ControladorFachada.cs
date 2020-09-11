@@ -9,7 +9,7 @@ using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
-    class ControladorFachada
+    public class ControladorFachada
     {
         ControladorPresupuesto controladorPresupuesto;
         ControladorCliente controladorCliente;
