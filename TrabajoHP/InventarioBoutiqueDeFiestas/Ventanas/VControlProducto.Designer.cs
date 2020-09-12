@@ -28,18 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VControlProducto));
             this.label1 = new System.Windows.Forms.Label();
+            this.Principal = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.agregar = new System.Windows.Forms.Button();
-            this.modificar = new System.Windows.Forms.Button();
-            this.eliminar = new System.Windows.Forms.Button();
-            this.ingresarMercaderia = new System.Windows.Forms.Button();
-            this.GuardarPDF = new System.Windows.Forms.Button();
-            this.porcentajeIncremento = new System.Windows.Forms.Button();
-            this.agregarCategoria = new System.Windows.Forms.Button();
-            this.volver = new System.Windows.Forms.Button();
-            this.listar = new System.Windows.Forms.ComboBox();
+            this.Agregar = new System.Windows.Forms.Button();
+            this.Modificar = new System.Windows.Forms.Button();
+            this.IngresoMercaderia = new System.Windows.Forms.Button();
+            this.PorcentajeIncremento = new System.Windows.Forms.Button();
+            this.AgregarCategoria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,118 +43,94 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(260, 34);
+            this.label1.Location = new System.Drawing.Point(299, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Control Productos";
             // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(44, 0);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 7;
+            this.Principal.TabStop = false;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(54, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 80);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(732, 268);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.Size = new System.Drawing.Size(838, 268);
+            this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // agregar
+            // Agregar
             // 
-            this.agregar.Location = new System.Drawing.Point(12, 403);
-            this.agregar.Name = "agregar";
-            this.agregar.Size = new System.Drawing.Size(75, 35);
-            this.agregar.TabIndex = 3;
-            this.agregar.Text = "Agregar";
-            this.agregar.UseVisualStyleBackColor = true;
+            this.Agregar.Location = new System.Drawing.Point(39, 376);
+            this.Agregar.Name = "Agregar";
+            this.Agregar.Size = new System.Drawing.Size(75, 23);
+            this.Agregar.TabIndex = 9;
+            this.Agregar.Text = "Agregar";
+            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
-            // modificar
+            // Modificar
             // 
-            this.modificar.Location = new System.Drawing.Point(109, 403);
-            this.modificar.Name = "modificar";
-            this.modificar.Size = new System.Drawing.Size(75, 35);
-            this.modificar.TabIndex = 4;
-            this.modificar.Text = "Modificar";
-            this.modificar.UseVisualStyleBackColor = true;
+            this.Modificar.Location = new System.Drawing.Point(160, 376);
+            this.Modificar.Name = "Modificar";
+            this.Modificar.Size = new System.Drawing.Size(75, 23);
+            this.Modificar.TabIndex = 10;
+            this.Modificar.Text = "Modificar";
+            this.Modificar.UseVisualStyleBackColor = true;
+            this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
             // 
-            // eliminar
+            // IngresoMercaderia
             // 
-            this.eliminar.Location = new System.Drawing.Point(212, 403);
-            this.eliminar.Name = "eliminar";
-            this.eliminar.Size = new System.Drawing.Size(75, 35);
-            this.eliminar.TabIndex = 5;
-            this.eliminar.Text = "Eliminar";
-            this.eliminar.UseVisualStyleBackColor = true;
+            this.IngresoMercaderia.Location = new System.Drawing.Point(279, 376);
+            this.IngresoMercaderia.Name = "IngresoMercaderia";
+            this.IngresoMercaderia.Size = new System.Drawing.Size(120, 23);
+            this.IngresoMercaderia.TabIndex = 11;
+            this.IngresoMercaderia.Text = "Ingreso Mercaderia";
+            this.IngresoMercaderia.UseVisualStyleBackColor = true;
+            this.IngresoMercaderia.Click += new System.EventHandler(this.IngresoMercaderia_Click);
             // 
-            // ingresarMercaderia
+            // PorcentajeIncremento
             // 
-            this.ingresarMercaderia.Location = new System.Drawing.Point(318, 403);
-            this.ingresarMercaderia.Name = "ingresarMercaderia";
-            this.ingresarMercaderia.Size = new System.Drawing.Size(75, 35);
-            this.ingresarMercaderia.TabIndex = 6;
-            this.ingresarMercaderia.Text = "Ingresar Mercadería";
-            this.ingresarMercaderia.UseVisualStyleBackColor = true;
+            this.PorcentajeIncremento.Location = new System.Drawing.Point(440, 376);
+            this.PorcentajeIncremento.Name = "PorcentajeIncremento";
+            this.PorcentajeIncremento.Size = new System.Drawing.Size(133, 23);
+            this.PorcentajeIncremento.TabIndex = 12;
+            this.PorcentajeIncremento.Text = "Porcentaje incremento";
+            this.PorcentajeIncremento.UseVisualStyleBackColor = true;
+            this.PorcentajeIncremento.Click += new System.EventHandler(this.PorcentajeIncremento_Click);
             // 
-            // GuardarPDF
+            // AgregarCategoria
             // 
-            this.GuardarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GuardarPDF.Image = ((System.Drawing.Image)(resources.GetObject("GuardarPDF.Image")));
-            this.GuardarPDF.Location = new System.Drawing.Point(424, 403);
-            this.GuardarPDF.Name = "GuardarPDF";
-            this.GuardarPDF.Size = new System.Drawing.Size(80, 35);
-            this.GuardarPDF.TabIndex = 7;
-            this.GuardarPDF.UseVisualStyleBackColor = true;
-            // 
-            // porcentajeIncremento
-            // 
-            this.porcentajeIncremento.Location = new System.Drawing.Point(543, 403);
-            this.porcentajeIncremento.Name = "porcentajeIncremento";
-            this.porcentajeIncremento.Size = new System.Drawing.Size(75, 35);
-            this.porcentajeIncremento.TabIndex = 8;
-            this.porcentajeIncremento.Text = "Porcentaje Incremento";
-            this.porcentajeIncremento.UseVisualStyleBackColor = true;
-            // 
-            // agregarCategoria
-            // 
-            this.agregarCategoria.Location = new System.Drawing.Point(652, 403);
-            this.agregarCategoria.Name = "agregarCategoria";
-            this.agregarCategoria.Size = new System.Drawing.Size(75, 35);
-            this.agregarCategoria.TabIndex = 9;
-            this.agregarCategoria.Text = "Agregar Categoria";
-            this.agregarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // volver
-            // 
-            this.volver.Location = new System.Drawing.Point(763, 403);
-            this.volver.Name = "volver";
-            this.volver.Size = new System.Drawing.Size(75, 35);
-            this.volver.TabIndex = 10;
-            this.volver.Text = "Volver";
-            this.volver.UseVisualStyleBackColor = true;
-            // 
-            // listar
-            // 
-            this.listar.BackColor = System.Drawing.SystemColors.Control;
-            this.listar.FormattingEnabled = true;
-            this.listar.Location = new System.Drawing.Point(34, 52);
-            this.listar.Name = "listar";
-            this.listar.Size = new System.Drawing.Size(150, 21);
-            this.listar.TabIndex = 12;
+            this.AgregarCategoria.Location = new System.Drawing.Point(626, 376);
+            this.AgregarCategoria.Name = "AgregarCategoria";
+            this.AgregarCategoria.Size = new System.Drawing.Size(110, 23);
+            this.AgregarCategoria.TabIndex = 13;
+            this.AgregarCategoria.Text = "Agregar categoria";
+            this.AgregarCategoria.UseVisualStyleBackColor = true;
+            this.AgregarCategoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 450);
-            this.Controls.Add(this.listar);
-            this.Controls.Add(this.volver);
-            this.Controls.Add(this.agregarCategoria);
-            this.Controls.Add(this.porcentajeIncremento);
-            this.Controls.Add(this.GuardarPDF);
-            this.Controls.Add(this.ingresarMercaderia);
-            this.Controls.Add(this.eliminar);
-            this.Controls.Add(this.modificar);
-            this.Controls.Add(this.agregar);
+            this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.AgregarCategoria);
+            this.Controls.Add(this.PorcentajeIncremento);
+            this.Controls.Add(this.IngresoMercaderia);
+            this.Controls.Add(this.Modificar);
+            this.Controls.Add(this.Agregar);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Principal);
             this.Controls.Add(this.label1);
             this.Name = "VControlProducto";
             this.Text = "VControlProducto";
@@ -172,15 +144,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button agregar;
-        private System.Windows.Forms.Button modificar;
-        private System.Windows.Forms.Button eliminar;
-        private System.Windows.Forms.Button ingresarMercaderia;
-        private System.Windows.Forms.Button GuardarPDF;
-        private System.Windows.Forms.Button porcentajeIncremento;
-        private System.Windows.Forms.Button agregarCategoria;
-        private System.Windows.Forms.Button volver;
-        private System.Windows.Forms.ComboBox listar;
+        private System.Windows.Forms.Button Agregar;
+        private System.Windows.Forms.Button Modificar;
+        private System.Windows.Forms.Button IngresoMercaderia;
+        private System.Windows.Forms.Button PorcentajeIncremento;
+        private System.Windows.Forms.Button AgregarCategoria;
     }
 }
