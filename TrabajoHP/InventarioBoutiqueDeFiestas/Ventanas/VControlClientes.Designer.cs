@@ -100,7 +100,7 @@
             // Principal
             // 
             this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
-            this.Principal.Location = new System.Drawing.Point(45, 0);
+            this.Principal.Location = new System.Drawing.Point(44, 0);
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(70, 74);
             this.Principal.TabIndex = 6;

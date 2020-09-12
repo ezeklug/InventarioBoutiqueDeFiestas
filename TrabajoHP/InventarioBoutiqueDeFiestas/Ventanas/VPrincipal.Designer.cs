@@ -30,6 +30,7 @@
         {
             this.ControlClientes = new System.Windows.Forms.Button();
             this.AdministrarPresupuesto = new System.Windows.Forms.Button();
+            this.ControlProductos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ControlClientes
@@ -52,11 +53,22 @@
             this.AdministrarPresupuesto.UseVisualStyleBackColor = true;
             this.AdministrarPresupuesto.Click += new System.EventHandler(this.AdministrarPresupuesto_Click);
             // 
+            // ControlProductos
+            // 
+            this.ControlProductos.Location = new System.Drawing.Point(84, 194);
+            this.ControlProductos.Name = "ControlProductos";
+            this.ControlProductos.Size = new System.Drawing.Size(129, 72);
+            this.ControlProductos.TabIndex = 2;
+            this.ControlProductos.Text = "Control Productos";
+            this.ControlProductos.UseVisualStyleBackColor = true;
+            this.ControlProductos.Click += new System.EventHandler(this.ControlProductos_Click);
+            // 
             // VPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ControlProductos);
             this.Controls.Add(this.AdministrarPresupuesto);
             this.Controls.Add(this.ControlClientes);
             this.Name = "VPrincipal";
@@ -70,6 +82,7 @@
 
         private System.Windows.Forms.Button ControlClientes;
         private System.Windows.Forms.Button AdministrarPresupuesto;
+        private System.Windows.Forms.Button ControlProductos;
     }
 }
 
