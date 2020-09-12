@@ -23,5 +23,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             ProductoDTO = pProductoDTO;
             InitializeComponent();
         }
+
+        private void Principal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VPrincipal vPrincipal = new VPrincipal();
+            vPrincipal.ShowDialog();
+            this.Close();
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlProductos vControlProductos = new VControlProductos();
+            vControlProductos.ShowDialog();
+            this.Close();
+        }
     }
 }

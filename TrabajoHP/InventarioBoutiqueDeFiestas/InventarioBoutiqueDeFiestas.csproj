@@ -312,6 +312,9 @@
     <EmbeddedResource Include="Ventanas\VAgregarModificarCliente.resx">
       <DependentUpon>VAgregarModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VAgregarModificarProducto.resx">
+      <DependentUpon>VAgregarModificarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlClientes.resx">
       <DependentUpon>VControlClientes.cs</DependentUpon>
     </EmbeddedResource>

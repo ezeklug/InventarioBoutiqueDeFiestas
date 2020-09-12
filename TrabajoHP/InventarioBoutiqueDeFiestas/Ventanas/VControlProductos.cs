@@ -62,7 +62,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[5].Width = 95;
             dataGridView1.Columns[6].Width = 125;
             dataGridView1.Columns[7].Width = 95;
-            dataGridView1.Columns[8].Width = 60;
+            dataGridView1.Columns[8].Width = 115;
             dataGridView1.Columns[9].Width = 50;
 
         }

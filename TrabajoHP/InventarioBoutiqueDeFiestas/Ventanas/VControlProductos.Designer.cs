@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.Principal = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Agregar = new System.Windows.Forms.Button();
             this.Modificar = new System.Windows.Forms.Button();
             this.IngresoMercaderia = new System.Windows.Forms.Button();
             this.PorcentajeIncremento = new System.Windows.Forms.Button();
             this.AgregarCategoria = new System.Windows.Forms.Button();
+            this.Principal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,22 +49,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Control Productos";
             // 
-            // Principal
-            // 
-            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
-            this.Principal.Location = new System.Drawing.Point(44, 0);
-            this.Principal.Name = "Principal";
-            this.Principal.Size = new System.Drawing.Size(70, 74);
-            this.Principal.TabIndex = 7;
-            this.Principal.UseVisualStyleBackColor = true;
-            this.Principal.Click += new System.EventHandler(this.Principal_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 80);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(988, 268);
+            this.dataGridView1.Size = new System.Drawing.Size(893, 268);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -118,11 +108,21 @@
             this.AgregarCategoria.UseVisualStyleBackColor = true;
             this.AgregarCategoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(44, 0);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 7;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
+            // 
             // VControlProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 411);
+            this.ClientSize = new System.Drawing.Size(927, 411);
             this.Controls.Add(this.AgregarCategoria);
             this.Controls.Add(this.PorcentajeIncremento);
             this.Controls.Add(this.IngresoMercaderia);
