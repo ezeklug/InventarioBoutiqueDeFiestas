@@ -176,6 +176,7 @@
             this.Confirmar.TabIndex = 27;
             this.Confirmar.Text = "Confirmar";
             this.Confirmar.UseVisualStyleBackColor = true;
+            this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
             // 
             // Cancelar
             // 

@@ -56,6 +56,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 ClienteDTO pClienteDTO = new ClienteDTO();
+                if (ClienteDTO != null)
+                {
+                    pClienteDTO.Id = ClienteDTO.Id;
+                    pClienteDTO.Activo = ClienteDTO.Activo;
+                }
                 pClienteDTO.Nombre = Nombre.Text;
                 pClienteDTO.Apellido = Apellido.Text;
                 pClienteDTO.Direccion = Direccion.Text;
