@@ -345,6 +345,9 @@
     <EmbeddedResource Include="Ventanas\VControlProducto.resx">
       <DependentUpon>VControlProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VControlProductosPresupuesto.resx">
+      <DependentUpon>VControlProductosPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VPrincipal.resx">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>

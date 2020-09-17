@@ -1,4 +1,5 @@
 ﻿using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VAdministrarPresupuesto : Form
     {
         int IdCliente { get; set; }
+        List<int> IdProductos { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
             InitializeComponent();
+
+        }
+        public VAdministrarPresupuesto(List<int> idProductos)
+        {
+            InitializeComponent();
+            IdProductos = idProductos;
         }
         public VAdministrarPresupuesto(int pIdCliente)
         {
