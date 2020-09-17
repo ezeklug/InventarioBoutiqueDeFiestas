@@ -52,7 +52,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(794, 301);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             // 
             // label1
             // 
@@ -118,6 +118,7 @@
             this.DescuentoTotal.Name = "DescuentoTotal";
             this.DescuentoTotal.Size = new System.Drawing.Size(34, 20);
             this.DescuentoTotal.TabIndex = 19;
+            this.DescuentoTotal.TextChanged += new System.EventHandler(this.DescuentoTotal_TextChanged);
             // 
             // label4
             // 
@@ -172,6 +173,7 @@
             this.CargarProductos.TabIndex = 25;
             this.CargarProductos.Text = "Cargar Productos";
             this.CargarProductos.UseVisualStyleBackColor = true;
+            this.CargarProductos.Click += new System.EventHandler(this.CargarProductos_Click);
             // 
             // VAdministrarPresupuesto
             // 
