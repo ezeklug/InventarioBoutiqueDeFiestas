@@ -101,7 +101,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Boolean seleccion = false;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                bool isSelected = Convert.ToBoolean(row.Cells[6].Value);
                 if (isSelected)
                 {
                     seleccion = true;
@@ -129,68 +129,29 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Close();
         }
 
-        private void Eliminar_Click(object sender, EventArgs e)
+      
+
+        private void Guardar_Click(object sender, EventArgs e)
         {
-            Boolean seleccion = false;
-            int idCliente=0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            int idCliente ;
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
             {
-                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
-                if (isSelected)
+                bool isSelected = Convert.ToBoolean(fila.Cells[7].Value);
+                if(isSelected)
                 {
-                    seleccion = true;
-                    idCliente = Convert.ToInt32(row.Cells[1].Value);
-                }
-            }
-            if (seleccion)
-            {
-                Boolean baja=controladorfachada.BajaCliente(idCliente);
-                if(baja)
-                {
-                    MessageBox.Show("Usuario dado de baja con éxito");
+                    idCliente = Convert.ToInt32(fila.Cells[1].Value);
+                    controladorfachada.AltaCliente(idCliente);
+                   
                 }
                 else
                 {
-                    MessageBox.Show("El usuario ya se encontraba dado de baja");
+                    idCliente = Convert.ToInt32(fila.Cells[1].Value);
+                    controladorfachada.BajaCliente(idCliente);
                 }
-
+                
             }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-        }
-
-        private void Alta_Click(object sender, EventArgs e)
-        {
-            Boolean seleccion = false;
-            int idCliente = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
-                if (isSelected)
-                {
-                    seleccion = true;
-                    idCliente = Convert.ToInt32(row.Cells[1].Value);
-                }
-            }
-            if (seleccion)
-            {
-                Boolean alta = controladorfachada.AltaCliente(idCliente);
-                if (alta)
-                {
-                    MessageBox.Show("Usuario dado de alta con éxito");
-                }
-                else
-                {
-                    MessageBox.Show("El usuario ya se encontraba activo");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
+            MessageBox.Show("Clientes guardados correctamente");
+            
         }
     }
 }
