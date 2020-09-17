@@ -49,14 +49,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     seleccion = true;
                     clienteDTO.Id = Convert.ToInt32(row.Cells[1].Value);
                     clienteDTO.Nombre = row.Cells[2].Value.ToString();
-                    clienteDTO.Apellido= row.Cells[3].Value.ToString();
+                    clienteDTO.Apellido = row.Cells[3].Value.ToString();
                     clienteDTO.Direccion = row.Cells[4].Value.ToString();
                     clienteDTO.Telefono = row.Cells[5].Value.ToString();
                     clienteDTO.Email = row.Cells[6].Value.ToString();
                     clienteDTO.Activo = Convert.ToBoolean(row.Cells[7].Value);
                 }
             }
-            if(seleccion)
+            if (seleccion)
             {
                 this.Hide();
                 VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(clienteDTO);
@@ -107,7 +107,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     seleccion = true;
                 }
             }
-            if(seleccion)
+            if (seleccion)
             {
                 MessageBox.Show("No puede agregar con un elemento seleccionado");
             }
@@ -129,29 +129,84 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Close();
         }
 
-      
+
 
         private void Guardar_Click(object sender, EventArgs e)
         {
-            int idCliente ;
+            int idCliente;
             foreach (DataGridViewRow fila in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(fila.Cells[7].Value);
-                if(isSelected)
+                if (isSelected)
                 {
                     idCliente = Convert.ToInt32(fila.Cells[1].Value);
                     controladorfachada.AltaCliente(idCliente);
-                   
+
                 }
                 else
                 {
                     idCliente = Convert.ToInt32(fila.Cells[1].Value);
                     controladorfachada.BajaCliente(idCliente);
                 }
-                
+
             }
             MessageBox.Show("Clientes guardados correctamente");
-            
+
         }
+
+
+        private void buscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Cliente> listaClientes = controladorfachada.ListarClientes();
+            try
+            {
+                var consultaNombre = from cliente in listaClientes where cliente.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select cliente;
+                var consultaApellido = from cliente in listaClientes where cliente.Apellido.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select cliente;
+                var consultaTelefono = from cliente in listaClientes where cliente.Telefono.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select cliente;
+
+                dataGridView1.DataSource = null;
+
+                dataGridView1.Rows.Clear();
+
+
+                List<ClienteDTO> HelpList = new List<ClienteDTO>();
+
+                foreach (var cliente in consultaNombre.Concat(consultaApellido).Concat(consultaTelefono))
+                {
+                    ClienteDTO cli = new ClienteDTO()
+                    {
+                        Nombre = cliente.Nombre,
+                        Apellido = cliente.Apellido,
+                        Direccion = cliente.Direccion,
+                        Telefono = cliente.Telefono,
+                        Email = cliente.Email,
+                        Activo = true
+                    };
+                    HelpList.Add(cli);
+                }
+
+                dataGridView1.DataSource = HelpList;
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = true;
+                dataGridView1.Columns[4].ReadOnly = true;
+                dataGridView1.Columns[5].ReadOnly = true;
+                dataGridView1.Columns[6].ReadOnly = true;
+            }
+
+
+            catch
+            {
+                throw;
+            }
+        }
+                   
+
     }
+
+
+       
+
 }
+    
+

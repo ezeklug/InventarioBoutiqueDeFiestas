@@ -34,6 +34,8 @@
             this.Agregar = new System.Windows.Forms.Button();
             this.Principal = new System.Windows.Forms.Button();
             this.Guardar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // 
             this.Modificar.Location = new System.Drawing.Point(113, 367);
             this.Modificar.Name = "Modificar";
-            this.Modificar.Size = new System.Drawing.Size(72, 32);
+            this.Modificar.Size = new System.Drawing.Size(67, 32);
             this.Modificar.TabIndex = 2;
             this.Modificar.Text = "Modificar";
             this.Modificar.UseVisualStyleBackColor = true;
@@ -68,9 +70,9 @@
             // 
             // Agregar
             // 
-            this.Agregar.Location = new System.Drawing.Point(12, 367);
+            this.Agregar.Location = new System.Drawing.Point(24, 367);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(78, 32);
+            this.Agregar.Size = new System.Drawing.Size(69, 32);
             this.Agregar.TabIndex = 5;
             this.Agregar.Text = "Agregar";
             this.Agregar.UseVisualStyleBackColor = true;
@@ -96,11 +98,30 @@
             this.Guardar.UseVisualStyleBackColor = true;
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(672, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Buscar:";
+            // 
+            // buscar
+            // 
+            this.buscar.Location = new System.Drawing.Point(732, 49);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(118, 20);
+            this.buscar.TabIndex = 10;
+            this.buscar.TextChanged += new System.EventHandler(this.buscar_TextChanged);
+            // 
             // VControlClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.buscar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Guardar);
             this.Controls.Add(this.Principal);
             this.Controls.Add(this.Agregar);
@@ -124,5 +145,7 @@
         private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.Button Guardar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox buscar;
     }
 }
