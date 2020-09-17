@@ -198,11 +198,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
         public string GetNombreCategoria(int pIdProducto)
         {
-            throw new NotImplementedException();
-           /* using (Repositorio repo=new Repositorio())
-            {
-               ;
-            }*/
+
+             using (Repositorio repo=new Repositorio())
+             {
+                return repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First().Categoria.Nombre;
+             }
         }
     }
 }
