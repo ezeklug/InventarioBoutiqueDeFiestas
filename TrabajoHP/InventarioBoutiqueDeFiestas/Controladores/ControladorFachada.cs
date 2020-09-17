@@ -230,7 +230,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorProducto.GetNombreCategoria(pIdProducto);
         }
-        public List<ProductoDTO> ListarProductos(List<int> pIdProductos)
+        public List<ProductoIngresarMercaderiaDTO> ListarProductos(List<int> pIdProductos)
         {
             return controladorProducto.ListarProductos(pIdProductos);
         }

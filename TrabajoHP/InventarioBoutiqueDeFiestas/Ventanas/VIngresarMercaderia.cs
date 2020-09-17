@@ -45,15 +45,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VIngresarMercaderia_Load(object sender, EventArgs e)
         {
-            DataGridTextBoxColumn Producto = new DataGridTextBoxColumn();
-            Producto.HeaderText = "Producto";
             dataGridView1.DataSource = controladorFachada.ListarProductos(Productos);
-            dataGridView1.Columns[1].ReadOnly = true;
-            dataGridView1.Columns[2].ReadOnly = true;
+            dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
-            dataGridView1.Columns[4].ReadOnly = true;
-            dataGridView1.Columns[5].ReadOnly = true;
-            dataGridView1.Columns[6].ReadOnly = true;
         }
 
         private void Principal_Click(object sender, EventArgs e)
