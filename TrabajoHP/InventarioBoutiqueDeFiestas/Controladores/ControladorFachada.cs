@@ -212,6 +212,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorCliente.ListarClientes();
         }
 
-
+        public double CalcularSubtotal(double pCantidad, double pPrecioUnitario, double pPorcentajeDescuento)
+        {
+            return (pCantidad * pPrecioUnitario) * (1 - pPorcentajeDescuento);
+        }
+        public double PrecioVenta(List<double> subtotales, double pPorcentajeDescuento)
+        {
+            return 0;
+        }
     }
 }
