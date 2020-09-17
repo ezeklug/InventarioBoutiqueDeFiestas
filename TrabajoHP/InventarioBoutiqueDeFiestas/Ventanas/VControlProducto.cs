@@ -14,37 +14,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VControlProducto : Form
     {
         ControladorFachada controladorfachada = new ControladorFachada();
+        List<int> Productos { get; set; }
         public VControlProducto()
         {
             InitializeComponent();
+            Productos = new List<int>();
+        }
+        public VControlProducto(List<int> productos)
+        {
+            InitializeComponent();
+            Productos = productos;
         }
 
-    /*    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var columnIndex = 0;
-            if (e.ColumnIndex == columnIndex)
-            {
-                var isChecked = false;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (Convert.ToBoolean(row.Cells[e.ColumnIndex].Value))
-                    {
-                        isChecked = true;
-                    }
-                }
-                if (isChecked)
-                {
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        if (row.Index != e.RowIndex)
-                        {
-                            row.Cells[columnIndex].Value = !isChecked;
-                        }
-                    }
-                }
-            }
-        }*/
-
+  
         private void Agregar_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
@@ -115,7 +97,24 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void IngresoMercaderia_Click(object sender, EventArgs e)
         {
-
+            Boolean seleccion = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                    int idProducto = Convert.ToInt32(row.Cells[1].Value);
+                    Productos.Add(idProducto);
+                }
+            }
+            if (seleccion)
+            {
+                this.Hide();
+                VIngresarMercaderia vIngresarMercaderia = new VIngresarMercaderia(Productos);
+                vIngresarMercaderia.ShowDialog();
+                this.Close();
+            }
         }
 
         private void Principal_Click(object sender, EventArgs e)
