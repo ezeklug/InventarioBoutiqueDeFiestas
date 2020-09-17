@@ -1,4 +1,5 @@
 ﻿using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VAdministrarPresupuesto : Form
     {
         int IdCliente { get; set; }
+        List<int> IdProductos { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
             InitializeComponent();
+
+        }
+        public VAdministrarPresupuesto(List<int> idProductos)
+        {
+            InitializeComponent();
+            IdProductos = idProductos;
         }
         public VAdministrarPresupuesto(int pIdCliente)
         {
@@ -52,18 +60,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value = (Convert.ToInt32(row.Cells[2].Value) * Convert.ToInt32(row.Cells[3].Value));
+                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value));
             }
         }
 
         private double PrecioVenta()
         {
-            double precioVenta = 0;
+            List<double> subtotales = new List<double>();
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-               precioVenta+=Convert.ToDouble(row.Cells[5].Value)*(1+(Convert.ToDouble(row.Cells[4].Value)/100));
+                subtotales.Add(Convert.ToDouble(row.Cells[5].Value));
             }
-            return precioVenta;
+            return controladorFachada.PrecioVenta(subtotales,Convert.ToDouble(DescuentoTotal.Text));
         }
         private void Principal_Click(object sender, EventArgs e)
         {
@@ -73,10 +81,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
@@ -85,5 +89,25 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
+
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            CalcularSubtotal();
+            Total.Text = PrecioVenta().ToString();
+        }
+
+        private void DescuentoTotal_TextChanged(object sender, EventArgs e)
+        {
+            Total.Text=PrecioVenta().ToString();
+        }
+
+        private void CargarProductos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto();
+            vControlProductosPresupuesto.ShowDialog();
+            this.Close();
+        }
+
     }
 }
