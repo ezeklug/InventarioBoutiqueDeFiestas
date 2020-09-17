@@ -103,7 +103,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto();
+            vControlProductosPresupuesto.ShowDialog();
+            this.Close();
         }
+
     }
 }

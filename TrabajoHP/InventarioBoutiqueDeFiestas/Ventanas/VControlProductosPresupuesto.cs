@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventarioBoutiqueDeFiestas.Controladores;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VControlProductosPresupuesto : Form
     {
+        ControladorFachada controladorFachada = new ControladorFachada();
         public VControlProductosPresupuesto()
         {
             InitializeComponent();
@@ -52,6 +54,22 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void VControlProductosPresupuesto_Load(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+            dgvCmb.ValueType = typeof(bool);
+            dgvCmb.Name = "Cb";
+            dgvCmb.HeaderText = "";
+            dataGridView1.Columns.Add(dgvCmb);
+            dataGridView1.DataSource = controladorfachada.ListarClientes();
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[2].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[4].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            dataGridView1.Columns[6].ReadOnly = true;
         }
     }
 }

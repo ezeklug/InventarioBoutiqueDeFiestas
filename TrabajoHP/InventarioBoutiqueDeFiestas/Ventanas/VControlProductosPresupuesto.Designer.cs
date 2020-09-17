@@ -86,6 +86,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VControlProductosPresupuesto";
             this.Text = "VControlProductosPresupuesto";
+            this.Load += new System.EventHandler(this.VControlProductosPresupuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
