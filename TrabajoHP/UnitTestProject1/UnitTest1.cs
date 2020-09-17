@@ -179,7 +179,7 @@ namespace UnitTestProject1
 
 
 
-       [TestMethod]
+      // [TestMethod]
         public void generarPDFHTML()
         {
             ControladorProducto cont = new ControladorProducto();
@@ -187,10 +187,10 @@ namespace UnitTestProject1
             string doc = File.ReadAllText("C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/List.html");
             string lista = "";
 
-            string headers = "<tr> <th>Id</th> <th>Nombre</th> <th>Cantidad en stock</th> <th>Stock Minimo</th> <th>Check</th> </tr>";
+            string headers = "<tr> <th>Id</th> <th>Nombre</th> <th>Cantidad en stock</th> <th>Stock Minimo</th>  <th>Check</th> </tr>";
             foreach (var pro in pros)
             {
-                lista += $"<tr><td>{pro.Id}</td><td>{pro.Nombre}</td><td>{pro.CantidadEnStock}</td> <td>{pro.StockMinimo}</td> <td></td> </tr>\n";
+                lista += $"<tr><td>{pro.Id}</td><td>{pro.Nombre}</td><td>{pro.CantidadEnStock}</td> <td>{pro.StockMinimo}</td>  <td></td> </tr>\n";
             }
             doc = doc.Replace("[]", headers);
             doc = doc.Replace("{}", lista);
@@ -202,51 +202,17 @@ namespace UnitTestProject1
 
         }
 
-        //[TestMethod]
-        public void generarPDFDataGrid() {
-            DataGridView dataGridView1 = new DataGridView();
-            var cont = new ControladorFachada();
-
-            var source = new BindingSource();
-            var list = cont.ListarClientes();
-            
-            source.DataSource = list;
-            dataGridView1.DataSource = source;
-
-   
-            DataTable dtData = new DataTable();
-    
-            PdfPTable pdfTable = new PdfPTable(dataGridView1.Columns.Count);
-            pdfTable.DefaultCell.Padding = 3;
-            pdfTable.WidthPercentage = 100;
-            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-            {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-                pdfTable.AddCell(cell);
-            }
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    pdfTable.AddCell(cell.Value.ToString());
-                }
-            }
-
-            using (FileStream stream = new FileStream("lista_test.pdf", FileMode.Create))
-            {
-                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
-                PdfWriter.GetInstance(pdfDoc, stream);
-                pdfDoc.Open();
-                pdfDoc.Add(pdfTable);
-                pdfDoc.Close();
-                stream.Close();
-            }
-
-
+        [TestMethod]
+        public void TestGenPdfPresupuesto() {
+            var repo = new Repositorio();
+            GenPdf.PDFPresupuesto(repo.Presupuestos.Find(1));
         }
+
+        //[TestMethod]
+        public void TestGenPdf() {
+            var cont = new ControladorFachada();
+            GenPdf.PDFProductos(cont.ListarTodosLosProductos());
+        }        
 
     }
 }
