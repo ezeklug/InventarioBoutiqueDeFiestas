@@ -180,7 +180,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         Direccion = cliente.Direccion,
                         Telefono = cliente.Telefono,
                         Email = cliente.Email,
-                        Activo = true
+                        Activo = cliente.Activo
                     };
                     HelpList.Add(cli);
                 }
