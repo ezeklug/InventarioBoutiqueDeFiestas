@@ -25,6 +25,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             ProductoDTO = pProductoDTO;
             InitializeComponent();
+            Nombre.Text = pProductoDTO.Nombre;
+            Descripcion.Text = pProductoDTO.Descripcion;
+            StockMinimo.Text = pProductoDTO.StockMinimo.ToString();
+            CantidadEnStock.Text = pProductoDTO.CantidadEnStock.ToString();
+            PorcentajeDeGanancia.Text = pProductoDTO.PorcentajeDeGanancia.ToString();
+            Categoria.Text = controladorfachada.GetNombreCategoria(pProductoDTO.Id);
+
         }
 
         private void Principal_Click(object sender, EventArgs e)
@@ -70,5 +77,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
 
         }
+
     }
 }

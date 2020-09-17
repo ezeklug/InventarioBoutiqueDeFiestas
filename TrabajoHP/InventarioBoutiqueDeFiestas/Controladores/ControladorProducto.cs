@@ -196,5 +196,31 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
             }
         }
+        public string GetNombreCategoria(int pIdProducto)
+        {
+
+             using (Repositorio repo=new Repositorio())
+             {
+                return repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First().Categoria.Nombre;
+             }
+        }
+        public List<ProductoIngresarMercaderiaDTO> ListarProductos(List<int> pIdProductos)
+        {
+            List<ProductoIngresarMercaderiaDTO> ADevolver = new List<ProductoIngresarMercaderiaDTO>();
+            using (Repositorio repo = new Repositorio())
+            {
+                foreach(int pIdProducto in pIdProductos)
+                {
+                    Producto pProducto =repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First();
+                    ProductoIngresarMercaderiaDTO productoDTO = new ProductoIngresarMercaderiaDTO();
+                    productoDTO.Nombre = pProducto.Nombre;
+                    CategoriaProductoDTO categoria=new CategoriaProductoDTO();
+                    categoria.Vence = pProducto.Categoria.Vence;
+                    //productoDTO.FechaVencimiento =;
+                    ADevolver.Add(productoDTO);
+                }
+                return ADevolver;
+            }
+        }
     }
 }

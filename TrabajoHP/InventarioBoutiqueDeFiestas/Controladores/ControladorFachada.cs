@@ -225,5 +225,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
             return precioVenta*(1-pPorcentajeDescuento);
         }
+
+        public string GetNombreCategoria(int pIdProducto)
+        {
+            return controladorProducto.GetNombreCategoria(pIdProducto);
+        }
+        public List<ProductoIngresarMercaderiaDTO> ListarProductos(List<int> pIdProductos)
+        {
+            return controladorProducto.ListarProductos(pIdProductos);
+        }
     }
 }

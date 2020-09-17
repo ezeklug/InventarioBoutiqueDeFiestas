@@ -73,5 +73,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.Close();
             }
         }
+
     }
 }
