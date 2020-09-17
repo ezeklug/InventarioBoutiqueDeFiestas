@@ -121,7 +121,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="List.html" />
+    <Content Include="TemplatePresupuesto.html" />
+    <Content Include="TemplateProductos.html" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
