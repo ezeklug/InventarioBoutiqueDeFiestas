@@ -238,7 +238,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using(var repo=new Repositorio())
             {
-                return repo.Presupuestos.ToList();
+                return repo.Presupuestos.Include("Cliente").ToList();
             }
         }
         /// <summary>

@@ -110,7 +110,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                return repo.Productos.ToList<Producto>();
+                return repo.Productos.Include("Categoria").ToList<Producto>();
             }
         }
         /// <summary>
