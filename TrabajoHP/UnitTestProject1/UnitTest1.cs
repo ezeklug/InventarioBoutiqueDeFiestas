@@ -139,7 +139,7 @@ namespace UnitTestProject1
             }
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void TestListarTodosLosProductos()
         {
             ControladorProducto cont = new ControladorProducto();
@@ -147,10 +147,22 @@ namespace UnitTestProject1
             foreach (Producto pro in Productos)
             {
                 Console.WriteLine(pro.Id);
+                Console.WriteLine(pro.Categoria.Id);
+                Console.WriteLine(pro.Nombre);
+            }
+        }
+        //[TestMethod]
+        public void TestListarTodosLosPresupuestos()
+        {
+            ControladorPresupuesto cont = new ControladorPresupuesto();
+            var Presupuestos = cont.ListarPresupuesto();
+            foreach (Presupuesto pro in Presupuestos)
+            {
+                Console.WriteLine(pro.Cliente.Id);
             }
         }
 
-       // [TestMethod]
+        // [TestMethod]
         public void TestAgregarPresupuesto()
         {
             PresupuestoDTO pres = new PresupuestoDTO();
@@ -179,7 +191,7 @@ namespace UnitTestProject1
 
 
 
-       [TestMethod]
+       //[TestMethod]
         public void generarPDFHTML()
         {
             ControladorProducto cont = new ControladorProducto();
@@ -248,5 +260,6 @@ namespace UnitTestProject1
 
         }
 
+        
     }
 }

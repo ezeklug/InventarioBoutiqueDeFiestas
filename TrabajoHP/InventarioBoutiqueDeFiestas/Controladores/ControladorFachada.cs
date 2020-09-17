@@ -218,7 +218,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
         public double PrecioVenta(List<double> subtotales, double pPorcentajeDescuento)
         {
-            return 0;
+            double precioVenta = 0;
+            foreach (double subtotal in subtotales)
+            {
+                precioVenta += subtotal;
+            }
+            return precioVenta*(1-pPorcentajeDescuento);
         }
     }
 }
