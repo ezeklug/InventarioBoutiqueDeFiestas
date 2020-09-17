@@ -105,7 +105,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     seleccion = true;
                     int idProducto = Convert.ToInt32(row.Cells[1].Value);
-                    Productos.Add(idProducto);
+                    if (!Productos.Exists(p=>p==idProducto))
+                    {
+                        Productos.Add(idProducto);
+                    }
                 }
             }
             if (seleccion)
@@ -114,6 +117,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 VIngresarMercaderia vIngresarMercaderia = new VIngresarMercaderia(Productos);
                 vIngresarMercaderia.ShowDialog();
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar al menos un producto");
             }
         }
 

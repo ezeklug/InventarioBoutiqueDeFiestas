@@ -204,5 +204,23 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 return repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First().Categoria.Nombre;
              }
         }
+        public List<ProductoDTO> ListarProductos(List<int> pIdProductos)
+        {
+            List<ProductoDTO> ADevolver = new List<ProductoDTO>();
+            using (Repositorio repo = new Repositorio())
+            {
+                foreach(int pIdProducto in pIdProductos)
+                {
+                    Producto pProducto =repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First();
+                    ProductoDTO productoDTO = new ProductoDTO();
+                    productoDTO.Nombre = pProducto.Nombre;
+                    CategoriaProductoDTO categoria=new CategoriaProductoDTO();
+                    categoria.Vence = pProducto.Categoria.Vence;
+                    productoDTO.CategoriaProductoDTO = categoria;
+                    ADevolver.Add(productoDTO);
+                }
+                return ADevolver;
+            }
+        }
     }
 }

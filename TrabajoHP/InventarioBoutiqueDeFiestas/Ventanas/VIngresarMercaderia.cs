@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventarioBoutiqueDeFiestas.Controladores;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VIngresarMercaderia : Form
     {
+        ControladorFachada controladorFachada = new ControladorFachada();
         List<int> Productos { get; set; }
-        public VIngresarMercaderia()
-        {
-            InitializeComponent();
-        }
+
         public VIngresarMercaderia(List<int> productos)
         {
             InitializeComponent();
@@ -46,7 +45,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VIngresarMercaderia_Load(object sender, EventArgs e)
         {
-
+            DataGridTextBoxColumn Producto = new DataGridTextBoxColumn();
+            Producto.HeaderText = "Producto";
+            dataGridView1.DataSource = controladorFachada.ListarProductos(Productos);
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[2].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[4].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            dataGridView1.Columns[6].ReadOnly = true;
         }
 
         private void Principal_Click(object sender, EventArgs e)
