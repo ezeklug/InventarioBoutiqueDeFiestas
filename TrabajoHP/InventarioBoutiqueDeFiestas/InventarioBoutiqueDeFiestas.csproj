@@ -213,6 +213,12 @@
     <Compile Include="Ventanas\VControlProducto.Designer.cs">
       <DependentUpon>VControlProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VControlProductosPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VControlProductosPresupuesto.Designer.cs">
+      <DependentUpon>VControlProductosPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

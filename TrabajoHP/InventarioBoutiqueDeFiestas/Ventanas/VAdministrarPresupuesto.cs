@@ -73,10 +73,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
@@ -84,6 +80,22 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto();
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
+        }
+
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            CalcularSubtotal();
+            Total.Text = PrecioVenta().ToString();
+        }
+
+        private void DescuentoTotal_TextChanged(object sender, EventArgs e)
+        {
+            Total.Text=PrecioVenta().ToString();
+        }
+
+        private void CargarProductos_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
