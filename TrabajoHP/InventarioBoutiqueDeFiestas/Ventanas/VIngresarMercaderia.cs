@@ -46,8 +46,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void VIngresarMercaderia_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = controladorFachada.ListarProductos(Productos);
+            dataGridView1.Columns[3].HeaderText = "Fecha de Vencimiento dd/mm/aaaa";
+            dataGridView1.Columns[2].HeaderText = "Precio de Compra";
             dataGridView1.Columns[0].ReadOnly = true;
-            dataGridView1.Columns[3].ReadOnly = true;
         }
 
         private void Principal_Click(object sender, EventArgs e)
