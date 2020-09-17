@@ -139,7 +139,7 @@ namespace UnitTestProject1
             }
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void TestListarTodosLosProductos()
         {
             ControladorProducto cont = new ControladorProducto();
@@ -151,14 +151,14 @@ namespace UnitTestProject1
                 Console.WriteLine(pro.Nombre);
             }
         }
-        //[TestMethod]
+        [TestMethod]
         public void TestListarTodosLosPresupuestos()
         {
             ControladorPresupuesto cont = new ControladorPresupuesto();
             var Presupuestos = cont.ListarPresupuesto();
             foreach (Presupuesto pro in Presupuestos)
             {
-                Console.WriteLine(pro.Cliente.Id);
+                Console.WriteLine(pro.Cliente);
             }
         }
 

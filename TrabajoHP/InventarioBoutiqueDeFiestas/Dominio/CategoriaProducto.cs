@@ -20,6 +20,11 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Vence = pVence;
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
         public CategoriaProducto() { }
     }
 }

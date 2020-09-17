@@ -27,6 +27,11 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Activo = true;
         }
 
+        public override string ToString()
+        {
+            return Nombre+ " " + Apellido;
+        }
+
         public Cliente() { }
     }
 }
