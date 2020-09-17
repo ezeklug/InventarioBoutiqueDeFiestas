@@ -19,7 +19,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    /*    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var columnIndex = 0;
             if (e.ColumnIndex == columnIndex)
@@ -43,7 +43,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     }
                 }
             }
-        }
+        }*/
 
         private void Agregar_Click(object sender, EventArgs e)
         {
@@ -72,34 +72,44 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Modificar_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
+            int cont = 0;
+            DataGridViewRow row1 = new DataGridViewRow();
             ProductoDTO productoDTO = new ProductoDTO();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
                 if (isSelected)
                 {
-                    seleccion = true;
-                    productoDTO.Id = Convert.ToInt32(row.Cells[1].Value);
-                    productoDTO.Nombre = row.Cells[2].Value.ToString();
-                    productoDTO.Descripcion = row.Cells[3].Value.ToString();
-                    productoDTO.StockMinimo = Convert.ToInt32(row.Cells[4].Value);
-                    productoDTO.CantidadEnStock = Convert.ToInt32(row.Cells[5].Value);
-                    productoDTO.PorcentajeDeGanancia = Convert.ToDouble(row.Cells[6].Value);
-                    productoDTO.PrecioDeCompra = Convert.ToDouble(row.Cells[7].Value);
-                    productoDTO.IdCategoria = Convert.ToInt32(row.Cells[8].Value);
-                    productoDTO.Activo = Convert.ToBoolean(row.Cells[9].Value);
+                    cont++;
+                    row1 = row;
                 }
             }
-            if (seleccion)
+            if (cont==1)
             {
+                productoDTO.Id = Convert.ToInt32(row1.Cells[1].Value);
+                productoDTO.Nombre = row1.Cells[2].Value.ToString();
+                productoDTO.Descripcion = row1.Cells[3].Value.ToString();
+                productoDTO.StockMinimo = Convert.ToInt32(row1.Cells[4].Value);
+                productoDTO.CantidadEnStock = Convert.ToInt32(row1.Cells[5].Value);
+                productoDTO.PorcentajeDeGanancia = Convert.ToDouble(row1.Cells[6].Value);
+                productoDTO.PrecioDeCompra = Convert.ToDouble(row1.Cells[7].Value);
+                productoDTO.Activo = Convert.ToBoolean(row1.Cells[9].Value);
                 this.Hide();
                 VAgregarModificarProducto vAgregarModificarProducto = new VAgregarModificarProducto(productoDTO);
                 vAgregarModificarProducto.ShowDialog();
                 this.Close();
             }
+            else if (cont>1)
+            {
+                MessageBox.Show("Seleccione solo un producto");
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    row.Cells["Cb"].Value = false;
+                }
+            }
             else
             {
-                MessageBox.Show("Debe seleccionar un cliente");
+                MessageBox.Show("Debe seleccionar un producto");
             }
         }
 
