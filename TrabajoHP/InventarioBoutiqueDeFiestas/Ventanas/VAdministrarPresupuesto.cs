@@ -52,18 +52,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value = (Convert.ToInt32(row.Cells[2].Value) * Convert.ToInt32(row.Cells[3].Value));
+                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[3].Value));
             }
         }
 
         private double PrecioVenta()
         {
-            double precioVenta = 0;
+            List<double> subtotales = new List<double>();
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-               precioVenta+=Convert.ToDouble(row.Cells[5].Value)*(1+(Convert.ToDouble(row.Cells[4].Value)/100));
+                subtotales.Add(Convert.ToDouble(row.Cells[5].Value));
             }
-            return precioVenta;
+            return controladorFachada.PrecioVenta(subtotales,Convert.ToDouble(DescuentoTotal.Text));
         }
         private void Principal_Click(object sender, EventArgs e)
         {
