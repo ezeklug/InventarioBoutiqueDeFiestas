@@ -239,5 +239,20 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorProducto.ListarProductosPresupuesto(pIdProductos);
         }
+
+        public ProductoDTO BuscarProducto(int pIDProducto)
+        {
+            return controladorProducto.BuscarProducto(pIDProducto);
+        }
+
+        public Boolean VerificarSiCategoriaVence(int pIdProducto)
+        {
+            return controladorProducto.VerificarSiCategoriaVence(pIdProducto);
+        }
+
+        public void GuardarLote(LoteDTO pLoteDTO)
+        {
+            controladorProducto.GuardarLote(pLoteDTO);
+        }
     }
 }

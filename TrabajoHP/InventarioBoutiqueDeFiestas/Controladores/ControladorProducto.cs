@@ -49,7 +49,36 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pro.Categoria = cat;
             return pro;
         }
-    
+
+        /// <summary>
+        /// Convierte un Producto a ProductoDTO
+        /// </summary>
+        /// <param name="pProducto"></param>
+        /// <returns></returns>
+        public ProductoDTO ProductoADTO(Producto pProducto)
+        {
+            ProductoDTO pro = new ProductoDTO();
+            Repositorio repo = new Repositorio();
+
+            pro.Id = pProducto.Id;
+            pro.Nombre = pProducto.Nombre;
+            pro.Descripcion = pProducto.Descripcion;
+            pro.StockMinimo = pProducto.StockMinimo;
+            pro.CantidadEnStock = pProducto.CantidadEnStock;
+            pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
+            pro.PrecioDeCompra = pProducto.PrecioDeCompra;
+            pro.Activo = pProducto.Activo;
+
+            CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.Categoria);
+            if (cat == null)
+            {
+                throw new Exception("Id " + pProducto.Categoria + " no existe en Categoria");
+            }
+
+            pro.IdCategoria = cat.Id;
+            return pro;
+        }
+
 
         /// <summary>
         /// Este método permite agregar o modificar un producto a la base de datos, pasando como parámetro un ProductoDTO
@@ -172,7 +201,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (Repositorio repo=new Repositorio())
             {
-                Lote lote = new Lote(pLoteDTO.CantidadAIngresar, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
+                Lote lote = new Lote(pLoteDTO.CantidadProductos, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
             }
         }
         /// <summary>
@@ -240,5 +269,28 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 return ADevolver;
             }
         }
+
+        public ProductoDTO BuscarProducto(int pProducto)
+        {
+            using (var repo = new Repositorio())
+            {
+                Producto pro = repo.Productos.Find(pProducto);
+                return (ProductoADTO(pro));
+            }
+        }
+
+        public Boolean VerificarSiCategoriaVence(int pProducto)
+        {
+            using (var repo = new Repositorio())
+            {
+                Producto pro = repo.Productos.Find(pProducto);
+                return pro.Categoria.Vence;
+            }
+        }
+
+        
+
+
+
     }
 }
