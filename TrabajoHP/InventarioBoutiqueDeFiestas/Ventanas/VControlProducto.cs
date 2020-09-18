@@ -53,7 +53,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Modificar_Click(object sender, EventArgs e)
         {
-            Boolean seleccion = false;
             int cont = 0;
             DataGridViewRow row1 = new DataGridViewRow();
             ProductoDTO productoDTO = new ProductoDTO();

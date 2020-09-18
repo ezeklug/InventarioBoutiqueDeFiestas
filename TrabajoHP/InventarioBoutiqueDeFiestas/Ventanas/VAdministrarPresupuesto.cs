@@ -21,16 +21,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             InitializeComponent();
             IdProductos = new List<int>();
+            IdCliente = 0;
 
         }
-        public VAdministrarPresupuesto(List<int> idProductos)
-        {
-            InitializeComponent();
-            IdProductos = idProductos;
-        }
-        public VAdministrarPresupuesto(int pIdCliente)
+        public VAdministrarPresupuesto(int pIdCliente,List<int> idProductos)
         {
             IdCliente = pIdCliente;
+            IdProductos = idProductos;
             InitializeComponent();
         }
 
@@ -79,7 +76,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto();
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -98,7 +95,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdProductos);
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente,IdProductos);
             vControlProductosPresupuesto.ShowDialog();
             this.Close();
         }
