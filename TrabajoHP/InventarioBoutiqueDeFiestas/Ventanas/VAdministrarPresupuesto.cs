@@ -54,23 +54,25 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             else
             {
-                dataGridView1.DataSource = Filas.DataSource;
-                List<ProductoPresupuestoDTO> lista=controladorFachada.ListarProductosPresupuesto(IdProductos);
+                List<ProductoPresupuestoDTO> lista = controladorFachada.ListarProductosPresupuesto(IdProductos);
                 foreach (ProductoPresupuestoDTO p in lista)
                 {
-                    DataTable dt2 = new DataTable();
-                    dt2 = dataGridView1.DataSource as DataTable;
-                    DataRow datarow;
-                    datarow = dt2.NewRow(); 
-                    datarow["Id"] =p.Id;
-                    datarow["Nombre"] = p.Nombre;
-                    datarow["Cantidad"] = p.Cantidad;
-                    datarow["PrecioUnitario"] = p.PrecioUnitario;
-                    datarow["PorcentajeDescuento"] = p.PorcentajeDescuento;
-                    datarow["Subtotal"] = p.Subtotal;
-                    //Esto se encargará de agregar la fila.
-                    dt2.Rows.Add(datarow);
+                      DataTable dt2 = new DataTable();
+                      dt2 = dataGridView1.DataSource as DataTable;
+                      DataRow datarow;
+                      datarow = dt2.NewRow(); 
+                      datarow["Id"] =p.Id;
+                      datarow["Nombre"] = p.Nombre;
+                      datarow["Cantidad"] = p.Cantidad;
+                      datarow["PrecioUnitario"] = p.PrecioUnitario;
+                      datarow["PorcentajeDescuento"] = p.PorcentajeDescuento;
+                      datarow["Subtotal"] = p.Subtotal;
+                      //Esto se encargará de agregar la fila.
+                      dt2.Rows.Add(datarow);
                 }
+                dataGridView1.DataSource = Filas.DataSource;
+
+                
             }
 
         }
