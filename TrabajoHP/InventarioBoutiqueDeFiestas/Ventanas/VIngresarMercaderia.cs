@@ -49,7 +49,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VIngresarMercaderia_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = controladorFachada.ListarProductos(Productos);
+            dataGridView1.DataSource = controladorFachada.ListarProductosIngresoMercaderia(Productos);
             dataGridView1.Columns[4].HeaderText = "Fecha de Vencimiento dd/mm/aaaa";
             dataGridView1.Columns[3].HeaderText = "Precio de Compra";
             dataGridView1.Columns[0].ReadOnly = true;

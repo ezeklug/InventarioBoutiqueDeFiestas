@@ -20,6 +20,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         public VAdministrarPresupuesto()
         {
             InitializeComponent();
+            IdProductos = new List<int>();
 
         }
         public VAdministrarPresupuesto(List<int> idProductos)
@@ -35,14 +36,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
-            dataGridView1.AllowUserToAddRows = true;
-            dataGridView1.ColumnCount = 6;
-            dataGridView1.Columns[0].Name = "Id";
-            dataGridView1.Columns[1].Name = "Nombre";
-            dataGridView1.Columns[2].Name = "Cantidad";
-            dataGridView1.Columns[3].Name = "Precio Unitario";
-            dataGridView1.Columns[4].Name = "Porcentaje Descuento";
-            dataGridView1.Columns[5].Name = "Subtotal";
+            dataGridView1.DataSource = controladorFachada.ListarProductosPresupuesto(IdProductos);
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
@@ -104,7 +98,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdProductos);
             vControlProductosPresupuesto.ShowDialog();
             this.Close();
         }
