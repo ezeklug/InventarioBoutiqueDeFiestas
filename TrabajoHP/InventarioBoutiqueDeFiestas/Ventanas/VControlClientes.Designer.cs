@@ -51,7 +51,10 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 80);
@@ -62,6 +65,7 @@
             // 
             // Modificar
             // 
+            this.Modificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Modificar.Location = new System.Drawing.Point(113, 367);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(67, 32);
@@ -72,6 +76,7 @@
             // 
             // Agregar
             // 
+            this.Agregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Agregar.Location = new System.Drawing.Point(24, 367);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(69, 32);
@@ -92,6 +97,7 @@
             // 
             // Guardar
             // 
+            this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Guardar.Location = new System.Drawing.Point(775, 367);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 32);
@@ -102,6 +108,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(672, 52);
             this.label2.Name = "label2";
@@ -111,6 +118,7 @@
             // 
             // buscar
             // 
+            this.buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buscar.Location = new System.Drawing.Point(732, 49);
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(118, 20);
