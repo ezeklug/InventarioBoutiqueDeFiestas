@@ -36,7 +36,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
-            Cliente.Text = "CONTROLADOR";
             dataGridView1.DataSource = controladorFachada.ListarProductosPresupuesto(IdProductos);
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
