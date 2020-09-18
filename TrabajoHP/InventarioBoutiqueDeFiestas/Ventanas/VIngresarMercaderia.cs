@@ -25,10 +25,25 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Listo_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in dataGridView1.Rows)
+            List<ProductoDTO> ListaProductoDTO = new List<ProductoDTO>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                
+                ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[1].Value)));
+                unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
+                unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
+                if (!(row.Cells[4].Value == null))
+                {
+                    LoteDTO unLote = new LoteDTO();
+                    unLote.CantidadProductos = Convert.ToInt32(row.Cells[2].Value);
+                    unLote.FechaCompra = DateTime.Now; // ARREGLAME
+                    unLote.FechaVencimiento = Convert.ToDateTime(row.Cells[4].Value);
+                    unLote.Vencido = false;
+                    unLote.IdProducto = unProducto.Id;
+                    controladorFachada.GuardarLote(unLote);
+                }
             }
+            
+
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
@@ -54,6 +69,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[3].HeaderText = "Precio de Compra";
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row.Cells[0].Value)))
+                {
+                    dataGridView1.Columns[4].ReadOnly = true;
+                }
+            }
         }
 
         private void Principal_Click(object sender, EventArgs e)
