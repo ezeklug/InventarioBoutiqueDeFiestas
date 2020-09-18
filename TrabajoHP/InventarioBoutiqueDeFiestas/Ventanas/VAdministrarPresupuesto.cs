@@ -17,12 +17,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdCliente { get; set; }
         List<int> IdProductos { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
+       
         public VAdministrarPresupuesto()
         {
             InitializeComponent();
             IdProductos = new List<int>();
             IdCliente = 0;
-
+            dataGridView1.AllowUserToResizeColumns = true;
         }
         public VAdministrarPresupuesto(int pIdCliente,List<int> idProductos)
         {
@@ -100,5 +101,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Close();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
