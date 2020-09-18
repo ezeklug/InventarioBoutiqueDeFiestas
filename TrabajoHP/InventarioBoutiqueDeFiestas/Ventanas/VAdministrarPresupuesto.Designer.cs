@@ -118,6 +118,7 @@
             this.DescuentoTotal.Name = "DescuentoTotal";
             this.DescuentoTotal.Size = new System.Drawing.Size(34, 20);
             this.DescuentoTotal.TabIndex = 19;
+            this.DescuentoTotal.Text = "0";
             this.DescuentoTotal.TextChanged += new System.EventHandler(this.DescuentoTotal_TextChanged);
             // 
             // label4

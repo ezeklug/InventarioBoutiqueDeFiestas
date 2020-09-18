@@ -187,6 +187,7 @@
     <Compile Include="DTO\PresupuestoDTO.cs" />
     <Compile Include="DTO\ProductoDTO.cs" />
     <Compile Include="DTO\ProductoIngresarMercaderiaDTO.cs" />
+    <Compile Include="DTO\ProductoPresupuestoDTO.cs" />
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />

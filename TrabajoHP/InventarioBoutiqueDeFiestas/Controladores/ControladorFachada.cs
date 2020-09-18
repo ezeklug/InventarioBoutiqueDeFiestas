@@ -214,7 +214,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         public double CalcularSubtotal(double pCantidad, double pPrecioUnitario, double pPorcentajeDescuento)
         {
-            return (pCantidad * pPrecioUnitario) * (1 - pPorcentajeDescuento);
+            return (pCantidad * pPrecioUnitario) * (1 - pPorcentajeDescuento/100);
         }
         public double PrecioVenta(List<double> subtotales, double pPorcentajeDescuento)
         {
@@ -223,16 +223,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 precioVenta += subtotal;
             }
-            return precioVenta*(1-pPorcentajeDescuento);
+            return precioVenta*(1-pPorcentajeDescuento/100);
         }
 
         public string GetNombreCategoria(int pIdProducto)
         {
             return controladorProducto.GetNombreCategoria(pIdProducto);
         }
-        public List<ProductoIngresarMercaderiaDTO> ListarProductos(List<int> pIdProductos)
+        public List<ProductoIngresarMercaderiaDTO> ListarProductosIngresoMercaderia(List<int> pIdProductos)
         {
-            return controladorProducto.ListarProductos(pIdProductos);
+            return controladorProducto.ListarProductosIngresoMercaderia(pIdProductos);
+        }
+
+        public List<ProductoPresupuestoDTO> ListarProductosPresupuesto(List<int> pIdProductos)
+        {
+            return controladorProducto.ListarProductosPresupuesto(pIdProductos);
         }
     }
 }

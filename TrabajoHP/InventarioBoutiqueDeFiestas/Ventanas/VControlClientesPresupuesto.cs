@@ -15,8 +15,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VControlClientesPresupuesto : Form
     {
         ControladorFachada controladorFachada = new ControladorFachada();
-        public VControlClientesPresupuesto()
+        int IdCliente { get; set; }
+        List<int> IdProductos { get; set; }
+        List<DataGridViewRow> Filas { get; set; }
+        
+        public VControlClientesPresupuesto(int pIdCliente, List<int> pIdProductos, List<DataGridViewRow> filas)
         {
+            IdCliente = pIdCliente;
+            IdProductos = pIdProductos;
+            Filas = filas;
             InitializeComponent();
         }
 
@@ -39,7 +46,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         }
         private void AsociarPresupuesto_Click(object sender, EventArgs e)
         {
-            int idCliente = 0;
             Boolean seleccion = false;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -47,13 +53,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 if (isSelected)
                 {
                     seleccion = true;
-                    idCliente = Convert.ToInt32(row.Cells[1].Value);
+                    IdCliente = Convert.ToInt32(row.Cells[1].Value);
                 }
             }
             if (seleccion)
             {
                 this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(idCliente);
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,IdProductos,Filas);
                 vAdministrarPresupuesto.ShowDialog();
                 this.Close();
             }

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,47 +16,57 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VAdministrarPresupuesto : Form
     {
         int IdCliente { get; set; }
+        List<DataGridViewRow> Filas { get; set; }
         List<int> IdProductos { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
+            IdProductos = new List<int>();
+            Filas = new List<DataGridViewRow>();
+            IdCliente = 0;
             InitializeComponent();
-
         }
-        public VAdministrarPresupuesto(List<int> idProductos)
-        {
-            InitializeComponent();
-            IdProductos = idProductos;
-        }
-        public VAdministrarPresupuesto(int pIdCliente)
+        public VAdministrarPresupuesto(int pIdCliente,List<int> idProductos, List<DataGridViewRow> filas)
         {
             IdCliente = pIdCliente;
+            IdProductos = idProductos;
+            Filas = filas;
             InitializeComponent();
         }
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
-            dataGridView1.AllowUserToAddRows = true;
-            dataGridView1.ColumnCount = 6;
-            dataGridView1.Columns[0].Name = "Id";
-            dataGridView1.Columns[1].Name = "Nombre";
-            dataGridView1.Columns[2].Name = "Cantidad";
-            dataGridView1.Columns[3].Name = "Precio Unitario";
-            dataGridView1.Columns[4].Name = "Porcentaje Descuento";
-            dataGridView1.Columns[5].Name = "Subtotal";
+            dataGridView1.DataSource = controladorFachada.ListarProductosPresupuesto(IdProductos);
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
-            if(IdCliente!=0)
+            if (IdCliente != 0)
             {
                 Cliente.Text = controladorFachada.BuscarCliente(IdCliente);
             }
-            DescuentoTotal.Text = "0";
+            if (Filas!=null)
+            {
+                foreach(DataGridViewRow row in dataGridView1.Rows)
+                {
+                    DataGridViewRow fila = Filas.Find(r => r.Cells[0].Value == row.Cells[0].Value);
+                    if (fila!=null)
+                    {
+                        int index=dataGridView1.Rows.IndexOf(row);
+                        dataGridView1[2, index] = fila.Cells[2];
+                        dataGridView1[4, index] = fila.Cells[4];
+                    }
+                }
+            }
+            else
+            {
+                Filas = new List<DataGridViewRow>();
+            }
 
         }
+
         private void CalcularSubtotal()
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
@@ -85,7 +96,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto();
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos,Filas);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -94,6 +105,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             CalcularSubtotal();
             Total.Text = PrecioVenta().ToString();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                int index = -1;
+                index = Filas.FindIndex(r => r.Cells[0].Value == row.Cells[0].Value);
+                if (index !=-1)
+                {
+                    Filas[index] = row;
+                }
+                else
+                {
+                    Filas.Add(row);
+                }
+            }
         }
 
         private void DescuentoTotal_TextChanged(object sender, EventArgs e)
@@ -104,7 +128,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente,IdProductos,Filas);
             vControlProductosPresupuesto.ShowDialog();
             this.Close();
         }

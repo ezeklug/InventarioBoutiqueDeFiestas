@@ -204,7 +204,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 return repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First().Categoria.Nombre;
              }
         }
-        public List<ProductoIngresarMercaderiaDTO> ListarProductos(List<int> pIdProductos)
+        public List<ProductoIngresarMercaderiaDTO> ListarProductosIngresoMercaderia(List<int> pIdProductos)
         {
             List<ProductoIngresarMercaderiaDTO> ADevolver = new List<ProductoIngresarMercaderiaDTO>();
             using (Repositorio repo = new Repositorio())
@@ -213,10 +213,28 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 {
                     Producto pProducto =repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First();
                     ProductoIngresarMercaderiaDTO productoDTO = new ProductoIngresarMercaderiaDTO();
+                    productoDTO.IdProducto = pIdProducto;
                     productoDTO.Nombre = pProducto.Nombre;
                     CategoriaProductoDTO categoria=new CategoriaProductoDTO();
                     categoria.Vence = pProducto.Categoria.Vence;
                     //productoDTO.FechaVencimiento =;
+                    ADevolver.Add(productoDTO);
+                }
+                return ADevolver;
+            }
+        }
+        public List<ProductoPresupuestoDTO> ListarProductosPresupuesto(List<int> pIdProductos)
+        {
+            List<ProductoPresupuestoDTO> ADevolver = new List<ProductoPresupuestoDTO>();
+            using (Repositorio repo = new Repositorio())
+            {
+                foreach (int pIdProducto in pIdProductos)
+                {
+                    Producto pProducto = repo.Productos.Where(p => p.Id == pIdProducto).First();
+                    ProductoPresupuestoDTO productoDTO = new ProductoPresupuestoDTO();
+                    productoDTO.Id = pProducto.Id;
+                    productoDTO.Nombre = pProducto.Nombre;
+                    productoDTO.PrecioUnitario = pProducto.PrecioVenta();
                     ADevolver.Add(productoDTO);
                 }
                 return ADevolver;
