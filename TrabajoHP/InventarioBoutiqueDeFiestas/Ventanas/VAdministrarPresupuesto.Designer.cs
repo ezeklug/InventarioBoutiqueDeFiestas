@@ -180,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 510);
+            this.ClientSize = new System.Drawing.Size(904, 504);
             this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
             this.Controls.Add(this.Seniar);

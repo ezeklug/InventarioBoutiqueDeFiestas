@@ -16,17 +16,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VAdministrarPresupuesto : Form
     {
         int IdCliente { get; set; }
-        List<DataGridViewRow> Filas { get; set; }
+        DataGridView Filas { get; set; }
         List<int> IdProductos { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
             IdProductos = new List<int>();
-            Filas = new List<DataGridViewRow>();
+            Filas = new DataGridView();
             IdCliente = 0;
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente,List<int> idProductos, List<DataGridViewRow> filas)
+        public VAdministrarPresupuesto(int pIdCliente,List<int> idProductos, DataGridView filas)
         {
             IdCliente = pIdCliente;
             IdProductos = idProductos;
@@ -49,20 +49,23 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (Filas!=null)
             {
-                foreach(DataGridViewRow row in dataGridView1.Rows)
+                dataGridView1.DataSource = Filas + controladorFachada.ListarProductosPresupuesto(IdProductos);
+
+               /* foreach(DataGridViewRow row in dataGridView1.Rows)
                 {
                     DataGridViewRow fila = Filas.Find(r => r.Cells[0].Value == row.Cells[0].Value);
                     if (fila!=null)
                     {
+                        Cliente.Text = "Entre";
                         int index=dataGridView1.Rows.IndexOf(row);
                         dataGridView1[2, index] = fila.Cells[2];
                         dataGridView1[4, index] = fila.Cells[4];
                     }
-                }
+                }*/
             }
             else
             {
-                Filas = new List<DataGridViewRow>();
+                Filas = new DataGridView();
             }
 
         }
@@ -105,7 +108,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             CalcularSubtotal();
             Total.Text = PrecioVenta().ToString();
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+          /*  foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 int index = -1;
                 index = Filas.FindIndex(r => r.Cells[0].Value == row.Cells[0].Value);
@@ -117,12 +120,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     Filas.Add(row);
                 }
-            }
+            }*/
         }
 
         private void DescuentoTotal_TextChanged(object sender, EventArgs e)
         {
-            Total.Text=PrecioVenta().ToString();
+            if(Total.Text=="")
+            {
+                Total.Text = "0";
+            }
+            else
+            {
+                Total.Text = PrecioVenta().ToString();
+            }
         }
 
         private void CargarProductos_Click(object sender, EventArgs e)

@@ -17,9 +17,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         ControladorFachada controladorFachada = new ControladorFachada();
         int IdCliente { get; set; }
         List<int> IdProductos { get; set; }
-        List<DataGridViewRow> Filas { get; set; }
+        DataGridView Filas { get; set; }
         
-        public VControlClientesPresupuesto(int pIdCliente, List<int> pIdProductos, List<DataGridViewRow> filas)
+        public VControlClientesPresupuesto(int pIdCliente, List<int> pIdProductos, DataGridView filas)
         {
             IdCliente = pIdCliente;
             IdProductos = pIdProductos;
