@@ -94,11 +94,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos,dataGridView1);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos,dataGridView1, this.GetType());
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
-
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             CalcularSubtotal();

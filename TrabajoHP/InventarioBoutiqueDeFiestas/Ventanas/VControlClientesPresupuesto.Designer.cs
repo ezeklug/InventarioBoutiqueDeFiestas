@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Principal = new System.Windows.Forms.Button();
             this.AsociarPresupuesto = new System.Windows.Forms.Button();
+            this.NuevoCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +75,22 @@
             this.AsociarPresupuesto.UseVisualStyleBackColor = true;
             this.AsociarPresupuesto.Click += new System.EventHandler(this.AsociarPresupuesto_Click);
             // 
+            // NuevoCliente
+            // 
+            this.NuevoCliente.Location = new System.Drawing.Point(253, 365);
+            this.NuevoCliente.Name = "NuevoCliente";
+            this.NuevoCliente.Size = new System.Drawing.Size(133, 23);
+            this.NuevoCliente.TabIndex = 9;
+            this.NuevoCliente.Text = "Nuevo Cliente";
+            this.NuevoCliente.UseVisualStyleBackColor = true;
+            this.NuevoCliente.Click += new System.EventHandler(this.NuevoCliente_Click);
+            // 
             // VControlClientesPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.NuevoCliente);
             this.Controls.Add(this.AsociarPresupuesto);
             this.Controls.Add(this.Principal);
             this.Controls.Add(this.label1);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.Button AsociarPresupuesto;
+        private System.Windows.Forms.Button NuevoCliente;
     }
 }

@@ -63,7 +63,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (seleccion)
             {
                 this.Hide();
-                VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(clienteDTO);
+                VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(clienteDTO,this.GetType());
                 vAgregarModificarCliente.ShowDialog();
                 this.Close();
             }
@@ -118,7 +118,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 this.Hide();
-                VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente();
+                VAgregarModificarCliente vAgregarModificarCliente = new VAgregarModificarCliente(this.GetType());
                 vAgregarModificarCliente.ShowDialog();
                 this.Close();
             }

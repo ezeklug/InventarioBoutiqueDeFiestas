@@ -18,13 +18,26 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdCliente { get; set; }
         List<int> IdProductos { get; set; }
         DataGridView Filas { get; set; }
+        Type Llamador { get; set; }
         
-        public VControlClientesPresupuesto(int pIdCliente, List<int> pIdProductos, DataGridView filas)
+        public VControlClientesPresupuesto(int pIdCliente, List<int> pIdProductos, DataGridView filas, Type pLlamadorTipo)
         {
             IdCliente = pIdCliente;
             IdProductos = pIdProductos;
             Filas = filas;
             InitializeComponent();
+            Llamador = pLlamadorTipo;
+        }
+
+        public void AbrirLlamador() {
+            var parameters = new object[3];
+            parameters[0] = IdCliente;
+            parameters[1] = IdProductos;
+            parameters[2] = Filas;
+            this.Hide();
+            Form ventana = (Form)Activator.CreateInstance(Llamador, parameters);
+            ventana.ShowDialog();
+            this.Close();
         }
 
         private void VControlClientesPresupuesto_Load(object sender, EventArgs e)
@@ -58,10 +71,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (seleccion)
             {
-                this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,IdProductos,Filas);
-                vAdministrarPresupuesto.ShowDialog();
-                this.Close();
+                AbrirLlamador();
+                //this.Hide();
+                //VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,IdProductos,Filas);
+                //vAdministrarPresupuesto.ShowDialog();
+                //this.Close();
             }
             else
             {
@@ -93,6 +107,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     }
                 }
             }
+        }
+
+        private void NuevoCliente_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

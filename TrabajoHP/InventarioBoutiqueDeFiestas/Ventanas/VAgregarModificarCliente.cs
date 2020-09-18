@@ -16,7 +16,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     {
         ControladorFachada controladorFachada = new ControladorFachada();
         ClienteDTO ClienteDTO { get; set; }
-        public VAgregarModificarCliente(ClienteDTO pClienteDTO)
+
+        Type Llamador { get; set; }
+        public VAgregarModificarCliente(ClienteDTO pClienteDTO, Type pLlamador)
         {
             InitializeComponent();
             ClienteDTO = pClienteDTO;
@@ -25,12 +27,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Direccion.Text = pClienteDTO.Direccion;
             Telefono.Text = pClienteDTO.Telefono;
             Email.Text = pClienteDTO.Email;
+            Llamador = pLlamador;
         }
-        public VAgregarModificarCliente()
+        public VAgregarModificarCliente(Type pLlamador)
         {
             InitializeComponent();
+            Llamador = pLlamador;
         }
 
+        public void AbrirLlamador()
+        {
+            this.Hide();
+            Form ventana = (Form)Activator.CreateInstance(Llamador);
+            ventana.ShowDialog();
+            this.Close();
+        }
         private void Cancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -67,12 +78,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 pClienteDTO.Telefono = Telefono.Text;
                 pClienteDTO.Email = Email.Text;
                 controladorFachada.AgregarModificarCliente(pClienteDTO);
-                this.Hide();
-                VControlClientes vControlClientes = new VControlClientes();
-                vControlClientes.ShowDialog();
-                this.Close();
+                AbrirLlamador();
             }
         }
 
+        private void VAgregarModificarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
