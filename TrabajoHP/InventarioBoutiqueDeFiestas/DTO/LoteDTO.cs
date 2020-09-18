@@ -15,7 +15,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public Boolean Vencido { get; set; }
         public int IdProducto { get; set; }
 
-        public int CantidadAIngresar { get; set; }
+      
 
     }
 }
