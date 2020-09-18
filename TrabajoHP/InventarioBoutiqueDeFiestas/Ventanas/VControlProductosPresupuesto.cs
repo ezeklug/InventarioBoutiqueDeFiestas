@@ -14,21 +14,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VControlProductosPresupuesto : Form
     {
-        List<int> IdProductos { get; set; }
-        List<DataGridViewRow> Filas {get;set;}
+        DataGridView Filas {get;set;}
         int IdCliente { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
-        public VControlProductosPresupuesto(int pIdCliente,List<int> pIdProductos, List<DataGridViewRow> filas)
+        public VControlProductosPresupuesto(int pIdCliente, DataGridView filas)
         {
             InitializeComponent();
-            IdProductos = pIdProductos;
-            Filas = Filas;
+            Filas = filas;
             IdCliente = pIdCliente;
         }
 
         private void CargarPresupuesto_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
+            List<int> idProductos = new List<int>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
@@ -36,13 +35,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     seleccion = true;
                     int idProducto = Convert.ToInt32(row.Cells[1].Value);
-                    IdProductos.Add(idProducto);
+                    idProductos.Add(idProducto);
                 }
             }
             if (seleccion)
             {
                 this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,IdProductos,Filas) ;
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,idProductos,Filas) ;
                 vAdministrarPresupuesto.ShowDialog();
                 this.Close();
             }
