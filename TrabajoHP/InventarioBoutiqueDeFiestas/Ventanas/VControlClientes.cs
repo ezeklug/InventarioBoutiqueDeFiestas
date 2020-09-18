@@ -175,6 +175,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     ClienteDTO cli = new ClienteDTO()
                     {
+                        Id= cliente.Id,
                         Nombre = cliente.Nombre,
                         Apellido = cliente.Apellido,
                         Direccion = cliente.Direccion,
