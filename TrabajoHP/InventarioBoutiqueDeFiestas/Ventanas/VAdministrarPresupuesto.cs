@@ -46,23 +46,22 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             nuevos.DataSource = controladorFachada.ListarProductosPresupuesto(IdProductos);
             if(Filas.RowCount==0)
             {
-                Cliente.Text = "Filas no tiene";
                 dataGridView1.DataSource = nuevos.DataSource;
                 dataGridView1.Columns[0].ReadOnly = true;
                 dataGridView1.Columns[1].ReadOnly = true;
                 dataGridView1.Columns[3].ReadOnly = true;
                 dataGridView1.Columns[5].ReadOnly = true;
-
             }
             else
             {
-                Cliente.Text = "Filas tiene";
-                dataGridView1 = Filas;
+                dataGridView1.DataSource = Filas.DataSource;
+                List<ProductoPresupuestoDTO> lista=controladorFachada.ListarProductosPresupuesto(IdProductos);
+                foreach (ProductoPresupuestoDTO p in lista)
+                {
+                    dataGridView1.Rows.Add(p);
+                }
             }
-            foreach (DataGridViewRow row in nuevos.Rows)
-            {
-                dataGridView1.Rows.Add(row);
-            }
+
         }
 
         private void CalcularSubtotal()
@@ -120,7 +119,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente,IdProductos,dataGridView1);
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente,dataGridView1);
             vControlProductosPresupuesto.ShowDialog();
             this.Close();
         }
