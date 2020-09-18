@@ -23,6 +23,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlClientes_Load(object sender, EventArgs e)
         {
+
+
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
             dgvCmb.Name = "Cb";
@@ -35,6 +37,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
+
+
         }
 
         private void Modificar_Click(object sender, EventArgs e)
@@ -101,7 +105,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Boolean seleccion = false;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                bool isSelected = Convert.ToBoolean(row.Cells[6].Value);
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
                 if (isSelected)
                 {
                     seleccion = true;
@@ -175,7 +179,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     ClienteDTO cli = new ClienteDTO()
                     {
-                        Id= cliente.Id,
+                        Id = cliente.Id,
                         Nombre = cliente.Nombre,
                         Apellido = cliente.Apellido,
                         Direccion = cliente.Direccion,
@@ -201,13 +205,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 throw;
             }
         }
-                   
 
     }
+   }
 
 
-       
 
-}
+
+
     
 
