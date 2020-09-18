@@ -49,7 +49,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (Filas!=null)
             {
-                dataGridView1.DataSource = Filas + controladorFachada.ListarProductosPresupuesto(IdProductos);
+                //dataGridView1.DataSource = Filas + controladorFachada.ListarProductosPresupuesto(IdProductos);
 
                /* foreach(DataGridViewRow row in dataGridView1.Rows)
                 {
