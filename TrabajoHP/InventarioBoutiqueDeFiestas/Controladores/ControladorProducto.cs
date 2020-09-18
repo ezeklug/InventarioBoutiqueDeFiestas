@@ -213,6 +213,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 {
                     Producto pProducto =repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First();
                     ProductoIngresarMercaderiaDTO productoDTO = new ProductoIngresarMercaderiaDTO();
+                    productoDTO.IdProducto = pIdProducto;
                     productoDTO.Nombre = pProducto.Nombre;
                     CategoriaProductoDTO categoria=new CategoriaProductoDTO();
                     categoria.Vence = pProducto.Categoria.Vence;

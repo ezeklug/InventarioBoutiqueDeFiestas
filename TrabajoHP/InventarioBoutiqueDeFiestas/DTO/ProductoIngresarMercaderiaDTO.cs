@@ -9,6 +9,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
 {
     public class ProductoIngresarMercaderiaDTO
     {
+        public int IdProducto { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
         public double PrecioCompra { get; set; }
