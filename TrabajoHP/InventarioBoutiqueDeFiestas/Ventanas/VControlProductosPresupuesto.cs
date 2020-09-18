@@ -15,12 +15,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VControlProductosPresupuesto : Form
     {
         List<int> IdProductos { get; set; }
+        List<DataGridViewRow> Filas {get;set;}
         int IdCliente { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
-        public VControlProductosPresupuesto(int pIdCliente,List<int> pIdProductos)
+        public VControlProductosPresupuesto(int pIdCliente,List<int> pIdProductos, List<DataGridViewRow> filas)
         {
             InitializeComponent();
             IdProductos = pIdProductos;
+            Filas = Filas;
             IdCliente = pIdCliente;
         }
 
@@ -40,7 +42,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (seleccion)
             {
                 this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,IdProductos) ;
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,IdProductos,Filas) ;
                 vAdministrarPresupuesto.ShowDialog();
                 this.Close();
             }
