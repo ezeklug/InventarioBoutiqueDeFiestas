@@ -69,10 +69,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if(IdProductos!=null)
             {
+                Boolean existe = false;
                 foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
                 {
-                    string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0","0"};
-                    dataGridView1.Rows.Add(row);
+                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
+                    {
+                        if (row1.Cells[0].Value.ToString() == p.Id.ToString())
+                        {
+                            existe = true;
+                        }
+                    }
+                    if(!existe)
+                    {
+                        string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0", "0" };
+                        dataGridView1.Rows.Add(row);
+                    }
                 }
             }
         }
