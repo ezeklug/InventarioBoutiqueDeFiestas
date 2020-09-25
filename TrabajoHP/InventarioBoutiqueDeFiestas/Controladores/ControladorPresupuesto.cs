@@ -88,7 +88,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 throw new Exception("Id " + pLinea.IdProducto + " no existe en Productos");
             }
             lin.Producto = producto;
-
+            lin.Subtotal = pLinea.Subtotal;
             return lin;
         }
 

@@ -29,9 +29,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>
         /// <param name="presupuesto"></param>
-        public void AgregarModificarPresupuesto(PresupuestoDTO pPresupuesotDTO)
+        public int AgregarModificarPresupuesto(PresupuestoDTO pPresupuesotDTO)
         {
-            controladorPresupuesto.AgregarModificarPresupuesto(pPresupuesotDTO);
+            return controladorPresupuesto.AgregarModificarPresupuesto(pPresupuesotDTO);
         }
 
         /// <summary>
