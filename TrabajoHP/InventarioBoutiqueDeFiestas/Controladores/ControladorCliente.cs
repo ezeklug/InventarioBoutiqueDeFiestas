@@ -118,12 +118,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// </summary>
         /// <param name="pIdCliente"></param>
         /// <returns></returns>
-        public string BuscarCliente(int pIdCliente)
+        public Cliente BuscarCliente(int pIdCliente)
         {
             using (var repo = new Repositorio())
             {
                 Cliente cli = repo.Clientes.Find(pIdCliente);
-                return cli.Nombre + " " + cli.Apellido; ;
+                return cli;
             }
         }
     }
