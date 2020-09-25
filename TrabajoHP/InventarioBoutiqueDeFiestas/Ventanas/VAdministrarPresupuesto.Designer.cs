@@ -160,6 +160,7 @@
             this.Guardar.TabIndex = 22;
             this.Guardar.Text = "Guardar";
             this.Guardar.UseVisualStyleBackColor = true;
+            this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
             // 
             // Seniar
             // 

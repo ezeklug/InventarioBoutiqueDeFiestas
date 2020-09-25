@@ -28,7 +28,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             List<ProductoDTO> ListaProductoDTO = new List<ProductoDTO>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[1].Value)));
+                ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[0].Value)));
                 unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
                 unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
                 if (!(row.Cells[4].Value == null))
@@ -40,9 +40,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     unLote.Vencido = false;
                     unLote.IdProducto = unProducto.Id;
                     controladorFachada.GuardarLote(unLote);
+                   
                 }
+                ListaProductoDTO.Add(unProducto);
+
             }
-            
+            controladorFachada.IngresoMercarderias(ListaProductoDTO);
+            this.Hide();
+            VControlProducto vControlProducto = new VControlProducto();
+            vControlProducto.ShowDialog();
+            this.Close();
+
 
         }
 
@@ -73,7 +81,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 if (!controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row.Cells[0].Value)))
                 {
-                    dataGridView1.Columns[4].ReadOnly = true;
+                    dataGridView1.Rows[row.Index].Cells[4].ReadOnly = true;
+                   
                 }
             }
         }
