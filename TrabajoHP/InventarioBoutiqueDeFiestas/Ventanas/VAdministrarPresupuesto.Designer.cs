@@ -30,7 +30,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.Principal = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BuscarCliente = new System.Windows.Forms.Button();
@@ -42,6 +41,8 @@
             this.Seniar = new System.Windows.Forms.Button();
             this.Vender = new System.Windows.Forms.Button();
             this.CargarProductos = new System.Windows.Forms.Button();
+            this.Principal = new System.Windows.Forms.Button();
+            this.Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,16 +69,6 @@
             this.label1.Size = new System.Drawing.Size(422, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Administrar Presupuesto";
-            // 
-            // Principal
-            // 
-            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
-            this.Principal.Location = new System.Drawing.Point(38, 9);
-            this.Principal.Name = "Principal";
-            this.Principal.Size = new System.Drawing.Size(70, 74);
-            this.Principal.TabIndex = 14;
-            this.Principal.UseVisualStyleBackColor = true;
-            this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // Cliente
             // 
@@ -136,7 +127,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(581, 440);
+            this.label4.Location = new System.Drawing.Point(466, 439);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 20;
@@ -145,7 +136,7 @@
             // Total
             // 
             this.Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Total.Location = new System.Drawing.Point(649, 438);
+            this.Total.Location = new System.Drawing.Point(539, 438);
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             this.Total.Size = new System.Drawing.Size(106, 20);
@@ -154,7 +145,7 @@
             // Guardar
             // 
             this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Guardar.Location = new System.Drawing.Point(517, 469);
+            this.Guardar.Location = new System.Drawing.Point(633, 469);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -165,7 +156,7 @@
             // Seniar
             // 
             this.Seniar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Seniar.Location = new System.Drawing.Point(623, 469);
+            this.Seniar.Location = new System.Drawing.Point(443, 469);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
@@ -176,7 +167,7 @@
             // Vender
             // 
             this.Vender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Vender.Location = new System.Drawing.Point(722, 469);
+            this.Vender.Location = new System.Drawing.Point(539, 469);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
@@ -194,11 +185,33 @@
             this.CargarProductos.UseVisualStyleBackColor = true;
             this.CargarProductos.Click += new System.EventHandler(this.CargarProductos_Click);
             // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(38, 9);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 14;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
+            // 
+            // Cancelar
+            // 
+            this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancelar.Location = new System.Drawing.Point(731, 469);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar.TabIndex = 26;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 504);
+            this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
             this.Controls.Add(this.Seniar);
@@ -238,5 +251,6 @@
         private System.Windows.Forms.Button Seniar;
         private System.Windows.Forms.Button Vender;
         private System.Windows.Forms.Button CargarProductos;
+        private System.Windows.Forms.Button Cancelar;
     }
 }

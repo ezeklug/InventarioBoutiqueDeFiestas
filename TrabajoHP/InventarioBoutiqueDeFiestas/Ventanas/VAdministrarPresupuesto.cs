@@ -183,5 +183,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
 
         }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlPresupuestos vControlPresupuestos = new VControlPresupuestos();
+            vControlPresupuestos.ShowDialog();
+            this.Close();
+        }
     }
 }
