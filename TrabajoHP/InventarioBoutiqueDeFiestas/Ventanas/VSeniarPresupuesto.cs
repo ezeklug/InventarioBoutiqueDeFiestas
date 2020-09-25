@@ -19,23 +19,41 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         Presupuesto iPresupuesto;
         public VSeniarPresupuesto(int pIdCliente, int pPresupuestoId)
         {
-            porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_HasChanged);
             
 
             var cont = new ControladorFachada();
             iCliente = cont.BuscarCliente(pIdCliente);
             iPresupuesto = cont.BuscarPresupuesto(pPresupuestoId);
 
-            this.nombreClienteLabel.Text = iCliente.Nombre + " " + iCliente.Apellido;
-            this.totalLabel.Text = iPresupuesto.TotalVenta().ToString();
-            this.fechaDeSeniaLabel.Text = DateTime.Now.ToString();
             //this.cantidadProductosLabel.Text;
             InitializeComponent();
+            this.nombreClienteLabel.Text = iCliente.ToString();
+            this.totalLabel.Text = iPresupuesto.TotalVenta().ToString();
+            this.fechaDeSeniaLabel.Text = DateTime.Now.ToString();
+            this.cantidadProductosLabel.Text = iPresupuesto.Lineas.Count.ToString();
+
+            porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_HasChanged);
+            montoSeniaTextBox.TextChanged += new System.EventHandler(this.montoSeniaTextBox_HasChanged);
+            
         }
 
         private void porcentajeSeniaTextBox_HasChanged(object sender, EventArgs e)
         {
-            this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(porcentajeSeniaTextBox.Text) / 100)).ToString();
+            if (System.Text.RegularExpressions.Regex.IsMatch(montoSeniaTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                montoSeniaTextBox.Text = montoSeniaTextBox.Text.Remove(montoSeniaTextBox.Text.Length - 1);
+            }
+            else
+            {
+                this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(porcentajeSeniaTextBox.Text) / 100)).ToString();
+            }
+          
+        }
+
+        private void montoSeniaTextBox_HasChanged(object sender, EventArgs e)
+        {
+            this.porcentajeSeniaTextBox.Text = ((double.Parse(montoSeniaTextBox.Text) * 100) / double.Parse(this.totalLabel.Text)).ToString();
         }
 
         private void label1_Click(object sender, EventArgs e)

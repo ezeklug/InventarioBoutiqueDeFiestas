@@ -175,7 +175,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                return repo.Presupuestos.Find(pIdPresupuesto);
+                return repo.Presupuestos.Include("Lineas").Where(p => p.Id == pIdPresupuesto).First();
             }
         }
 

@@ -52,7 +52,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             {
                 precio += linea.PrecioConDescuento();
             }
-            return precio * Descuento;
+            return precio * (1 - Descuento);
         }
         public Presupuesto(DateTime pFechaGeneracion, DateTime pFechaVencimiento, DateTime pFechaEvento, Cliente pCliente)
         {
