@@ -41,9 +41,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.PorcentajeDeGanancia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Categoria = new System.Windows.Forms.TextBox();
             this.Confirmar = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.Categoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -161,13 +161,6 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "Categoria";
             // 
-            // Categoria
-            // 
-            this.Categoria.Location = new System.Drawing.Point(266, 403);
-            this.Categoria.Name = "Categoria";
-            this.Categoria.Size = new System.Drawing.Size(262, 20);
-            this.Categoria.TabIndex = 26;
-            // 
             // Confirmar
             // 
             this.Confirmar.Location = new System.Drawing.Point(161, 449);
@@ -188,14 +181,23 @@
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // Categoria
+            // 
+            this.Categoria.FormattingEnabled = true;
+            this.Categoria.Location = new System.Drawing.Point(266, 399);
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Size = new System.Drawing.Size(262, 21);
+            this.Categoria.TabIndex = 29;
+
+            // 
             // VAgregarModificarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 484);
+            this.Controls.Add(this.Categoria);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Confirmar);
-            this.Controls.Add(this.Categoria);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.PorcentajeDeGanancia);
             this.Controls.Add(this.label6);
@@ -211,6 +213,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VAgregarModificarProducto";
             this.Text = "VAgregarModificarProducto";
+            this.Load += new System.EventHandler(this.VAgregarModificarProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,8 +234,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox PorcentajeDeGanancia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Categoria;
         private System.Windows.Forms.Button Confirmar;
         private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.ComboBox Categoria;
     }
 }

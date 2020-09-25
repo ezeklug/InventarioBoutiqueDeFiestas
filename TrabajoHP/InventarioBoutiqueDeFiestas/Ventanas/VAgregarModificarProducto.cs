@@ -9,10 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.Dominio;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
-    
+
     public partial class VAgregarModificarProducto : Form
     {
         ControladorFachada controladorfachada = new ControladorFachada();
@@ -52,7 +53,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Confirmar_Click(object sender, EventArgs e)
         {
-            if (Nombre.Text == "" || StockMinimo.Text == "" || CantidadEnStock.Text=="" || PorcentajeDeGanancia.Text==""|| Categoria.Text=="" )
+            if (Nombre.Text == "" || StockMinimo.Text == "" || CantidadEnStock.Text == "" || PorcentajeDeGanancia.Text == "" || Categoria.Text == "")
             {
                 MessageBox.Show("Tiene que completar los campos obligatorios");
             }
@@ -78,5 +79,24 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         }
 
+        
+        private void VAgregarModificarProducto_Load(object sender, EventArgs e)
+        {
+            List<String> listaCategorias = new List<string>();
+            foreach (CategoriaProducto cate in controladorfachada.ListarCategorias())
+            {
+                listaCategorias.Add(cate.Nombre);
+                Categoria.Items.Add(cate.Nombre);
+            }
+            
+            this.Categoria.AutoCompleteCustomSource.AddRange(listaCategorias.ToArray());
+            this.Categoria.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.Categoria.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            
+        }
+
     }
 }
+
+    
+  

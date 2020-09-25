@@ -132,6 +132,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorProducto.ListarTodosLosProductos();
         }
+
+        public List<CategoriaProducto> ListarCategorias()
+        {
+            return controladorProducto.ListarCategorias();
+        }
+
         /// <summary>
         /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
         /// Esto se puede obtener haciendo la diferencia de las propiedades CantidadEnStock y StockMinimo de cada Producto.

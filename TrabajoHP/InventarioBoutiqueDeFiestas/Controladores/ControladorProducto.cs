@@ -18,7 +18,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             
         }
 
-
+        /// <summary>
+        /// Devuelve todas las categorias
+        /// </summary>
+        /// <returns></returns>
+        public List<CategoriaProducto> ListarCategorias()
+        {
+            using (var repo = new Repositorio())
+            {
+                //return repo.Productos.Where<CategoriaProducto>(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
+                return repo.CategoriaProductos.ToList<CategoriaProducto>();
+            }
+        }
 
         /// <summary>
         /// Convierte un ProductoDTO a Producto
