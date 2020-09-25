@@ -109,15 +109,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         dataGridView1.Rows.Add(row);
                     }
                 }
-
-                /*       foreach (DataGridViewRow row in dataGridView1.Rows)
-                       {
-                           if (!controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row.Cells[0].Value)))
-                           {
-                               dataGridView1.Rows[row.Index].Cells[4].ReadOnly = true;
-
-                           }
-                       }*/
             }
         }
 
