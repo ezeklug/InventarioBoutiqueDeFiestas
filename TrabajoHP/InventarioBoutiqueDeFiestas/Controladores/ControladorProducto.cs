@@ -69,7 +69,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pro.PrecioDeCompra = pProducto.PrecioDeCompra;
             pro.Activo = pProducto.Activo;
 
-            CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.Categoria);
+            CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.Categoria.Id);
             if (cat == null)
             {
                 throw new Exception("Id " + pProducto.Categoria + " no existe en Categoria");
@@ -202,6 +202,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             using (Repositorio repo=new Repositorio())
             {
                 Lote lote = new Lote(pLoteDTO.CantidadProductos, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
+                repo.Lotes.Add(lote);
             }
         }
         /// <summary>
@@ -274,17 +275,17 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                Producto pro = repo.Productos.Find(pProducto);
+                Producto pro = repo.Productos.Include("Categoria").Where(p => p.Id == pProducto).First();
                 return (ProductoADTO(pro));
             }
         }
 
-        public Boolean VerificarSiCategoriaVence(int pProducto)
+        public Boolean VerificarSiCategoriaVence(int pProductoId)
         {
             using (var repo = new Repositorio())
             {
-                Producto pro = repo.Productos.Find(pProducto);
-                return pro.Categoria.Vence;
+                CategoriaProducto catpro = repo.Productos.Include("Categoria").Where(p => p.Id == pProductoId).First().Categoria;
+                return catpro.Vence;
             }
         }
 
