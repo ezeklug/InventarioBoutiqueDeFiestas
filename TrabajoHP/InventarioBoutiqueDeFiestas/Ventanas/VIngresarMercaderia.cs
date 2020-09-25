@@ -16,11 +16,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     {
         ControladorFachada controladorFachada = new ControladorFachada();
         List<int> Productos { get; set; }
+        DataGridView Filas { get; set; }
 
-        public VIngresarMercaderia(List<int> productos)
+        public VIngresarMercaderia(List<int> productos, DataGridView filas)
         {
-            InitializeComponent();
             Productos = productos;
+            Filas = filas;
+            InitializeComponent();
+
         }
 
         private void Listo_Click(object sender, EventArgs e)
@@ -65,25 +68,56 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Agregar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProducto vControlProducto = new VControlProducto(Productos);
+            VControlProducto vControlProducto = new VControlProducto(dataGridView1);
             vControlProducto.ShowDialog();
             this.Close();
         }
 
         private void VIngresarMercaderia_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = controladorFachada.ListarProductosIngresoMercaderia(Productos);
-            dataGridView1.Columns[4].HeaderText = "Fecha de Vencimiento dd/mm/aaaa";
-            dataGridView1.Columns[3].HeaderText = "Precio de Compra";
+            dataGridView1.Columns.Add("Id", "Id");
+            dataGridView1.Columns.Add("Nombre", "Nombre");
+            dataGridView1.Columns.Add("Cantidad", "Cantidad");
+            dataGridView1.Columns.Add("PrecioCompra", "Precio de Compra");
+            dataGridView1.Columns.Add("FechaVencimiento", "Fecha de Vencimiento dd/mm/aaaa");
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            if (Filas.RowCount != 0)
             {
-                if (!controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row.Cells[0].Value)))
+                foreach (DataGridViewRow row in Filas.Rows)
                 {
-                    dataGridView1.Rows[row.Index].Cells[4].ReadOnly = true;
-                   
+                    string[] r = new string[] { row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString() };
+                    dataGridView1.Rows.Add(r);
                 }
+            }
+            if (Productos != null)
+            {
+                Boolean existe = false;
+                foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(Productos))
+                {
+                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
+                    {
+                        if (row1.Cells[0].Value.ToString() == p.Id.ToString())
+                        {
+                            existe = true;
+                        }
+                    }
+                    if (!existe)
+                    {
+                        string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", "0", "" };
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+
+                /*       foreach (DataGridViewRow row in dataGridView1.Rows)
+                       {
+                           if (!controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row.Cells[0].Value)))
+                           {
+                               dataGridView1.Rows[row.Index].Cells[4].ReadOnly = true;
+
+                           }
+                       }*/
             }
         }
 

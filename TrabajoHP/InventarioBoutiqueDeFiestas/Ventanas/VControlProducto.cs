@@ -14,16 +14,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VControlProducto : Form
     {
         ControladorFachada controladorfachada = new ControladorFachada();
-        List<int> Productos { get; set; }
+        DataGridView Filas { get; set; }
         public VControlProducto()
         {
+            Filas = new DataGridView();
             InitializeComponent();
-            Productos = new List<int>();
         }
-        public VControlProducto(List<int> productos)
+        public VControlProducto(DataGridView filas)
         {
+            Filas = filas;
             InitializeComponent();
-            Productos = productos;
         }
 
   
@@ -97,6 +97,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void IngresoMercaderia_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
+            List<int> idProductos = new List<int>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
@@ -104,16 +105,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     seleccion = true;
                     int idProducto = Convert.ToInt32(row.Cells[1].Value);
-                    if (!Productos.Exists(p=>p==idProducto))
-                    {
-                        Productos.Add(idProducto);
-                    }
+                    idProductos.Add(idProducto);
                 }
             }
             if (seleccion)
             {
                 this.Hide();
-                VIngresarMercaderia vIngresarMercaderia = new VIngresarMercaderia(Productos);
+                VIngresarMercaderia vIngresarMercaderia = new VIngresarMercaderia(idProductos,Filas);
                 vIngresarMercaderia.ShowDialog();
                 this.Close();
             }
