@@ -40,6 +40,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     unLote.Vencido = false;
                     unLote.IdProducto = unProducto.Id;
                     controladorFachada.GuardarLote(unLote);
+                   
                 }
                 ListaProductoDTO.Add(unProducto);
 
@@ -80,7 +81,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 if (!controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row.Cells[0].Value)))
                 {
-                    dataGridView1.Columns[4].ReadOnly = true;
+                    dataGridView1.Rows[row.Index].Cells[4].ReadOnly = true;
+                   
                 }
             }
         }
