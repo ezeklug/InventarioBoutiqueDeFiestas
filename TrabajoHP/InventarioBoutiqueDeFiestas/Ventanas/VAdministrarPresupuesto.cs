@@ -81,10 +81,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                if(row.Cells[2].Value!=null && row.Cells[3].Value != null && row.Cells[4].Value != null && row.Cells[5].Value != null)
-                {
-                    row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
-                }
+               row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value));
             }
         }
 
