@@ -36,43 +36,35 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Add("Id", "Id");
+            dataGridView1.Columns.Add("Nombre", "Nombre");
+            dataGridView1.Columns.Add("Cantidad", "Cantidad");
+            dataGridView1.Columns.Add("PrecioUnitario", "Precio Unitario");
+            dataGridView1.Columns.Add("PorcentajeDescuento", "Porcentaje Descuento");
+            dataGridView1.Columns.Add("Subtotal", "Subtotal");
+            dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
             if (IdCliente != 0)
             {
                 Cliente.Text = controladorFachada.BuscarCliente(IdCliente);
             }
-            DataGridView nuevos = new DataGridView();
-            nuevos.DataSource = controladorFachada.ListarProductosPresupuesto(IdProductos);
-            if(Filas.RowCount==0)
+            if(Filas.RowCount!=0)
             {
-                dataGridView1.DataSource = nuevos.DataSource;
-                dataGridView1.Columns[0].ReadOnly = true;
-                dataGridView1.Columns[1].ReadOnly = true;
-                dataGridView1.Columns[3].ReadOnly = true;
-                dataGridView1.Columns[5].ReadOnly = true;
-            }
-            else
-            {
-                List<ProductoPresupuestoDTO> lista = controladorFachada.ListarProductosPresupuesto(IdProductos);
-                foreach (ProductoPresupuestoDTO p in lista)
+                foreach (DataGridViewRow row in Filas.Rows)
                 {
-                      DataTable dt2 = new DataTable();
-                      dt2 = dataGridView1.DataSource as DataTable;
-                      DataRow datarow;
-                      datarow = dt2.NewRow(); 
-                      datarow["Id"] =p.Id;
-                      datarow["Nombre"] = p.Nombre;
-                      datarow["Cantidad"] = p.Cantidad;
-                      datarow["PrecioUnitario"] = p.PrecioUnitario;
-                      datarow["PorcentajeDescuento"] = p.PorcentajeDescuento;
-                      datarow["Subtotal"] = p.Subtotal;
-                      //Esto se encargará de agregar la fila.
-                      dt2.Rows.Add(datarow);
+                    string[] r = new string[] { row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString() };
+                    dataGridView1.Rows.Add(r);
                 }
-                dataGridView1.DataSource = Filas.DataSource;
-
-                
+            }
+            foreach(ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
+            {
+                string[] row = new string[] { p.Id.ToString(), p.Nombre, p.Cantidad.ToString(), p.PrecioUnitario.ToString(), p.PorcentajeDescuento.ToString(), p.Subtotal.ToString() };
+                dataGridView1.Rows.Add(row);
             }
 
         }
@@ -81,7 +73,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value));
+                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
             }
         }
 
