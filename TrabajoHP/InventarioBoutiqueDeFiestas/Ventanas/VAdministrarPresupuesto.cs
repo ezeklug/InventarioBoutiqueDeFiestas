@@ -33,55 +33,66 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Filas = filas;
             InitializeComponent();
         }
+        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas)
+        {
+            IdCliente = pIdCliente;
+            Filas = filas;
+            InitializeComponent();
+        }
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Add("Id", "Id");
+            dataGridView1.Columns.Add("Nombre", "Nombre");
+            dataGridView1.Columns.Add("Cantidad", "Cantidad");
+            dataGridView1.Columns.Add("PrecioUnitario", "Precio Unitario");
+            dataGridView1.Columns.Add("PorcentajeDescuento", "Porcentaje Descuento");
+            dataGridView1.Columns.Add("Subtotal", "Subtotal");
+            dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
             if (IdCliente != 0)
             {
-                Cliente.Text = controladorFachada.BuscarCliente(IdCliente);
+                Cliente.Text = controladorFachada.BuscarCliente(IdCliente).ToString();
             }
-            DataGridView nuevos = new DataGridView();
-            nuevos.DataSource = controladorFachada.ListarProductosPresupuesto(IdProductos);
-            if(Filas.RowCount==0)
+            if(Filas.RowCount!=0)
             {
-                dataGridView1.DataSource = nuevos.DataSource;
-                dataGridView1.Columns[0].ReadOnly = true;
-                dataGridView1.Columns[1].ReadOnly = true;
-                dataGridView1.Columns[3].ReadOnly = true;
-                dataGridView1.Columns[5].ReadOnly = true;
-            }
-            else
-            {
-                List<ProductoPresupuestoDTO> lista = controladorFachada.ListarProductosPresupuesto(IdProductos);
-                foreach (ProductoPresupuestoDTO p in lista)
+                foreach (DataGridViewRow row in Filas.Rows)
                 {
-                      DataTable dt2 = new DataTable();
-                      dt2 = dataGridView1.DataSource as DataTable;
-                      DataRow datarow;
-                      datarow = dt2.NewRow(); 
-                      datarow["Id"] =p.Id;
-                      datarow["Nombre"] = p.Nombre;
-                      datarow["Cantidad"] = p.Cantidad;
-                      datarow["PrecioUnitario"] = p.PrecioUnitario;
-                      datarow["PorcentajeDescuento"] = p.PorcentajeDescuento;
-                      datarow["Subtotal"] = p.Subtotal;
-                      //Esto se encargará de agregar la fila.
-                      dt2.Rows.Add(datarow);
+                    string[] r = new string[] { row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString() };
+                    dataGridView1.Rows.Add(r);
                 }
-                dataGridView1.DataSource = Filas.DataSource;
-
-                
             }
-
+            if(IdProductos!=null)
+            {
+                Boolean existe = false;
+                foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
+                {
+                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
+                    {
+                        if (row1.Cells[0].Value.ToString() == p.Id.ToString())
+                        {
+                            existe = true;
+                        }
+                    }
+                    if(!existe)
+                    {
+                        string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0", "0" };
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+            }
         }
 
         private void CalcularSubtotal()
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value));
+                row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToDouble(row.Cells[3].Value), Convert.ToDouble(row.Cells[4].Value));
             }
         }
 
@@ -106,7 +117,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos,dataGridView1);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -131,18 +142,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            if (IdCliente == 0)
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-            else
-            {
-                this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
-                vControlProductosPresupuesto.ShowDialog();
-                this.Close();
-            }
-            
+            this.Hide();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
+            vControlProductosPresupuesto.ShowDialog();
+            this.Close();  
         }
 
         private void Guardar_Click(object sender, EventArgs e)
@@ -173,6 +176,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     controladorFachada.AgregarLinea(lin);
                 }
             }
+
+        }
+
+        private void Seniar_Click(object sender, EventArgs e)
+        {
 
         }
     }

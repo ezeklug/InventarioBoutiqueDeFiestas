@@ -205,10 +205,17 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// </summary>
         /// <param name="pIdCliente"></param>
         /// <returns></returns>
-        public string BuscarCliente(int pIdCliente)
+        public Cliente BuscarCliente(int pIdCliente)
         {
             return controladorCliente.BuscarCliente(pIdCliente);
         }
+
+        public Presupuesto BuscarPresupuesto(int pIdPresupuesto)
+        {
+            return controladorPresupuesto.BuscarPresupuesto(pIdPresupuesto);
+        }
+
+
         /// <summary>
         /// Este método permite listar todos los clientes cargados en BD.
         /// </summary>
