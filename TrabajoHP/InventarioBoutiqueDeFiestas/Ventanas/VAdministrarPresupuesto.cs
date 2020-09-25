@@ -71,7 +71,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
                 {
-                    string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0", "0"};
+                    string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0","0"};
                     dataGridView1.Rows.Add(row);
                 }
             }
@@ -81,7 +81,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-               row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value));
+                row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToDouble(row.Cells[3].Value), Convert.ToDouble(row.Cells[4].Value));
             }
         }
 
