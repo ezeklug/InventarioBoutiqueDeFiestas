@@ -51,7 +51,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Cliente.ReadOnly = true;
             if (IdCliente != 0)
             {
-                Cliente.Text = controladorFachada.BuscarCliente(IdCliente);
+                Cliente.Text = controladorFachada.BuscarCliente(IdCliente).ToString();
             }
             if(Filas.RowCount!=0)
             {
@@ -123,10 +123,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
-            vControlProductosPresupuesto.ShowDialog();
-            this.Close();
+            if (IdCliente == 0)
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+            else
+            {
+                this.Hide();
+                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
+                vControlProductosPresupuesto.ShowDialog();
+                this.Close();
+            }
+            
         }
 
         private void Guardar_Click(object sender, EventArgs e)

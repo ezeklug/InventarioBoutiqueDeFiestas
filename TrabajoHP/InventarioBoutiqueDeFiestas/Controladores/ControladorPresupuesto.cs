@@ -164,6 +164,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+
+
+        /// <summary>
+        /// Dada una id, devuelve el objeto presupuesto
+        /// </summary>
+        /// <param name="pIdPresupuesto"></param>
+        /// <returns></returns>
+        public Presupuesto BuscarPresupuesto(int pIdPresupuesto)
+        {
+            using (var repo = new Repositorio())
+            {
+                return repo.Presupuestos.Find(pIdPresupuesto);
+            }
+        }
+
         /// <summary>
         /// Este metodo permite señar un presupuesto pasando como parámetro el id del presupuesto y el monto de la seña.
         /// </summary>
