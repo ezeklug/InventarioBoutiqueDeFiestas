@@ -32,7 +32,6 @@
             this.Principal = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CargarPresupuesto = new System.Windows.Forms.Button();
-            this.Prueba = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,19 +75,11 @@
             this.CargarPresupuesto.UseVisualStyleBackColor = true;
             this.CargarPresupuesto.Click += new System.EventHandler(this.CargarPresupuesto_Click);
             // 
-            // Prueba
-            // 
-            this.Prueba.Location = new System.Drawing.Point(619, 376);
-            this.Prueba.Name = "Prueba";
-            this.Prueba.Size = new System.Drawing.Size(100, 20);
-            this.Prueba.TabIndex = 11;
-            // 
             // VControlProductosPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
-            this.Controls.Add(this.Prueba);
             this.Controls.Add(this.CargarPresupuesto);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Principal);
@@ -108,6 +99,5 @@
         private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button CargarPresupuesto;
-        private System.Windows.Forms.TextBox Prueba;
     }
 }
