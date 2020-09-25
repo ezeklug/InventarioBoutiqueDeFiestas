@@ -175,5 +175,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
 
         }
+
+        private void Seniar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
