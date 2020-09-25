@@ -77,6 +77,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
+        /// Este metodo permite agregar o modificar una categoria
+        /// </summary>
+        /// <param name=""></param>
+        public void AgregarModificarCategoria(CategoriaProductoDTO categoriaDTO)
+        {
+            controladorProducto.AgregarModificarCategoria(categoriaDTO);
+        }
+
+        /// <summary>
         /// Este método permite aplicar un descuento a todo un presupuesto, pasando como parámetro el id del presupuesto y el monto de descuento
         /// </summary>
         /// <param name="pIdPresupuesto"></param>

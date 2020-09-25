@@ -194,6 +194,18 @@
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
+    <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VAgregarModifciarCategoria.Designer.cs">
+      <DependentUpon>VAgregarModifciarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VControlCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VControlCategoria.Designer.cs">
+      <DependentUpon>VControlCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VAgregarModificarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +358,12 @@
     </Compile>
     <EmbeddedResource Include="Ventanas\VAdministrarPresupuesto.resx">
       <DependentUpon>VAdministrarPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VAgregarModifciarCategoria.resx">
+      <DependentUpon>VAgregarModifciarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VControlCategoria.resx">
+      <DependentUpon>VControlCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VAgregarModificarCliente.resx">
       <DependentUpon>VAgregarModificarCliente.cs</DependentUpon>

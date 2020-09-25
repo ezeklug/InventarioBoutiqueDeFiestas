@@ -158,7 +158,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void AgregarCategoria_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            VControlCategoria vCategoria= new VControlCategoria();
+            vCategoria.ShowDialog();
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
