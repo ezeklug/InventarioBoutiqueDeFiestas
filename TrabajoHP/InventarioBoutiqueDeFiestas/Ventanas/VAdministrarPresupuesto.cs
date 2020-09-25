@@ -131,10 +131,49 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente,dataGridView1);
-            vControlProductosPresupuesto.ShowDialog();
-            this.Close();
+            if (IdCliente == 0)
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+            else
+            {
+                this.Hide();
+                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
+                vControlProductosPresupuesto.ShowDialog();
+                this.Close();
+            }
+            
+        }
+
+        private void Guardar_Click(object sender, EventArgs e)
+        {
+            if (IdCliente == 0)
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+            else if (dataGridView1.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe seleccionar al menos un producto");
+            }
+            else
+            {
+                PresupuestoDTO pre = new PresupuestoDTO();
+                pre.FechaGeneracion = DateTime.Now;
+                pre.IdCliente = IdCliente;
+                int idPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    LineaPresupuestoDTO lin = new LineaPresupuestoDTO();
+                    lin.Cantidad = int.Parse(row.Cells[2].Value.ToString());
+                    lin.IdPresupuesto = idPresupuesto;
+                    lin.IdProducto = int.Parse(row.Cells[0].Value.ToString());
+                    lin.PorcentajeDescuento = double.Parse(row.Cells[4].Value.ToString());
+                    lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
+                    controladorFachada.AgregarLinea(lin);
+                }
+            }
+
         }
     }
 }
