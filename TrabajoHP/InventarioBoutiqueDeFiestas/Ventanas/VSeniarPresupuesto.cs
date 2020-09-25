@@ -12,7 +12,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VSeniarPresupuesto : Form
     {
-        public VSeniarPresupuesto()
+        public VSeniarPresupuesto(int pidCliente)
         {
             InitializeComponent();
         }
