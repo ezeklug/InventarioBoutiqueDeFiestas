@@ -123,18 +123,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            if (IdCliente == 0)
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-            else
-            {
-                this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
-                vControlProductosPresupuesto.ShowDialog();
-                this.Close();
-            }
-            
+            this.Hide();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
+            vControlProductosPresupuesto.ShowDialog();
+            this.Close();
         }
 
         private void Guardar_Click(object sender, EventArgs e)
