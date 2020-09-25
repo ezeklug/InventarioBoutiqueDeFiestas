@@ -33,6 +33,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Filas = filas;
             InitializeComponent();
         }
+        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas)
+        {
+            IdCliente = pIdCliente;
+            Filas = filas;
+            InitializeComponent();
+        }
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
@@ -61,19 +67,24 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     dataGridView1.Rows.Add(r);
                 }
             }
-            foreach(ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
+            if(IdProductos!=null)
             {
-                string[] row = new string[] { p.Id.ToString(), p.Nombre, p.Cantidad.ToString(), p.PrecioUnitario.ToString(), p.PorcentajeDescuento.ToString(), p.Subtotal.ToString() };
-                dataGridView1.Rows.Add(row);
+                foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
+                {
+                    string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0", "0"};
+                    dataGridView1.Rows.Add(row);
+                }
             }
-
         }
 
         private void CalcularSubtotal()
         {
             foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
+                if(row.Cells[2].Value!=null && row.Cells[3].Value != null && row.Cells[4].Value != null && row.Cells[5].Value != null)
+                {
+                    row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
+                }
             }
         }
 
@@ -98,7 +109,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos,dataGridView1);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
