@@ -171,6 +171,7 @@
             this.Seniar.TabIndex = 23;
             this.Seniar.Text = "Señar";
             this.Seniar.UseVisualStyleBackColor = true;
+            this.Seniar.Click += new System.EventHandler(this.Seniar_Click);
             // 
             // Vender
             // 
