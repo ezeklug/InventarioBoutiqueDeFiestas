@@ -175,6 +175,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
                     controladorFachada.AgregarLinea(lin);
                 }
+                MessageBox.Show("Se guardó correctamente el presupuesto");
             }
 
         }
@@ -190,6 +191,26 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             VControlPresupuestos vControlPresupuestos = new VControlPresupuestos();
             vControlPresupuestos.ShowDialog();
             this.Close();
+        }
+
+        private void FechaVencimiento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FechaEvento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FechaEntrega_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Estado_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
