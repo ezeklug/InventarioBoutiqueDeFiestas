@@ -35,6 +35,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.totalLabel.Text = iPresupuesto.TotalVenta().ToString();
             if (seniaDto != null)
             {
+                this.dateTimePicker1.Value = seniaDto.ValidoHasta;
                 this.fechaDeSeniaLabel.Text = seniaDto.Fecha.ToString();
                 this.montoSeniaTextBox.Text = seniaDto.Monto.ToString();
             }
@@ -91,7 +92,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VSeniarPresupuesto_Load(object sender, EventArgs e)
         {
-
+            this.dateTimePicker1.MinDate = DateTime.Now;
+            this.dateTimePicker1.Value = DateTime.Now + TimeSpan.FromDays(15);
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -148,12 +150,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 var cont = new ControladorPresupuesto();
                 if (seniaDto == null)
                 {
-                    cont.SeniarPresupuesto(iPresupuesto.Id, float.Parse(this.montoSeniaTextBox.Text));
+                    var dto = new SeniaDTO();
+                    dto.Fecha = DateTime.Parse(this.fechaDeSeniaLabel.Text);
+                    dto.IdPresupuesto = iPresupuesto.Id;
+                    dto.Monto = float.Parse(this.montoSeniaTextBox.Text);
+                    dto.ValidoHasta = dateTimePicker1.Value;
+                    cont.SeniarPresupuesto(dto);
                 }
                 else
                 {
                     seniaDto.Monto = float.Parse(this.montoSeniaTextBox.Text);
                     seniaDto.Fecha = DateTime.Parse(this.fechaDeSeniaLabel.Text);
+                    seniaDto.ValidoHasta = dateTimePicker1.Value;
                     cont.ModificarSenia(seniaDto);
                 }
             }
@@ -166,7 +174,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            var s = (sender as DateTimePicker);
+            if (s.Value < DateTime.Now)
+            {
+                
+            }
+        }
 
+        private void cancelarButton_Click(object sender, EventArgs e)
+        {
+            var home = new VPrincipal();
+            home.Show();
+            this.Hide();
+            this.Close();
         }
     }
 }

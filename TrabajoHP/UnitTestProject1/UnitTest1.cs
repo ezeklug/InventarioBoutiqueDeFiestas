@@ -223,6 +223,12 @@ namespace UnitTestProject1
         }
 
         //[TestMethod]
+        public void testfecha()
+        {
+            Console.WriteLine(DateTime.Now + TimeSpan.FromDays(15));
+        }
+
+        //[TestMethod]
         public void TestGenPdfPresupuesto() {
             var repo = new Repositorio();
             GenPdf.PDFPresupuesto(repo.Presupuestos.Find(1));
