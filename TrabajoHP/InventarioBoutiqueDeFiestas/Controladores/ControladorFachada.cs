@@ -47,15 +47,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorPresupuesto.AgregarModificarLinea(pPresupuestoDTO);
         }
 
-        /// <summary>
-        /// Este metodo permite señar un presupuesto pasando como parámetro el id del presupuesto y el monto de la seña.
-        /// </summary>
-        /// <param name="pIdPresupuesto"></param>
-        /// <param name="pMontoSenia"></param>
-        public void SeniarPresupuesto(int pIdPresupuesto, double pMontoSenia)
-        {
-            controladorPresupuesto.SeniarPresupuesto(pIdPresupuesto, pMontoSenia);
-        }
+      
 
         /// <summary>
         /// Este método permite vender un presupuesto, pasando como parámetro el id del presupuesto

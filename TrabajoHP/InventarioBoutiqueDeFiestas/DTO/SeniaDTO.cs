@@ -11,6 +11,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
         public double Monto { get; set; }
+        public DateTime ValidoHasta { get; set; }
         public int IdPresupuesto { get; set; }
     }
 }

@@ -20,21 +20,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         DateTime FechaEvento { get; set; }
         DateTime FechaVencimiento { get; set; }
         int IdPresupuesto { get; set; }
+        string Descuento { get; set; }
 
-        public VControlClientesPresupuesto(int pIdCliente, DataGridView filas, DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto)
+        public VControlClientesPresupuesto(int pIdCliente, DataGridView filas, DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto,string descuento)
         {
             IdCliente = pIdCliente;
             Filas = filas;
             FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
-            InitializeComponent();
-        }
-
-        public VControlClientesPresupuesto(int pIdCliente,List<int> pIidProductos ,DataGridView filas)
-        {
-            IdCliente = pIdCliente;
-            Filas = filas;
+            Descuento = descuento;
             InitializeComponent();
         }
 
@@ -70,7 +65,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (seleccion)
             {
                 this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,Filas,FechaEvento,FechaVencimiento,IdPresupuesto);
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente,Filas,FechaEvento,FechaVencimiento,IdPresupuesto,Descuento);
                 vAdministrarPresupuesto.ShowDialog();
                 this.Close();
             }
