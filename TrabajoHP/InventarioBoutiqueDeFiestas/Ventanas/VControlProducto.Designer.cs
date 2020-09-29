@@ -35,7 +35,7 @@
             this.Modificar = new System.Windows.Forms.Button();
             this.IngresoMercaderia = new System.Windows.Forms.Button();
             this.PorcentajeIncremento = new System.Windows.Forms.Button();
-            this.AgregarCategoria = new System.Windows.Forms.Button();
+            this.Categoria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(838, 268);
             this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Agregar
             // 
@@ -118,23 +117,23 @@
             this.PorcentajeIncremento.UseVisualStyleBackColor = true;
             this.PorcentajeIncremento.Click += new System.EventHandler(this.PorcentajeIncremento_Click);
             // 
-            // AgregarCategoria
+            // Categoria
             // 
-            this.AgregarCategoria.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.AgregarCategoria.Location = new System.Drawing.Point(626, 376);
-            this.AgregarCategoria.Name = "AgregarCategoria";
-            this.AgregarCategoria.Size = new System.Drawing.Size(110, 23);
-            this.AgregarCategoria.TabIndex = 13;
-            this.AgregarCategoria.Text = "Agregar categoria";
-            this.AgregarCategoria.UseVisualStyleBackColor = true;
-            this.AgregarCategoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
+            this.Categoria.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Categoria.Location = new System.Drawing.Point(626, 376);
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Size = new System.Drawing.Size(110, 23);
+            this.Categoria.TabIndex = 13;
+            this.Categoria.Text = "Categoria";
+            this.Categoria.UseVisualStyleBackColor = true;
+            this.Categoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
-            this.Controls.Add(this.AgregarCategoria);
+            this.Controls.Add(this.Categoria);
             this.Controls.Add(this.PorcentajeIncremento);
             this.Controls.Add(this.IngresoMercaderia);
             this.Controls.Add(this.Modificar);
@@ -160,6 +159,6 @@
         private System.Windows.Forms.Button Modificar;
         private System.Windows.Forms.Button IngresoMercaderia;
         private System.Windows.Forms.Button PorcentajeIncremento;
-        private System.Windows.Forms.Button AgregarCategoria;
+        private System.Windows.Forms.Button Categoria;
     }
 }

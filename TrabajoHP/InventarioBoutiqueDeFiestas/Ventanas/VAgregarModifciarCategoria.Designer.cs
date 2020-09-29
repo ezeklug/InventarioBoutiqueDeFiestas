@@ -154,6 +154,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VAgregarModifciarCategoria";
             this.Text = "VAgregarModifciarCategoria";
+         
             this.ResumeLayout(false);
             this.PerformLayout();
 

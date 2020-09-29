@@ -26,7 +26,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             InitializeComponent();
             this.nombreCategoria.Text = categoria.Nombre;
-            this.descripcionCategoria.Text = categoria.Nombre;
+            this.descripcionCategoria.Text = categoria.Descripcion;
             if (categoria.Vence)
             {
                 this.siVence.Checked = true;
@@ -67,7 +67,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     categoriaProductoDTO.Vence = true;
                 }
                 else { categoriaProductoDTO.Vence = false; }
-
+                
                 controladorFachada.AgregarModificarCategoria(categoriaProductoDTO);
                 this.Hide();
                 VControlCategoria vControlCategoria = new VControlCategoria();
@@ -75,6 +75,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.Close();
             }
         }
+
     }
 }
     

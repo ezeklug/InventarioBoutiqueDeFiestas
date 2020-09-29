@@ -44,7 +44,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 Id = categoriaDTO.Id,
                 Nombre = categoriaDTO.Nombre,
                 Descripcion = categoriaDTO.Descripcion,
-                Vence = categoriaDTO.Vence
+                Vence = categoriaDTO.Vence,
+                Activo = true
             };
             return categoriaProducto;
         }
@@ -66,12 +67,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     repo.SaveChanges();
                     
                 }
-                else  /// Modificar producto
+                else  /// Modificar Categoria
                 {
                     cat.Id = categoriaAAgregar.Id;
                     cat.Nombre = categoriaAAgregar.Nombre;
                     cat.Descripcion = categoriaAAgregar.Descripcion;
                     cat.Vence = categoriaAAgregar.Vence;
+                    cat.Activo = true;
                     repo.SaveChanges();
                    
                 }
@@ -199,6 +201,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 Producto prod = repo.Productos.Find(pIdProducto);
                 prod.Activo = false;
+            }
+        }
+
+
+        public void BajaCategoria(int pIdCategoria)
+        {
+            using (Repositorio repo = new Repositorio())
+            {
+                CategoriaProducto cate = repo.CategoriaProductos.Find(pIdCategoria);
+                cate.Activo = false;
             }
         }
 

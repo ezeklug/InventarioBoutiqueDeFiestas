@@ -123,7 +123,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             this.Hide();
             VPrincipal vPrincipal = new VPrincipal();
-            vPrincipal.ShowDialog();
+            vPrincipal.Show();
             this.Close();
         }
 

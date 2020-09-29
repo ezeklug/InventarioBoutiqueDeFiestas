@@ -143,6 +143,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto.BajaProducto(pIdProducto);
         }
 
+        public void BajaCategoria(int pIdCategoria)
+        {
+            controladorProducto.BajaCategoria(pIdCategoria);
+        }
         /// <summary>
         /// Este método permite listar todos los productos que están guardados en base de datos.
         /// </summary>

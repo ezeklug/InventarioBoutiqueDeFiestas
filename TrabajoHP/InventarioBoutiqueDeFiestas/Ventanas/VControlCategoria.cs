@@ -29,6 +29,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             cb.HeaderText = "";
             dataGridView1.Columns.Add(cb);
             dataGridView1.DataSource = controladorFachada.ListarCategorias();
+            dataGridView1.Columns[5].Visible = false; //Columna de "Activo"
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -86,7 +87,28 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (Convert.ToBoolean(fila.Cells[0].Value))
+                {
+                    int idCategoria = Convert.ToInt32(fila.Cells[1].Value);
+                    controladorFachada.BajaCategoria(idCategoria);
+                    MessageBox.Show("Categorias Eliminadas Correctamente");
 
+                    
+                }
+            }
+       
+
+
+        }
+
+        private void Principal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlProducto vControlProducto = new VControlProducto();
+            vControlProducto.Show();
+            this.Close();
         }
     }
 }
