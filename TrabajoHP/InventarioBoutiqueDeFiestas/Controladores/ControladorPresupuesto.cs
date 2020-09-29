@@ -121,12 +121,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public SeniaDTO PresupuestoTieneSenia(int pIdPrespupuesto)
         {
-            Senia senia;
+            Senia senia = null;
             using (var repo = new Repositorio())
             {
-                 senia = repo.Senias.Include("Presupuesto").Where(s => s.Presupuesto.Id == pIdPrespupuesto).First();
+                try
+                {
+                    senia = repo.Senias.Include("Presupuesto").Where(s => s.Presupuesto.Id == pIdPrespupuesto).First();
+                }
+                catch (InvalidOperationException e)
+                {
+                }
             }
-           
+
+
             if (senia != null)
             {
                 var dto = new SeniaDTO();
@@ -235,16 +242,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pMontoSenia"></param>
-        public void SeniarPresupuesto(int pIdPresupuesto, double pMontoSenia)
+        public void SeniarPresupuesto(SeniaDTO pSenia)
         {
             using(var repo = new Repositorio())
             {
-                var presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
+                var presupuesto = repo.Presupuestos.Find(pSenia.IdPresupuesto);
                 if (presupuesto == null)
                 {
-                    throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
+                    throw new Exception("Presupuesto" + pSenia.IdPresupuesto + " no existe");
                 }
-                var senia = new Senia(pMontoSenia, presupuesto);
+                var senia = new Senia(pSenia.Monto, presupuesto);
+                senia.Fecha = pSenia.Fecha;
+                senia.ValidoHasta = pSenia.ValidoHasta;
                 presupuesto.Estado = EstadoPresupuesto.Seniado;
                 repo.Senias.Add(senia);
             }
