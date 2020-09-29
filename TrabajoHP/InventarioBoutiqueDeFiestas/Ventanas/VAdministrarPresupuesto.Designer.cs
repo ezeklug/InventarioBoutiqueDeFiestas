@@ -1,4 +1,6 @@
-﻿namespace InventarioBoutiqueDeFiestas.Ventanas
+﻿using System;
+
+namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     partial class VAdministrarPresupuesto
     {
@@ -317,6 +319,31 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Estado_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FechaEvento_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FechaEntrega_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FechaVencimiento_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

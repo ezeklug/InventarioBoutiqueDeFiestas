@@ -173,34 +173,39 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 pre.IdCliente = IdCliente;
                 int idPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                LineaPresupuestoDTO lin = new LineaPresupuestoDTO();
-                lin.Cantidad = int.Parse(row.Cells[2].Value.ToString());
-                lin.IdPresupuesto = idPresupuesto;
-                lin.IdProducto = int.Parse(row.Cells[0].Value.ToString());
-                lin.PorcentajeDescuento = double.Parse(row.Cells[4].Value.ToString());
-                lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
-                controladorFachada.AgregarLinea(lin);
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    LineaPresupuestoDTO lin = new LineaPresupuestoDTO();
+                    lin.Cantidad = int.Parse(row.Cells[2].Value.ToString());
+                    lin.IdPresupuesto = idPresupuesto;
+                    lin.IdProducto = int.Parse(row.Cells[0].Value.ToString());
+                    lin.PorcentajeDescuento = double.Parse(row.Cells[4].Value.ToString());
+                    lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
+                    controladorFachada.AgregarLinea(lin);
+                }
             }
-            return idPresupuesto;
         }
 
-        private void Guardar_Click(object sender, EventArgs e)
-        {
-            if (IdCliente == 0)
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-            else if (dataGridView1.Rows.Count < 1)
-            {
-                MessageBox.Show("Debe seleccionar al menos un producto");
-            }
-            else
-            {
-                GuardarPresupuesto();
-            }
+        //private void Guardar_Click(object sender, EventArgs e)
+        //{
+        //    if (IdCliente == 0)
+        //    {
+        //        MessageBox.Show("Debe seleccionar un cliente");
+        //    }
+        //    else if (dataGridView1.Rows.Count < 1)
+        //    {
+        //        MessageBox.Show("Debe seleccionar al menos un producto");
+        //    }
+        //    else
+        //    {
+        //        GuardarPresupuesto();
+        //    }
 
+        //}
+
+        public int GuardarPresupuesto() {
+            return 0;
         }
 
         private void Seniar_Click(object sender, EventArgs e)

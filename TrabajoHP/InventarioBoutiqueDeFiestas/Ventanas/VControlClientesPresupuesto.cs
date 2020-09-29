@@ -25,6 +25,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
         }
 
+        public VControlClientesPresupuesto(int pIdCliente,List<int> pIidProductos ,DataGridView filas)
+        {
+            IdCliente = pIdCliente;
+            Filas = filas;
+            InitializeComponent();
+        }
+
         private void VControlClientesPresupuesto_Load(object sender, EventArgs e)
         {
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
