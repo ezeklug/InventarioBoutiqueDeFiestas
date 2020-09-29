@@ -123,6 +123,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto.AgregarModificarProducto(pProductoDTO);
         }
 
+        /// <summary>
+        /// Este metodo permite obtener el id de la categoria pasandole un nombre
+        /// </summary>
+        /// <param name="nombreCategoria"></param>
+        /// <returns></returns>
+        public int BuscarCategoriaPorNombre(String nombreCategoria)
+        {
+            return controladorProducto.BuscarCategoriaPorNombre(nombreCategoria);
+        }
+
 
         /// <summary>
         /// Este método permite realizar la baja lógica de un producto, poniendo una propiedad "Activo" en falso.

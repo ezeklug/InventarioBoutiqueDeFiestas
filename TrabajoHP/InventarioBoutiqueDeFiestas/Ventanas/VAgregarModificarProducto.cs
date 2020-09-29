@@ -31,6 +31,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             StockMinimo.Text = pProductoDTO.StockMinimo.ToString();
             CantidadEnStock.Text = pProductoDTO.CantidadEnStock.ToString();
             PorcentajeDeGanancia.Text = pProductoDTO.PorcentajeDeGanancia.ToString();
+            precioCompra.Text = pProductoDTO.PrecioDeCompra.ToString();
             Categoria.Text = controladorfachada.GetNombreCategoria(pProductoDTO.Id);
 
         }
@@ -68,8 +69,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 pProductoDTO.Nombre = Nombre.Text;
                 pProductoDTO.Descripcion = Descripcion.Text;
                 pProductoDTO.CantidadEnStock = Convert.ToInt32(CantidadEnStock.Text);
-                pProductoDTO.PorcentajeDeGanancia = Convert.ToInt32(PorcentajeDeGanancia.Text);
+                pProductoDTO.PorcentajeDeGanancia = Convert.ToDouble(PorcentajeDeGanancia.Text);
                 pProductoDTO.StockMinimo = Convert.ToInt32(StockMinimo.Text);
+                pProductoDTO.IdCategoria = controladorfachada.BuscarCategoriaPorNombre(Categoria.Text);
+                pProductoDTO.PrecioDeCompra = Convert.ToDouble(precioCompra.Text);
                 controladorfachada.AgregarModificarProducto(pProductoDTO);
                 this.Hide();
                 VControlProducto vControlProducto = new VControlProducto();
@@ -85,8 +88,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             List<String> listaCategorias = new List<string>();
             foreach (CategoriaProducto cate in controladorfachada.ListarCategorias())
             {
+                //ComboBoxItem item = new ComboBoxItem();
+                //item.Text = cate.Nombre;
+                //item.Value = cate.Id;
                 listaCategorias.Add(cate.Nombre);
                 Categoria.Items.Add(cate.Nombre);
+                
             }
             
             this.Categoria.AutoCompleteCustomSource.AddRange(listaCategorias.ToArray());
