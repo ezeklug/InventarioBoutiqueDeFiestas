@@ -83,6 +83,7 @@
             this.Eliminar.TabIndex = 6;
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseVisualStyleBackColor = true;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             // 
             // VControlCategoria
             // 

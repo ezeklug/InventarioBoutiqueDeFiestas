@@ -83,9 +83,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     MessageBox.Show("Debe seleccionar un producto");
                 }
         }
-             
-            
-           
-        
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
