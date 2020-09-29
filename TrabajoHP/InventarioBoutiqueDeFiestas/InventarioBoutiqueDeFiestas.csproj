@@ -198,7 +198,6 @@
     <Compile Include="Migrations\202009292256448_InitialCreate12.designer.cs">
       <DependentUpon>202009292256448_InitialCreate12.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\ComboBoxItem.cs" />
     <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
