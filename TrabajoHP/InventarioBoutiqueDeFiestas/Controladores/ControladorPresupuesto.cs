@@ -92,6 +92,56 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return lin;
         }
 
+
+
+        /// <summary>
+        /// Modifica una senia de la db
+        /// </summary>
+        /// <param name="senia"></param>
+        public void ModificarSenia(SeniaDTO senia)
+        {
+            if(senia.Id == 0)
+            {
+                throw new Exception("El id de la senia es 0");
+            }
+            using (var repo = new Repositorio())
+            {
+                var seniadb = repo.Senias.Find(senia.Id);
+                seniadb.Monto = senia.Monto;
+                seniadb.Fecha = senia.Fecha;
+            }
+        }
+
+
+        /// <summary>
+        /// Devuelve la senia si el prespuesto tiene una
+        /// Si no tiene devuelve null
+        /// </summary>
+        /// <param name="pIdPrespupuesto"></param>
+        /// <returns></returns>
+        public SeniaDTO PresupuestoTieneSenia(int pIdPrespupuesto)
+        {
+            Senia senia;
+            using (var repo = new Repositorio())
+            {
+                 senia = repo.Senias.Include("Presupuesto").Where(s => s.Presupuesto.Id == pIdPrespupuesto).First();
+            }
+           
+            if (senia != null)
+            {
+                var dto = new SeniaDTO();
+                dto.Id = senia.Id;
+                dto.IdPresupuesto = senia.Presupuesto.Id;
+                dto.Monto = senia.Monto;
+                dto.Fecha = senia.Fecha;
+                return dto;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public ControladorPresupuesto()
         {
            

@@ -16,23 +16,33 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VSeniarPresupuesto : Form
     {
         Cliente iCliente;
+        SeniaDTO seniaDto;
         Presupuesto iPresupuesto;
         public VSeniarPresupuesto(int pIdCliente, int pPresupuestoId)
         {
 
 
             var cont = new ControladorFachada();
+            var contP = new ControladorPresupuesto();
             iCliente = cont.BuscarCliente(pIdCliente);
             iPresupuesto = cont.BuscarPresupuesto(pPresupuestoId);
-
-            
-                
-            //this.cantidadProductosLabel.Text;
+            seniaDto = contP.PresupuestoTieneSenia(pPresupuestoId);
             InitializeComponent();
+
+
             this.nombreClienteLabel.Text = iCliente.ToString();
-            this.totalLabel.Text = iPresupuesto.TotalVenta().ToString();
-            this.fechaDeSeniaLabel.Text = DateTime.Now.ToString();
             this.cantidadProductosLabel.Text = iPresupuesto.Lineas.Count.ToString();
+            this.totalLabel.Text = iPresupuesto.TotalVenta().ToString();
+            if (seniaDto != null)
+            {
+                this.fechaDeSeniaLabel.Text = seniaDto.Fecha.ToString();
+                this.montoSeniaTextBox.Text = seniaDto.Monto.ToString();
+            }
+            else
+            {
+                this.fechaDeSeniaLabel.Text = DateTime.Now.ToString();
+            }
+
 
             porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_HasChanged);
             montoSeniaTextBox.TextChanged += new System.EventHandler(this.montoSeniaTextBox_HasChanged);
@@ -133,14 +143,29 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Seniar_Click(object sender, EventArgs e)
         {
             if (this.montoSeniaTextBox.TextLength != 0)
-            { 
+            {
+
                 var cont = new ControladorPresupuesto();
-                cont.SeniarPresupuesto(iPresupuesto.Id, float.Parse(this.montoSeniaTextBox.Text));
+                if (seniaDto == null)
+                {
+                    cont.SeniarPresupuesto(iPresupuesto.Id, float.Parse(this.montoSeniaTextBox.Text));
+                }
+                else
+                {
+                    seniaDto.Monto = float.Parse(this.montoSeniaTextBox.Text);
+                    seniaDto.Fecha = DateTime.Parse(this.fechaDeSeniaLabel.Text);
+                    cont.ModificarSenia(seniaDto);
+                }
             }
             else
             {
                 MessageBox.Show("Debe cargar correctamente el monto");  
             }
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
