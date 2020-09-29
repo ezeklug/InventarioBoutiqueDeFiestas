@@ -26,10 +26,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdCliente = 0;
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas)
+        public VAdministrarPresupuesto(int pIdCliente,List<int> idProductos, DataGridView filas)
         {
             IdCliente = pIdCliente;
             IdProductos = idProductos;
+            Filas = filas;
+            InitializeComponent();
+        }
+        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas)
+        {
+            IdCliente = pIdCliente;
             Filas = filas;
             InitializeComponent();
         }
@@ -53,7 +59,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 Cliente.Text = controladorFachada.BuscarCliente(IdCliente).ToString();
             }
-            if (Filas.RowCount != 0)
+            if(Filas.RowCount!=0)
             {
                 foreach (DataGridViewRow row in Filas.Rows)
                 {
@@ -61,30 +67,43 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     dataGridView1.Rows.Add(r);
                 }
             }
-            foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
+            if(IdProductos!=null)
             {
-                string[] row = new string[] { p.Id.ToString(), p.Nombre, p.Cantidad.ToString(), p.PrecioUnitario.ToString(), p.PorcentajeDescuento.ToString(), p.Subtotal.ToString() };
-                dataGridView1.Rows.Add(row);
+                Boolean existe = false;
+                foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(IdProductos))
+                {
+                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
+                    {
+                        if (row1.Cells[0].Value.ToString() == p.Id.ToString())
+                        {
+                            existe = true;
+                        }
+                    }
+                    if(!existe)
+                    {
+                        string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0", "0" };
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
             }
-
         }
 
         private void CalcularSubtotal()
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
+                row.Cells[5].Value = controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToDouble(row.Cells[3].Value), Convert.ToDouble(row.Cells[4].Value));
             }
         }
 
         private double PrecioVenta()
         {
             List<double> subtotales = new List<double>();
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach(DataGridViewRow row in dataGridView1.Rows)
             {
                 subtotales.Add(Convert.ToDouble(row.Cells[5].Value));
             }
-            return controladorFachada.PrecioVenta(subtotales, Convert.ToDouble(DescuentoTotal.Text));
+            return controladorFachada.PrecioVenta(subtotales,Convert.ToDouble(DescuentoTotal.Text));
         }
         private void Principal_Click(object sender, EventArgs e)
         {
@@ -98,7 +117,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente, IdProductos, dataGridView1);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -111,7 +130,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void DescuentoTotal_TextChanged(object sender, EventArgs e)
         {
-            if (Total.Text == "")
+            if(Total.Text=="")
             {
                 Total.Text = "0";
             }
@@ -123,43 +142,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            if (IdCliente == 0)
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-            else
-            {
-                this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
-                vControlProductosPresupuesto.ShowDialog();
-                this.Close();
-            }
-
-        }
-
-
-        /// <summary>
-        /// Guarda los datos del presupuesto en pantalla
-        /// Devuelve el id del presupuesto guardado
-        /// </summary>
-        /// <returns></returns>
-        private int GuardarPresupuesto() {
-            PresupuestoDTO pre = new PresupuestoDTO();
-            pre.FechaGeneracion = DateTime.Now;
-            pre.IdCliente = IdCliente;
-            int idPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                LineaPresupuestoDTO lin = new LineaPresupuestoDTO();
-                lin.Cantidad = int.Parse(row.Cells[2].Value.ToString());
-                lin.IdPresupuesto = idPresupuesto;
-                lin.IdProducto = int.Parse(row.Cells[0].Value.ToString());
-                lin.PorcentajeDescuento = double.Parse(row.Cells[4].Value.ToString());
-                lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
-                controladorFachada.AgregarLinea(lin);
-            }
-            return idPresupuesto;
+            this.Hide();
+            VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
+            vControlProductosPresupuesto.ShowDialog();
+            this.Close();  
         }
 
         private void Guardar_Click(object sender, EventArgs e)
@@ -174,7 +160,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             else
             {
-                GuardarPresupuesto();
+                PresupuestoDTO pre = new PresupuestoDTO();
+                pre.FechaGeneracion = DateTime.Now;
+                pre.IdCliente = IdCliente;
+                int idPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    LineaPresupuestoDTO lin = new LineaPresupuestoDTO();
+                    lin.Cantidad = int.Parse(row.Cells[2].Value.ToString());
+                    lin.IdPresupuesto = idPresupuesto;
+                    lin.IdProducto = int.Parse(row.Cells[0].Value.ToString());
+                    lin.PorcentajeDescuento = double.Parse(row.Cells[4].Value.ToString());
+                    lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
+                    controladorFachada.AgregarLinea(lin);
+                }
             }
 
         }
@@ -182,22 +182,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Seniar_Click(object sender, EventArgs e)
         {
 
-            if (IdCliente == 0)
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-            else if (dataGridView1.Rows.Count < 1)
-            {
-                MessageBox.Show("Debe seleccionar al menos un producto");
-            }
-            else
-            {
-                int idPresupuesto = GuardarPresupuesto();
-                new VSeniarPresupuesto(IdCliente, idPresupuesto).ShowDialog();
-                this.Hide();
-                this.Close();
-
-            }
         }
     }
 }
