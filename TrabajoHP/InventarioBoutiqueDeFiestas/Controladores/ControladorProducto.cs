@@ -167,12 +167,24 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     pro.PorcentajeDeGanancia = proAAgregar.PorcentajeDeGanancia;
                     pro.PrecioDeCompra = proAAgregar.PrecioDeCompra;
                     pro.Activo = proAAgregar.Activo;
+                    pro.Categoria = proAAgregar.Categoria;
                     repo.SaveChanges();
                     return pro.Id;
                 }
 
             }
             
+        }
+        /// <summary>
+        /// Busca CategoriaProducto por nombre
+        /// </summary>
+        /// <param name="nombreCategoria"></param>
+        /// <returns> El id de la categoria </returns>
+        public int BuscarCategoriaPorNombre(String nombreCategoria)
+        {
+            List<CategoriaProducto> listaCategoria= ListarCategorias();
+            CategoriaProducto categoria= listaCategoria.Find(x => x.Nombre == nombreCategoria);
+            return categoria.Id;
         }
 
 

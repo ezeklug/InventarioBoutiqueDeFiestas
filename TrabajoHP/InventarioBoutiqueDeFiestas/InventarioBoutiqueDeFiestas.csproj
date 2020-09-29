@@ -194,6 +194,7 @@
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
+    <Compile Include="Ventanas\ComboBoxItem.cs" />
     <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
