@@ -27,7 +27,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             using (var repo = new Repositorio())
             {
                 //return repo.Productos.Where<CategoriaProducto>(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
-                return repo.CategoriaProductos.ToList<CategoriaProducto>();
+                //return repo.CategoriaProductos.ToList<CategoriaProducto>();
+                return repo.CategoriaProductos.Where<CategoriaProducto>(p => (p.Activo == true)).ToList();
             }
         }
 

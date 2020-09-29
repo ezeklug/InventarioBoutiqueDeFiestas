@@ -13,11 +13,14 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public string Descripcion { get; set; }
         public Boolean Vence { get; set; }
 
+        public Boolean Activo { get; set; }
+
         public CategoriaProducto(string pNombre, string pDescripcion, Boolean pVence)
         {
             Nombre = pNombre;
             Descripcion = pDescripcion;
             Vence = pVence;
+            Activo = true;
         }
 
         public override string ToString()
