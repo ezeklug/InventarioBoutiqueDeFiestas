@@ -18,25 +18,29 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdCliente { get; set; }
         DataGridView Filas { get; set; }
         List<int> IdProductos { get; set; }
+        DateTime FechaEvento { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
             IdProductos = new List<int>();
             Filas = new DataGridView();
             IdCliente = 0;
+            FechaEvento = DateTime.Now;
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas)
+        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas, DateTime fechaEvento)
         {
             IdCliente = pIdCliente;
             IdProductos = idProductos;
             Filas = filas;
+            FechaEvento = fechaEvento;
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas)
+        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaEvento)
         {
             IdCliente = pIdCliente;
             Filas = filas;
+            FechaEvento = fechaEvento;
             InitializeComponent();
         }
 
@@ -55,6 +59,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.AllowUserToAddRows = false;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
+            dateTimePicker2.Value = FechaEvento;
             if (IdCliente != 0)
             {
                 Cliente.Text = controladorFachada.BuscarCliente(IdCliente).ToString();
@@ -92,7 +97,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToInt32(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
+                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToDouble(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
             }
         }
 
@@ -117,7 +122,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,IdProductos,dataGridView1);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1,FechaEvento);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -142,18 +147,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void CargarProductos_Click(object sender, EventArgs e)
         {
-            if (IdCliente == 0)
-            {
-                MessageBox.Show("Debe seleccionar un cliente");
-            }
-            else
-            {
                 this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1);
+                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1,FechaEvento);
                 vControlProductosPresupuesto.ShowDialog();
-                this.Close();
-            }
-            
+                this.Close(); 
         }
 
         private void Guardar_Click(object sender, EventArgs e)
@@ -187,23 +184,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
-        //private void Guardar_Click(object sender, EventArgs e)
-        //{
-        //    if (IdCliente == 0)
-        //    {
-        //        MessageBox.Show("Debe seleccionar un cliente");
-        //    }
-        //    else if (dataGridView1.Rows.Count < 1)
-        //    {
-        //        MessageBox.Show("Debe seleccionar al menos un producto");
-        //    }
-        //    else
-        //    {
-        //        GuardarPresupuesto();
-        //    }
-
-        //}
-
         public int GuardarPresupuesto() {
             return 0;
         }
@@ -227,6 +207,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.Close();
 
             }
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            FechaEvento=dateTimePicker2.Value;
         }
     }
 }

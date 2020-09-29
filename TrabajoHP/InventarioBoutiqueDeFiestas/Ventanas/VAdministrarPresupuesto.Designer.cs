@@ -45,9 +45,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.CargarProductos = new System.Windows.Forms.Button();
             this.Principal = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -212,37 +210,23 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Fecha de Vencimiento";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(427, 102);
+            this.label7.Location = new System.Drawing.Point(58, 103);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 32;
             this.label7.Text = "Fecha de Evento";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(183, 96);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 33;
-            // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(536, 96);
+            this.dateTimePicker2.Location = new System.Drawing.Point(164, 97);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 34;
+            this.dateTimePicker2.Value = new System.DateTime(2020, 9, 29, 15, 35, 11, 0);
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // VAdministrarPresupuesto
             // 
@@ -250,9 +234,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 671);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
@@ -319,9 +301,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.Button Vender;
         private System.Windows.Forms.Button CargarProductos;
         private System.Windows.Forms.Button Cancelar;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
