@@ -109,6 +109,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 var seniadb = repo.Senias.Find(senia.Id);
                 seniadb.Monto = senia.Monto;
                 seniadb.Fecha = senia.Fecha;
+                seniadb.ValidoHasta = senia.ValidoHasta;
             }
         }
 
@@ -134,6 +135,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 dto.IdPresupuesto = senia.Presupuesto.Id;
                 dto.Monto = senia.Monto;
                 dto.Fecha = senia.Fecha;
+                dto.ValidoHasta = senia.ValidoHasta;
                 return dto;
             }
             else
@@ -230,20 +232,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
-        /// Este metodo permite señar un presupuesto pasando como parámetro el id del presupuesto y el monto de la seña.
+        /// Senia un presupuesto y se guarda en la base de datos
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pMontoSenia"></param>
-        public void SeniarPresupuesto(int pIdPresupuesto, double pMontoSenia)
+        public void SeniarPresupuesto(SeniaDTO pSenia)
         {
             using(var repo = new Repositorio())
             {
-                var presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
+                var presupuesto = repo.Presupuestos.Find(pSenia.IdPresupuesto);
                 if (presupuesto == null)
                 {
-                    throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
+                    throw new Exception("Presupuesto" + pSenia.IdPresupuesto + " no existe");
                 }
-                var senia = new Senia(pMontoSenia, presupuesto);
+                var senia = new Senia(pSenia.Monto, presupuesto);
+                senia.ValidoHasta = pSenia.ValidoHasta;
                 repo.Senias.Add(senia);
             }
         }

@@ -43,7 +43,6 @@
             this.porcentajeSeniaTextBox = new System.Windows.Forms.TextBox();
             this.montoSeniaTextBox = new System.Windows.Forms.TextBox();
             this.seniarButton = new System.Windows.Forms.Button();
-            this.modificarButton = new System.Windows.Forms.Button();
             this.cancelarButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
@@ -189,15 +188,6 @@
             this.seniarButton.UseVisualStyleBackColor = true;
             this.seniarButton.Click += new System.EventHandler(this.Seniar_Click);
             // 
-            // modificarButton
-            // 
-            this.modificarButton.Location = new System.Drawing.Point(597, 377);
-            this.modificarButton.Name = "modificarButton";
-            this.modificarButton.Size = new System.Drawing.Size(75, 23);
-            this.modificarButton.TabIndex = 16;
-            this.modificarButton.Text = "Modificar";
-            this.modificarButton.UseVisualStyleBackColor = true;
-            // 
             // cancelarButton
             // 
             this.cancelarButton.Location = new System.Drawing.Point(697, 378);
@@ -206,6 +196,7 @@
             this.cancelarButton.TabIndex = 17;
             this.cancelarButton.Text = "Cancelar";
             this.cancelarButton.UseVisualStyleBackColor = true;
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // dateTimePicker1
             // 
@@ -222,7 +213,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cancelarButton);
-            this.Controls.Add(this.modificarButton);
             this.Controls.Add(this.seniarButton);
             this.Controls.Add(this.montoSeniaTextBox);
             this.Controls.Add(this.porcentajeSeniaTextBox);
@@ -263,7 +253,6 @@
         private System.Windows.Forms.TextBox porcentajeSeniaTextBox;
         private System.Windows.Forms.TextBox montoSeniaTextBox;
         private System.Windows.Forms.Button seniarButton;
-        private System.Windows.Forms.Button modificarButton;
         private System.Windows.Forms.Button cancelarButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
