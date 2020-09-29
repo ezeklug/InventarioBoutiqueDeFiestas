@@ -32,12 +32,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.siVence = new System.Windows.Forms.CheckBox();
-            this.noVence = new System.Windows.Forms.CheckBox();
             this.descripcionCategoria = new System.Windows.Forms.TextBox();
             this.nombreCategoria = new System.Windows.Forms.TextBox();
             this.guardar = new System.Windows.Forms.Button();
             this.cancelar = new System.Windows.Forms.Button();
+            this.siVence = new System.Windows.Forms.RadioButton();
+            this.noVence = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -81,26 +81,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Vence: ";
             // 
-            // siVence
-            // 
-            this.siVence.AutoSize = true;
-            this.siVence.Location = new System.Drawing.Point(215, 238);
-            this.siVence.Name = "siVence";
-            this.siVence.Size = new System.Drawing.Size(35, 17);
-            this.siVence.TabIndex = 6;
-            this.siVence.Text = "Si";
-            this.siVence.UseVisualStyleBackColor = true;
-            // 
-            // noVence
-            // 
-            this.noVence.AutoSize = true;
-            this.noVence.Location = new System.Drawing.Point(300, 238);
-            this.noVence.Name = "noVence";
-            this.noVence.Size = new System.Drawing.Size(40, 17);
-            this.noVence.TabIndex = 7;
-            this.noVence.Text = "No";
-            this.noVence.UseVisualStyleBackColor = true;
-            // 
             // descripcionCategoria
             // 
             this.descripcionCategoria.Location = new System.Drawing.Point(215, 182);
@@ -135,17 +115,39 @@
             this.cancelar.UseVisualStyleBackColor = true;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
+            // siVence
+            // 
+            this.siVence.AutoSize = true;
+            this.siVence.Location = new System.Drawing.Point(215, 237);
+            this.siVence.Name = "siVence";
+            this.siVence.Size = new System.Drawing.Size(34, 17);
+            this.siVence.TabIndex = 12;
+            this.siVence.TabStop = true;
+            this.siVence.Text = "Si";
+            this.siVence.UseVisualStyleBackColor = true;
+            // 
+            // noVence
+            // 
+            this.noVence.AutoSize = true;
+            this.noVence.Location = new System.Drawing.Point(299, 237);
+            this.noVence.Name = "noVence";
+            this.noVence.Size = new System.Drawing.Size(39, 17);
+            this.noVence.TabIndex = 13;
+            this.noVence.TabStop = true;
+            this.noVence.Text = "No";
+            this.noVence.UseVisualStyleBackColor = true;
+            // 
             // VAgregarModifciarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 367);
+            this.Controls.Add(this.noVence);
+            this.Controls.Add(this.siVence);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.nombreCategoria);
             this.Controls.Add(this.descripcionCategoria);
-            this.Controls.Add(this.noVence);
-            this.Controls.Add(this.siVence);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -163,11 +165,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox siVence;
-        private System.Windows.Forms.CheckBox noVence;
         private System.Windows.Forms.TextBox descripcionCategoria;
         private System.Windows.Forms.TextBox nombreCategoria;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button cancelar;
+        private System.Windows.Forms.RadioButton siVence;
+        private System.Windows.Forms.RadioButton noVence;
     }
 }
