@@ -414,6 +414,9 @@
     <EmbeddedResource Include="Ventanas\VSeniarPresupuesto.resx">
       <DependentUpon>VSeniarPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VVenderPresupuesto.resx">
+      <DependentUpon>VVenderPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

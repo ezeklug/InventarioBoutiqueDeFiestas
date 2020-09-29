@@ -20,5 +20,30 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdPresupuesto = pPresupuestoId;
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Principal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void VVenderPresupuesto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
