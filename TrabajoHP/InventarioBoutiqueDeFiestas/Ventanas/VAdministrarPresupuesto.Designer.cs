@@ -43,12 +43,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Seniar = new System.Windows.Forms.Button();
             this.Vender = new System.Windows.Forms.Button();
             this.CargarProductos = new System.Windows.Forms.Button();
-            this.Principal = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.Principal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,16 +192,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.CargarProductos.UseVisualStyleBackColor = true;
             this.CargarProductos.Click += new System.EventHandler(this.CargarProductos_Click);
             // 
-            // Principal
-            // 
-            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
-            this.Principal.Location = new System.Drawing.Point(38, 9);
-            this.Principal.Name = "Principal";
-            this.Principal.Size = new System.Drawing.Size(70, 74);
-            this.Principal.TabIndex = 14;
-            this.Principal.UseVisualStyleBackColor = true;
-            this.Principal.Click += new System.EventHandler(this.Principal_Click);
-            // 
             // Cancelar
             // 
             this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -248,6 +238,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.label5.Size = new System.Drawing.Size(113, 13);
             this.label5.TabIndex = 36;
             this.label5.Text = "Fecha de Vencimiento";
+            // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.ccae0744_6be7_4659_84a8_a597aa2764f1;
+            this.Principal.Location = new System.Drawing.Point(38, 9);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(74, 74);
+            this.Principal.TabIndex = 14;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // VAdministrarPresupuesto
             // 

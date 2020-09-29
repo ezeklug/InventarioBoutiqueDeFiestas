@@ -20,6 +20,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             Nombre = pNombre;
             Descripcion = pDescripcion;
             Vence = pVence;
+            Activo = true;
         }
 
         public override string ToString()

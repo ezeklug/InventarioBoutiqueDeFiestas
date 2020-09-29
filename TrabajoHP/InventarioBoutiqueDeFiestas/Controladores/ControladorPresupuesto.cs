@@ -23,7 +23,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pres.FechaEvento = pPresupuesto.FechaEvento;
             pres.FechaGeneracion = pPresupuesto.FechaGeneracion;
             pres.FechaVencimiento = pPresupuesto.FechaVencimiento;
-            pres.Estado = pPresupuesto.Estado;
+            pres.Descuento = pPresupuesto.Descuento;
             Cliente cliente = repo.Clientes.Find(pPresupuesto.IdCliente);
             if (cliente == null)
             {
@@ -109,7 +109,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 var seniadb = repo.Senias.Find(senia.Id);
                 seniadb.Monto = senia.Monto;
                 seniadb.Fecha = senia.Fecha;
-                seniadb.ValidoHasta = senia.ValidoHasta;
             }
         }
 
@@ -135,7 +134,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 dto.IdPresupuesto = senia.Presupuesto.Id;
                 dto.Monto = senia.Monto;
                 dto.Fecha = senia.Fecha;
-                dto.ValidoHasta = senia.ValidoHasta;
                 return dto;
             }
             else
@@ -163,17 +161,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 presAAgregar.Cliente = cli;
                 if (pres == null)  // Crear presupuesto (si no existe)
                 {
+                    presAAgregar.Estado = EstadoPresupuesto.Presupuestado;
                     repo.Presupuestos.Add(presAAgregar);
                     repo.SaveChanges();
                     return presAAgregar.Id;
                 }
                 else  // Modificar Presupuesto (si existe)
                 {
-                    pres.Estado = presAAgregar.Estado;
                     pres.FechaEntrega = presAAgregar.FechaEntrega;
                     pres.FechaEvento = presAAgregar.FechaEvento;
                     pres.FechaVencimiento = presAAgregar.FechaVencimiento;
                     pres.FechaGeneracion = presAAgregar.FechaGeneracion;
+                    pres.Descuento = presAAgregar.Descuento;
                     repo.SaveChanges();
                     return pres.Id;
                 }
@@ -232,21 +231,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
-        /// Senia un presupuesto y se guarda en la base de datos
+        /// Este metodo permite señar un presupuesto pasando como parámetro el id del presupuesto y el monto de la seña.
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
         /// <param name="pMontoSenia"></param>
-        public void SeniarPresupuesto(SeniaDTO pSenia)
+        public void SeniarPresupuesto(int pIdPresupuesto, double pMontoSenia)
         {
             using(var repo = new Repositorio())
             {
-                var presupuesto = repo.Presupuestos.Find(pSenia.IdPresupuesto);
+                var presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
                 if (presupuesto == null)
                 {
-                    throw new Exception("Presupuesto" + pSenia.IdPresupuesto + " no existe");
+                    throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
                 }
-                var senia = new Senia(pSenia.Monto, presupuesto);
-                senia.ValidoHasta = pSenia.ValidoHasta;
+                var senia = new Senia(pMontoSenia, presupuesto);
+                presupuesto.Estado = EstadoPresupuesto.Seniado;
                 repo.Senias.Add(senia);
             }
         }
@@ -328,6 +327,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pDTO.FechaEntrega = pre.FechaEntrega;
             pDTO.Estado = pre.Estado;
             pDTO.IdCliente = pre.Cliente.Id;
+            pDTO.Descuento = pre.Descuento;
             return pDTO;
         }
 
