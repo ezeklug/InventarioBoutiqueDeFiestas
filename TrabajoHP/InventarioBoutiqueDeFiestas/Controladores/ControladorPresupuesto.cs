@@ -23,7 +23,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pres.FechaEvento = pPresupuesto.FechaEvento;
             pres.FechaGeneracion = pPresupuesto.FechaGeneracion;
             pres.FechaVencimiento = pPresupuesto.FechaVencimiento;
-            pres.Estado = pPresupuesto.Estado;
+            pres.Descuento = pPresupuesto.Descuento;
             Cliente cliente = repo.Clientes.Find(pPresupuesto.IdCliente);
             if (cliente == null)
             {
@@ -161,17 +161,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 presAAgregar.Cliente = cli;
                 if (pres == null)  // Crear presupuesto (si no existe)
                 {
+                    presAAgregar.Estado = EstadoPresupuesto.Presupuestado;
                     repo.Presupuestos.Add(presAAgregar);
                     repo.SaveChanges();
                     return presAAgregar.Id;
                 }
                 else  // Modificar Presupuesto (si existe)
                 {
-                    pres.Estado = presAAgregar.Estado;
                     pres.FechaEntrega = presAAgregar.FechaEntrega;
                     pres.FechaEvento = presAAgregar.FechaEvento;
                     pres.FechaVencimiento = presAAgregar.FechaVencimiento;
                     pres.FechaGeneracion = presAAgregar.FechaGeneracion;
+                    pres.Descuento = presAAgregar.Descuento;
                     repo.SaveChanges();
                     return pres.Id;
                 }
@@ -244,6 +245,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
                 }
                 var senia = new Senia(pMontoSenia, presupuesto);
+                presupuesto.Estado = EstadoPresupuesto.Seniado;
                 repo.Senias.Add(senia);
             }
         }
@@ -325,6 +327,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pDTO.FechaEntrega = pre.FechaEntrega;
             pDTO.Estado = pre.Estado;
             pDTO.IdCliente = pre.Cliente.Id;
+            pDTO.Descuento = pre.Descuento;
             return pDTO;
         }
 

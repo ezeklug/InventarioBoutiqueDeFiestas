@@ -17,5 +17,6 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public string Estado { get; set; }
         public double Descuento { get; set; }
 
+
     }
 }

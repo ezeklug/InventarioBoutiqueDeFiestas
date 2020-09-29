@@ -234,7 +234,26 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Vender_Click(object sender, EventArgs e)
         {
+            if (IdPresupuesto == 0)
+            {
+                this.Guardar_Click(sender, e);
+            }
 
+            if (IdCliente == 0)
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+            else if (dataGridView1.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe seleccionar al menos un producto");
+            }
+            else
+            {
+                new VSeniarPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
+                this.Hide();
+                this.Close();
+
+            }
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
