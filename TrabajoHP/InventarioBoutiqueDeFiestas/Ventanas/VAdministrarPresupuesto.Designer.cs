@@ -45,14 +45,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.CargarProductos = new System.Windows.Forms.Button();
             this.Principal = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
-            this.FechaVencimiento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.FechaEntrega = new System.Windows.Forms.TextBox();
-            this.FechaEvento = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.Estado = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +60,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 199);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 160);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(835, 400);
             this.dataGridView1.TabIndex = 0;
@@ -83,7 +79,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Cliente
             // 
             this.Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Cliente.Location = new System.Drawing.Point(96, 605);
+            this.Cliente.Location = new System.Drawing.Point(96, 578);
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
             this.Cliente.Size = new System.Drawing.Size(144, 20);
@@ -94,7 +90,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 606);
+            this.label2.Location = new System.Drawing.Point(35, 582);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 16;
@@ -103,7 +99,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // BuscarCliente
             // 
             this.BuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BuscarCliente.Location = new System.Drawing.Point(64, 636);
+            this.BuscarCliente.Location = new System.Drawing.Point(61, 606);
             this.BuscarCliente.Name = "BuscarCliente";
             this.BuscarCliente.Size = new System.Drawing.Size(113, 23);
             this.BuscarCliente.TabIndex = 17;
@@ -116,7 +112,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(279, 606);
+            this.label3.Location = new System.Drawing.Point(276, 582);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 16);
             this.label3.TabIndex = 18;
@@ -125,7 +121,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // DescuentoTotal
             // 
             this.DescuentoTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DescuentoTotal.Location = new System.Drawing.Point(415, 605);
+            this.DescuentoTotal.Location = new System.Drawing.Point(412, 582);
             this.DescuentoTotal.Name = "DescuentoTotal";
             this.DescuentoTotal.Size = new System.Drawing.Size(34, 20);
             this.DescuentoTotal.TabIndex = 19;
@@ -137,7 +133,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(511, 606);
+            this.label4.Location = new System.Drawing.Point(511, 583);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 20;
@@ -146,7 +142,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Total
             // 
             this.Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Total.Location = new System.Drawing.Point(584, 605);
+            this.Total.Location = new System.Drawing.Point(584, 583);
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             this.Total.Size = new System.Drawing.Size(106, 20);
@@ -155,7 +151,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Guardar
             // 
             this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Guardar.Location = new System.Drawing.Point(678, 636);
+            this.Guardar.Location = new System.Drawing.Point(679, 606);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -166,7 +162,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Seniar
             // 
             this.Seniar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Seniar.Location = new System.Drawing.Point(488, 636);
+            this.Seniar.Location = new System.Drawing.Point(488, 606);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
@@ -177,7 +173,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Vender
             // 
             this.Vender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Vender.Location = new System.Drawing.Point(584, 636);
+            this.Vender.Location = new System.Drawing.Point(584, 606);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
@@ -187,7 +183,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // CargarProductos
             // 
             this.CargarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CargarProductos.Location = new System.Drawing.Point(728, 170);
+            this.CargarProductos.Location = new System.Drawing.Point(728, 131);
             this.CargarProductos.Name = "CargarProductos";
             this.CargarProductos.Size = new System.Drawing.Size(123, 23);
             this.CargarProductos.TabIndex = 25;
@@ -208,7 +204,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Cancelar
             // 
             this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cancelar.Location = new System.Drawing.Point(776, 636);
+            this.Cancelar.Location = new System.Drawing.Point(776, 606);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 26;
@@ -216,87 +212,47 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
-            // FechaVencimiento
-            // 
-            this.FechaVencimiento.Location = new System.Drawing.Point(183, 103);
-            this.FechaVencimiento.Name = "FechaVencimiento";
-            this.FechaVencimiento.Size = new System.Drawing.Size(128, 20);
-            this.FechaVencimiento.TabIndex = 27;
-            this.FechaVencimiento.TextChanged += new System.EventHandler(this.FechaVencimiento_TextChanged);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 106);
+            this.label5.Location = new System.Drawing.Point(54, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "Fecha de Vencimiento";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 153);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Fecha de Entrega";
-            // 
-            // FechaEntrega
-            // 
-            this.FechaEntrega.Location = new System.Drawing.Point(183, 146);
-            this.FechaEntrega.Name = "FechaEntrega";
-            this.FechaEntrega.Size = new System.Drawing.Size(128, 20);
-            this.FechaEntrega.TabIndex = 30;
-            this.FechaEntrega.TextChanged += new System.EventHandler(this.FechaEntrega_TextChanged);
-            // 
-            // FechaEvento
-            // 
-            this.FechaEvento.Location = new System.Drawing.Point(447, 103);
-            this.FechaEvento.Name = "FechaEvento";
-            this.FechaEvento.Size = new System.Drawing.Size(128, 20);
-            this.FechaEvento.TabIndex = 31;
-            this.FechaEvento.TextChanged += new System.EventHandler(this.FechaEvento_TextChanged);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(328, 106);
+            this.label7.Location = new System.Drawing.Point(427, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 32;
             this.label7.Text = "Fecha de Evento";
             // 
-            // Estado
+            // dateTimePicker1
             // 
-            this.Estado.Location = new System.Drawing.Point(447, 146);
-            this.Estado.Name = "Estado";
-            this.Estado.Size = new System.Drawing.Size(128, 20);
-            this.Estado.TabIndex = 33;
-            this.Estado.TextChanged += new System.EventHandler(this.Estado_TextChanged);
+            this.dateTimePicker1.Location = new System.Drawing.Point(183, 96);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 33;
             // 
-            // label8
+            // dateTimePicker2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(377, 149);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 13);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Estado";
+            this.dateTimePicker2.Location = new System.Drawing.Point(536, 96);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 34;
             // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 671);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.Estado);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.FechaEvento);
-            this.Controls.Add(this.FechaEntrega);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.FechaVencimiento);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
@@ -363,13 +319,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.Button Vender;
         private System.Windows.Forms.Button CargarProductos;
         private System.Windows.Forms.Button Cancelar;
-        private System.Windows.Forms.TextBox FechaVencimiento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox FechaEntrega;
-        private System.Windows.Forms.TextBox FechaEvento;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Estado;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
