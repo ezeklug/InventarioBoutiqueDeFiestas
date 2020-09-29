@@ -47,6 +47,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Cancelar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,6 +179,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Vender.TabIndex = 24;
             this.Vender.Text = "Vender";
             this.Vender.UseVisualStyleBackColor = true;
+            this.Vender.Click += new System.EventHandler(this.Vender_Click);
             // 
             // CargarProductos
             // 
@@ -228,11 +231,31 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.dateTimePicker2.Value = new System.DateTime(2020, 9, 29, 15, 35, 11, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(584, 97);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 35;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 9, 29, 15, 35, 11, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(450, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Fecha de Vencimiento";
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 671);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Cancelar);
@@ -279,11 +302,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             throw new NotImplementedException();
         }
 
-        private void Cancelar_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -303,5 +321,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label5;
     }
 }
