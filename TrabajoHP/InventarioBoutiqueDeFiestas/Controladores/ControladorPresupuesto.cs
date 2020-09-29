@@ -175,7 +175,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                return repo.Presupuestos.Find(pIdPresupuesto);
+                return repo.Presupuestos.Include("Lineas").Where(p => p.Id == pIdPresupuesto).First();
             }
         }
 
@@ -249,13 +249,35 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar todos los presupuestos guardados en BD.
         /// </summary>
         /// <returns></returns>
-        public List<Presupuesto> ListarPresupuesto()
+        public List<PresupuestoDTO> ListarPresupuesto()
         {
-            using(var repo=new Repositorio())
+            List<Presupuesto> presupuestos = new List<Presupuesto>();
+            List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
+            using (var repo=new Repositorio())
             {
-                return repo.Presupuestos.Include("Cliente").ToList();
+                presupuestos= repo.Presupuestos.Include("Cliente").ToList();
             }
+            foreach(Presupuesto pre in presupuestos)
+            {
+                PresupuestoDTO pDTO=this.PresupuestoADTO(pre);
+                presupuestoDTOs.Add(pDTO);
+            }
+            return presupuestoDTOs;
         }
+
+        private PresupuestoDTO PresupuestoADTO(Presupuesto pre)
+        {
+            PresupuestoDTO pDTO = new PresupuestoDTO();
+            pDTO.Id = pre.Id;
+            pDTO.FechaGeneracion = pre.FechaGeneracion;
+            pDTO.FechaVencimiento = pre.FechaVencimiento;
+            pDTO.FechaEvento = pre.FechaEvento;
+            pDTO.FechaEntrega = pre.FechaEntrega;
+            pDTO.Estado = pre.Estado;
+            pDTO.IdCliente = pre.Cliente.Id;
+            return pDTO;
+        }
+
         /// <summary>
         /// Aplica el descento a una linea
         /// pDescuento debe estar entre [0,1]. 0.2 significa que queda un 80% del precio total

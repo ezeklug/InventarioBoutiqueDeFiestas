@@ -99,7 +99,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar todos los presupuestos guardados en BD.
         /// </summary>
         /// <returns></returns>
-        public List<Presupuesto> ListarPresupuesto()
+        public List<PresupuestoDTO> ListarPresupuesto()
         {
             return controladorPresupuesto.ListarPresupuesto();
         }

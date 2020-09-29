@@ -224,6 +224,12 @@
     <Compile Include="Ventanas\VControlClientesPresupuesto.Designer.cs">
       <DependentUpon>VControlClientesPresupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VControlPresupuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VControlPresupuestos.Designer.cs">
+      <DependentUpon>VControlPresupuestos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VControlProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlClientesPresupuesto.resx">
       <DependentUpon>VControlClientesPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VControlPresupuestos.resx">
+      <DependentUpon>VControlPresupuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlProducto.resx">
       <DependentUpon>VControlProducto.cs</DependentUpon>

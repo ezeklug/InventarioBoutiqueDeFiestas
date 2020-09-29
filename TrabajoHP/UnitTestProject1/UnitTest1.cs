@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using InventarioBoutiqueDeFiestas.Dominio;
+using InventarioBoutiqueDeFiestas.Ventanas;
 using InventarioBoutiqueDeFiestas.Database;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.DTO;
@@ -202,7 +203,19 @@ namespace UnitTestProject1
 
         }
 
+
         [TestMethod]
+        public void testSeniarPresupuesto()
+        {
+            //var cont = new ControladorPresupuesto();
+            //var pre = cont.BuscarPresupuesto(12);
+            //Console.WriteLine(pre.TotalVenta());
+
+            var ventana = new VSeniarPresupuesto(8, 12);
+            ventana.ShowDialog();
+        }
+
+        //[TestMethod]
         public void TestGenPdfPresupuesto() {
             var repo = new Repositorio();
             GenPdf.PDFPresupuesto(repo.Presupuestos.Find(1));

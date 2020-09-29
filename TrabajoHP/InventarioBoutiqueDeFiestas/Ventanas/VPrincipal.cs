@@ -31,11 +31,11 @@ namespace InventarioBoutiqueDeFiestas
 
         }
 
-        private void AdministrarPresupuesto_Click(object sender, EventArgs e)
+        private void ControlPresupuesto_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto();
-            vAdministrarPresupuesto.ShowDialog();
+            VControlPresupuestos vControlPresupuestos = new VControlPresupuestos();
+            vControlPresupuestos.ShowDialog();
             this.Close();
         }
 
