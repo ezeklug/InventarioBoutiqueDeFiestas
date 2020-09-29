@@ -19,12 +19,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         Presupuesto iPresupuesto;
         public VSeniarPresupuesto(int pIdCliente, int pPresupuestoId)
         {
-            
+
 
             var cont = new ControladorFachada();
             iCliente = cont.BuscarCliente(pIdCliente);
             iPresupuesto = cont.BuscarPresupuesto(pPresupuestoId);
 
+            
+                
             //this.cantidadProductosLabel.Text;
             InitializeComponent();
             this.nombreClienteLabel.Text = iCliente.ToString();
@@ -34,26 +36,37 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
             porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_HasChanged);
             montoSeniaTextBox.TextChanged += new System.EventHandler(this.montoSeniaTextBox_HasChanged);
-            
+
         }
 
         private void porcentajeSeniaTextBox_HasChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(montoSeniaTextBox.Text, "[^0-9]"))
+            var s = (sender as TextBox);
+            if (s.TextLength != 0)
             {
-                MessageBox.Show("Please enter only numbers.");
-                montoSeniaTextBox.Text = montoSeniaTextBox.Text.Remove(montoSeniaTextBox.Text.Length - 1);
+
+                if (float.Parse(s.Text) > 100)
+                {
+                    s.Text = "100";
+                    s.SelectionStart = s.Text.Length;
+                }
+               this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(s.Text) / 100)).ToString();
             }
-            else
-            {
-                this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(porcentajeSeniaTextBox.Text) / 100)).ToString();
-            }
-          
+            
         }
 
         private void montoSeniaTextBox_HasChanged(object sender, EventArgs e)
         {
-            this.porcentajeSeniaTextBox.Text = ((double.Parse(montoSeniaTextBox.Text) * 100) / double.Parse(this.totalLabel.Text)).ToString();
+            var s = (sender as TextBox);
+            if (s.TextLength != 0)
+            {
+                if (float.Parse(s.Text) >= float.Parse(this.totalLabel.Text))
+                {
+                    s.Text = this.totalLabel.Text;
+                    s.SelectionStart = s.Text.Length;
+                }
+                this.porcentajeSeniaTextBox.Text = ((double.Parse(s.Text) * 100) / double.Parse(this.totalLabel.Text)).ToString();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -78,6 +91,56 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void porcentajeSeniaTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void porcentajeSeniaTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            
+        }
+
+        private void montoSeniaTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verify that the pressed key isn't CTRL or any non-numeric digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Seniar_Click(object sender, EventArgs e)
+        {
+            if (this.montoSeniaTextBox.TextLength != 0)
+            { 
+                var cont = new ControladorPresupuesto();
+                cont.SeniarPresupuesto(iPresupuesto.Id, float.Parse(this.montoSeniaTextBox.Text));
+            }
+            else
+            {
+                MessageBox.Show("Debe cargar correctamente el monto");  
+            }
 
         }
     }
