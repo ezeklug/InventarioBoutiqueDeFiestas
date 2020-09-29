@@ -1,5 +1,6 @@
 ﻿using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.DTO;
+using IronPdf.Engines.WebKit.Contracts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         List<int> IdProductos { get; set; }
         DateTime FechaEvento { get; set; }
         DateTime FechaVencimiento { get; set; }
+        int IdPresupuesto { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto()
         {
@@ -30,21 +32,23 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = DateTime.Now.AddDays(15);
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas, DateTime fechaEvento, DateTime fechaVencimiento)
+        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas, DateTime fechaEvento, DateTime fechaVencimiento, int idPresupuesto)
         {
             IdCliente = pIdCliente;
             IdProductos = idProductos;
             Filas = filas;
             FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
+            IdPresupuesto = idPresupuesto;
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaEvento,DateTime fechaVencimiento)
+        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto)
         {
             IdCliente = pIdCliente;
             Filas = filas;
             FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
+            IdPresupuesto = idPresupuesto;
             InitializeComponent();
         }
 
@@ -127,7 +131,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1,FechaEvento,FechaVencimiento);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1,FechaEvento,FechaVencimiento,IdPresupuesto);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -153,7 +157,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
                 this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1,FechaEvento,FechaVencimiento);
+                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1,FechaEvento,FechaVencimiento,IdPresupuesto);
                 vControlProductosPresupuesto.ShowDialog();
                 this.Close(); 
         }
@@ -183,13 +187,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 pre.IdCliente = IdCliente;
                 pre.FechaEvento = FechaEvento;
                 pre.FechaVencimiento = FechaVencimiento;
-                int idPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
+                pre.Id = IdPresupuesto;
+                IdPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     LineaPresupuestoDTO lin = new LineaPresupuestoDTO();
                     lin.Cantidad = int.Parse(row.Cells[2].Value.ToString());
-                    lin.IdPresupuesto = idPresupuesto;
+                    lin.IdPresupuesto = IdPresupuesto;
                     lin.IdProducto = int.Parse(row.Cells[0].Value.ToString());
                     lin.PorcentajeDescuento = double.Parse(row.Cells[4].Value.ToString());
                     lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
@@ -198,12 +203,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
-        public int GuardarPresupuesto() {
-            return 0;
-        }
-
         private void Seniar_Click(object sender, EventArgs e)
         {
+            if (IdPresupuesto==0)
+            {
+                this.Guardar_Click(sender, e);
+            }
 
             if (IdCliente == 0)
             {
@@ -215,8 +220,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             else
             {
-                int idPresupuesto = GuardarPresupuesto();
-                new VSeniarPresupuesto(IdCliente, idPresupuesto).ShowDialog();
+                new VSeniarPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
                 this.Hide();
                 this.Close();
 
