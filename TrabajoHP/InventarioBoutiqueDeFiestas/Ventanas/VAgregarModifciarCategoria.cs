@@ -64,11 +64,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 categoriaProductoDTO.Descripcion = descripcionCategoria.Text;
                 if (siVence.Checked)
                 {
-                    categoriaDTO.Vence = true;
+                    categoriaProductoDTO.Vence = true;
                 }
-                else { categoriaDTO.Vence = false; }
+                else { categoriaProductoDTO.Vence = false; }
 
-                controladorFachada.AgregarModificarCategoria(categoriaDTO);
+                controladorFachada.AgregarModificarCategoria(categoriaProductoDTO);
                 this.Hide();
                 VControlCategoria vControlCategoria = new VControlCategoria();
                 vControlCategoria.ShowDialog();
