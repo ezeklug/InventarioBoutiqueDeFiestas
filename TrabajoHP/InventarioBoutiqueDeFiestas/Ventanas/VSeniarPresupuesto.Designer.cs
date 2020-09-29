@@ -168,6 +168,8 @@
             this.porcentajeSeniaTextBox.Name = "porcentajeSeniaTextBox";
             this.porcentajeSeniaTextBox.Size = new System.Drawing.Size(100, 20);
             this.porcentajeSeniaTextBox.TabIndex = 12;
+            this.porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_TextChanged);
+            this.porcentajeSeniaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.porcentajeSeniaTextBox_KeyPress);
             // 
             // montoSeniaTextBox
             // 
@@ -175,6 +177,7 @@
             this.montoSeniaTextBox.Name = "montoSeniaTextBox";
             this.montoSeniaTextBox.Size = new System.Drawing.Size(100, 20);
             this.montoSeniaTextBox.TabIndex = 13;
+            this.montoSeniaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.montoSeniaTextBox_KeyPress);
             // 
             // monthCalendar1
             // 
@@ -190,7 +193,7 @@
             this.seniarButton.TabIndex = 15;
             this.seniarButton.Text = "Señar";
             this.seniarButton.UseVisualStyleBackColor = true;
-            this.seniarButton.Click += new System.EventHandler(this.button1_Click);
+            this.seniarButton.Click += new System.EventHandler(this.Seniar_Click);
             // 
             // modificarButton
             // 
