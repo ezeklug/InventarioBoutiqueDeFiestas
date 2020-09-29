@@ -67,6 +67,13 @@ namespace UnitTestProject1
             }
         }
 
+        [TestMethod]
+        public void testBuscarProducto()
+        {
+            ControladorFachada controladorFachada = new ControladorFachada();
+            Console.WriteLine(controladorFachada.BuscarCategoriaPorNombre("Dulces"));
+        }
+
         // [TestMethod]
         public void TestDtoAProducto()
         {

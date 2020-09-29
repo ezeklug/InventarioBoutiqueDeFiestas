@@ -194,6 +194,10 @@
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
+    <Compile Include="Migrations\202009292256448_InitialCreate12.cs" />
+    <Compile Include="Migrations\202009292256448_InitialCreate12.designer.cs">
+      <DependentUpon>202009292256448_InitialCreate12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009112145404_InitalCreate11.resx">
       <DependentUpon>202009112145404_InitalCreate11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009292256448_InitialCreate12.resx">
+      <DependentUpon>202009292256448_InitialCreate12.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

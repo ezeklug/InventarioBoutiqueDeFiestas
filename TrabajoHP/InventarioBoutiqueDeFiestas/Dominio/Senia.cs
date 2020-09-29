@@ -11,6 +11,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
         public double Monto { get; set; }
+        public DateTime ValidoHasta { get; set; }
         public Presupuesto Presupuesto { get; set; }
         /// <summary>
         /// Construye una seña y le asigna la fecha actual
