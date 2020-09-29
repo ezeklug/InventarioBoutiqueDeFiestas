@@ -249,10 +249,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             else
             {
-                new VSeniarPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
+                new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
                 this.Hide();
                 this.Close();
-
             }
         }
 
