@@ -11,14 +11,72 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 {
     public class ControladorProducto
     {
-        
+
 
         public ControladorProducto()
         {
-            
+
         }
 
+        /// <summary>
+        /// Devuelve todas las categorias
+        /// </summary>
+        /// <returns></returns>
+        public List<CategoriaProducto> ListarCategorias()
+        {
+            using (var repo = new Repositorio())
+            {
+                //return repo.Productos.Where<CategoriaProducto>(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
+                return repo.CategoriaProductos.ToList<CategoriaProducto>();
+            }
+        }
 
+        /// <summary>
+        /// Convierte de DTOCategoria a Categoria 
+        /// </summary>
+        /// <param name="categoriaDTO"></param>
+        /// <returns></returns>
+        public CategoriaProducto DTOACategoria(CategoriaProductoDTO categoriaDTO)
+        {
+            CategoriaProducto categoriaProducto = new CategoriaProducto
+            {
+                Id = categoriaDTO.Id,
+                Nombre = categoriaDTO.Nombre,
+                Descripcion = categoriaDTO.Descripcion,
+                Vence = categoriaDTO.Vence
+            };
+            return categoriaProducto;
+        }
+
+        /// <summary>
+        /// Agrega o modifica la categoría pasada como parametro
+        /// </summary>
+        /// <param name="categoriaDTO"></param>
+        public void AgregarModificarCategoria(CategoriaProductoDTO categoriaDTO)
+        {
+            using (var repo = new Repositorio())
+            {
+                CategoriaProducto cat = repo.CategoriaProductos.Find(categoriaDTO.Id);
+                CategoriaProducto categoriaAAgregar = this.DTOACategoria(categoriaDTO);
+                
+                if (cat == null)
+                {
+                    repo.CategoriaProductos.Add(categoriaAAgregar);
+                    repo.SaveChanges();
+                    
+                }
+                else  /// Modificar producto
+                {
+                    cat.Id = categoriaAAgregar.Id;
+                    cat.Nombre = categoriaAAgregar.Nombre;
+                    cat.Descripcion = categoriaAAgregar.Descripcion;
+                    cat.Vence = categoriaAAgregar.Vence;
+                    repo.SaveChanges();
+                   
+                }
+
+            }
+        }
 
         /// <summary>
         /// Convierte un ProductoDTO a Producto

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ControlClientes = new System.Windows.Forms.Button();
-            this.AdministrarPresupuesto = new System.Windows.Forms.Button();
+            this.ControlPresupuesto = new System.Windows.Forms.Button();
             this.ControlProductos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,15 +43,15 @@
             this.ControlClientes.UseVisualStyleBackColor = true;
             this.ControlClientes.Click += new System.EventHandler(this.ControlClientes_Click);
             // 
-            // AdministrarPresupuesto
+            // ControlPresupuesto
             // 
-            this.AdministrarPresupuesto.Location = new System.Drawing.Point(545, 186);
-            this.AdministrarPresupuesto.Name = "AdministrarPresupuesto";
-            this.AdministrarPresupuesto.Size = new System.Drawing.Size(141, 77);
-            this.AdministrarPresupuesto.TabIndex = 1;
-            this.AdministrarPresupuesto.Text = "AdministrarPresupuesto";
-            this.AdministrarPresupuesto.UseVisualStyleBackColor = true;
-            this.AdministrarPresupuesto.Click += new System.EventHandler(this.AdministrarPresupuesto_Click);
+            this.ControlPresupuesto.Location = new System.Drawing.Point(545, 186);
+            this.ControlPresupuesto.Name = "ControlPresupuesto";
+            this.ControlPresupuesto.Size = new System.Drawing.Size(141, 77);
+            this.ControlPresupuesto.TabIndex = 1;
+            this.ControlPresupuesto.Text = "ControlPresupuesto";
+            this.ControlPresupuesto.UseVisualStyleBackColor = true;
+            this.ControlPresupuesto.Click += new System.EventHandler(this.ControlPresupuesto_Click);
             // 
             // ControlProductos
             // 
@@ -69,7 +69,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ControlProductos);
-            this.Controls.Add(this.AdministrarPresupuesto);
+            this.Controls.Add(this.ControlPresupuesto);
             this.Controls.Add(this.ControlClientes);
             this.Name = "VPrincipal";
             this.Text = "Principal";
@@ -81,7 +81,7 @@
         #endregion
 
         private System.Windows.Forms.Button ControlClientes;
-        private System.Windows.Forms.Button AdministrarPresupuesto;
+        private System.Windows.Forms.Button ControlPresupuesto;
         private System.Windows.Forms.Button ControlProductos;
     }
 }

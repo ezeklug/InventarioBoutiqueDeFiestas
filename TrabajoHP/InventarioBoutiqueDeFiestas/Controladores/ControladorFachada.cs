@@ -77,6 +77,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
+        /// Este metodo permite agregar o modificar una categoria
+        /// </summary>
+        /// <param name=""></param>
+        public void AgregarModificarCategoria(CategoriaProductoDTO categoriaDTO)
+        {
+            controladorProducto.AgregarModificarCategoria(categoriaDTO);
+        }
+
+        /// <summary>
         /// Este método permite aplicar un descuento a todo un presupuesto, pasando como parámetro el id del presupuesto y el monto de descuento
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
@@ -90,7 +99,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar todos los presupuestos guardados en BD.
         /// </summary>
         /// <returns></returns>
-        public List<Presupuesto> ListarPresupuesto()
+        public List<PresupuestoDTO> ListarPresupuesto()
         {
             return controladorPresupuesto.ListarPresupuesto();
         }
@@ -132,6 +141,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorProducto.ListarTodosLosProductos();
         }
+
+        public List<CategoriaProducto> ListarCategorias()
+        {
+            return controladorProducto.ListarCategorias();
+        }
+
         /// <summary>
         /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
         /// Esto se puede obtener haciendo la diferencia de las propiedades CantidadEnStock y StockMinimo de cada Producto.

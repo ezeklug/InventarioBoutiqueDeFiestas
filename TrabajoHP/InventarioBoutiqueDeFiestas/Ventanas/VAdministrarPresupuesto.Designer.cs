@@ -30,7 +30,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.Principal = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BuscarCliente = new System.Windows.Forms.Button();
@@ -42,6 +41,16 @@
             this.Seniar = new System.Windows.Forms.Button();
             this.Vender = new System.Windows.Forms.Button();
             this.CargarProductos = new System.Windows.Forms.Button();
+            this.Principal = new System.Windows.Forms.Button();
+            this.Cancelar = new System.Windows.Forms.Button();
+            this.FechaVencimiento = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.FechaEntrega = new System.Windows.Forms.TextBox();
+            this.FechaEvento = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Estado = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,9 +62,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 122);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 199);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(791, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 400);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
             // 
@@ -69,20 +78,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Administrar Presupuesto";
             // 
-            // Principal
-            // 
-            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
-            this.Principal.Location = new System.Drawing.Point(38, 9);
-            this.Principal.Name = "Principal";
-            this.Principal.Size = new System.Drawing.Size(70, 74);
-            this.Principal.TabIndex = 14;
-            this.Principal.UseVisualStyleBackColor = true;
-            this.Principal.Click += new System.EventHandler(this.Principal_Click);
-            // 
             // Cliente
             // 
             this.Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Cliente.Location = new System.Drawing.Point(96, 438);
+            this.Cliente.Location = new System.Drawing.Point(96, 605);
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
             this.Cliente.Size = new System.Drawing.Size(144, 20);
@@ -93,7 +92,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 439);
+            this.label2.Location = new System.Drawing.Point(35, 606);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 16;
@@ -102,7 +101,7 @@
             // BuscarCliente
             // 
             this.BuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BuscarCliente.Location = new System.Drawing.Point(64, 469);
+            this.BuscarCliente.Location = new System.Drawing.Point(64, 636);
             this.BuscarCliente.Name = "BuscarCliente";
             this.BuscarCliente.Size = new System.Drawing.Size(113, 23);
             this.BuscarCliente.TabIndex = 17;
@@ -115,7 +114,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(257, 439);
+            this.label3.Location = new System.Drawing.Point(279, 606);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 16);
             this.label3.TabIndex = 18;
@@ -124,7 +123,7 @@
             // DescuentoTotal
             // 
             this.DescuentoTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DescuentoTotal.Location = new System.Drawing.Point(393, 438);
+            this.DescuentoTotal.Location = new System.Drawing.Point(415, 605);
             this.DescuentoTotal.Name = "DescuentoTotal";
             this.DescuentoTotal.Size = new System.Drawing.Size(34, 20);
             this.DescuentoTotal.TabIndex = 19;
@@ -136,7 +135,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(581, 440);
+            this.label4.Location = new System.Drawing.Point(511, 606);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 20;
@@ -145,7 +144,7 @@
             // Total
             // 
             this.Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Total.Location = new System.Drawing.Point(649, 438);
+            this.Total.Location = new System.Drawing.Point(584, 605);
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             this.Total.Size = new System.Drawing.Size(106, 20);
@@ -154,7 +153,7 @@
             // Guardar
             // 
             this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Guardar.Location = new System.Drawing.Point(517, 469);
+            this.Guardar.Location = new System.Drawing.Point(678, 636);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -165,7 +164,7 @@
             // Seniar
             // 
             this.Seniar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Seniar.Location = new System.Drawing.Point(623, 469);
+            this.Seniar.Location = new System.Drawing.Point(488, 636);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
@@ -176,7 +175,7 @@
             // Vender
             // 
             this.Vender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Vender.Location = new System.Drawing.Point(722, 469);
+            this.Vender.Location = new System.Drawing.Point(584, 636);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
@@ -186,7 +185,7 @@
             // CargarProductos
             // 
             this.CargarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CargarProductos.Location = new System.Drawing.Point(672, 89);
+            this.CargarProductos.Location = new System.Drawing.Point(728, 170);
             this.CargarProductos.Name = "CargarProductos";
             this.CargarProductos.Size = new System.Drawing.Size(123, 23);
             this.CargarProductos.TabIndex = 25;
@@ -194,11 +193,109 @@
             this.CargarProductos.UseVisualStyleBackColor = true;
             this.CargarProductos.Click += new System.EventHandler(this.CargarProductos_Click);
             // 
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(38, 9);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 14;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
+            // 
+            // Cancelar
+            // 
+            this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancelar.Location = new System.Drawing.Point(776, 636);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar.TabIndex = 26;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            // 
+            // FechaVencimiento
+            // 
+            this.FechaVencimiento.Location = new System.Drawing.Point(183, 103);
+            this.FechaVencimiento.Name = "FechaVencimiento";
+            this.FechaVencimiento.Size = new System.Drawing.Size(128, 20);
+            this.FechaVencimiento.TabIndex = 27;
+            this.FechaVencimiento.TextChanged += new System.EventHandler(this.FechaVencimiento_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Fecha de Vencimiento";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 153);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Fecha de Entrega";
+            // 
+            // FechaEntrega
+            // 
+            this.FechaEntrega.Location = new System.Drawing.Point(183, 146);
+            this.FechaEntrega.Name = "FechaEntrega";
+            this.FechaEntrega.Size = new System.Drawing.Size(128, 20);
+            this.FechaEntrega.TabIndex = 30;
+            this.FechaEntrega.TextChanged += new System.EventHandler(this.FechaEntrega_TextChanged);
+            // 
+            // FechaEvento
+            // 
+            this.FechaEvento.Location = new System.Drawing.Point(447, 103);
+            this.FechaEvento.Name = "FechaEvento";
+            this.FechaEvento.Size = new System.Drawing.Size(128, 20);
+            this.FechaEvento.TabIndex = 31;
+            this.FechaEvento.TextChanged += new System.EventHandler(this.FechaEvento_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(328, 106);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Fecha de Evento";
+            // 
+            // Estado
+            // 
+            this.Estado.Location = new System.Drawing.Point(447, 146);
+            this.Estado.Name = "Estado";
+            this.Estado.Size = new System.Drawing.Size(128, 20);
+            this.Estado.TabIndex = 33;
+            this.Estado.TextChanged += new System.EventHandler(this.Estado_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(377, 149);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Estado";
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 504);
+            this.ClientSize = new System.Drawing.Size(949, 671);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.Estado);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.FechaEvento);
+            this.Controls.Add(this.FechaEntrega);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.FechaVencimiento);
+            this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
             this.Controls.Add(this.Seniar);
@@ -238,5 +335,14 @@
         private System.Windows.Forms.Button Seniar;
         private System.Windows.Forms.Button Vender;
         private System.Windows.Forms.Button CargarProductos;
+        private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.TextBox FechaVencimiento;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox FechaEntrega;
+        private System.Windows.Forms.TextBox FechaEvento;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Estado;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E04FA265-50A1-40D1-B254-801CAE2394B0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>InventarioBoutiqueDeFiestas</RootNamespace>
     <AssemblyName>InventarioBoutiqueDeFiestas</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -194,6 +194,18 @@
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
+    <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VAgregarModifciarCategoria.Designer.cs">
+      <DependentUpon>VAgregarModifciarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VControlCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VControlCategoria.Designer.cs">
+      <DependentUpon>VControlCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VAgregarModificarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +223,12 @@
     </Compile>
     <Compile Include="Ventanas\VControlClientesPresupuesto.Designer.cs">
       <DependentUpon>VControlClientesPresupuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VControlPresupuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VControlPresupuestos.Designer.cs">
+      <DependentUpon>VControlPresupuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VControlProducto.cs">
       <SubType>Form</SubType>
@@ -347,6 +365,12 @@
     <EmbeddedResource Include="Ventanas\VAdministrarPresupuesto.resx">
       <DependentUpon>VAdministrarPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VAgregarModifciarCategoria.resx">
+      <DependentUpon>VAgregarModifciarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VControlCategoria.resx">
+      <DependentUpon>VControlCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VAgregarModificarCliente.resx">
       <DependentUpon>VAgregarModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -358,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlClientesPresupuesto.resx">
       <DependentUpon>VControlClientesPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VControlPresupuestos.resx">
+      <DependentUpon>VControlPresupuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlProducto.resx">
       <DependentUpon>VControlProducto.cs</DependentUpon>
