@@ -63,6 +63,16 @@ namespace InventarioBoutiqueDeFiestas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ccae0744_6be7_4659_84a8_a597aa2764f1 {
+            get {
+                object obj = ResourceManager.GetObject("ccae0744-6be7-4659-84a8-a597aa2764f1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pdf {
             get {
                 object obj = ResourceManager.GetObject("pdf", resourceCulture);

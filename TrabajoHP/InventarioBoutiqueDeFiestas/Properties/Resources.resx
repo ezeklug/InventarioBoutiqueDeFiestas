@@ -124,4 +124,7 @@
   <data name="UTN_logo (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UTN_logo (1)1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ccae0744-6be7-4659-84a8-a597aa2764f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ccae0744-6be7-4659-84a8-a597aa2764f1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
