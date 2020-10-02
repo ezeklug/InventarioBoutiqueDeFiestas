@@ -296,5 +296,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorPresupuesto.ListarLineasPresupuesto(pIdPresupuesto);
         }
 
+        public List<LineaPresupuestoDTO> ListarLineasConLotePresupuesto(int pIdPresupuesto)
+        {
+            return controladorPresupuesto.ListarLineasConLotePresupuesto(pIdPresupuesto);
+        }
+
     }
 }

@@ -28,9 +28,9 @@ namespace InventarioBoutiqueDeFiestas.Dominio
         {
             if (DateTime.Now < this.FechaVencimiento)
             {
-                Vencido = true;
+                Vencido = false;
             }
-            else { Vencido = false; }
+            else { Vencido = true; }
         }
         public Lote() { }
     }
