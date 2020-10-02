@@ -147,6 +147,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[7].Width = 95;
             dataGridView1.Columns[8].Width = 60;
             dataGridView1.Columns[9].Width = 50;
+            dataGridView1.Columns[9].Visible = false;
         }
 
         private void PorcentajeIncremento_Click(object sender, EventArgs e)
