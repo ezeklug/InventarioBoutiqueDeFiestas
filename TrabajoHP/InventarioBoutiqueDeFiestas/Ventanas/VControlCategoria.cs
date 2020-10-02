@@ -94,20 +94,26 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     int idCategoria = Convert.ToInt32(fila.Cells[1].Value);
                     controladorFachada.BajaCategoria(idCategoria);
                     MessageBox.Show("Categorias Eliminadas Correctamente");
-
-                    
+                                       
                 }
             }
-       
-
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            /*DataGridViewCheckBoxColumn cb = new DataGridViewCheckBoxColumn();
+            cb.ValueType = typeof(bool);
+            cb.Name = "Cb";
+            cb.HeaderText = "";
+            dataGridView1.Columns.Add(cb);*/
+            dataGridView1.DataSource = controladorFachada.ListarCategorias();
+            dataGridView1.Columns[5].Visible = false; //Columna de "Activo"
 
         }
 
         private void Principal_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProducto vControlProducto = new VControlProducto();
-            vControlProducto.Show();
+            VPrincipal vPrincipal = new VPrincipal();
+            vPrincipal.ShowDialog();
             this.Close();
         }
     }
