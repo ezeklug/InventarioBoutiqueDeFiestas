@@ -121,6 +121,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TemplateClientes.html" />
     <Content Include="TemplatePresupuesto.html" />
     <Content Include="TemplateProductos.html" />
   </ItemGroup>

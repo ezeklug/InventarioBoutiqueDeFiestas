@@ -41,6 +41,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         }
 
+        private ClienteDTO RowAClienteDTO(DataGridViewRow row)
+        {
+            var clienteDTO = new ClienteDTO();
+            clienteDTO.Id = Convert.ToInt32(row.Cells[1].Value);
+            clienteDTO.Nombre = row.Cells[2].Value.ToString();
+            clienteDTO.Apellido = row.Cells[3].Value.ToString();
+            clienteDTO.Direccion = row.Cells[4].Value.ToString();
+            clienteDTO.Telefono = row.Cells[5].Value.ToString();
+            clienteDTO.Email = row.Cells[6].Value.ToString();
+            clienteDTO.Activo = Convert.ToBoolean(row.Cells[7].Value);
+            return clienteDTO;
+        }
+
         private void Modificar_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
@@ -51,13 +64,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 if (isSelected)
                 {
                     seleccion = true;
-                    clienteDTO.Id = Convert.ToInt32(row.Cells[1].Value);
-                    clienteDTO.Nombre = row.Cells[2].Value.ToString();
-                    clienteDTO.Apellido = row.Cells[3].Value.ToString();
-                    clienteDTO.Direccion = row.Cells[4].Value.ToString();
-                    clienteDTO.Telefono = row.Cells[5].Value.ToString();
-                    clienteDTO.Email = row.Cells[6].Value.ToString();
-                    clienteDTO.Activo = Convert.ToBoolean(row.Cells[7].Value);
+                    clienteDTO = RowAClienteDTO(row);
                 }
             }
             if (seleccion)
@@ -206,6 +213,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ICollection<ClienteDTO> clientes = new List<ClienteDTO>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                clientes.Add(RowAClienteDTO(row));
+            }
+            GenPdf.PDFClientes(clientes);
+
+        }
     }
    }
 

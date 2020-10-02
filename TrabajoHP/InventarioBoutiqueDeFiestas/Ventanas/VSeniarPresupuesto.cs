@@ -61,9 +61,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     s.Text = "100";
                     s.SelectionStart = s.Text.Length;
                 }
-               this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(s.Text) / 100)).ToString();
+                this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(s.Text) / 100)).ToString();
             }
-            
+
         }
 
         private void montoSeniaTextBox_HasChanged(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 e.Handled = true;
             }
-            
+
         }
 
         private void montoSeniaTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -140,6 +140,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 e.Handled = true;
             }
+        }
+
+        private void CerrarVentana()
+        {
+            this.Hide();
+            this.Close();
         }
 
         private void Seniar_Click(object sender, EventArgs e)
@@ -164,6 +170,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     seniaDto.ValidoHasta = dateTimePicker1.Value;
                     cont.ModificarSenia(seniaDto);
                 }
+
+                MessageBox.Show("Se seño correctamente el presupuesto");
+                CerrarVentana();
             }
             else
             {

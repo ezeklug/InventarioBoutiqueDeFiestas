@@ -124,7 +124,7 @@
             this.Categoria.Name = "Categoria";
             this.Categoria.Size = new System.Drawing.Size(110, 23);
             this.Categoria.TabIndex = 13;
-            this.Categoria.Text = "Categoria";
+            this.Categoria.Text = "Categorias";
             this.Categoria.UseVisualStyleBackColor = true;
             this.Categoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
