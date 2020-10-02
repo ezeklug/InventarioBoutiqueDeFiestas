@@ -36,6 +36,7 @@
             this.IngresoMercaderia = new System.Windows.Forms.Button();
             this.PorcentajeIncremento = new System.Windows.Forms.Button();
             this.Categoria = new System.Windows.Forms.Button();
+            this.botonStockMinimo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,11 +129,22 @@
             this.Categoria.UseVisualStyleBackColor = true;
             this.Categoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
+            // botonStockMinimo
+            // 
+            this.botonStockMinimo.Location = new System.Drawing.Point(743, 369);
+            this.botonStockMinimo.Name = "botonStockMinimo";
+            this.botonStockMinimo.Size = new System.Drawing.Size(144, 40);
+            this.botonStockMinimo.TabIndex = 14;
+            this.botonStockMinimo.Text = "Productos debajo stock minimo";
+            this.botonStockMinimo.UseVisualStyleBackColor = true;
+            this.botonStockMinimo.Click += new System.EventHandler(this.botonStockMinimo_Click);
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.botonStockMinimo);
             this.Controls.Add(this.Categoria);
             this.Controls.Add(this.PorcentajeIncremento);
             this.Controls.Add(this.IngresoMercaderia);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Button IngresoMercaderia;
         private System.Windows.Forms.Button PorcentajeIncremento;
         private System.Windows.Forms.Button Categoria;
+        private System.Windows.Forms.Button botonStockMinimo;
     }
 }

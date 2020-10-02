@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -23,7 +24,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlClientes_Load(object sender, EventArgs e)
         {
-
+       
 
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);

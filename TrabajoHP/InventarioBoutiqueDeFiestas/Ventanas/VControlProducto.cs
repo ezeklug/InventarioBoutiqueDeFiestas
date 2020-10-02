@@ -26,7 +26,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
         }
 
-  
+        private ProductoDTO RowAProductoDTO(DataGridViewRow row)
+        {
+            var productoDTO = new ProductoDTO();
+            productoDTO.Id = Convert.ToInt32(row.Cells[1].Value);
+            productoDTO.Nombre = row.Cells[2].Value.ToString();
+            productoDTO.Descripcion = row.Cells[3].Value.ToString();
+            productoDTO.StockMinimo = Convert.ToInt32(row.Cells[4].Value);
+            productoDTO.CantidadEnStock = Convert.ToInt32(row.Cells[5].Value);
+            productoDTO.PorcentajeDeGanancia = Convert.ToDouble(row.Cells[6].Value);
+            productoDTO.PrecioDeCompra = Convert.ToDouble(row.Cells[7].Value);
+            productoDTO.Activo = Convert.ToBoolean(row.Cells[9].Value);
+
+            return productoDTO;
+        }
         private void Agregar_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
@@ -67,14 +80,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (cont==1)
             {
-                productoDTO.Id = Convert.ToInt32(row1.Cells[1].Value);
-                productoDTO.Nombre = row1.Cells[2].Value.ToString();
-                productoDTO.Descripcion = row1.Cells[3].Value.ToString();
-                productoDTO.StockMinimo = Convert.ToInt32(row1.Cells[4].Value);
-                productoDTO.CantidadEnStock = Convert.ToInt32(row1.Cells[5].Value);
-                productoDTO.PorcentajeDeGanancia = Convert.ToDouble(row1.Cells[6].Value);
-                productoDTO.PrecioDeCompra = Convert.ToDouble(row1.Cells[7].Value);
-                productoDTO.Activo = Convert.ToBoolean(row1.Cells[9].Value);
+                productoDTO = RowAProductoDTO(row1);
                 this.Hide();
                 VAgregarModificarProducto vAgregarModificarProducto = new VAgregarModificarProducto(productoDTO);
                 vAgregarModificarProducto.ShowDialog();
@@ -166,5 +172,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Close();
         }
 
+
+
+        private void botonStockMinimo_Click(object sender, EventArgs e)
+        {
+            ///TODO: en ves de mostrar todos los productos, listar solo stock minimo
+            List<ProductoDTO> pros = new List<ProductoDTO>();
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                pros.Add(RowAProductoDTO(row));
+            }
+            GenPdf.PDFProductos(pros);
+        }
     }
 }
