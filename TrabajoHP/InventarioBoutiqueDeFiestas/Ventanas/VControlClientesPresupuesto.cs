@@ -22,11 +22,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
 
-        public VControlClientesPresupuesto(int pIdCliente, DataGridView filas, DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto,string descuento)
+        public VControlClientesPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaVencimiento,int idPresupuesto,string descuento)
         {
             IdCliente = pIdCliente;
             Filas = filas;
-            FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;

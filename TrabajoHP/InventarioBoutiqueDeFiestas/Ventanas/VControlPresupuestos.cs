@@ -34,7 +34,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
-            dataGridView1.Columns[6].ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
         }
 
@@ -59,10 +58,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     presupuestoDTO.Id = Convert.ToInt32(row.Cells[1].Value);
                     presupuestoDTO.FechaGeneracion = Convert.ToDateTime(row.Cells[2].Value);
                     presupuestoDTO.FechaVencimiento = Convert.ToDateTime(row.Cells[3].Value);
-                    presupuestoDTO.FechaEvento = Convert.ToDateTime(row.Cells[5].Value);
-                    presupuestoDTO.IdCliente = Convert.ToInt32(row.Cells[6].Value);
-                    presupuestoDTO.Estado = row.Cells[7].Value.ToString();
-                    presupuestoDTO.Descuento = Convert.ToDouble(row.Cells[8].Value);
+                    presupuestoDTO.IdCliente = Convert.ToInt32(row.Cells[4].Value);
+                    presupuestoDTO.Estado = row.Cells[5].Value.ToString();
+                    presupuestoDTO.Descuento = Convert.ToDouble(row.Cells[6].Value);
                 }
             }
             if (seleccion)

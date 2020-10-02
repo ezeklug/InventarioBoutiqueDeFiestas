@@ -163,8 +163,6 @@ namespace UnitTestProject1
         {
             PresupuestoDTO pres = new PresupuestoDTO();
             pres.Id = 12;
-            pres.FechaEntrega = new DateTime(2021, 2, 3);
-            pres.FechaEvento = new DateTime(2021, 5, 3);
             pres.FechaGeneracion = DateTime.Now;
             pres.FechaVencimiento = new DateTime(2021, 5, 3);
             pres.Estado = "activo";

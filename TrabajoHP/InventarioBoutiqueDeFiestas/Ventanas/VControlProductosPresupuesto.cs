@@ -21,12 +21,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
-        public VControlProductosPresupuesto(int pIdCliente, DataGridView filas, DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto,string descuento)
+        public VControlProductosPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaVencimiento,int idPresupuesto,string descuento)
         {
             InitializeComponent();
             Filas = filas;
             IdCliente = pIdCliente;
-            FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;

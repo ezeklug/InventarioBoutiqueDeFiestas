@@ -19,7 +19,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdCliente { get; set; }
         DataGridView Filas { get; set; }
         List<int> IdProductos { get; set; }
-        DateTime FechaEvento { get; set; }
         DateTime FechaVencimiento { get; set; }
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
@@ -31,7 +30,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Filas = new DataGridView();
             Presupuesto = pPresupuestoDTO;
             IdCliente = pPresupuestoDTO.IdCliente;
-            FechaEvento = pPresupuestoDTO.FechaEvento;
             FechaVencimiento = pPresupuestoDTO.FechaVencimiento;
             Descuento = pPresupuestoDTO.Descuento.ToString();
             InitializeComponent();
@@ -41,7 +39,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdProductos = new List<int>();
             Filas = new DataGridView();
             IdCliente = 0;
-            FechaEvento = DateTime.Now;
             FechaVencimiento = DateTime.Now.AddDays(15);
             Descuento = "0";
             InitializeComponent();
@@ -51,7 +48,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdCliente = pIdCliente;
             IdProductos = idProductos;
             Filas = filas;
-            FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
@@ -61,7 +57,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             IdCliente = pIdCliente;
             Filas = filas;
-            FechaEvento = fechaEvento;
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
@@ -83,7 +78,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.AllowUserToAddRows = false;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
-            dateTimePicker2.Value = FechaEvento;
             dateTimePicker1.Value = FechaVencimiento;
             DescuentoTotal.Text = Descuento;
             if (IdCliente != 0)
@@ -156,7 +150,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1,FechaEvento,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
+            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
             vControlClientesPresupuesto.ShowDialog();
             this.Close();
         }
@@ -175,7 +169,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
                 this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1,FechaEvento,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
+                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
                 vControlProductosPresupuesto.ShowDialog();
                 this.Close(); 
         }
@@ -190,10 +184,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
             }
-            else if (FechaEvento.Date<DateTime.Now.Date)
-            {
-                MessageBox.Show("Debe seleccionar una fecha de evento posterior a la seleccionada");
-            }
             else if(FechaVencimiento.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Debe seleccionar una fecha de Vencimiento posterior a la seleccionada");
@@ -203,7 +193,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 PresupuestoDTO pre = new PresupuestoDTO();
                 pre.FechaGeneracion = DateTime.Now;
                 pre.IdCliente = IdCliente;
-                pre.FechaEvento = FechaEvento;
                 pre.FechaVencimiento = FechaVencimiento;
                 pre.Id = IdPresupuesto;
                 pre.Descuento = Convert.ToDouble(DescuentoTotal.Text);
@@ -245,11 +234,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.Close();
 
             }
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-            FechaEvento=dateTimePicker2.Value;
         }
 
         private void Vender_Click(object sender, EventArgs e)

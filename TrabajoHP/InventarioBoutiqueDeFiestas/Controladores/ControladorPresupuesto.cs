@@ -19,8 +19,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             Repositorio repo = new Repositorio();
 
             pres.Id = pPresupuesto.Id;
-            pres.FechaEntrega = pPresupuesto.FechaEntrega;
-            pres.FechaEvento = pPresupuesto.FechaEvento;
             pres.FechaGeneracion = pPresupuesto.FechaGeneracion;
             pres.FechaVencimiento = pPresupuesto.FechaVencimiento;
             pres.Descuento = pPresupuesto.Descuento;
@@ -332,8 +330,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pDTO.Id = pre.Id;
             pDTO.FechaGeneracion = pre.FechaGeneracion;
             pDTO.FechaVencimiento = pre.FechaVencimiento;
-            pDTO.FechaEvento = pre.FechaEvento;
-            pDTO.FechaEntrega = pre.FechaEntrega;
             pDTO.Estado = pre.Estado;
             pDTO.IdCliente = pre.Cliente.Id;
             pDTO.Descuento = pre.Descuento;
