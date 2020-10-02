@@ -232,15 +232,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este metodo permite aplicar un incremento a todos los productos.
         /// </summary>
         /// <param name="incremento"></param>
-        public void AplicarIncrementoTodosLosProductos(int incremento)
+        public void AplicarIncrementoTodosLosProductos(float incremento)
         {
-            List<Producto> listaProductos = ListarTodosLosProductos();
-            using (var repo = new Repositorio())
+           using (var repo = new Repositorio())
             {
-                foreach (Producto producto in repo.Productos)
+                foreach (Producto pro in repo.Productos)
                 {
-                    producto.PrecioDeCompra = producto.PrecioDeCompra * (1 + incremento / 100);
+                    Console.WriteLine(pro.PrecioDeCompra * (1 + (incremento / 100)));
+                    pro.PrecioDeCompra = pro.PrecioDeCompra * (1 + incremento / 100);
+                    
                 }
+                repo.SaveChanges();
+
             }
         }
 

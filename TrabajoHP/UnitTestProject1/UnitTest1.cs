@@ -66,8 +66,7 @@ namespace UnitTestProject1
                 Console.WriteLine(cli);
             }
         }
-
-        [TestMethod]
+//[TestMethod]
         public void testBuscarProducto()
         {
             ControladorFachada controladorFachada = new ControladorFachada();
@@ -89,6 +88,13 @@ namespace UnitTestProject1
             Console.WriteLine(pro.Categoria);
             Console.WriteLine(dto.Id);
             Console.WriteLine(new Producto().Id);
+        }
+
+      //  [TestMethod]
+        public void AplicarIncremento()
+        {
+            ControladorFachada fachada = new ControladorFachada();
+            fachada.AplicarIncrementoTodosLosProductos(20);
         }
 
         //[TestMethod]
@@ -209,7 +215,7 @@ namespace UnitTestProject1
         }
 
 
-        [TestMethod]
+        //[TestMethod]
         public void testSeniarPresupuesto()
         {
             //var cont = new ControladorPresupuesto();

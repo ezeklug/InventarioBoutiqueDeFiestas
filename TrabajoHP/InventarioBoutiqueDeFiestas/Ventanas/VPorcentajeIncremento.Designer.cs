@@ -81,6 +81,7 @@
             this.cancelar.TabIndex = 6;
             this.cancelar.Text = "Cancelar";
             this.cancelar.UseVisualStyleBackColor = true;
+            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // VPorcentajeIncremento
             // 

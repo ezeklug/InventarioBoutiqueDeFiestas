@@ -25,6 +25,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             int incremento = Convert.ToInt32(this.incremento.Text);
             controladorFachada.AplicarIncrementoTodosLosProductos(incremento);
+            MessageBox.Show("Incremento aplicado correctamente!");
+            this.Close();
+        }
+
+        private void cancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlProducto vControlProducto = new VControlProducto();
+            vControlProducto.ShowDialog();
+            this.Close();
         }
     }
 }

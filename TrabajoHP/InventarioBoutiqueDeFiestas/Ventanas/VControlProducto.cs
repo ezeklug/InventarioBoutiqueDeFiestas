@@ -26,6 +26,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
         }
 
+        public void UpdateTable()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            dataGridView1.DataSource = controladorfachada.ListarCategorias();
+            //dataGridView1.Columns[5].Visible = false;
+
+        }
   
         private void Agregar_Click(object sender, EventArgs e)
         {
@@ -152,18 +160,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void PorcentajeIncremento_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           // this.Hide();
             VPorcentajeIncremento vPorcentajeIncremento = new VPorcentajeIncremento();
             vPorcentajeIncremento.ShowDialog();
-            this.Close();
+            //this.Close();
         }
 
         private void AgregarCategoria_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           this.Hide();
             VControlCategoria vCategoria= new VControlCategoria();
             vCategoria.ShowDialog();
-            this.Close();
+           this.Close();
         }
 
     }
