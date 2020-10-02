@@ -81,6 +81,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+
         /// <summary>
         /// Convierte un ProductoDTO a Producto
         /// Si el id de la categoria de productoDTO no existe raise an exception
@@ -225,6 +226,25 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 return repo.Productos.Include("Categoria").ToList<Producto>();
             }
         }
+
+
+        /// <summary>
+        /// Este metodo permite aplicar un incremento a todos los productos.
+        /// </summary>
+        /// <param name="incremento"></param>
+        public void AplicarIncrementoTodosLosProductos(int incremento)
+        {
+            List<Producto> listaProductos = ListarTodosLosProductos();
+            using (var repo = new Repositorio())
+            {
+                foreach (Producto producto in repo.Productos)
+                {
+                    producto.PrecioDeCompra = producto.PrecioDeCompra * (1 + incremento / 100);
+                }
+            }
+        }
+
+
         /// <summary>
         /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
         /// Esto se puede obtener haciendo la diferencia de las propiedades CantidadEnStock y StockMinimo de cada Producto.
