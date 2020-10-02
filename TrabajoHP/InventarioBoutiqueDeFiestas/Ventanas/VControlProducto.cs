@@ -152,7 +152,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void PorcentajeIncremento_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            VPorcentajeIncremento vPorcentajeIncremento = new VPorcentajeIncremento();
+            vPorcentajeIncremento.ShowDialog();
+            this.Close();
         }
 
         private void AgregarCategoria_Click(object sender, EventArgs e)

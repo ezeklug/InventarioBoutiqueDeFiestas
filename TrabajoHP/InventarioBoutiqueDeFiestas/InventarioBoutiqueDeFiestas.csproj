@@ -252,6 +252,12 @@
     <Compile Include="Ventanas\VIngresarMercaderia.Designer.cs">
       <DependentUpon>VIngresarMercaderia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VPorcentajeIncremento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VPorcentajeIncremento.Designer.cs">
+      <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VIngresarMercaderia.resx">
       <DependentUpon>VIngresarMercaderia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VPorcentajeIncremento.resx">
+      <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VPrincipal.resx">
       <DependentUpon>VPrincipal.cs</DependentUpon>

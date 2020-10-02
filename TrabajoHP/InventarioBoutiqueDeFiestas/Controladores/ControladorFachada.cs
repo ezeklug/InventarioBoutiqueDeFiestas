@@ -78,6 +78,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
+        /// Este metodo permite aplicar un incremento a todos los productos.
+        /// </summary>
+        /// <param name="incremento"></param>
+        public void AplicarIncrementoTodosLosProductos(int incremento)
+        {
+            controladorProducto.AplicarIncrementoTodosLosProductos(incremento);
+        }
+
+        /// <summary>
         /// Este método permite aplicar un descuento a todo un presupuesto, pasando como parámetro el id del presupuesto y el monto de descuento
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
