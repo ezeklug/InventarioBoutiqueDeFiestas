@@ -28,7 +28,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             IdProductos = new List<int>();
             Filas = new DataGridView();
-            controladorFachada.
+            List<LineaPresupuestoDTO> lineaPresupuestoDTOs=controladorFachada.ListarLineasPresupuesto(pPresupuestoDTO.Id);
+            foreach(LineaPresupuestoDTO lin in lineaPresupuestoDTOs)
+            {
+                string[] row = new string[] { lin.IdProducto.ToString(), lin.NombreProducto, lin.Cantidad.ToString(), lin.PrecioUnitario.ToString(), lin.PorcentajeDescuento.ToString(),lin.Subtotal.ToString() };
+                Filas.Rows.Add(row);
+            }
             IdCliente = pPresupuestoDTO.IdCliente;
             FechaEvento = pPresupuestoDTO.FechaEvento;
             FechaVencimiento = pPresupuestoDTO.FechaVencimiento;

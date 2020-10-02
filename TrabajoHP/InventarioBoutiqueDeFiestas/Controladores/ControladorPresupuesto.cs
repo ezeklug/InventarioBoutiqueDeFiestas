@@ -359,5 +359,34 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 linea.PorcentajeDescuento = (double)pDescuento;
             }
         }
+
+        public List<LineaPresupuestoDTO> ListarLineasPresupuesto(int pIdPresupuesto)
+        {
+            List<LineaPresupuestoDTO> ADevolver = new List<LineaPresupuestoDTO>();
+            List<LineaPresupuesto> lineas = new List<LineaPresupuesto>();
+            using (var repo=new Repositorio())
+            {
+                 lineas= repo.LineaPresupuestos.Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
+            }
+            foreach(LineaPresupuesto lin in lineas)
+            {
+                LineaPresupuestoDTO lineaPresupuestoDTO =this.LineaPresupuestoADTO(lin);
+                ADevolver.Add(lineaPresupuestoDTO);
+            }
+            return ADevolver;
+        }
+
+        public LineaPresupuestoDTO LineaPresupuestoADTO(LineaPresupuesto lineaPresupuesto)
+        {
+            LineaPresupuestoDTO linea = new LineaPresupuestoDTO();
+            linea.Id = lineaPresupuesto.Id;
+            linea.Cantidad=lineaPresupuesto.Cantidad;
+            linea.PorcentajeDescuento=lineaPresupuesto.PorcentajeDescuento;
+            linea.IdProducto=lineaPresupuesto.Producto.Id;
+            linea.Subtotal=lineaPresupuesto.Subtotal;
+            linea.NombreProducto = lineaPresupuesto.Producto.Nombre;
+            linea.PrecioUnitario = lineaPresupuesto.Producto.PrecioVenta();
+            return linea;
+        }
     }
 }
