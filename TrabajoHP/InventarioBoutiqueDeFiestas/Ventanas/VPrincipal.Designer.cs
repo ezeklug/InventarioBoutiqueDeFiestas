@@ -49,7 +49,7 @@
             this.ControlPresupuesto.Name = "ControlPresupuesto";
             this.ControlPresupuesto.Size = new System.Drawing.Size(141, 77);
             this.ControlPresupuesto.TabIndex = 1;
-            this.ControlPresupuesto.Text = "ControlPresupuesto";
+            this.ControlPresupuesto.Text = "Control Presupuesto";
             this.ControlPresupuesto.UseVisualStyleBackColor = true;
             this.ControlPresupuesto.Click += new System.EventHandler(this.ControlPresupuesto_Click);
             // 
