@@ -49,20 +49,26 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Administrar_Click(object sender, EventArgs e)
         {
             Boolean seleccion = false;
-            PresupuestoDTO clienteDTO = new PresupuestoDTO();
+            PresupuestoDTO presupuestoDTO = new PresupuestoDTO();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
                 if (isSelected)
                 {
                     seleccion = true;
-                    //Hacer esto
+                    presupuestoDTO.Id = Convert.ToInt32(row.Cells[1].Value);
+                    presupuestoDTO.FechaGeneracion = Convert.ToDateTime(row.Cells[2].Value);
+                    presupuestoDTO.FechaVencimiento = Convert.ToDateTime(row.Cells[3].Value);
+                    presupuestoDTO.FechaEvento = Convert.ToDateTime(row.Cells[5].Value);
+                    presupuestoDTO.IdCliente = Convert.ToInt32(row.Cells[6].Value);
+                    presupuestoDTO.Estado = row.Cells[7].Value.ToString();
+                    presupuestoDTO.Descuento = Convert.ToInt32(row.Cells[8].Value);
                 }
             }
             if (seleccion)
             {
                 this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto();
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(presupuestoDTO);
                 vAdministrarPresupuesto.ShowDialog();
                 this.Close();
 

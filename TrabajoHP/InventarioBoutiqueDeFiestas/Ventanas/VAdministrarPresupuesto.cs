@@ -24,6 +24,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
+        public VAdministrarPresupuesto(PresupuestoDTO pPresupuestoDTO)
+        {
+            IdProductos = new List<int>();
+            Filas = new DataGridView();
+            controladorFachada.
+            IdCliente = pPresupuestoDTO.IdCliente;
+            FechaEvento = pPresupuestoDTO.FechaEvento;
+            FechaVencimiento = pPresupuestoDTO.FechaVencimiento;
+            Descuento = pPresupuestoDTO.Descuento.ToString();
+            InitializeComponent();
+        }
         public VAdministrarPresupuesto()
         {
             IdProductos = new List<int>();
