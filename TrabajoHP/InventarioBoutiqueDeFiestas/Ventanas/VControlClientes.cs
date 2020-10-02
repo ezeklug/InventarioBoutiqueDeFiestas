@@ -23,7 +23,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlClientes_Load(object sender, EventArgs e)
         {
-
+       
 
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
