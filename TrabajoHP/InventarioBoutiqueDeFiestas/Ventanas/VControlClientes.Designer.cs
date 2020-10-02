@@ -36,6 +36,7 @@
             this.Guardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.buscar = new System.Windows.Forms.TextBox();
+            this.botonExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,11 +126,22 @@
             this.buscar.TabIndex = 10;
             this.buscar.TextChanged += new System.EventHandler(this.buscar_TextChanged);
             // 
+            // botonExportar
+            // 
+            this.botonExportar.Location = new System.Drawing.Point(201, 367);
+            this.botonExportar.Name = "botonExportar";
+            this.botonExportar.Size = new System.Drawing.Size(131, 32);
+            this.botonExportar.TabIndex = 11;
+            this.botonExportar.Text = "Exportar a pdf";
+            this.botonExportar.UseVisualStyleBackColor = true;
+            this.botonExportar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // VControlClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Guardar);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Button Guardar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox buscar;
+        private System.Windows.Forms.Button botonExportar;
     }
 }

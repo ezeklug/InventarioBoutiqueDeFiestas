@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InventarioBoutiqueDeFiestas.Dominio;
+using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
@@ -51,7 +52,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
             foreach(var linea in pPresupuesto.Lineas)
             {
-                lista += $"<tr> <th> {linea.Producto.Nombre} </th> <th> {linea.Cantidad} </th> <th> {linea.Producto.PrecioVenta()} </th> <th> {linea.Subtotal} </th></tr>";
+                lista += $"<tr> <td> {linea.Producto.Nombre} </td> <th> {linea.Cantidad} </td> <td> {linea.Producto.PrecioVenta()} </td> <td> {linea.Subtotal} </td></tr>";
             }
 
             doc = doc.Replace("[]", headers);
@@ -62,7 +63,26 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         }
 
+        public static void PDFClientes(ICollection<ClienteDTO> pClientes)
+        {
+            string template_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/TemplateClientes.html";
 
+
+            string doc = File.ReadAllText(template_file);
+            string headers = "<tr>  <th>Nombre</th> <th>Apellido</th> <th>Telefono</th> <th>Direccion</th> </tr>";
+            string lista = "";
+
+            foreach (var cli in pClientes)
+            {
+                lista += $"<tr> <td> {cli.Nombre} </td> <td> {cli.Apellido} </td> <td> {cli.Telefono} </td> <td> {cli.Direccion} </td></tr>";
+            }
+
+            doc = doc.Replace("[]", headers);
+            doc = doc.Replace("{}", lista);
+            doc = doc.Replace("PesosTotal", "");
+            File.WriteAllText(temp_file, doc);
+            System.Diagnostics.Process.Start(temp_file);
+        }
 
     }
 }
