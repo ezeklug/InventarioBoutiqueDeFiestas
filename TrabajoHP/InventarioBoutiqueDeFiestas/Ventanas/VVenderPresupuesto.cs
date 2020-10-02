@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VVenderPresupuesto : Form
     {
+        ControladorFachada controladorFachada = new ControladorFachada();
         int IdCliente { get; set; }
         int IdPresupuesto { get; set; }
         public VVenderPresupuesto(int pIdCliente, int pPresupuestoId)
@@ -28,12 +31,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Principal_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -43,7 +48,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VVenderPresupuesto_Load(object sender, EventArgs e)
         {
-
+            /*NombreCliente.Text =;
+            TotalVenta.Text =;
+            List<LineaPresupuestoDTO> lineas = controladorFachada.ListarLineasConLoteDePresupuesto(IdPresupuesto);
+            */
         }
+
     }
 }

@@ -115,8 +115,7 @@
             this.NombreCliente.Name = "NombreCliente";
             this.NombreCliente.Size = new System.Drawing.Size(35, 13);
             this.NombreCliente.TabIndex = 18;
-            this.NombreCliente.Text = "label2";
-            // 
+            this.NombreCliente.Text = "label2";            // 
             // Monto
             // 
             this.Monto.AutoSize = true;
