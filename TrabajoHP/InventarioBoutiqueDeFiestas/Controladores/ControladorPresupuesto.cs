@@ -366,7 +366,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<LineaPresupuesto> lineas = new List<LineaPresupuesto>();
             using (var repo=new Repositorio())
             {
-                 lineas= repo.LineaPresupuestos.Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
+                 lineas= repo.LineaPresupuestos.Include("Producto").Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
             }
             foreach(LineaPresupuesto lin in lineas)
             {

@@ -23,17 +23,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         DateTime FechaVencimiento { get; set; }
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
+        PresupuestoDTO Presupuesto { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto(PresupuestoDTO pPresupuestoDTO)
         {
             IdProductos = new List<int>();
             Filas = new DataGridView();
-            List<LineaPresupuestoDTO> lineaPresupuestoDTOs=controladorFachada.ListarLineasPresupuesto(pPresupuestoDTO.Id);
-            foreach(LineaPresupuestoDTO lin in lineaPresupuestoDTOs)
-            {
-                string[] row = new string[] { lin.IdProducto.ToString(), lin.NombreProducto, lin.Cantidad.ToString(), lin.PrecioUnitario.ToString(), lin.PorcentajeDescuento.ToString(),lin.Subtotal.ToString() };
-                Filas.Rows.Add(row);
-            }
+            Presupuesto = pPresupuestoDTO;
             IdCliente = pPresupuestoDTO.IdCliente;
             FechaEvento = pPresupuestoDTO.FechaEvento;
             FechaVencimiento = pPresupuestoDTO.FechaVencimiento;
@@ -119,6 +115,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", p.PrecioUnitario.ToString(), "0", "0" };
                         dataGridView1.Rows.Add(row);
                     }
+                }
+            }
+            if(Presupuesto!=null)
+            {
+                foreach (LineaPresupuestoDTO lin in controladorFachada.ListarLineasPresupuesto(Presupuesto.Id))
+                {
+                    string[] row = new string[] { lin.IdProducto.ToString(), lin.NombreProducto, lin.Cantidad.ToString(), lin.PrecioUnitario.ToString(), lin.PorcentajeDescuento.ToString(), lin.Subtotal.ToString() };
+                    dataGridView1.Rows.Add(row);
                 }
             }
         }
