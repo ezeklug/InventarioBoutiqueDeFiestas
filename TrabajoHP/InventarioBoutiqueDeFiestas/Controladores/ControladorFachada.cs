@@ -47,7 +47,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorPresupuesto.AgregarModificarLinea(pPresupuestoDTO);
         }
 
-      
+
 
         /// <summary>
         /// Este método permite vender un presupuesto, pasando como parámetro el id del presupuesto
@@ -242,7 +242,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         public double CalcularSubtotal(double pCantidad, double pPrecioUnitario, double pPorcentajeDescuento)
         {
-            return (pCantidad * pPrecioUnitario) * (1 - pPorcentajeDescuento/100);
+            return (pCantidad * pPrecioUnitario) * (1 - pPorcentajeDescuento / 100);
         }
         public double PrecioVenta(List<double> subtotales, double pPorcentajeDescuento)
         {
@@ -251,7 +251,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 precioVenta += subtotal;
             }
-            return precioVenta*(1-pPorcentajeDescuento/100);
+            return precioVenta * (1 - pPorcentajeDescuento / 100);
         }
 
         public string GetNombreCategoria(int pIdProducto)
@@ -282,5 +282,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             controladorProducto.GuardarLote(pLoteDTO);
         }
+        public List<LineaPresupuestoDTO> ListarLineasPresupuesto(int pIdPresupuesto)
+        {
+            return controladorPresupuesto.ListarLineasPresupuesto(pIdPresupuesto);
+        }
+
     }
 }
