@@ -92,6 +92,7 @@
             // 
             // Agregar
             // 
+            this.Agregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Agregar.Location = new System.Drawing.Point(39, 367);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
@@ -102,6 +103,7 @@
             // 
             // Administrar
             // 
+            this.Administrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Administrar.Location = new System.Drawing.Point(132, 367);
             this.Administrar.Name = "Administrar";
             this.Administrar.Size = new System.Drawing.Size(81, 23);
@@ -124,6 +126,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VControlPresupuestos";
             this.Text = "VControlPresupuestos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VControlPresupuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
