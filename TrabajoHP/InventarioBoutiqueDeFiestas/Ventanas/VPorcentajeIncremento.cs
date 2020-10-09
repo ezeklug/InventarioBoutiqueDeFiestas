@@ -41,8 +41,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void cancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlProducto vControlProducto = new VControlProducto();
-            vControlProducto.ShowDialog();
             this.Close();
         }
     }

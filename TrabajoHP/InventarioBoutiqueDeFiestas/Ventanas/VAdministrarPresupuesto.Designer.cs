@@ -63,6 +63,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.dataGridView1.Size = new System.Drawing.Size(835, 400);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
+            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             // 
             // label1
             // 
@@ -253,6 +254,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Controls.Add(this.dataGridView1);
             this.Name = "VAdministrarPresupuesto";
             this.Text = "VAdministrarPresupuesto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VAdministrarPresupuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
