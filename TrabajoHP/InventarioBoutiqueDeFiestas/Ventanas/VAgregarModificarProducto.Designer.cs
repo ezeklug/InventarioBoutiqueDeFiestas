@@ -36,8 +36,6 @@
             this.Descripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.StockMinimo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CantidadEnStock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.PorcentajeDeGanancia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,6 +44,7 @@
             this.Categoria = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.precioCompra = new System.Windows.Forms.TextBox();
+            this.AgregarCategoria = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -119,28 +118,11 @@
             this.StockMinimo.Size = new System.Drawing.Size(262, 20);
             this.StockMinimo.TabIndex = 20;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(101, 281);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 16);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Cantidad en Stock";
-            // 
-            // CantidadEnStock
-            // 
-            this.CantidadEnStock.Location = new System.Drawing.Point(266, 280);
-            this.CantidadEnStock.Name = "CantidadEnStock";
-            this.CantidadEnStock.Size = new System.Drawing.Size(262, 20);
-            this.CantidadEnStock.TabIndex = 22;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(101, 325);
+            this.label6.Location = new System.Drawing.Point(101, 274);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(151, 16);
             this.label6.TabIndex = 23;
@@ -148,7 +130,7 @@
             // 
             // PorcentajeDeGanancia
             // 
-            this.PorcentajeDeGanancia.Location = new System.Drawing.Point(266, 324);
+            this.PorcentajeDeGanancia.Location = new System.Drawing.Point(266, 274);
             this.PorcentajeDeGanancia.Name = "PorcentajeDeGanancia";
             this.PorcentajeDeGanancia.Size = new System.Drawing.Size(262, 20);
             this.PorcentajeDeGanancia.TabIndex = 24;
@@ -157,7 +139,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(101, 404);
+            this.label7.Location = new System.Drawing.Point(101, 366);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 16);
             this.label7.TabIndex = 25;
@@ -186,7 +168,7 @@
             // Categoria
             // 
             this.Categoria.FormattingEnabled = true;
-            this.Categoria.Location = new System.Drawing.Point(266, 399);
+            this.Categoria.Location = new System.Drawing.Point(266, 361);
             this.Categoria.Name = "Categoria";
             this.Categoria.Size = new System.Drawing.Size(262, 21);
             this.Categoria.TabIndex = 29;
@@ -195,7 +177,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(101, 367);
+            this.label8.Location = new System.Drawing.Point(101, 317);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(117, 16);
             this.label8.TabIndex = 30;
@@ -203,16 +185,29 @@
             // 
             // precioCompra
             // 
-            this.precioCompra.Location = new System.Drawing.Point(266, 363);
+            this.precioCompra.Location = new System.Drawing.Point(266, 317);
             this.precioCompra.Name = "precioCompra";
             this.precioCompra.Size = new System.Drawing.Size(262, 20);
             this.precioCompra.TabIndex = 31;
+            // 
+            // AgregarCategoria
+            // 
+            this.AgregarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.AgregarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgregarCategoria.Location = new System.Drawing.Point(534, 361);
+            this.AgregarCategoria.Name = "AgregarCategoria";
+            this.AgregarCategoria.Size = new System.Drawing.Size(24, 24);
+            this.AgregarCategoria.TabIndex = 32;
+            this.AgregarCategoria.Text = "+";
+            this.AgregarCategoria.UseVisualStyleBackColor = true;
+            this.AgregarCategoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
             // VAgregarModificarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 484);
+            this.Controls.Add(this.AgregarCategoria);
             this.Controls.Add(this.precioCompra);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Categoria);
@@ -221,8 +216,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.PorcentajeDeGanancia);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.CantidadEnStock);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.StockMinimo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Descripcion);
@@ -249,8 +242,6 @@
         private System.Windows.Forms.TextBox Descripcion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox StockMinimo;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox CantidadEnStock;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox PorcentajeDeGanancia;
         private System.Windows.Forms.Label label7;
@@ -259,5 +250,6 @@
         private System.Windows.Forms.ComboBox Categoria;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox precioCompra;
+        private System.Windows.Forms.Button AgregarCategoria;
     }
 }

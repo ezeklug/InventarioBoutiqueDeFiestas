@@ -29,7 +29,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Nombre.Text = pProductoDTO.Nombre;
             Descripcion.Text = pProductoDTO.Descripcion;
             StockMinimo.Text = pProductoDTO.StockMinimo.ToString();
-            CantidadEnStock.Text = pProductoDTO.CantidadEnStock.ToString();
             PorcentajeDeGanancia.Text = pProductoDTO.PorcentajeDeGanancia.ToString();
             precioCompra.Text = pProductoDTO.PrecioDeCompra.ToString();
             Categoria.Text = controladorfachada.GetNombreCategoria(pProductoDTO.Id);
@@ -54,7 +53,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Confirmar_Click(object sender, EventArgs e)
         {
-            if (Nombre.Text == "" || StockMinimo.Text == "" || CantidadEnStock.Text == "" || PorcentajeDeGanancia.Text == "" || Categoria.Text == "")
+            if (Nombre.Text == "" || StockMinimo.Text == "" || PorcentajeDeGanancia.Text == "" || Categoria.Text == "")
             {
                 MessageBox.Show("Tiene que completar los campos obligatorios");
             }
@@ -68,7 +67,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
                 pProductoDTO.Nombre = Nombre.Text;
                 pProductoDTO.Descripcion = Descripcion.Text;
-                pProductoDTO.CantidadEnStock = Convert.ToInt32(CantidadEnStock.Text);
                 pProductoDTO.PorcentajeDeGanancia = Convert.ToDouble(PorcentajeDeGanancia.Text);
                 pProductoDTO.StockMinimo = Convert.ToInt32(StockMinimo.Text);
                 pProductoDTO.IdCategoria = controladorfachada.BuscarCategoriaPorNombre(Categoria.Text);
@@ -88,9 +86,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             List<String> listaCategorias = new List<string>();
             foreach (CategoriaProducto cate in controladorfachada.ListarCategorias())
             {
-                //ComboBoxItem item = new ComboBoxItem();
-                //item.Text = cate.Nombre;
-                //item.Value = cate.Id;
                 listaCategorias.Add(cate.Nombre);
                 Categoria.Items.Add(cate.Nombre);
                 
@@ -100,6 +95,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Categoria.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.Categoria.AutoCompleteSource = AutoCompleteSource.CustomSource;
             
+        }
+
+        private void AgregarCategoria_Click(object sender, EventArgs e)
+        {
+            ProductoDTO pProductoDTO=new ProductoDTO();
+            pProductoDTO.Nombre = Nombre.Text;
+            pProductoDTO.Descripcion= Descripcion.Text;
+            pProductoDTO.StockMinimo= Convert.ToInt32(StockMinimo.Text);
+            pProductoDTO.PorcentajeDeGanancia = Convert.ToInt32(PorcentajeDeGanancia.Text);
+            pProductoDTO.PrecioDeCompra= Convert.ToInt32(precioCompra.Text);
+            this.Hide();
+            VControlCategoriaProducto vControlCategoriaProducto = new VControlCategoriaProducto(pProductoDTO);
+            vControlCategoriaProducto.ShowDialog();
+            this.Close();
         }
 
     }

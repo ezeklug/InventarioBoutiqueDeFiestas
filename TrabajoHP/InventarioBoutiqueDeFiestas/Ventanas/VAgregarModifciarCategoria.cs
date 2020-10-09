@@ -16,8 +16,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     {
         ControladorFachada controladorFachada = new ControladorFachada();
         CategoriaProductoDTO categoriaDTO { get; set; }
+        int Ventana { get; set; }
         public VAgregarModifciarCategoria()
         {
+            InitializeComponent();
+
+        }
+        public VAgregarModifciarCategoria(int i)
+        {
+            Ventana = i;
             InitializeComponent();
 
         }
@@ -69,10 +76,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 else { categoriaProductoDTO.Vence = false; }
                 
                 controladorFachada.AgregarModificarCategoria(categoriaProductoDTO);
-                this.Hide();
-                VControlCategoria vControlCategoria = new VControlCategoria();
-                vControlCategoria.ShowDialog();
-                this.Close();
+                if(Ventana==1)
+                {
+                    this.Hide();
+                    this.Close();
+                }
+                else
+                {
+                    this.Hide();
+                    VControlCategoria vControlCategoria = new VControlCategoria();
+                    vControlCategoria.ShowDialog();
+                    this.Close();
+                }
+
             }
         }
 
