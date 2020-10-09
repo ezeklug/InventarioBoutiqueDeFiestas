@@ -125,7 +125,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToInt32(row.Cells[2].Value), Convert.ToDouble(row.Cells[3].Value), Convert.ToInt32(row.Cells[4].Value)).ToString();
+                row.Cells[5].Value =controladorFachada.CalcularSubtotal(Convert.ToDouble(row.Cells[2].Value), Convert.ToDouble(row.Cells[3].Value), Convert.ToDouble(row.Cells[4].Value)).ToString();
             }
         }
 
@@ -142,7 +142,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             this.Hide();
             VPrincipal vPrincipal = new VPrincipal();
-            vPrincipal.Show();
+            vPrincipal.ShowDialog();
             this.Close();
         }
 
@@ -266,5 +266,28 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             FechaVencimiento = dateTimePicker1.Value;
         }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column4_KeyPress);
+            if (dataGridView1.CurrentCell.ColumnIndex == 4) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column4_KeyPress);
+                }
+            }
+        }
+
+        private void Column4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+
     }
 }
