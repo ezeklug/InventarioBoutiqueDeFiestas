@@ -99,8 +99,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void AgregarCategoria_Click(object sender, EventArgs e)
         {
-            //VControlCate
+            ProductoDTO pProductoDTO=new ProductoDTO();
+            pProductoDTO.Nombre = Nombre.Text;
+            pProductoDTO.Descripcion= Descripcion.Text;
+            pProductoDTO.StockMinimo= Convert.ToInt32(StockMinimo.Text);
+            pProductoDTO.PorcentajeDeGanancia = Convert.ToInt32(PorcentajeDeGanancia.Text);
+            pProductoDTO.PrecioDeCompra= Convert.ToInt32(precioCompra.Text);
+            this.Hide();
+            VControlCategoriaProducto vControlCategoriaProducto = new VControlCategoriaProducto(pProductoDTO);
+            vControlCategoriaProducto.ShowDialog();
+            this.Close();
         }
+
     }
 }
 

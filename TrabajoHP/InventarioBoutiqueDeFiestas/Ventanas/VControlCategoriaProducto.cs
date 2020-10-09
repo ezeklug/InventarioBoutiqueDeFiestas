@@ -12,11 +12,13 @@ using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
-    public partial class ControlCategoriaProducto : Form
+    public partial class VControlCategoriaProducto : Form
     {
         ControladorFachada controladorFachada = new ControladorFachada();
-        public ControlCategoriaProducto()
+        ProductoDTO Producto { get; set; }
+        public VControlCategoriaProducto(ProductoDTO pProductoDTO)
         {
+            Producto = pProductoDTO;
             InitializeComponent();
         }
 
@@ -43,7 +45,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             int cont = 0;
             DataGridViewRow row1 = new DataGridViewRow();
-
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
@@ -56,18 +57,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
             if (cont == 1)
             {
-                CategoriaProductoDTO categoriaDTO = new CategoriaProductoDTO
-                {
-                    Id = Convert.ToInt32(row1.Cells[1].Value),
-                    Nombre = (row1.Cells[2].Value).ToString(),
-                    Descripcion = (row1.Cells[3].Value).ToString(),
-                    Vence = Convert.ToBoolean(row1.Cells[4].Value)
-
-                };
-
+                Producto.IdCategoria = controladorFachada.BuscarCategoriaPorNombre(row1.Cells[2].Value.ToString());
                 this.Hide();
-                VAgregarModifciarCategoria vAgregarModificarCategoria = new VAgregarModifciarCategoria(categoriaDTO);
-                vAgregarModificarCategoria.ShowDialog();
+                VAgregarModificarProducto vAgregarModificarProducto = new VAgregarModificarProducto(Producto);
+                vAgregarModificarProducto.ShowDialog();
                 this.Close();
             }
             else if (cont > 1)
@@ -82,6 +75,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 MessageBox.Show("Debe seleccionar un producto");
             }
+        }
+
+        private void Agregar_Click(object sender, EventArgs e)
+        {
+            VAgregarModifciarCategoria vAgregarModificarCategoria = new VAgregarModifciarCategoria(1);
+            vAgregarModificarCategoria.ShowDialog();
         }
     }
 }

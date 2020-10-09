@@ -199,11 +199,11 @@
       <DependentUpon>202010091849091_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Ventanas\ControlCategoriaProducto.cs">
+    <Compile Include="Ventanas\VControlCategoriaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas\ControlCategoriaProducto.Designer.cs">
-      <DependentUpon>ControlCategoriaProducto.cs</DependentUpon>
+    <Compile Include="Ventanas\VControlCategoriaProducto.Designer.cs">
+      <DependentUpon>VControlCategoriaProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
       <SubType>Form</SubType>
@@ -310,8 +310,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Ventanas\ControlCategoriaProducto.resx">
-      <DependentUpon>ControlCategoriaProducto.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas\VControlCategoriaProducto.resx">
+      <DependentUpon>VControlCategoriaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VAdministrarPresupuesto.resx">
       <DependentUpon>VAdministrarPresupuesto.cs</DependentUpon>
