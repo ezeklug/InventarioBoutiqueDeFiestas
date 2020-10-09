@@ -31,7 +31,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             StockMinimo.Text = pProductoDTO.StockMinimo.ToString();
             PorcentajeDeGanancia.Text = pProductoDTO.PorcentajeDeGanancia.ToString();
             precioCompra.Text = pProductoDTO.PrecioDeCompra.ToString();
-            Categoria.Text = controladorfachada.GetNombreCategoria(pProductoDTO.Id);
+            Categoria.Text = controladorfachada.GetNombreCategoria(pProductoDTO.IdCategoria);
 
         }
 
