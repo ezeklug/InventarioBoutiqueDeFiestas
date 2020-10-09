@@ -25,6 +25,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             int incremento = Convert.ToInt32(this.incremento.Text);
             controladorFachada.AplicarIncrementoTodosLosProductos(incremento);
+            VControlProducto.instancia.UpdateTable();
             MessageBox.Show("Incremento aplicado correctamente!");
             this.Close();
         }
