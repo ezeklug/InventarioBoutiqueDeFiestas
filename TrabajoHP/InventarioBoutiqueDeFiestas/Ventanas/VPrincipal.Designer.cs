@@ -35,6 +35,7 @@
             // 
             // ControlClientes
             // 
+            this.ControlClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ControlClientes.Location = new System.Drawing.Point(287, 198);
             this.ControlClientes.Name = "ControlClientes";
             this.ControlClientes.Size = new System.Drawing.Size(194, 65);
@@ -45,6 +46,7 @@
             // 
             // ControlPresupuesto
             // 
+            this.ControlPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ControlPresupuesto.Location = new System.Drawing.Point(545, 186);
             this.ControlPresupuesto.Name = "ControlPresupuesto";
             this.ControlPresupuesto.Size = new System.Drawing.Size(141, 77);
@@ -55,6 +57,7 @@
             // 
             // ControlProductos
             // 
+            this.ControlProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ControlProductos.Location = new System.Drawing.Point(84, 194);
             this.ControlProductos.Name = "ControlProductos";
             this.ControlProductos.Size = new System.Drawing.Size(129, 72);
@@ -72,7 +75,9 @@
             this.Controls.Add(this.ControlPresupuesto);
             this.Controls.Add(this.ControlClientes);
             this.Name = "VPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VPrincipal_Load);
             this.ResumeLayout(false);
 

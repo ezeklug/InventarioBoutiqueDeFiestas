@@ -241,7 +241,7 @@ namespace UnitTestProject1
         //[TestMethod]
         public void TestGenPdf() {
             var cont = new ControladorFachada();
-            GenPdf.PDFProductos(cont.ListarTodosLosProductos());
+            //GenPdf.PDFProductos(cont.ListarTodosLosProductos());
         }        
 
     }

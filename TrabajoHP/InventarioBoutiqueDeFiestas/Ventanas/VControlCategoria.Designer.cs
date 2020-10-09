@@ -34,6 +34,7 @@
             this.Modificar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
             this.Principal = new System.Windows.Forms.Button();
+            this.Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,22 @@
             this.Principal.UseVisualStyleBackColor = true;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
+            // Cancelar
+            // 
+            this.Cancelar.Location = new System.Drawing.Point(223, 401);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar.TabIndex = 16;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            // 
             // VControlCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 450);
+            this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Principal);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Modificar);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button Modificar;
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.Button Principal;
+        private System.Windows.Forms.Button Cancelar;
     }
 }

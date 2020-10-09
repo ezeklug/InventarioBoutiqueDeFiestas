@@ -15,23 +15,28 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     {
         ControladorFachada controladorfachada = new ControladorFachada();
         DataGridView Filas { get; set; }
+
+        public static VControlProducto instancia;
         public VControlProducto()
         {
             Filas = new DataGridView();
             InitializeComponent();
+            instancia = this;
         }
         public VControlProducto(DataGridView filas)
         {
             Filas = filas;
             InitializeComponent();
+            instancia = this;
         }
 
         public void UpdateTable()
         {
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            dataGridView1.DataSource = controladorfachada.ListarCategorias();
-            //dataGridView1.Columns[5].Visible = false;
+            dataGridView1.DataSource = controladorfachada.ListarTodosLosProductos();
+            dataGridView1.Columns[9].Visible = false;
+            
 
         }
   

@@ -71,13 +71,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 80);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(838, 268);
+            this.dataGridView1.Size = new System.Drawing.Size(838, 277);
             this.dataGridView1.TabIndex = 8;
             // 
             // Agregar
             // 
             this.Agregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Agregar.Location = new System.Drawing.Point(39, 376);
+            this.Agregar.Location = new System.Drawing.Point(26, 385);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 9;
@@ -88,7 +88,7 @@
             // Modificar
             // 
             this.Modificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Modificar.Location = new System.Drawing.Point(160, 376);
+            this.Modificar.Location = new System.Drawing.Point(144, 385);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(75, 23);
             this.Modificar.TabIndex = 10;
@@ -99,7 +99,7 @@
             // IngresoMercaderia
             // 
             this.IngresoMercaderia.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.IngresoMercaderia.Location = new System.Drawing.Point(279, 376);
+            this.IngresoMercaderia.Location = new System.Drawing.Point(256, 385);
             this.IngresoMercaderia.Name = "IngresoMercaderia";
             this.IngresoMercaderia.Size = new System.Drawing.Size(120, 23);
             this.IngresoMercaderia.TabIndex = 11;
@@ -110,7 +110,7 @@
             // PorcentajeIncremento
             // 
             this.PorcentajeIncremento.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PorcentajeIncremento.Location = new System.Drawing.Point(440, 376);
+            this.PorcentajeIncremento.Location = new System.Drawing.Point(419, 385);
             this.PorcentajeIncremento.Name = "PorcentajeIncremento";
             this.PorcentajeIncremento.Size = new System.Drawing.Size(133, 23);
             this.PorcentajeIncremento.TabIndex = 12;
@@ -121,7 +121,7 @@
             // Categoria
             // 
             this.Categoria.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Categoria.Location = new System.Drawing.Point(626, 376);
+            this.Categoria.Location = new System.Drawing.Point(579, 385);
             this.Categoria.Name = "Categoria";
             this.Categoria.Size = new System.Drawing.Size(110, 23);
             this.Categoria.TabIndex = 13;
@@ -131,17 +131,19 @@
             // 
             // botonStockMinimo
             // 
-            this.botonStockMinimo.Location = new System.Drawing.Point(743, 369);
+            this.botonStockMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.botonStockMinimo.Location = new System.Drawing.Point(706, 376);
             this.botonStockMinimo.Name = "botonStockMinimo";
             this.botonStockMinimo.Size = new System.Drawing.Size(144, 40);
             this.botonStockMinimo.TabIndex = 14;
             this.botonStockMinimo.Text = "Productos debajo stock minimo";
-            this.botonStockMinimo.UseVisualStyleBackColor = true;            // 
+            this.botonStockMinimo.UseVisualStyleBackColor = true;
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 411);
+            this.ClientSize = new System.Drawing.Size(934, 420);
             this.Controls.Add(this.botonStockMinimo);
             this.Controls.Add(this.Categoria);
             this.Controls.Add(this.PorcentajeIncremento);
@@ -153,6 +155,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VControlProducto";
             this.Text = "VControlProducto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VControlProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
