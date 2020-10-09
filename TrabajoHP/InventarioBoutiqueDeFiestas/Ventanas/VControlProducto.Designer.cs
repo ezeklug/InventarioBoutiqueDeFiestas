@@ -136,9 +136,7 @@
             this.botonStockMinimo.Size = new System.Drawing.Size(144, 40);
             this.botonStockMinimo.TabIndex = 14;
             this.botonStockMinimo.Text = "Productos debajo stock minimo";
-            this.botonStockMinimo.UseVisualStyleBackColor = true;
-            this.botonStockMinimo.Click += new System.EventHandler(this.botonStockMinimo_Click);
-            // 
+            this.botonStockMinimo.UseVisualStyleBackColor = true;            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

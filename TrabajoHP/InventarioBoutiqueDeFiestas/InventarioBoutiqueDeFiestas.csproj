@@ -194,10 +194,11 @@
     <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
-    <Compile Include="Migrations\202009292256448_InitialCreate12.cs" />
-    <Compile Include="Migrations\202009292256448_InitialCreate12.designer.cs">
-      <DependentUpon>202009292256448_InitialCreate12.cs</DependentUpon>
+    <Compile Include="Migrations\202010091849091_init.cs" />
+    <Compile Include="Migrations\202010091849091_init.designer.cs">
+      <DependentUpon>202010091849091_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,51 +265,6 @@
     <Compile Include="Ventanas\VPrincipal.Designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008281731029_InitialCreate2.cs" />
-    <Compile Include="Migrations\202008281731029_InitialCreate2.designer.cs">
-      <DependentUpon>202008281731029_InitialCreate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008281754204_InitialCreate3.cs" />
-    <Compile Include="Migrations\202008281754204_InitialCreate3.designer.cs">
-      <DependentUpon>202008281754204_InitialCreate3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008281812052_InitialCreate4.cs" />
-    <Compile Include="Migrations\202008281812052_InitialCreate4.designer.cs">
-      <DependentUpon>202008281812052_InitialCreate4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009041926199_InitialCreate7.cs" />
-    <Compile Include="Migrations\202009041926199_InitialCreate7.designer.cs">
-      <DependentUpon>202009041926199_InitialCreate7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009041932107_InitialCreate8.cs" />
-    <Compile Include="Migrations\202009041932107_InitialCreate8.designer.cs">
-      <DependentUpon>202009041932107_InitialCreate8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009042118047_InitialCreate1.cs" />
-    <Compile Include="Migrations\202009042118047_InitialCreate1.designer.cs">
-      <DependentUpon>202009042118047_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009042132502_InitialCreate6.cs" />
-    <Compile Include="Migrations\202009042132502_InitialCreate6.designer.cs">
-      <DependentUpon>202009042132502_InitialCreate6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082134486_InitialCreate9.cs" />
-    <Compile Include="Migrations\202009082134486_InitialCreate9.designer.cs">
-      <DependentUpon>202009082134486_InitialCreate9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082225502_InitialCreate10.cs" />
-    <Compile Include="Migrations\202009082225502_InitialCreate10.designer.cs">
-      <DependentUpon>202009082225502_InitialCreate10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082228089_InitialCreate11.cs" />
-    <Compile Include="Migrations\202009082228089_InitialCreate11.designer.cs">
-      <DependentUpon>202009082228089_InitialCreate11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009112145404_InitalCreate11.cs" />
-    <Compile Include="Migrations\202009112145404_InitalCreate11.designer.cs">
-      <DependentUpon>202009112145404_InitalCreate11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ventanas\VAgregarModificarCliente.cs">
@@ -335,41 +291,8 @@
     <Compile Include="Ventanas\VVenderPresupuesto.Designer.cs">
       <DependentUpon>VVenderPresupuesto.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008281731029_InitialCreate2.resx">
-      <DependentUpon>202008281731029_InitialCreate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008281754204_InitialCreate3.resx">
-      <DependentUpon>202008281754204_InitialCreate3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008281812052_InitialCreate4.resx">
-      <DependentUpon>202008281812052_InitialCreate4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009041926199_InitialCreate7.resx">
-      <DependentUpon>202009041926199_InitialCreate7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009041932107_InitialCreate8.resx">
-      <DependentUpon>202009041932107_InitialCreate8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009042118047_InitialCreate1.resx">
-      <DependentUpon>202009042118047_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009042132502_InitialCreate6.resx">
-      <DependentUpon>202009042132502_InitialCreate6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082134486_InitialCreate9.resx">
-      <DependentUpon>202009082134486_InitialCreate9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082225502_InitialCreate10.resx">
-      <DependentUpon>202009082225502_InitialCreate10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082228089_InitialCreate11.resx">
-      <DependentUpon>202009082228089_InitialCreate11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009112145404_InitalCreate11.resx">
-      <DependentUpon>202009112145404_InitalCreate11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009292256448_InitialCreate12.resx">
-      <DependentUpon>202009292256448_InitialCreate12.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010091849091_init.resx">
+      <DependentUpon>202010091849091_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
