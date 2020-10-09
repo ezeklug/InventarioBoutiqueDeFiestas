@@ -131,12 +131,14 @@
             // 
             // botonStockMinimo
             // 
+            this.botonStockMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.botonStockMinimo.Location = new System.Drawing.Point(743, 369);
             this.botonStockMinimo.Name = "botonStockMinimo";
             this.botonStockMinimo.Size = new System.Drawing.Size(144, 40);
             this.botonStockMinimo.TabIndex = 14;
             this.botonStockMinimo.Text = "Productos debajo stock minimo";
-            this.botonStockMinimo.UseVisualStyleBackColor = true;            // 
+            this.botonStockMinimo.UseVisualStyleBackColor = true;
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +155,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VControlProducto";
             this.Text = "VControlProducto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VControlProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
