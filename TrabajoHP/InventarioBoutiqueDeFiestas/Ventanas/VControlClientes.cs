@@ -182,8 +182,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
 
                 List<ClienteDTO> HelpList = new List<ClienteDTO>();
+                List<Cliente> distinct = (consultaNombre.Concat(consultaApellido).Concat(consultaTelefono)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
 
-                foreach (var cliente in consultaNombre.Concat(consultaApellido).Concat(consultaTelefono))
+
+                foreach (var cliente in distinct)
                 {
                     ClienteDTO cli = new ClienteDTO()
                     {
