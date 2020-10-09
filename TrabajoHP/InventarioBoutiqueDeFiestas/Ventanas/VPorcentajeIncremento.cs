@@ -23,11 +23,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void aceptar_Click(object sender, EventArgs e)
         {
-            int incremento = Convert.ToInt32(this.incremento.Text);
-            controladorFachada.AplicarIncrementoTodosLosProductos(incremento);
-            VControlProducto.instancia.UpdateTable();
-            MessageBox.Show("Incremento aplicado correctamente!");
-            this.Close();
+            if (incremento.Text == "")
+            {
+                MessageBox.Show("Tiene que ingresar un porcentaje de incremento");
+            }
+            else
+            {
+
+                int incremento = Convert.ToInt32(this.incremento.Text);
+                controladorFachada.AplicarIncrementoTodosLosProductos(incremento);
+                VControlProducto.instancia.UpdateTable();
+                MessageBox.Show("Incremento aplicado correctamente!");
+                this.Close();
+            } 
         }
 
         private void cancelar_Click(object sender, EventArgs e)
