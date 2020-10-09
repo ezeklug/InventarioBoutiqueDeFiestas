@@ -230,9 +230,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 new VSeniarPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
-                this.Hide();
-                this.Close();
-
             }
         }
 
@@ -254,8 +251,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
-                this.Hide();
-                this.Close();
             }
         }
 

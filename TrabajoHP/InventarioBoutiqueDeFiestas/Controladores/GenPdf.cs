@@ -23,7 +23,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Abre una lista con los productos en el navevador
         /// </summary>
         /// <param name="pProductos"></param>
-        public static void  PDFProductos(List<Producto> pProductos)
+        public static void  PDFProductos(List<ProductoDTO> pProductos)
         {
             string template_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/TemplateProductos.html";
 

@@ -13,7 +13,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 {
     public class ControladorPresupuesto
     {
-        public Presupuesto DTOAPresupuesto (PresupuestoDTO pPresupuesto)
+        public Presupuesto DTOAPresupuesto(PresupuestoDTO pPresupuesto)
         {
             Presupuesto pres = new Presupuesto();
             Repositorio repo = new Repositorio();
@@ -98,7 +98,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="senia"></param>
         public void ModificarSenia(SeniaDTO senia)
         {
-            if(senia.Id == 0)
+            if (senia.Id == 0)
             {
                 throw new Exception("El id de la senia es 0");
             }
@@ -149,7 +149,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         public ControladorPresupuesto()
         {
-           
+
 
         }
         /// <summary>
@@ -242,7 +242,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pMontoSenia"></param>
         public void SeniarPresupuesto(SeniaDTO pSenia)
         {
-            using(var repo = new Repositorio())
+            using (var repo = new Repositorio())
             {
                 var presupuesto = repo.Presupuestos.Find(pSenia.IdPresupuesto);
                 if (presupuesto == null)
@@ -275,7 +275,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
                 repo.Ventas.Add(venta);
             }
-        }   
+        }
 
         /// <summary>
         /// Este metodo permite asociar un cliente a un presupuesto, pasando como parámetro el id del presupuesto y el id del cliente.
@@ -284,10 +284,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pIdPresupuesto"></param>
         public void AsociarCliente(int pIdCliente, int pIdPresupuesto)
         {
-            using (var repo=new Repositorio())
+            using (var repo = new Repositorio())
             {
-                Cliente cli=repo.Clientes.Find(pIdCliente);
-                repo.Presupuestos.Find(pIdPresupuesto).Cliente=cli;
+                Cliente cli = repo.Clientes.Find(pIdCliente);
+                repo.Presupuestos.Find(pIdPresupuesto).Cliente = cli;
             }
         }
 
@@ -298,9 +298,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescuento"></param>
         public void AplicarDescuentoTotal(int pIdPresupuesto, float pDescuento)
         {
-            using (var repo=new Repositorio())
+            using (var repo = new Repositorio())
             {
-                repo.Presupuestos.Find(pIdPresupuesto).Descuento=pDescuento;
+                repo.Presupuestos.Find(pIdPresupuesto).Descuento = pDescuento;
             }
         }
 
@@ -312,13 +312,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             List<Presupuesto> presupuestos = new List<Presupuesto>();
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
-            using (var repo=new Repositorio())
+            using (var repo = new Repositorio())
             {
-                presupuestos= repo.Presupuestos.Include("Cliente").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").ToList();
             }
-            foreach(Presupuesto pre in presupuestos)
+            foreach (Presupuesto pre in presupuestos)
             {
-                PresupuestoDTO pDTO=this.PresupuestoADTO(pre);
+                PresupuestoDTO pDTO = this.PresupuestoADTO(pre);
                 presupuestoDTOs.Add(pDTO);
             }
             return presupuestoDTOs;
@@ -345,10 +345,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pDescuento"></param>
         public void AplicarDescuentoLinea(int pIdLinea, float pDescuento)
         {
-            using(var repo = new Repositorio())
+            using (var repo = new Repositorio())
             {
                 var linea = repo.LineaPresupuestos.Find(pIdLinea);
-                if(linea == null)
+                if (linea == null)
                 {
                     throw new Exception("Linea " + pIdLinea + " no existe");
                 }
@@ -360,13 +360,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             List<LineaPresupuestoDTO> ADevolver = new List<LineaPresupuestoDTO>();
             List<LineaPresupuesto> lineas = new List<LineaPresupuesto>();
-            using (var repo=new Repositorio())
+            using (var repo = new Repositorio())
             {
-                 lineas= repo.LineaPresupuestos.Include("Producto").Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
+                lineas = repo.LineaPresupuestos.Include("Producto").Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
             }
-            foreach(LineaPresupuesto lin in lineas)
+            foreach (LineaPresupuesto lin in lineas)
             {
-                LineaPresupuestoDTO lineaPresupuestoDTO =this.LineaPresupuestoADTO(lin);
+                LineaPresupuestoDTO lineaPresupuestoDTO = this.LineaPresupuestoADTO(lin);
                 ADevolver.Add(lineaPresupuestoDTO);
             }
             return ADevolver;
@@ -376,13 +376,62 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             LineaPresupuestoDTO linea = new LineaPresupuestoDTO();
             linea.Id = lineaPresupuesto.Id;
-            linea.Cantidad=lineaPresupuesto.Cantidad;
-            linea.PorcentajeDescuento=lineaPresupuesto.PorcentajeDescuento;
-            linea.IdProducto=lineaPresupuesto.Producto.Id;
-            linea.Subtotal=lineaPresupuesto.Subtotal;
+            linea.Cantidad = lineaPresupuesto.Cantidad;
+            linea.PorcentajeDescuento = lineaPresupuesto.PorcentajeDescuento;
+            linea.IdProducto = lineaPresupuesto.Producto.Id;
+            linea.Subtotal = lineaPresupuesto.Subtotal;
             linea.NombreProducto = lineaPresupuesto.Producto.Nombre;
             linea.PrecioUnitario = lineaPresupuesto.Producto.PrecioVenta();
             return linea;
+        }
+
+        public List<LineaPresupuestoDTO> ListarLineasConLotePresupuesto(int pIdPresupuesto)
+        {
+            ControladorFachada controladorFachada = new ControladorFachada();
+            List<LineaPresupuestoDTO> ADevolver = new List<LineaPresupuestoDTO>();
+            List<LineaPresupuesto> lineas = new List<LineaPresupuesto>();
+            using (var repo = new Repositorio())
+            {
+                lineas = repo.LineaPresupuestos.Include("Producto").Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
+            }
+            foreach (LineaPresupuesto lin in lineas)
+            {
+                if (controladorFachada.VerificarSiCategoriaVence(lin.Producto.Id))
+                {
+                    LineaPresupuestoDTO lineaPresupuestoDTO = new LineaPresupuestoDTO();
+                    lineaPresupuestoDTO.NombreProducto = lin.Producto.Nombre;
+                    lineaPresupuestoDTO.Cantidad = lin.Cantidad;
+                    lineaPresupuestoDTO.Lotes = DeterminarLotes(lin.Producto.Id, lin.Cantidad);
+                    ADevolver.Add(lineaPresupuestoDTO);
+                }
+            }
+            return ADevolver;
+        }
+
+        public string DeterminarLotes(int pIdProducto, int pCantidad)
+        {
+            string ADevolver = "";
+            List<Lote> lotes = new List<Lote>();
+            using (var repo=new Repositorio())
+            {
+                lotes=repo.Lotes.Include("Producto").Where(l => l.Producto.Id == pIdProducto && !l.Vencido).OrderBy(p=>p.FechaVencimiento).ToList();
+            }
+            int i = 0;
+            while(pCantidad>0 && lotes.Count>i)
+            {
+                pCantidad-=lotes[i].CantidadProductos;
+                ADevolver += lotes[i].Id.ToString();
+                if(pCantidad>0)
+                {
+                    ADevolver += ", ";
+                }
+                else
+                {
+                    ADevolver += ".";
+                }
+                i++;
+            }
+            return ADevolver;
         }
     }
 }
