@@ -81,6 +81,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             VAgregarModifciarCategoria vAgregarModificarCategoria = new VAgregarModifciarCategoria(1);
             vAgregarModificarCategoria.ShowDialog();
+            this.ControlCategoriaProducto_Load(sender,e);
         }
     }
 }
