@@ -103,8 +103,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             pProductoDTO.Nombre = Nombre.Text;
             pProductoDTO.Descripcion= Descripcion.Text;
             pProductoDTO.StockMinimo= Convert.ToInt32(StockMinimo.Text);
-            pProductoDTO.PorcentajeDeGanancia = Convert.ToInt32(PorcentajeDeGanancia.Text);
-            pProductoDTO.PrecioDeCompra= Convert.ToInt32(precioCompra.Text);
+            pProductoDTO.PorcentajeDeGanancia = Convert.ToDouble(PorcentajeDeGanancia.Text);
+            pProductoDTO.PrecioDeCompra= Convert.ToDouble(precioCompra.Text);
             this.Hide();
             VControlCategoriaProducto vControlCategoriaProducto = new VControlCategoriaProducto(pProductoDTO);
             vControlCategoriaProducto.ShowDialog();
