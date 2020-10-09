@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -179,5 +180,53 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
            this.Close();
         }
 
+        private void buscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Producto> listaProducto = controladorfachada.ListarTodosLosProductos();
+            try
+            {
+                var consultaNombre = from producto in listaProducto where producto.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+                var consultaDescripcion = from producto in listaProducto where producto.Descripcion.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+                var consultaCategoria = from producto in listaProducto where producto.Categoria.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+
+
+                List<Producto> HelpList = new List<Producto>();
+                List<Producto> distinct = (consultaNombre.Concat(consultaDescripcion).Concat(consultaCategoria)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
+
+                foreach (var producto in distinct)
+                {
+                    Producto prod = new Producto()
+                    {
+                        Id = producto.Id,
+                        Nombre = producto.Nombre,
+                        Descripcion = producto.Descripcion,
+                        CantidadEnStock = producto.CantidadEnStock,
+                        Categoria = producto.Categoria,
+                        PorcentajeDeGanancia= producto.PorcentajeDeGanancia,
+                        Activo = producto.Activo,
+                        PrecioDeCompra= producto.PrecioDeCompra,
+                        StockMinimo= producto.StockMinimo,
+                                             
+
+                        
+                    };
+                    HelpList.Add(prod);
+                }
+
+                dataGridView1.DataSource = HelpList;
+                dataGridView1.Columns[9].Visible = false;
+
+            }
+
+
+            catch
+            {
+                throw;
+            }
+
+        }
     }
 }

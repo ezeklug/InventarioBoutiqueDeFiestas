@@ -37,6 +37,8 @@
             this.PorcentajeIncremento = new System.Windows.Forms.Button();
             this.Categoria = new System.Windows.Forms.Button();
             this.botonStockMinimo = new System.Windows.Forms.Button();
+            this.buscar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,11 +141,32 @@
             this.botonStockMinimo.Text = "Productos debajo stock minimo";
             this.botonStockMinimo.UseVisualStyleBackColor = true;
             // 
+            // buscar
+            // 
+            this.buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buscar.Location = new System.Drawing.Point(732, 54);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(118, 20);
+            this.buscar.TabIndex = 15;
+            this.buscar.TextChanged += new System.EventHandler(this.buscar_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(683, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Buscar:";
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 420);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buscar);
             this.Controls.Add(this.botonStockMinimo);
             this.Controls.Add(this.Categoria);
             this.Controls.Add(this.PorcentajeIncremento);
@@ -174,5 +197,7 @@
         private System.Windows.Forms.Button PorcentajeIncremento;
         private System.Windows.Forms.Button Categoria;
         private System.Windows.Forms.Button botonStockMinimo;
+        private System.Windows.Forms.TextBox buscar;
+        private System.Windows.Forms.Label label2;
     }
 }
