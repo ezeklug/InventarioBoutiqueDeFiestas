@@ -32,6 +32,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdCliente = pPresupuestoDTO.IdCliente;
             FechaVencimiento = pPresupuestoDTO.FechaVencimiento;
             Descuento = pPresupuestoDTO.Descuento.ToString();
+            IdPresupuesto = pPresupuestoDTO.Id;
+
             InitializeComponent();
         }
         public VAdministrarPresupuesto()
@@ -119,6 +121,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     dataGridView1.Rows.Add(row);
                 }
             }
+            Total.Text = PrecioVenta().ToString();
         }
 
         private void CalcularSubtotal()
@@ -163,7 +166,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void DescuentoTotal_TextChanged(object sender, EventArgs e)
         {
-           Total.Text = PrecioVenta().ToString();
+            if (DescuentoTotal.Text!="")
+            {
+                Total.Text = PrecioVenta().ToString();
+            }
         }
 
         private void CargarProductos_Click(object sender, EventArgs e)
@@ -176,6 +182,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Guardar_Click(object sender, EventArgs e)
         {
+
+            this.GuardarPresupuesto(sender, e);
+            MessageBox.Show("Se guardó correctamente el presupuesto");
+        }
+        private void GuardarPresupuesto(object sender, EventArgs e)
+        {
             if (IdCliente == 0)
             {
                 MessageBox.Show("Debe seleccionar un cliente");
@@ -184,9 +196,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
             }
-            else if(FechaVencimiento.Date < DateTime.Now.Date)
+            else if (FechaVencimiento.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Debe seleccionar una fecha de Vencimiento posterior a la seleccionada");
+            }
+            else if (DescuentoTotal.Text=="")
+            {
+                DescuentoTotal.Text = "0";
             }
             else
             {
@@ -208,16 +224,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
                     controladorFachada.AgregarLinea(lin);
                 }
-                MessageBox.Show("Se guardó correctamente el presupuesto");
             }
         }
 
         private void Seniar_Click(object sender, EventArgs e)
         {
-            if (IdPresupuesto==0)
-            {
-                this.Guardar_Click(sender, e);
-            }
+            this.GuardarPresupuesto(sender, e);
 
             if (IdCliente == 0)
             {
@@ -235,10 +247,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Vender_Click(object sender, EventArgs e)
         {
-            if (IdPresupuesto == 0)
-            {
-                this.Guardar_Click(sender, e);
-            }
+            this.GuardarPresupuesto(sender, e);
 
             if (IdCliente == 0)
             {

@@ -196,13 +196,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                LineaPresupuesto lineapres = repo.LineaPresupuestos.Find(pLineaPresupuestoDTO.Id);
+                List<LineaPresupuesto> lineapresupuestos = repo.LineaPresupuestos.Include("Presupuesto").Include("Producto").Where(p=>p.Presupuesto.Id==pLineaPresupuestoDTO.IdPresupuesto && p.Producto.Id==pLineaPresupuestoDTO.IdProducto).ToList();
+                LineaPresupuesto lineapres=new LineaPresupuesto();
+                if(lineapresupuestos.Count!=0)
+                {
+                    lineapres = lineapresupuestos.First();
+                }
                 LineaPresupuesto lineaAAgregar = this.DTOALineaPresupuesto(pLineaPresupuestoDTO);
                 Producto pro = repo.Productos.Find(pLineaPresupuestoDTO.IdProducto);
                 lineaAAgregar.Producto = pro;
                 Presupuesto pres = repo.Presupuestos.Find(pLineaPresupuestoDTO.IdPresupuesto);
                 lineaAAgregar.Presupuesto = pres;
-                if (lineapres == null)  // Crear linea presupuesto (si no existe)
+                if (lineapres.Id == 0)  // Crear linea presupuesto (si no existe)
                 {
                     repo.LineaPresupuestos.Add(lineaAAgregar);
                     repo.SaveChanges();
@@ -210,7 +215,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
                 else  // Modificar linea presupuesto (si ya existe)
                 {
-                    lineapres.Id = lineaAAgregar.Id;
                     lineapres.Cantidad = lineaAAgregar.Cantidad;
                     lineapres.PorcentajeDescuento = lineaAAgregar.PorcentajeDescuento;
                     lineapres.Subtotal = lineaAAgregar.Subtotal;
