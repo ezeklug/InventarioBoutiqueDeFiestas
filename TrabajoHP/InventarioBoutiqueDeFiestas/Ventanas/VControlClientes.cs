@@ -17,15 +17,38 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
     public partial class VControlClientes : Form
     {
         ControladorFachada controladorfachada = new ControladorFachada();
+        int IdCliente { get; set; }
+        DataGridView Filas { get; set; }
+        DateTime FechaEvento { get; set; }
+        DateTime FechaVencimiento { get; set; }
+        int IdPresupuesto { get; set; }
+        string Descuento { get; set; }
         public VControlClientes()
         {
+            IdPresupuesto = -1;
+            InitializeComponent();
+        }
+
+        public VControlClientes(int pIdCliente, DataGridView filas, DateTime fechaVencimiento, int idPresupuesto, string descuento)
+        {
+            IdCliente = pIdCliente;
+            Filas = filas;
+            FechaVencimiento = fechaVencimiento;
+            IdPresupuesto = idPresupuesto;
+            Descuento = descuento;
             InitializeComponent();
         }
 
         private void VControlClientes_Load(object sender, EventArgs e)
         {
-       
-
+            if (IdPresupuesto!=-1)
+            {
+                AsociarPresupuesto.Visible = true;
+            }
+            else
+            {
+                AsociarPresupuesto.Visible = false;
+            }
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
             dgvCmb.Name = "Cb";
@@ -38,8 +61,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
-
-
         }
 
         private ClienteDTO RowAClienteDTO(DataGridViewRow row)
@@ -227,6 +248,31 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             GenPdf.PDFClientes(clientes);
 
+        }
+
+        private void AsociarPresupuesto_Click(object sender, EventArgs e)
+        {
+            Boolean seleccion = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                    IdCliente = Convert.ToInt32(row.Cells[1].Value);
+                }
+            }
+            if (seleccion)
+            {
+                this.Hide();
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente, Filas, FechaEvento, FechaVencimiento, IdPresupuesto, Descuento);
+                vAdministrarPresupuesto.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
         }
     }
    }

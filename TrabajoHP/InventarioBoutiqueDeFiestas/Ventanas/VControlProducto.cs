@@ -14,18 +14,34 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VControlProducto : Form
     {
-        ControladorFachada controladorfachada = new ControladorFachada();
         DataGridView Filas { get; set; }
+        int IdCliente { get; set; }
+        DateTime FechaEvento { get; set; }
+        DateTime FechaVencimiento { get; set; }
+        int IdPresupuesto { get; set; }
+        string Descuento { get; set; }
+        ControladorFachada controladorFachada = new ControladorFachada();
+        public VControlProducto(int pIdCliente, DataGridView filas, DateTime fechaVencimiento, int idPresupuesto, string descuento)
+        {
+            InitializeComponent();
+            Filas = filas;
+            IdCliente = pIdCliente;
+            FechaVencimiento = fechaVencimiento;
+            IdPresupuesto = idPresupuesto;
+            Descuento = descuento;
+        }
 
         public static VControlProducto instancia;
         public VControlProducto()
         {
+            Descuento = "notengo";
             Filas = new DataGridView();
             InitializeComponent();
             instancia = this;
         }
         public VControlProducto(DataGridView filas)
         {
+            Descuento = "notengo";
             Filas = filas;
             InitializeComponent();
             instancia = this;
@@ -35,7 +51,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            dataGridView1.DataSource = controladorfachada.ListarTodosLosProductos();
+            dataGridView1.DataSource = controladorFachada.ListarTodosLosProductos();
             dataGridView1.Columns[9].Visible = false;
             
 
@@ -145,12 +161,28 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlProducto_Load(object sender, EventArgs e)
         {
+            if (Descuento== "notengo")
+            {
+                CargarPresupuesto.Visible = false;
+                IngresoMercaderia.Visible = true;
+                PorcentajeIncremento.Visible = true;
+                Categoria.Visible = true;
+                botonStockMinimo.Visible = true;
+            }
+            else
+            {
+                CargarPresupuesto.Visible = true;
+                IngresoMercaderia.Visible = false;
+                PorcentajeIncremento.Visible = false;
+                Categoria.Visible = false;
+                botonStockMinimo.Visible = false;
+            }
             DataGridViewCheckBoxColumn cb = new DataGridViewCheckBoxColumn();
             cb.ValueType = typeof(bool);
             cb.Name = "Cb";
             cb.HeaderText = "";
             dataGridView1.Columns.Add(cb);
-            dataGridView1.DataSource = controladorfachada.ListarTodosLosProductos();
+            dataGridView1.DataSource = controladorFachada.ListarTodosLosProductos();
             dataGridView1.Columns[0].Width = 25;
             dataGridView1.Columns[1].Width = 35;
             dataGridView1.Columns[2].Width = 125;
@@ -182,7 +214,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void buscar_TextChanged(object sender, EventArgs e)
         {
-            List<Producto> listaProducto = controladorfachada.ListarTodosLosProductos();
+            List<Producto> listaProducto = controladorFachada.ListarTodosLosProductos();
             try
             {
                 var consultaNombre = from producto in listaProducto where producto.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
@@ -227,6 +259,29 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 throw;
             }
 
+        }
+
+        private void CargarPresupuesto_Click(object sender, EventArgs e)
+        {
+            Boolean seleccion = false;
+            List<int> idProductos = new List<int>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                    int idProducto = Convert.ToInt32(row.Cells[1].Value);
+                    idProductos.Add(idProducto);
+                }
+            }
+            if (seleccion)
+            {
+                this.Hide();
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente, idProductos, Filas, FechaEvento, FechaVencimiento, IdPresupuesto, Descuento);
+                vAdministrarPresupuesto.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

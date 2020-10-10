@@ -14,7 +14,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VControlCategoria : Form
     {
-        ControladorFachada controladorFachada;
+        ControladorFachada controladorFachada = new ControladorFachada();
+        ProductoDTO Producto { get; set; }
+        public VControlCategoria(ProductoDTO pProductoDTO)
+        {
+            Producto = pProductoDTO;
+            InitializeComponent();
+        }
         public VControlCategoria()
         {
             InitializeComponent();
@@ -23,6 +29,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAgregarCategoria_Load(object sender, EventArgs e)
         {
+            if (Producto != null)
+            {
+                AsociarProducto.Visible = true;
+            }
+            else
+            {
+                AsociarProducto.Visible = false;
+            }
             DataGridViewCheckBoxColumn cb = new DataGridViewCheckBoxColumn();
             cb.ValueType = typeof(bool);
             cb.Name = "Cb";
@@ -123,6 +137,42 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             VControlProducto vControlProducto = new VControlProducto();
             vControlProducto.ShowDialog();
             this.Close();
+        }
+
+        private void AsociarProducto_Click(object sender, EventArgs e)
+        {
+            int cont = 0;
+            DataGridViewRow row1 = new DataGridViewRow();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    cont++;
+                    row1 = row;
+                }
+            }
+
+            if (cont == 1)
+            {
+                Producto.IdCategoria = controladorFachada.BuscarCategoriaPorNombre(row1.Cells[2].Value.ToString());
+                this.Hide();
+                VAgregarModificarProducto vAgregarModificarProducto = new VAgregarModificarProducto(Producto);
+                vAgregarModificarProducto.ShowDialog();
+                this.Close();
+            }
+            else if (cont > 1)
+            {
+                MessageBox.Show("Seleccione solo una categoría");
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    row.Cells["Cb"].Value = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un producto");
+            }
         }
     }
 }

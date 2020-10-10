@@ -199,12 +199,6 @@
       <DependentUpon>202010091849091_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Ventanas\VControlCategoriaProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\VControlCategoriaProducto.Designer.cs">
-      <DependentUpon>VControlCategoriaProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ventanas\VAgregarModificarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,12 +223,6 @@
     <Compile Include="Ventanas\VAdministrarPresupuesto.Designer.cs">
       <DependentUpon>VAdministrarPresupuesto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\VControlClientesPresupuesto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\VControlClientesPresupuesto.Designer.cs">
-      <DependentUpon>VControlClientesPresupuesto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ventanas\VControlPresupuestos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,12 +234,6 @@
     </Compile>
     <Compile Include="Ventanas\VControlProducto.Designer.cs">
       <DependentUpon>VControlProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\VControlProductosPresupuesto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\VControlProductosPresupuesto.Designer.cs">
-      <DependentUpon>VControlProductosPresupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VIngresarMercaderia.cs">
       <SubType>Form</SubType>
@@ -310,9 +292,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Ventanas\VControlCategoriaProducto.resx">
-      <DependentUpon>VControlCategoriaProducto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VAdministrarPresupuesto.resx">
       <DependentUpon>VAdministrarPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,17 +310,11 @@
     <EmbeddedResource Include="Ventanas\VControlClientes.resx">
       <DependentUpon>VControlClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\VControlClientesPresupuesto.resx">
-      <DependentUpon>VControlClientesPresupuesto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlPresupuestos.resx">
       <DependentUpon>VControlPresupuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlProducto.resx">
       <DependentUpon>VControlProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\VControlProductosPresupuesto.resx">
-      <DependentUpon>VControlProductosPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VIngresarMercaderia.resx">
       <DependentUpon>VIngresarMercaderia.cs</DependentUpon>

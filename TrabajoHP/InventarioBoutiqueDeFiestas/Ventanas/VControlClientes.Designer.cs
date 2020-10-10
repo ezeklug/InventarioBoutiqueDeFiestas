@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buscar = new System.Windows.Forms.TextBox();
             this.botonExportar = new System.Windows.Forms.Button();
+            this.AsociarPresupuesto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,22 @@
             this.botonExportar.UseVisualStyleBackColor = true;
             this.botonExportar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // AsociarPresupuesto
+            // 
+            this.AsociarPresupuesto.Location = new System.Drawing.Point(348, 372);
+            this.AsociarPresupuesto.Name = "AsociarPresupuesto";
+            this.AsociarPresupuesto.Size = new System.Drawing.Size(149, 23);
+            this.AsociarPresupuesto.TabIndex = 12;
+            this.AsociarPresupuesto.Text = "Asociar a Presupuesto";
+            this.AsociarPresupuesto.UseVisualStyleBackColor = true;
+            this.AsociarPresupuesto.Click += new System.EventHandler(this.AsociarPresupuesto_Click);
+            // 
             // VControlClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.AsociarPresupuesto);
             this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.label2);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox buscar;
         private System.Windows.Forms.Button botonExportar;
+        private System.Windows.Forms.Button AsociarPresupuesto;
     }
 }

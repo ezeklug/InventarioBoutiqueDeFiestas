@@ -115,8 +115,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             pProductoDTO.PorcentajeDeGanancia = Convert.ToDouble(PorcentajeDeGanancia.Text);
             pProductoDTO.PrecioDeCompra= Convert.ToDouble(precioCompra.Text);
             this.Hide();
-            VControlCategoriaProducto vControlCategoriaProducto = new VControlCategoriaProducto(pProductoDTO);
-            vControlCategoriaProducto.ShowDialog();
+            VControlCategoria vControlCategoria = new VControlCategoria(pProductoDTO);
+            vControlCategoria.ShowDialog();
             this.Close();
         }
 

@@ -153,8 +153,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientesPresupuesto vControlClientesPresupuesto = new VControlClientesPresupuesto(IdCliente,dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
-            vControlClientesPresupuesto.ShowDialog();
+            VControlClientes vControlClientes= new VControlClientes(IdCliente,dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
+            vControlClientes.ShowDialog();
             this.Close();
         }
 
@@ -189,8 +189,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
                 this.Hide();
-                VControlProductosPresupuesto vControlProductosPresupuesto = new VControlProductosPresupuesto(IdCliente, dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
-                vControlProductosPresupuesto.ShowDialog();
+                VControlProducto vControlProducto = new VControlProducto(IdCliente, dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
+                vControlProducto.ShowDialog();
                 this.Close(); 
         }
 

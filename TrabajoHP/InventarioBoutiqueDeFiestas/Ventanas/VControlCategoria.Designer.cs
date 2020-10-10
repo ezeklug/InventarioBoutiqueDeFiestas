@@ -35,6 +35,7 @@
             this.Eliminar = new System.Windows.Forms.Button();
             this.Principal = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.AsociarProducto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // 
             // Agregar
             // 
-            this.Agregar.Location = new System.Drawing.Point(249, 401);
+            this.Agregar.Location = new System.Drawing.Point(255, 401);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 4;
@@ -69,7 +70,7 @@
             // 
             // Modificar
             // 
-            this.Modificar.Location = new System.Drawing.Point(348, 401);
+            this.Modificar.Location = new System.Drawing.Point(346, 401);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(75, 23);
             this.Modificar.TabIndex = 5;
@@ -107,11 +108,22 @@
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // AsociarProducto
+            // 
+            this.AsociarProducto.Location = new System.Drawing.Point(104, 401);
+            this.AsociarProducto.Name = "AsociarProducto";
+            this.AsociarProducto.Size = new System.Drawing.Size(128, 23);
+            this.AsociarProducto.TabIndex = 20;
+            this.AsociarProducto.Text = "Asociar a Producto";
+            this.AsociarProducto.UseVisualStyleBackColor = true;
+            this.AsociarProducto.Click += new System.EventHandler(this.AsociarProducto_Click);
+            // 
             // VControlCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 450);
+            this.Controls.Add(this.AsociarProducto);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Principal);
             this.Controls.Add(this.Eliminar);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button AsociarProducto;
     }
 }

@@ -39,6 +39,7 @@
             this.botonStockMinimo = new System.Windows.Forms.Button();
             this.buscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.CargarPresupuesto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,11 +161,22 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Buscar:";
             // 
+            // CargarPresupuesto
+            // 
+            this.CargarPresupuesto.Location = new System.Drawing.Point(245, 385);
+            this.CargarPresupuesto.Name = "CargarPresupuesto";
+            this.CargarPresupuesto.Size = new System.Drawing.Size(140, 23);
+            this.CargarPresupuesto.TabIndex = 17;
+            this.CargarPresupuesto.Text = "Cargar en presupuesto";
+            this.CargarPresupuesto.UseVisualStyleBackColor = true;
+            this.CargarPresupuesto.Click += new System.EventHandler(this.CargarPresupuesto_Click);
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 420);
+            this.Controls.Add(this.CargarPresupuesto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.botonStockMinimo);
@@ -199,5 +211,6 @@
         private System.Windows.Forms.Button botonStockMinimo;
         private System.Windows.Forms.TextBox buscar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button CargarPresupuesto;
     }
 }
