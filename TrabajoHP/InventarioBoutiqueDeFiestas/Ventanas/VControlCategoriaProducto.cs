@@ -58,9 +58,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (cont == 1)
             {
                 Producto.IdCategoria = controladorFachada.BuscarCategoriaPorNombre(row1.Cells[2].Value.ToString());
-                Console.WriteLine(row1.Cells[2].Value.ToString());
-                Console.WriteLine(controladorFachada.BuscarCategoriaPorNombre(row1.Cells[2].Value.ToString()));
-                Console.WriteLine(Producto.IdCategoria);
                 this.Hide();
                 VAgregarModificarProducto vAgregarModificarProducto = new VAgregarModificarProducto(Producto);
                 vAgregarModificarProducto.ShowDialog();

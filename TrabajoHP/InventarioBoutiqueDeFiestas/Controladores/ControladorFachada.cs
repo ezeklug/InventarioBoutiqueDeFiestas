@@ -263,9 +263,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return precioVenta * (1 - pPorcentajeDescuento / 100);
         }
 
-        public string GetNombreCategoria(int pIdProducto)
+        public string GetNombreCategoriaConProductoId(int pIdProducto)
         {
-            return controladorProducto.GetNombreCategoria(pIdProducto);
+            return controladorProducto.GetNombreCategoriaConProductoId(pIdProducto);
+        }
+        public string GetNombreCategoriaConCategoriaId(int pIdCategoria)
+        {
+            return controladorProducto.GetNombreCategoriaConCategoriaId(pIdCategoria);
         }
         public List<ProductoIngresarMercaderiaDTO> ListarProductosIngresoMercaderia(List<int> pIdProductos)
         {

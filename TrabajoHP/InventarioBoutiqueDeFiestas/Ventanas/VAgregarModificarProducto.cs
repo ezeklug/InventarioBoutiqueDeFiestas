@@ -31,7 +31,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             StockMinimo.Text = pProductoDTO.StockMinimo.ToString();
             PorcentajeDeGanancia.Text = pProductoDTO.PorcentajeDeGanancia.ToString();
             precioCompra.Text = pProductoDTO.PrecioDeCompra.ToString();
-            Categoria.Text = controladorfachada.GetNombreCategoria(pProductoDTO.IdCategoria);
+            if (pProductoDTO.IdCategoria==0)
+            {
+                Categoria.Text = controladorfachada.GetNombreCategoriaConProductoId(pProductoDTO.Id);
+            }
+            else
+            {
+                Categoria.Text = controladorfachada.GetNombreCategoriaConCategoriaId(pProductoDTO.IdCategoria);
+            }
+
 
         }
 
@@ -100,6 +108,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void AgregarCategoria_Click(object sender, EventArgs e)
         {
             ProductoDTO pProductoDTO=new ProductoDTO();
+            pProductoDTO.Id = ProductoDTO.Id;
             pProductoDTO.Nombre = Nombre.Text;
             pProductoDTO.Descripcion= Descripcion.Text;
             pProductoDTO.StockMinimo= Convert.ToInt32(StockMinimo.Text);

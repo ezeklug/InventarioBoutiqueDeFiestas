@@ -333,12 +333,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
             }
         }
-        public string GetNombreCategoria(int pIdCategoria)
+        public string GetNombreCategoriaConProductoId(int pIdProducto)
         {
              using (Repositorio repo=new Repositorio())
              {
-                return repo.CategoriaProductos.Find(pIdCategoria).Nombre;
+                return repo.Productos.Include("Categoria").Where(p => p.Id == pIdProducto).First().Categoria.Nombre;
              }
+        }
+        public string GetNombreCategoriaConCategoriaId(int pIdCategoria)
+        {
+            using (Repositorio repo = new Repositorio())
+            {
+                return repo.CategoriaProductos.Find(pIdCategoria).Nombre;
+            }
         }
         public List<ProductoIngresarMercaderiaDTO> ListarProductosIngresoMercaderia(List<int> pIdProductos)
         {
