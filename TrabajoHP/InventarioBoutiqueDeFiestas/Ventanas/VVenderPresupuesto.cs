@@ -17,6 +17,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         ControladorFachada controladorFachada = new ControladorFachada();
         int IdCliente { get; set; }
         int IdPresupuesto { get; set; }
+        List<LineaPresupuestoDTO> Lineas { get; set; }
         public VVenderPresupuesto(int pIdCliente, int pPresupuestoId)
         {
             IdCliente = pIdCliente;
@@ -33,7 +34,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             NombreCliente.Text =controladorFachada.BuscarNombreCliente(IdCliente);
             Monto.Text = controladorFachada.TotalVentaPresupuesto(IdPresupuesto).ToString();
-            List<LineaPresupuestoDTO> lineas = controladorFachada.ListarLineasConLotePresupuesto(IdPresupuesto);
+            Lineas = controladorFachada.ListarLineasConLotePresupuesto(IdPresupuesto);
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
             dataGridView1.Columns.Add("Lote", "Lote");
@@ -46,7 +47,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
-            foreach (LineaPresupuestoDTO linea in lineas)
+            foreach (LineaPresupuestoDTO linea in Lineas)
             {
                 string[] row = new string[] {linea.NombreProducto, linea.Cantidad.ToString(),linea.Lotes };
                 dataGridView1.Rows.Add(row);
@@ -56,6 +57,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Vender_Click(object sender, EventArgs e)
         {
             List<string> productosSinStock = controladorFachada.Vender(IdPresupuesto);
+            foreach (LineaPresupuestoDTO linea in Lineas)
+            {
+                foreach (KeyValuePair<int,int> loteyCantidad in linea.LoteYCantidad)
+                {
+                    controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value);
+                }
+            }
             this.Hide();
             this.Close();
         }

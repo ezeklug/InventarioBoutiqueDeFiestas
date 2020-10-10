@@ -81,6 +81,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar)
+        {
+            using (var repo=new Repositorio())
+            {
+                repo.Lotes.Find(idLote).CantidadProductos-=pCantidadADescontar;
+                repo.SaveChanges();
+            }
+        }
+
 
         /// <summary>
         /// Convierte un ProductoDTO a Producto
@@ -221,9 +230,23 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarTodosLosProductos()
         {
+            List<Producto> Adevolver = new List<Producto>();
             using (var repo = new Repositorio())
             {
-                return repo.Productos.Include("Categoria").ToList<Producto>();
+                foreach (Producto producto in repo.Productos.Include("Categoria").ToList<Producto>())
+                {
+                    if (producto.Categoria.Vence)
+                    {
+                        int cantidad = 0;
+                        foreach (Lote lote in repo.Lotes.Include("Producto").Where(p=>p.Producto.Id==producto.Id && !p.Vencido))
+                        {
+                            cantidad += lote.CantidadProductos;
+                        }
+                        producto.CantidadEnStock = cantidad;
+                    }
+                    Adevolver.Add(producto);
+                }
+                return Adevolver;
             }
         }
 
@@ -255,10 +278,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <returns></returns>
         public List<Producto> ListarProductosBajoStockMinimo()
         {
-            using (var repo = new Repositorio())
-            {
-                return repo.Productos.Where<Producto>(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
-            }
+            List<Producto> productos= this.ListarTodosLosProductos();
+            return productos.Where(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
         }
 
         /// <summary>

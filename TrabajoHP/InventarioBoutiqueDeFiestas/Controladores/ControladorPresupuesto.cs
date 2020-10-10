@@ -418,15 +418,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     LineaPresupuestoDTO lineaPresupuestoDTO = new LineaPresupuestoDTO();
                     lineaPresupuestoDTO.NombreProducto = lin.Producto.Nombre;
                     lineaPresupuestoDTO.Cantidad = lin.Cantidad;
-                    lineaPresupuestoDTO.Lotes = DeterminarLotes(lin.Producto.Id, lin.Cantidad);
+                    Tuple<string, Dictionary<int, int>> Lotes = DeterminarLotes(lin.Producto.Id, lin.Cantidad);
+                    lineaPresupuestoDTO.Lotes = Lotes.Item1;
+                    lineaPresupuestoDTO.LoteYCantidad = Lotes.Item2;
                     ADevolver.Add(lineaPresupuestoDTO);
                 }
             }
             return ADevolver;
         }
 
-        public string DeterminarLotes(int pIdProducto, int pCantidad)
+        public Tuple<string,Dictionary<int,int>> DeterminarLotes(int pIdProducto, int pCantidad)
         {
+            Dictionary<int, int> loteYCantidad = new Dictionary<int, int>();
             string ADevolver = "";
             List<Lote> lotes = new List<Lote>();
             using (var repo=new Repositorio())
@@ -436,9 +439,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             int i = 0;
             while(pCantidad>0 && lotes.Count>i)
             {
-                pCantidad-=lotes[i].CantidadProductos;
+                if(pCantidad>= lotes[i].CantidadProductos)
+                {
+                    pCantidad -= lotes[i].CantidadProductos;
+                    loteYCantidad.Add(lotes[i].Id, lotes[i].CantidadProductos);
+                }
+                else
+                {
+                    pCantidad -= pCantidad;
+                    loteYCantidad.Add(lotes[i].Id, pCantidad);
+                }
                 ADevolver += lotes[i].Id.ToString();
-                if(pCantidad>0)
+                if (pCantidad>0)
                 {
                     ADevolver += ", ";
                 }
@@ -448,7 +460,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
                 i++;
             }
-            return ADevolver;
+            return Tuple.Create(ADevolver,loteYCantidad);
         }
     }
 }

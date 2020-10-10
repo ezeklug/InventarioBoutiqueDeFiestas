@@ -68,6 +68,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorPresupuesto.AsociarCliente(pIdCliente, pIdPresupuesto);
         }
 
+        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar)
+        {
+            controladorProducto.DescontarProductosDeLote(idLote, pCantidadADescontar);
+        }
+
         /// <summary>
         /// Este metodo permite agregar o modificar una categoria
         /// </summary>
