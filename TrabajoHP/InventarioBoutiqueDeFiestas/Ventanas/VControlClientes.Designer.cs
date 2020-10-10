@@ -141,6 +141,7 @@
             // 
             // AsociarPresupuesto
             // 
+            this.AsociarPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AsociarPresupuesto.Location = new System.Drawing.Point(348, 372);
             this.AsociarPresupuesto.Name = "AsociarPresupuesto";
             this.AsociarPresupuesto.Size = new System.Drawing.Size(149, 23);

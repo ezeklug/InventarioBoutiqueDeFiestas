@@ -63,7 +63,7 @@
             this.Agregar.Location = new System.Drawing.Point(255, 401);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
-            this.Agregar.TabIndex = 4;
+            this.Agregar.TabIndex = 5;
             this.Agregar.Text = "Agregar";
             this.Agregar.UseVisualStyleBackColor = true;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
@@ -73,7 +73,7 @@
             this.Modificar.Location = new System.Drawing.Point(346, 401);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(75, 23);
-            this.Modificar.TabIndex = 5;
+            this.Modificar.TabIndex = 6;
             this.Modificar.Text = "Modificar";
             this.Modificar.UseVisualStyleBackColor = true;
             this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
@@ -83,7 +83,7 @@
             this.Eliminar.Location = new System.Drawing.Point(442, 401);
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(75, 23);
-            this.Eliminar.TabIndex = 6;
+            this.Eliminar.TabIndex = 7;
             this.Eliminar.Text = "Eliminar";
             this.Eliminar.UseVisualStyleBackColor = true;
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
@@ -94,7 +94,7 @@
             this.Principal.Location = new System.Drawing.Point(68, 12);
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(74, 74);
-            this.Principal.TabIndex = 15;
+            this.Principal.TabIndex = 1;
             this.Principal.UseVisualStyleBackColor = true;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
@@ -103,7 +103,7 @@
             this.Cancelar.Location = new System.Drawing.Point(542, 401);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.Cancelar.TabIndex = 16;
+            this.Cancelar.TabIndex = 8;
             this.Cancelar.Text = "Cancelar";
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
@@ -113,7 +113,7 @@
             this.AsociarProducto.Location = new System.Drawing.Point(104, 401);
             this.AsociarProducto.Name = "AsociarProducto";
             this.AsociarProducto.Size = new System.Drawing.Size(128, 23);
-            this.AsociarProducto.TabIndex = 20;
+            this.AsociarProducto.TabIndex = 4;
             this.AsociarProducto.Text = "Asociar a Producto";
             this.AsociarProducto.UseVisualStyleBackColor = true;
             this.AsociarProducto.Click += new System.EventHandler(this.AsociarProducto_Click);

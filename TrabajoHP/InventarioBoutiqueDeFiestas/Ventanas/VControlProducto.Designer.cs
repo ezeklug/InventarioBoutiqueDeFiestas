@@ -163,6 +163,7 @@
             // 
             // CargarPresupuesto
             // 
+            this.CargarPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CargarPresupuesto.Location = new System.Drawing.Point(245, 385);
             this.CargarPresupuesto.Name = "CargarPresupuesto";
             this.CargarPresupuesto.Size = new System.Drawing.Size(140, 23);
