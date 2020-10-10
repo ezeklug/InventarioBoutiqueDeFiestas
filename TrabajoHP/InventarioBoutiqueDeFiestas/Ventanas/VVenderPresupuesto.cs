@@ -24,25 +24,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MessageBox.Show("Hay que hacerlo");
-            this.Close();
-        }
-
-        private void Principal_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            this.Close();
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -70,6 +51,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 string[] row = new string[] {linea.NombreProducto, linea.Cantidad.ToString(),linea.Lotes };
                 dataGridView1.Rows.Add(row);
             }
+        }
+
+        private void Vender_Click(object sender, EventArgs e)
+        {
+            List<string> productosSinStock = controladorFachada.Vender(IdPresupuesto);
+            this.Hide();
+            this.Close();
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
         }
 
     }

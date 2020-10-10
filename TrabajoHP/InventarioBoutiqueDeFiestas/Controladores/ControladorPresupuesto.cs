@@ -265,19 +265,32 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Vende un presupuesto y guarda la venta en la base de datos
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
-        public void Vender(int pIdPresupuesto)
+        public List<string> Vender(int pIdPresupuesto)
         {
+            List<string> productosSinStockSuficiente = new List<string>();
             using (var repo = new Repositorio()) {
-                var presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
+                Presupuesto presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
                 if (presupuesto == null)
                 {
                     throw new Exception("Presupuesto" + pIdPresupuesto + " no existe");
                 }
-
-                var venta = new Venta(presupuesto);
+                List<LineaPresupuesto> lineas = repo.LineaPresupuestos.Include("Presupuesto").Include("Producto").Where(p => p.Presupuesto.Id == pIdPresupuesto).ToList();
+                foreach(LineaPresupuesto linea in lineas)
+                {
+                    Producto producto = repo.Productos.Find(linea.Producto.Id);
+                    if(producto.CantidadEnStock>=linea.Cantidad)
+                    {
+                        producto.CantidadEnStock -= linea.Cantidad;
+                    }
+                    else
+                    {
+                        productosSinStockSuficiente.Add(producto.Nombre);
+                    }
+                }
+                Venta venta = new Venta(presupuesto);
                 presupuesto.Estado = EstadoPresupuesto.Vendido;
-
                 repo.Ventas.Add(venta);
+                return productosSinStockSuficiente;
             }
         }
 

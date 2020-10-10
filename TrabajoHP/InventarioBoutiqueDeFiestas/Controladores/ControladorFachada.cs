@@ -53,9 +53,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite vender un presupuesto, pasando como parámetro el id del presupuesto
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
-        public void Vender(int pIdPresupuesto)
+        public List<string> Vender(int pIdPresupuesto)
         {
-            controladorPresupuesto.Vender(pIdPresupuesto);
+            return controladorPresupuesto.Vender(pIdPresupuesto);
         }
 
         /// <summary>
