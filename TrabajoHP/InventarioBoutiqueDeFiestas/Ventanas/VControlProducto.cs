@@ -283,5 +283,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.Close();
             }
         }
+
+        private void botonStockMinimo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

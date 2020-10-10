@@ -141,6 +141,7 @@
             this.botonStockMinimo.TabIndex = 14;
             this.botonStockMinimo.Text = "Productos debajo stock minimo";
             this.botonStockMinimo.UseVisualStyleBackColor = true;
+            this.botonStockMinimo.Click += new System.EventHandler(this.botonStockMinimo_Click);
             // 
             // buscar
             // 
