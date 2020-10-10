@@ -1,6 +1,6 @@
 ﻿namespace InventarioBoutiqueDeFiestas.Ventanas
 {
-    partial class VAgregarModifciarCategoria
+    partial class VAgregarModificiarCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             this.cancelar = new System.Windows.Forms.Button();
             this.siVence = new System.Windows.Forms.RadioButton();
             this.noVence = new System.Windows.Forms.RadioButton();
+            this.Principal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,7 +46,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 44);
+            this.label1.Location = new System.Drawing.Point(162, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 39);
             this.label1.TabIndex = 2;
@@ -97,7 +98,7 @@
             // 
             // guardar
             // 
-            this.guardar.Location = new System.Drawing.Point(348, 293);
+            this.guardar.Location = new System.Drawing.Point(241, 293);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(75, 23);
             this.guardar.TabIndex = 10;
@@ -107,7 +108,7 @@
             // 
             // cancelar
             // 
-            this.cancelar.Location = new System.Drawing.Point(246, 293);
+            this.cancelar.Location = new System.Drawing.Point(348, 293);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 23);
             this.cancelar.TabIndex = 11;
@@ -137,11 +138,22 @@
             this.noVence.Text = "No";
             this.noVence.UseVisualStyleBackColor = true;
             // 
-            // VAgregarModifciarCategoria
+            // Principal
+            // 
+            this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.UTN_logo__1_;
+            this.Principal.Location = new System.Drawing.Point(46, 15);
+            this.Principal.Name = "Principal";
+            this.Principal.Size = new System.Drawing.Size(70, 74);
+            this.Principal.TabIndex = 14;
+            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.Click += new System.EventHandler(this.Principal_Click);
+            // 
+            // VAgregarModificiarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 367);
+            this.Controls.Add(this.Principal);
             this.Controls.Add(this.noVence);
             this.Controls.Add(this.siVence);
             this.Controls.Add(this.cancelar);
@@ -152,9 +164,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "VAgregarModifciarCategoria";
-            this.Text = "VAgregarModifciarCategoria";
-         
+            this.Name = "VAgregarModificiarCategoria";
+            this.Text = "VAgregarModificarCategoria";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +183,6 @@
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.RadioButton siVence;
         private System.Windows.Forms.RadioButton noVence;
+        private System.Windows.Forms.Button Principal;
     }
 }

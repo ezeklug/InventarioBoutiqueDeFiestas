@@ -65,7 +65,7 @@
             // 
             // aceptar
             // 
-            this.aceptar.Location = new System.Drawing.Point(329, 172);
+            this.aceptar.Location = new System.Drawing.Point(221, 172);
             this.aceptar.Name = "aceptar";
             this.aceptar.Size = new System.Drawing.Size(75, 23);
             this.aceptar.TabIndex = 5;
@@ -75,7 +75,7 @@
             // 
             // cancelar
             // 
-            this.cancelar.Location = new System.Drawing.Point(226, 172);
+            this.cancelar.Location = new System.Drawing.Point(329, 172);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 23);
             this.cancelar.TabIndex = 6;

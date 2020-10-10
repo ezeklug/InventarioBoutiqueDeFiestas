@@ -205,11 +205,11 @@
     <Compile Include="Ventanas\VControlCategoriaProducto.Designer.cs">
       <DependentUpon>VControlCategoriaProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\VAgregarModifciarCategoria.cs">
+    <Compile Include="Ventanas\VAgregarModificarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventanas\VAgregarModifciarCategoria.Designer.cs">
-      <DependentUpon>VAgregarModifciarCategoria.cs</DependentUpon>
+    <Compile Include="Ventanas\VAgregarModificarCategoria.Designer.cs">
+      <DependentUpon>VAgregarModificarCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VControlCategoria.cs">
       <SubType>Form</SubType>
@@ -316,8 +316,8 @@
     <EmbeddedResource Include="Ventanas\VAdministrarPresupuesto.resx">
       <DependentUpon>VAdministrarPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\VAgregarModifciarCategoria.resx">
-      <DependentUpon>VAgregarModifciarCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="Ventanas\VAgregarModificarCategoria.resx">
+      <DependentUpon>VAgregarModificarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VControlCategoria.resx">
       <DependentUpon>VControlCategoria.cs</DependentUpon>

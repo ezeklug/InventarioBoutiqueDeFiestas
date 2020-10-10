@@ -180,7 +180,7 @@
             // 
             // seniarButton
             // 
-            this.seniarButton.Location = new System.Drawing.Point(481, 378);
+            this.seniarButton.Location = new System.Drawing.Point(60, 378);
             this.seniarButton.Name = "seniarButton";
             this.seniarButton.Size = new System.Drawing.Size(75, 23);
             this.seniarButton.TabIndex = 15;

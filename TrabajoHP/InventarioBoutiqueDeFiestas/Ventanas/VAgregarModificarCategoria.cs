@@ -12,24 +12,24 @@ using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
-    public partial class VAgregarModifciarCategoria : Form
+    public partial class VAgregarModificiarCategoria : Form
     {
         ControladorFachada controladorFachada = new ControladorFachada();
         CategoriaProductoDTO categoriaDTO { get; set; }
         int Ventana { get; set; }
-        public VAgregarModifciarCategoria()
+        public VAgregarModificiarCategoria()
         {
             InitializeComponent();
 
         }
-        public VAgregarModifciarCategoria(int i)
+        public VAgregarModificiarCategoria(int i)
         {
             Ventana = i;
             InitializeComponent();
 
         }
 
-        public VAgregarModifciarCategoria(CategoriaProductoDTO categoria)
+        public VAgregarModificiarCategoria(CategoriaProductoDTO categoria)
         {
             InitializeComponent();
             this.nombreCategoria.Text = categoria.Nombre;
@@ -92,6 +92,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
+        private void Principal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VPrincipal vPrincipal = new VPrincipal();
+            vPrincipal.ShowDialog();
+            this.Close();
+        }
     }
 }
     

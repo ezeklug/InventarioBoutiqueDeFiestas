@@ -35,7 +35,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Agregar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VAgregarModifciarCategoria vAgregarModificarCategoria = new VAgregarModifciarCategoria();
+            VAgregarModificiarCategoria vAgregarModificarCategoria = new VAgregarModificiarCategoria();
             vAgregarModificarCategoria.ShowDialog();
             this.Close();
         }
@@ -67,7 +67,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         };
 
                    this.Hide();
-                   VAgregarModifciarCategoria vAgregarModificarCategoria = new VAgregarModifciarCategoria(categoriaDTO);
+                   VAgregarModificiarCategoria vAgregarModificarCategoria = new VAgregarModificiarCategoria(categoriaDTO);
                    vAgregarModificarCategoria.ShowDialog();
                    this.Close();
             }

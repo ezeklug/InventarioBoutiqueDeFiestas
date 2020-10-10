@@ -79,7 +79,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            VAgregarModifciarCategoria vAgregarModificarCategoria = new VAgregarModifciarCategoria(1);
+            VAgregarModificiarCategoria vAgregarModificarCategoria = new VAgregarModificiarCategoria(1);
             vAgregarModificarCategoria.ShowDialog();
             this.ControlCategoriaProducto_Load(sender,e);
         }

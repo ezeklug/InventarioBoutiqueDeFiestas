@@ -68,7 +68,7 @@
             // 
             // Listo
             // 
-            this.Listo.Location = new System.Drawing.Point(710, 438);
+            this.Listo.Location = new System.Drawing.Point(594, 438);
             this.Listo.Name = "Listo";
             this.Listo.Size = new System.Drawing.Size(75, 23);
             this.Listo.TabIndex = 9;
@@ -78,7 +78,7 @@
             // 
             // Cancelar
             // 
-            this.Cancelar.Location = new System.Drawing.Point(604, 438);
+            this.Cancelar.Location = new System.Drawing.Point(710, 438);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 10;
@@ -88,7 +88,7 @@
             // 
             // Agregar
             // 
-            this.Agregar.Location = new System.Drawing.Point(499, 438);
+            this.Agregar.Location = new System.Drawing.Point(710, 60);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 11;

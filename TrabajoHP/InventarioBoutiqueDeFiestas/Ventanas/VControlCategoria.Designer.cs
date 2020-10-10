@@ -59,7 +59,7 @@
             // 
             // Agregar
             // 
-            this.Agregar.Location = new System.Drawing.Point(328, 401);
+            this.Agregar.Location = new System.Drawing.Point(249, 401);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 4;
@@ -69,7 +69,7 @@
             // 
             // Modificar
             // 
-            this.Modificar.Location = new System.Drawing.Point(437, 401);
+            this.Modificar.Location = new System.Drawing.Point(348, 401);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(75, 23);
             this.Modificar.TabIndex = 5;
@@ -79,7 +79,7 @@
             // 
             // Eliminar
             // 
-            this.Eliminar.Location = new System.Drawing.Point(542, 401);
+            this.Eliminar.Location = new System.Drawing.Point(442, 401);
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(75, 23);
             this.Eliminar.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             // Cancelar
             // 
-            this.Cancelar.Location = new System.Drawing.Point(223, 401);
+            this.Cancelar.Location = new System.Drawing.Point(542, 401);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 16;
