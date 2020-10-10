@@ -24,7 +24,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
 
         public double PrecioVenta()
         {
-            return PrecioDeCompra * (1 + PorcentajeDeGanancia);
+            return PrecioDeCompra * (1 + PorcentajeDeGanancia/100);
         }
         /// <summary>
         /// Constructor de Producto, cuando solo se quiere crear el producto sin un ingreso de mercaderia asociado

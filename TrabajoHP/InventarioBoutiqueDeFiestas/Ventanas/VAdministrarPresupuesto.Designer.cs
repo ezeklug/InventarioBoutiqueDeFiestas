@@ -126,6 +126,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.DescuentoTotal.TabIndex = 19;
             this.DescuentoTotal.Text = "0";
             this.DescuentoTotal.TextChanged += new System.EventHandler(this.DescuentoTotal_TextChanged);
+            this.DescuentoTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescuentoTotal_KeyPress);
             // 
             // label4
             // 

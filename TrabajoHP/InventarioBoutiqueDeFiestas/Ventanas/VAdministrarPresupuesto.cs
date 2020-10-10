@@ -139,7 +139,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 subtotales.Add(Convert.ToDouble(row.Cells[5].Value));
             }
-            return controladorFachada.PrecioVenta(subtotales, Convert.ToDouble(DescuentoTotal.Text));
+           return controladorFachada.PrecioVenta(subtotales, Convert.ToDouble(DescuentoTotal.Text));
         }
         private void Principal_Click(object sender, EventArgs e)
         {
@@ -160,16 +160,30 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (Convert.ToDouble(row.Cells[4].Value)>100)
+                {
+                    MessageBox.Show("El porcentaje de descuento debe ser menor o igual a 100 %");
+                    row.Cells[4].Value = "0";
+                }
+            }
             CalcularSubtotal();
             Total.Text = PrecioVenta().ToString();
         }
 
         private void DescuentoTotal_TextChanged(object sender, EventArgs e)
         {
-            if (DescuentoTotal.Text!="")
+            if (DescuentoTotal.Text != "")
             {
                 Total.Text = PrecioVenta().ToString();
+                if (Convert.ToDouble(DescuentoTotal.Text) > 100)
+                {
+                    MessageBox.Show("El porcentaje de descuento debe ser menor o igual a 100 %");
+                    DescuentoTotal.Text = "";
+                }
             }
+
         }
 
         private void CargarProductos_Click(object sender, EventArgs e)
@@ -297,6 +311,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
+        private void DescuentoTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
