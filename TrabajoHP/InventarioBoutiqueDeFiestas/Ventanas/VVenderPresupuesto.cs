@@ -26,7 +26,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MessageBox.Show("Hay que hacerlo");
+            this.Close();
         }
 
         private void Principal_Click(object sender, EventArgs e)
@@ -48,8 +50,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VVenderPresupuesto_Load(object sender, EventArgs e)
         {
-           /* NombreCliente.Text =;
-            TotalVenta.Text =;*/
+            NombreCliente.Text =controladorFachada.BuscarNombreCliente(IdCliente);
+            Monto.Text = controladorFachada.TotalVentaPresupuesto(IdPresupuesto).ToString();
             List<LineaPresupuestoDTO> lineas = controladorFachada.ListarLineasConLotePresupuesto(IdPresupuesto);
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");

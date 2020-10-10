@@ -233,10 +233,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorCliente.BuscarCliente(pIdCliente);
         }
+        public string BuscarNombreCliente(int pIdCliente)
+        {
+            Cliente cliente= this.BuscarCliente(pIdCliente);
+            return cliente.Nombre + " " +  cliente.Apellido;
+        }
 
         public Presupuesto BuscarPresupuesto(int pIdPresupuesto)
         {
             return controladorPresupuesto.BuscarPresupuesto(pIdPresupuesto);
+        }
+        public double TotalVentaPresupuesto(int pIdPresupuesto)
+        {
+            return this.BuscarPresupuesto(pIdPresupuesto).TotalVenta();
         }
 
 
