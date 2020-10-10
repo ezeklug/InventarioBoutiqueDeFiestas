@@ -50,9 +50,9 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             double precio=0;
             foreach(LineaPresupuesto linea in Lineas)
             {
-                precio += linea.PrecioConDescuento();
+                precio += linea.Subtotal;
             }
-            return precio * (1 - Descuento);
+            return precio * (1 - Descuento/100);
         }
         public Presupuesto(DateTime pFechaGeneracion, DateTime pFechaVencimiento, DateTime pFechaEvento, Cliente pCliente)
         {
