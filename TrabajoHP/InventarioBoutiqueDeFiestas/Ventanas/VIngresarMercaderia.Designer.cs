@@ -88,11 +88,11 @@
             // 
             // Agregar
             // 
-            this.Agregar.Location = new System.Drawing.Point(710, 60);
+            this.Agregar.Location = new System.Drawing.Point(655, 60);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(75, 23);
+            this.Agregar.Size = new System.Drawing.Size(130, 23);
             this.Agregar.TabIndex = 11;
-            this.Agregar.Text = "Agregar";
+            this.Agregar.Text = "Agregar Mercaderia";
             this.Agregar.UseVisualStyleBackColor = true;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
