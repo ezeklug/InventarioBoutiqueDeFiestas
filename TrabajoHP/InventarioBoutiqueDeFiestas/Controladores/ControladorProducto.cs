@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using InventarioBoutiqueDeFiestas.DTO;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.Database;
+using Microsoft.EntityFrameworkCore.Internal;
+//using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace InventarioBoutiqueDeFiestas.Controladores
 {
@@ -26,8 +29,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                //return repo.Productos.Where<CategoriaProducto>(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
-                //return repo.CategoriaProductos.ToList<CategoriaProducto>();
                 return repo.CategoriaProductos.Where<CategoriaProducto>(p => (p.Activo == true)).ToList();
             }
         }
@@ -129,25 +130,40 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         public ProductoDTO ProductoADTO(Producto pProducto)
         {
             ProductoDTO pro = new ProductoDTO();
-            Repositorio repo = new Repositorio();
-
-            pro.Id = pProducto.Id;
-            pro.Nombre = pProducto.Nombre;
-            pro.Descripcion = pProducto.Descripcion;
-            pro.StockMinimo = pProducto.StockMinimo;
-            pro.CantidadEnStock = pProducto.CantidadEnStock;
-            pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
-            pro.PrecioDeCompra = pProducto.PrecioDeCompra;
-            pro.Activo = pProducto.Activo;
-
-            CategoriaProducto cat = repo.CategoriaProductos.Find(pProducto.Categoria.Id);
-            if (cat == null)
+            using (var repo = new Repositorio())
             {
-                throw new Exception("Id " + pProducto.Categoria + " no existe en Categoria");
-            }
 
-            pro.IdCategoria = cat.Id;
-            return pro;
+                pro.Id = pProducto.Id;
+                pro.Nombre = pProducto.Nombre;
+                pro.Descripcion = pProducto.Descripcion;
+                pro.StockMinimo = pProducto.StockMinimo;
+                pro.CantidadEnStock = pProducto.CantidadEnStock;
+                pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
+                pro.PrecioDeCompra = pProducto.PrecioDeCompra;
+                pro.Activo = pProducto.Activo;
+                pro.CategoriaProductoDTO = this.CategoriaADTO(repo.Productos.Include("Categoria").Where(p => p.Id == pProducto.Id).First().Categoria);
+                pro.Categoria = pro.CategoriaProductoDTO.Nombre;
+                return pro;
+            }
+        }
+
+        private CategoriaProductoDTO CategoriaADTO(CategoriaProducto categoria)
+        {
+            CategoriaProductoDTO categoriaProductoDTO = new CategoriaProductoDTO();
+            categoriaProductoDTO.Id = categoria.Id;
+            categoriaProductoDTO.Nombre = categoria.Nombre;
+            categoriaProductoDTO.Descripcion = categoria.Descripcion;
+            categoriaProductoDTO.Vence = categoria.Vence;
+            return categoriaProductoDTO;
+        }
+
+        public void AltaCategoria(int idCategoria)
+        {
+            using (Repositorio repo = new Repositorio())
+            {
+                CategoriaProducto cate = repo.CategoriaProductos.Find(idCategoria);
+                cate.Activo = true; ;
+            }
         }
 
 
@@ -189,6 +205,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
             
         }
+
+        public List<CategoriaProducto> ListarCategoriasNoActivas()
+        {
+            using (var repo = new Repositorio())
+            {
+                return repo.CategoriaProductos.Where<CategoriaProducto>(p => (!p.Activo)).ToList();
+            }
+        }
+
         /// <summary>
         /// Busca CategoriaProducto por nombre
         /// </summary>
@@ -229,9 +254,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar todos los productos activos que están guardados en base de datos.
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarTodosLosProductos()
+        public List<ProductoDTO> ListarTodosLosProductos()
         {
-            List<Producto> Adevolver = new List<Producto>();
+            List<ProductoDTO> Adevolver = new List<ProductoDTO>();
             using (var repo = new Repositorio())
             {
                 foreach (Producto producto in repo.Productos.Include("Categoria").Where(p=>p.Activo).ToList<Producto>())
@@ -245,7 +270,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                         }
                         producto.CantidadEnStock = cantidad;
                     }
-                    Adevolver.Add(producto);
+                    ProductoDTO pDTO = this.ProductoADTO(producto);
+                    Adevolver.Add(pDTO);
                 }
                 return Adevolver;
             }
@@ -277,9 +303,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Esto se puede obtener haciendo la diferencia de las propiedades CantidadEnStock y StockMinimo de cada Producto.
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarProductosBajoStockMinimo()
+        public List<ProductoDTO> ListarProductosBajoStockMinimo()
         {
-            List<Producto> productos= this.ListarTodosLosProductos();
+            List<ProductoDTO> productos= this.ListarTodosLosProductos();
             return productos.Where(p => (p.CantidadEnStock < p.StockMinimo)).ToList();
         }
 
@@ -287,33 +313,34 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar los productos que más se venden.
         /// </summary>
         /// <returns></returns>
-        public List<ProductoVendidoDTO> ListarProductosMasVendidos()
+        public Dictionary<ProductoDTO, int> ListarProductosMasVendidos()
         {
-            List<ProductoVendidoDTO> listaAMostrar = new List<ProductoVendidoDTO>();
+            Dictionary<ProductoDTO, int> aDevolver = new Dictionary<ProductoDTO, int>();
             using(var repo=new Repositorio())
             {
-                foreach (Venta venta in repo.Ventas.Where<Venta>(v =>((DateTime.Now - v.FechaDeVenta).TotalDays<=30)).ToList())
+                foreach (Venta venta in repo.Ventas.Include("Presupuesto").Where<Venta>(v =>(DbFunctions.DiffDays(DateTime.Now, v.FechaDeVenta) <= 30)).ToList())
                 {
                     foreach(LineaPresupuesto linea in venta.Presupuesto.Lineas)
                     {
-                        ProductoVendidoDTO pDTO = new ProductoVendidoDTO();
-                        pDTO.Producto = linea.Producto;
-                        pDTO.VendidoMes = linea.Cantidad;
-                        ProductoVendidoDTO prod = listaAMostrar.Find(p => p.Producto.Id == pDTO.Producto.Id);
-                        if (prod!=null)
+                        Tuple<ProductoDTO, int> tupla;
+                        //producto y vendido en el mes;
+                        linea.Producto=repo.LineaPresupuestos.Include("Producto").Where(l=>l.Id==linea.Id).First().Producto;
+                        ProductoDTO pProductoDTO = this.ProductoADTO(linea.Producto);
+                        tupla = Tuple.Create(pProductoDTO, linea.Cantidad); 
+                        if (aDevolver.Keys.Contains(pProductoDTO))
                         {
-                            prod.VendidoMes += linea.Cantidad;
-                            listaAMostrar.Remove(prod);
-                            listaAMostrar.Add(pDTO);
+                            int cantidadActual = aDevolver.First(p => p.Key.Id == pProductoDTO.Id).Value;
+                            aDevolver.Remove(pProductoDTO);
+                            aDevolver.Add(pProductoDTO, linea.Cantidad + cantidadActual);
                         }
                         else
                         {
-                            listaAMostrar.Add(pDTO);
+                            aDevolver.Add(pProductoDTO, linea.Cantidad);
                         }
                     }
                 }
             }
-            return listaAMostrar;
+            return aDevolver;
         }
 
         /// <summary>

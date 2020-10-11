@@ -41,13 +41,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlClientes_Load(object sender, EventArgs e)
         {
+            Listas.Items.Add("Activos");
+            Listas.Items.Add("No Activos");
             if (IdPresupuesto!=-1)
             {
                 AsociarPresupuesto.Visible = true;
+                Listas.Visible = false;
             }
             else
             {
                 AsociarPresupuesto.Visible = false;
+                Listas.Visible = true;
             }
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
@@ -61,6 +65,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
+            dataGridView1.Columns[7].Visible = false;
         }
 
         private ClienteDTO RowAClienteDTO(DataGridViewRow row)
@@ -190,7 +195,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void buscar_TextChanged(object sender, EventArgs e)
         {
-            List<Cliente> listaClientes = controladorfachada.ListarClientes();
+            List<Cliente> listaClientes = new List<Cliente>();
+            if (Listas.Text=="Activos")
+            {
+                listaClientes = controladorfachada.ListarClientes();
+            }
+            else
+            {
+                listaClientes = controladorfachada.ListarClientesNoActivos();
+            }
+
             try
             {
                 var consultaNombre = from cliente in listaClientes where cliente.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select cliente;
@@ -228,6 +242,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 dataGridView1.Columns[4].ReadOnly = true;
                 dataGridView1.Columns[5].ReadOnly = true;
                 dataGridView1.Columns[6].ReadOnly = true;
+                dataGridView1.Columns[7].Visible = false;
             }
 
 
@@ -273,6 +288,74 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 MessageBox.Show("Debe seleccionar un cliente");
             }
+        }
+
+        private void Listas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Listas.Text==Listas.Items[0].ToString())
+            {
+                // Listar activos
+                DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
+                dataGridView1.DataSource = controladorfachada.ListarClientes();
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = true;
+                dataGridView1.Columns[4].ReadOnly = true;
+                dataGridView1.Columns[5].ReadOnly = true;
+                dataGridView1.Columns[6].ReadOnly = true;
+                dataGridView1.Columns[7].Visible = false;
+                Baja.Text = "Baja";
+                Agregar.Visible = true;
+                Modificar.Visible = true;
+
+            }
+            else
+            {
+                //Listar no activos
+                dataGridView1.DataSource = controladorfachada.ListarClientesNoActivos();
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = true;
+                dataGridView1.Columns[4].ReadOnly = true;
+                dataGridView1.Columns[5].ReadOnly = true;
+                dataGridView1.Columns[6].ReadOnly = true;
+                dataGridView1.Columns[7].Visible = false;
+                Agregar.Visible = false;
+                Modificar.Visible = false;
+                Baja.Text = "Alta";
+            }
+        }
+
+        private void Baja_Click(object sender, EventArgs e)
+        {
+            int idCliente = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    idCliente = Convert.ToInt32(row.Cells[0].Value);
+                }
+            }
+            if (idCliente>0)
+            {
+                if (Baja.Text=="Baja")
+                {
+                    controladorfachada.BajaCliente(idCliente);
+                    MessageBox.Show("Se dió de baja el cliente");
+                }
+                else
+                {
+                    controladorfachada.AltaCliente(idCliente);
+                    MessageBox.Show("Se dió de alta el cliente");
+                }
+                this.Listas_SelectedIndexChanged(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente");
+            }
+
         }
     }
    }

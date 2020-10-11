@@ -20,6 +20,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public Boolean Activo { get; set; }
         public int IdCategoria { get; set; }
         public CategoriaProductoDTO CategoriaProductoDTO{get;set;}
+        public string Categoria { get; set; }
         //public List<LoteDTO> LotesDTO { get; set; }
     }
 }

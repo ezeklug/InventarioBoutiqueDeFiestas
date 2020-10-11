@@ -29,6 +29,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAgregarCategoria_Load(object sender, EventArgs e)
         {
+            Listas.Items.Add("Activas");
+            Listas.Items.Add("No Activas");
             if (Producto != null)
             {
                 AsociarProducto.Visible = true;
@@ -44,6 +46,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns.Add(cb);
             dataGridView1.DataSource = controladorFachada.ListarCategorias();
             dataGridView1.Columns[5].Visible = false; //Columna de "Activo"
+            dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[2].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
+            dataGridView1.Columns[4].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -106,19 +113,23 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 if (Convert.ToBoolean(fila.Cells[0].Value))
                 {
                     int idCategoria = Convert.ToInt32(fila.Cells[1].Value);
-                    controladorFachada.BajaCategoria(idCategoria);
-                    MessageBox.Show("Categorias Eliminadas Correctamente");
+                    if (Eliminar.Text=="Baja")
+                    {
+                        controladorFachada.BajaCategoria(idCategoria);
+                        MessageBox.Show("Categoria/s dada/s de baja correctamente");
+                    }
+                    else
+                    {
+                        controladorFachada.AltaCategoria(idCategoria);
+                        MessageBox.Show("Categoria/s dada/s de alta correctamente");
+                    }
+
                                        
                 }
             }
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            /*DataGridViewCheckBoxColumn cb = new DataGridViewCheckBoxColumn();
-            cb.ValueType = typeof(bool);
-            cb.Name = "Cb";
-            cb.HeaderText = "";
-            dataGridView1.Columns.Add(cb);*/
-            dataGridView1.DataSource = controladorFachada.ListarCategorias();
+            this.Listas_SelectedIndexChanged(sender, e);
             dataGridView1.Columns[5].Visible = false; //Columna de "Activo"
 
         }
@@ -172,6 +183,24 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 MessageBox.Show("Debe seleccionar un producto");
+            }
+        }
+
+        private void Listas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Listas.Text == "Activas")
+            {
+                dataGridView1.DataSource = controladorFachada.ListarCategorias();
+                Agregar.Visible = true;
+                Modificar.Visible = true;
+                Eliminar.Text = "Baja";
+            }
+            else
+            {
+                dataGridView1.DataSource = controladorFachada.ListarCategoriasNoActivas();
+                Agregar.Visible = false;
+                Modificar.Visible = false;
+                Eliminar.Text = "Alta";
             }
         }
     }

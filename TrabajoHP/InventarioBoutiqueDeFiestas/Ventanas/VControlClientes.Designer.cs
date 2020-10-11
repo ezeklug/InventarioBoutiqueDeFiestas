@@ -33,11 +33,12 @@
             this.Modificar = new System.Windows.Forms.Button();
             this.Agregar = new System.Windows.Forms.Button();
             this.Principal = new System.Windows.Forms.Button();
-            this.Guardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.buscar = new System.Windows.Forms.TextBox();
             this.botonExportar = new System.Windows.Forms.Button();
             this.AsociarPresupuesto = new System.Windows.Forms.Button();
+            this.Listas = new System.Windows.Forms.ComboBox();
+            this.Baja = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,9 +74,9 @@
             this.Modificar.FlatAppearance.BorderSize = 0;
             this.Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Modificar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Modificar.Location = new System.Drawing.Point(113, 367);
+            this.Modificar.Location = new System.Drawing.Point(111, 367);
             this.Modificar.Name = "Modificar";
-            this.Modificar.Size = new System.Drawing.Size(67, 32);
+            this.Modificar.Size = new System.Drawing.Size(84, 32);
             this.Modificar.TabIndex = 2;
             this.Modificar.Text = "Modificar";
             this.Modificar.UseVisualStyleBackColor = false;
@@ -106,21 +107,6 @@
             this.Principal.UseVisualStyleBackColor = true;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
-            // Guardar
-            // 
-            this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Guardar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.Guardar.FlatAppearance.BorderSize = 0;
-            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Guardar.Location = new System.Drawing.Point(775, 367);
-            this.Guardar.Name = "Guardar";
-            this.Guardar.Size = new System.Drawing.Size(75, 32);
-            this.Guardar.TabIndex = 7;
-            this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = false;
-            this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -142,14 +128,14 @@
             // 
             // botonExportar
             // 
-            this.botonExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.botonExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.botonExportar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.botonExportar.FlatAppearance.BorderSize = 0;
             this.botonExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonExportar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonExportar.Location = new System.Drawing.Point(201, 367);
+            this.botonExportar.Location = new System.Drawing.Point(738, 367);
             this.botonExportar.Name = "botonExportar";
-            this.botonExportar.Size = new System.Drawing.Size(131, 32);
+            this.botonExportar.Size = new System.Drawing.Size(112, 28);
             this.botonExportar.TabIndex = 11;
             this.botonExportar.Text = "Exportar a pdf";
             this.botonExportar.UseVisualStyleBackColor = false;
@@ -157,12 +143,12 @@
             // 
             // AsociarPresupuesto
             // 
-            this.AsociarPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AsociarPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AsociarPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
             this.AsociarPresupuesto.FlatAppearance.BorderSize = 0;
             this.AsociarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AsociarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AsociarPresupuesto.Location = new System.Drawing.Point(348, 372);
+            this.AsociarPresupuesto.Location = new System.Drawing.Point(566, 367);
             this.AsociarPresupuesto.Name = "AsociarPresupuesto";
             this.AsociarPresupuesto.Size = new System.Drawing.Size(149, 23);
             this.AsociarPresupuesto.TabIndex = 12;
@@ -170,16 +156,42 @@
             this.AsociarPresupuesto.UseVisualStyleBackColor = false;
             this.AsociarPresupuesto.Click += new System.EventHandler(this.AsociarPresupuesto_Click);
             // 
+            // Listas
+            // 
+            this.Listas.FormattingEnabled = true;
+            this.Listas.Location = new System.Drawing.Point(149, 52);
+            this.Listas.Name = "Listas";
+            this.Listas.Size = new System.Drawing.Size(121, 21);
+            this.Listas.TabIndex = 13;
+            this.Listas.Text = "Activos";
+            this.Listas.SelectedIndexChanged += new System.EventHandler(this.Listas_SelectedIndexChanged);
+            // 
+            // Baja
+            // 
+            this.Baja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Baja.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Baja.FlatAppearance.BorderSize = 0;
+            this.Baja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Baja.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Baja.Location = new System.Drawing.Point(212, 367);
+            this.Baja.Name = "Baja";
+            this.Baja.Size = new System.Drawing.Size(84, 32);
+            this.Baja.TabIndex = 14;
+            this.Baja.Text = "Baja";
+            this.Baja.UseVisualStyleBackColor = false;
+            this.Baja.Click += new System.EventHandler(this.Baja_Click);
+            // 
             // VControlClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.Baja);
+            this.Controls.Add(this.Listas);
             this.Controls.Add(this.AsociarPresupuesto);
             this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Guardar);
             this.Controls.Add(this.Principal);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.Modificar);
@@ -202,10 +214,11 @@
         private System.Windows.Forms.Button Modificar;
         private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Button Principal;
-        private System.Windows.Forms.Button Guardar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox buscar;
         private System.Windows.Forms.Button botonExportar;
         private System.Windows.Forms.Button AsociarPresupuesto;
+        private System.Windows.Forms.ComboBox Listas;
+        private System.Windows.Forms.Button Baja;
     }
 }

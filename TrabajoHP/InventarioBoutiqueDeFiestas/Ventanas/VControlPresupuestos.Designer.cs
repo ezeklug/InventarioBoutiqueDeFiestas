@@ -35,6 +35,7 @@
             this.buscar = new System.Windows.Forms.TextBox();
             this.Agregar = new System.Windows.Forms.Button();
             this.Administrar = new System.Windows.Forms.Button();
+            this.Listas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(195, 22);
+            this.label1.Location = new System.Drawing.Point(210, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(371, 39);
             this.label1.TabIndex = 1;
@@ -93,6 +94,7 @@
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(118, 20);
             this.buscar.TabIndex = 11;
+            this.buscar.TextChanged += new System.EventHandler(this.buscar_TextChanged);
             // 
             // Agregar
             // 
@@ -118,17 +120,28 @@
             this.Administrar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Administrar.Location = new System.Drawing.Point(132, 367);
             this.Administrar.Name = "Administrar";
-            this.Administrar.Size = new System.Drawing.Size(81, 23);
+            this.Administrar.Size = new System.Drawing.Size(86, 23);
             this.Administrar.TabIndex = 13;
             this.Administrar.Text = "Administrar";
             this.Administrar.UseVisualStyleBackColor = false;
             this.Administrar.Click += new System.EventHandler(this.Administrar_Click);
+            // 
+            // Listas
+            // 
+            this.Listas.FormattingEnabled = true;
+            this.Listas.Location = new System.Drawing.Point(155, 52);
+            this.Listas.Name = "Listas";
+            this.Listas.Size = new System.Drawing.Size(121, 21);
+            this.Listas.TabIndex = 14;
+            this.Listas.Text = "Todos";
+            this.Listas.SelectedIndexChanged += new System.EventHandler(this.Listas_SelectedIndexChanged);
             // 
             // VControlPresupuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 411);
+            this.Controls.Add(this.Listas);
             this.Controls.Add(this.Administrar);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.buscar);
@@ -155,5 +168,6 @@
         private System.Windows.Forms.TextBox buscar;
         private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Button Administrar;
+        private System.Windows.Forms.ComboBox Listas;
     }
 }

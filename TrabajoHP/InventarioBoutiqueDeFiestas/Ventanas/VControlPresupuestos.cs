@@ -22,6 +22,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlPresupuestos_Load(object sender, EventArgs e)
         {
+            Listas.Items.Add("Todos");
+            Listas.Items.Add("Presupuestados");
+            Listas.Items.Add("Señados");
+            Listas.Items.Add("Vendidos");
+            Listas.Items.Add("Cancelados");
             DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             dgvCmb.ValueType = typeof(bool);
             dgvCmb.Name = "Cb";
@@ -105,6 +110,45 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     }
                 }
             }
+        }
+
+        private void Listas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Listas.Text==Listas.Items[0].ToString())
+            {
+                //Todos
+                dataGridView1.DataSource = controladorFachada.ListarPresupuesto();
+
+            }
+            else if (Listas.Text == Listas.Items[1].ToString())
+            {
+                //Presupuestados
+                dataGridView1.DataSource = controladorFachada.ListarPresupuestoPresupuestados();
+
+            }
+            else if (Listas.Text == Listas.Items[2].ToString())
+            {
+                //Señados
+                dataGridView1.DataSource = controladorFachada.ListarPresupuestoSeniados();
+
+            }
+            else if (Listas.Text == Listas.Items[3].ToString())
+            {
+                //Vendidos
+                dataGridView1.DataSource = controladorFachada.ListarPresupuestoVendidos();
+
+            }
+            else
+            {
+                //Cancelados
+                dataGridView1.DataSource = controladorFachada.ListarPresupuestoCancelados();
+
+            }
+        }
+
+        private void buscar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -161,6 +161,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VControlProducto_Load(object sender, EventArgs e)
         {
+            Listas.Items.Add("Todos");
+            Listas.Items.Add("Por debajo stock mínimo");
+            Listas.Items.Add("Más vendidos");
             if (Descuento== "notengo")
             {
                 CargarPresupuesto.Visible = false;
@@ -170,6 +173,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 botonStockMinimo.Visible = true;
                 Agregar.Visible = true;
                 Modificar.Visible = true;
+                Eliminar.Visible = true;
             }
             else
             {
@@ -180,6 +184,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 botonStockMinimo.Visible = false;
                 Agregar.Visible = false;
                 Modificar.Visible = false;
+                Eliminar.Visible = false;
             }
             DataGridViewCheckBoxColumn cb = new DataGridViewCheckBoxColumn();
             cb.ValueType = typeof(bool);
@@ -196,8 +201,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[6].Width = 125;
             dataGridView1.Columns[7].Width = 95;
             dataGridView1.Columns[8].Width = 60;
-            dataGridView1.Columns[9].Width = 50;
+            dataGridView1.Columns[12].Width = 90;
+            dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
         }
 
         private void PorcentajeIncremento_Click(object sender, EventArgs e)
@@ -218,29 +226,44 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void buscar_TextChanged(object sender, EventArgs e)
         {
-            List<Producto> listaProducto = controladorFachada.ListarTodosLosProductos();
+            List<ProductoDTO> listaProducto = new List<ProductoDTO>();
+            if (Listas.Text == Listas.Items[0].ToString())
+            {
+                //Todos
+                listaProducto = controladorFachada.ListarTodosLosProductos();
+            }
+            else if (Listas.Text == Listas.Items[1].ToString())
+            {
+                //Debajo stock mínimo
+                listaProducto = controladorFachada.ListarProductosBajoStockMinimo();
+            }
+            else
+            {
+                //Más vendidos
+                listaProducto = controladorFachada.ListarProductosMasVendidos().Keys.ToList();
+            }
             try
             {
                 var consultaNombre = from producto in listaProducto where producto.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
                 var consultaDescripcion = from producto in listaProducto where producto.Descripcion.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
-                var consultaCategoria = from producto in listaProducto where producto.Categoria.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+                var consultaCategoria = from producto in listaProducto where producto.CategoriaProductoDTO.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
 
                 dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
 
 
-                List<Producto> HelpList = new List<Producto>();
-                List<Producto> distinct = (consultaNombre.Concat(consultaDescripcion).Concat(consultaCategoria)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
+                List<ProductoDTO> HelpList = new List<ProductoDTO>();
+                List<ProductoDTO> distinct = (consultaNombre.Concat(consultaDescripcion).Concat(consultaCategoria)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
 
                 foreach (var producto in distinct)
                 {
-                    Producto prod = new Producto()
+                    ProductoDTO prod = new ProductoDTO()
                     {
                         Id = producto.Id,
                         Nombre = producto.Nombre,
                         Descripcion = producto.Descripcion,
                         CantidadEnStock = producto.CantidadEnStock,
-                        Categoria = producto.Categoria,
+                        CategoriaProductoDTO = producto.CategoriaProductoDTO,
                         PorcentajeDeGanancia= producto.PorcentajeDeGanancia,
                         Activo = producto.Activo,
                         PrecioDeCompra= producto.PrecioDeCompra,
@@ -318,6 +341,25 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
+            }
+        }
+
+        private void Listas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Listas.Text==Listas.Items[0].ToString())
+            {
+                //Todos
+                dataGridView1.DataSource = controladorFachada.ListarTodosLosProductos();
+            }
+            else if (Listas.Text == Listas.Items[1].ToString())
+            {
+                //Debajo stock mínimo
+                dataGridView1.DataSource = controladorFachada.ListarProductosBajoStockMinimo();
+            }
+            else
+            {
+                //Más vendidos
+                dataGridView1.DataSource = controladorFachada.ListarProductosMasVendidos();
             }
         }
     }

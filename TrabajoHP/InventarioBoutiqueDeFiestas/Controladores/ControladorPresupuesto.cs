@@ -147,11 +147,76 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public List<PresupuestoDTO> ListarPresupuestoPresupuestados()
+        {
+            List<Presupuesto> presupuestos = new List<Presupuesto>();
+            List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
+            using (var repo = new Repositorio())
+            {
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p=>p.Estado=="Presupuestado").ToList();
+            }
+            foreach (Presupuesto pre in presupuestos)
+            {
+                PresupuestoDTO pDTO = this.PresupuestoADTO(pre);
+                presupuestoDTOs.Add(pDTO);
+            }
+            return presupuestoDTOs;
+        }
+
         public ControladorPresupuesto()
         {
 
 
         }
+
+        public List<PresupuestoDTO> ListarPresupuestoSeniados()
+        {
+            List<Presupuesto> presupuestos = new List<Presupuesto>();
+            List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
+            using (var repo = new Repositorio())
+            {
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Seniado").ToList();
+            }
+            foreach (Presupuesto pre in presupuestos)
+            {
+                PresupuestoDTO pDTO = this.PresupuestoADTO(pre);
+                presupuestoDTOs.Add(pDTO);
+            }
+            return presupuestoDTOs;
+        }
+
+        public List<PresupuestoDTO> ListarPresupuestoVendidos()
+        {
+            List<Presupuesto> presupuestos = new List<Presupuesto>();
+            List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
+            using (var repo = new Repositorio())
+            {
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Vendido").ToList();
+            }
+            foreach (Presupuesto pre in presupuestos)
+            {
+                PresupuestoDTO pDTO = this.PresupuestoADTO(pre);
+                presupuestoDTOs.Add(pDTO);
+            }
+            return presupuestoDTOs;
+        }
+
+        public List<PresupuestoDTO> ListarPresupuestoCancelados()
+        {
+            List<Presupuesto> presupuestos = new List<Presupuesto>();
+            List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
+            using (var repo = new Repositorio())
+            {
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Cancelado").ToList();
+            }
+            foreach (Presupuesto pre in presupuestos)
+            {
+                PresupuestoDTO pDTO = this.PresupuestoADTO(pre);
+                presupuestoDTOs.Add(pDTO);
+            }
+            return presupuestoDTOs;
+        }
+
         /// <summary>
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>

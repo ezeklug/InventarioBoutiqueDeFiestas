@@ -110,7 +110,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                return repo.Clientes.ToList<Cliente>();
+                return repo.Clientes.Where(p=>p.Activo).ToList<Cliente>();
             }
         }
         /// <summary>
@@ -124,6 +124,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 Cliente cli = repo.Clientes.Find(pIdCliente);
                 return cli;
+            }
+        }
+
+        internal List<Cliente> ListarClientesNoActivos()
+        {
+            using (var repo = new Repositorio())
+            {
+                return repo.Clientes.Where(p => !p.Activo).ToList<Cliente>();
             }
         }
     }

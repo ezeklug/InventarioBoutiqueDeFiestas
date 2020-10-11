@@ -36,6 +36,7 @@
             this.Principal = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
             this.AsociarProducto = new System.Windows.Forms.Button();
+            this.Listas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +101,7 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(87, 30);
             this.Eliminar.TabIndex = 7;
-            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.Text = "Baja";
             this.Eliminar.UseVisualStyleBackColor = false;
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             // 
@@ -145,12 +146,23 @@
             this.AsociarProducto.UseVisualStyleBackColor = false;
             this.AsociarProducto.Click += new System.EventHandler(this.AsociarProducto_Click);
             // 
+            // Listas
+            // 
+            this.Listas.FormattingEnabled = true;
+            this.Listas.Location = new System.Drawing.Point(109, 104);
+            this.Listas.Name = "Listas";
+            this.Listas.Size = new System.Drawing.Size(121, 25);
+            this.Listas.TabIndex = 9;
+            this.Listas.Text = "Activas";
+            this.Listas.SelectedIndexChanged += new System.EventHandler(this.Listas_SelectedIndexChanged);
+            // 
             // VControlCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(776, 588);
+            this.Controls.Add(this.Listas);
             this.Controls.Add(this.AsociarProducto);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Principal);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.Button Principal;
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button AsociarProducto;
+        private System.Windows.Forms.ComboBox Listas;
     }
 }

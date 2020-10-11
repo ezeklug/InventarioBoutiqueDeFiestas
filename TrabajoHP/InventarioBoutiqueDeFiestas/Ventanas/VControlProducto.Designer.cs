@@ -36,11 +36,11 @@
             this.IngresoMercaderia = new System.Windows.Forms.Button();
             this.PorcentajeIncremento = new System.Windows.Forms.Button();
             this.Categoria = new System.Windows.Forms.Button();
-            this.botonStockMinimo = new System.Windows.Forms.Button();
             this.buscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CargarPresupuesto = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
+            this.Listas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,21 +153,6 @@
             this.Categoria.UseVisualStyleBackColor = false;
             this.Categoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
-            // botonStockMinimo
-            // 
-            this.botonStockMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.botonStockMinimo.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.botonStockMinimo.FlatAppearance.BorderSize = 0;
-            this.botonStockMinimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonStockMinimo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonStockMinimo.Location = new System.Drawing.Point(499, 55);
-            this.botonStockMinimo.Name = "botonStockMinimo";
-            this.botonStockMinimo.Size = new System.Drawing.Size(165, 23);
-            this.botonStockMinimo.TabIndex = 14;
-            this.botonStockMinimo.Text = "Productos debajo stock minimo";
-            this.botonStockMinimo.UseVisualStyleBackColor = false;
-            this.botonStockMinimo.Click += new System.EventHandler(this.botonStockMinimo_Click);
-            // 
             // buscar
             // 
             this.buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -218,16 +203,26 @@
             this.Eliminar.UseVisualStyleBackColor = false;
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
             // 
+            // Listas
+            // 
+            this.Listas.FormattingEnabled = true;
+            this.Listas.Location = new System.Drawing.Point(156, 53);
+            this.Listas.Name = "Listas";
+            this.Listas.Size = new System.Drawing.Size(121, 21);
+            this.Listas.TabIndex = 19;
+            this.Listas.Text = "Todos";
+            this.Listas.SelectedIndexChanged += new System.EventHandler(this.Listas_SelectedIndexChanged);
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 420);
+            this.Controls.Add(this.Listas);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.CargarPresupuesto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buscar);
-            this.Controls.Add(this.botonStockMinimo);
             this.Controls.Add(this.Categoria);
             this.Controls.Add(this.PorcentajeIncremento);
             this.Controls.Add(this.IngresoMercaderia);
@@ -256,10 +251,10 @@
         private System.Windows.Forms.Button IngresoMercaderia;
         private System.Windows.Forms.Button PorcentajeIncremento;
         private System.Windows.Forms.Button Categoria;
-        private System.Windows.Forms.Button botonStockMinimo;
         private System.Windows.Forms.TextBox buscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button CargarPresupuesto;
         private System.Windows.Forms.Button Eliminar;
+        private System.Windows.Forms.ComboBox Listas;
     }
 }

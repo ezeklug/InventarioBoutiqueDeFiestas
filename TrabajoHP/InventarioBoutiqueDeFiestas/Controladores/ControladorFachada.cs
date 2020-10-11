@@ -109,6 +109,17 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             return controladorPresupuesto.ListarPresupuesto();
         }
+
+        public void AltaCategoria(int idCategoria)
+        {
+            controladorProducto.AltaCategoria(idCategoria);
+        }
+
+        public List<PresupuestoDTO> ListarPresupuestoPresupuestados()
+        {
+            return controladorPresupuesto.ListarPresupuestoPresupuestados();
+        }
+
         /// <summary>
         /// Este método permite aplicar un descuento a una linea de presupuesto, pasando como parámetro el id de la linea y el porcentaje de descuento.
         /// </summary>
@@ -118,6 +129,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         public void AplicarDescuentoLinea(int pIdLinea, float pDescuento)
         {
             controladorPresupuesto.AplicarDescuentoLinea(pIdLinea, pDescuento);
+        }
+
+        public List<PresupuestoDTO> ListarPresupuestoSeniados()
+        {
+            return controladorPresupuesto.ListarPresupuestoSeniados();
+        }
+
+        public List<PresupuestoDTO> ListarPresupuestoVendidos()
+        {
+            return controladorPresupuesto.ListarPresupuestoVendidos();
+        }
+
+        public List<PresupuestoDTO> ListarPresupuestoCancelados()
+        {
+            return controladorPresupuesto.ListarPresupuestoCancelados();
         }
 
         /// <summary>
@@ -157,7 +183,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar todos los productos activos que están guardados en base de datos.
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarTodosLosProductos()
+        public List<ProductoDTO> ListarTodosLosProductos()
         {
             return controladorProducto.ListarTodosLosProductos();
         }
@@ -167,12 +193,17 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorProducto.ListarCategorias();
         }
 
+        public List<CategoriaProducto> ListarCategoriasNoActivas()
+        {
+            return controladorProducto.ListarCategoriasNoActivas();
+        }
+
         /// <summary>
         /// Este método permite listar todos aquellos productos que estén debajo del stock Minimo.
         /// Esto se puede obtener haciendo la diferencia de las propiedades CantidadEnStock y StockMinimo de cada Producto.
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarProductosBajoStockMinimo()
+        public List<ProductoDTO> ListarProductosBajoStockMinimo()
         {
             return controladorProducto.ListarProductosBajoStockMinimo();
         }
@@ -181,7 +212,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar los productos que más se venden.
         /// </summary>
         /// <returns></returns>
-        public List<ProductoVendidoDTO> ListarProductosMasVendidos()
+        public Dictionary<ProductoDTO,int> ListarProductosMasVendidos()
         {
             return controladorProducto.ListarProductosMasVendidos();
         }
@@ -293,6 +324,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         public List<ProductoPresupuestoDTO> ListarProductosPresupuesto(List<int> pIdProductos)
         {
             return controladorProducto.ListarProductosPresupuesto(pIdProductos);
+        }
+
+        public List<Cliente> ListarClientesNoActivos()
+        {
+            return controladorCliente.ListarClientesNoActivos();
         }
 
         public ProductoDTO BuscarProducto(int pIDProducto)

@@ -191,7 +191,6 @@
     <Compile Include="DTO\ProductoDTO.cs" />
     <Compile Include="DTO\ProductoIngresarMercaderiaDTO.cs" />
     <Compile Include="DTO\ProductoPresupuestoDTO.cs" />
-    <Compile Include="DTO\ProductoVendidoDTO.cs" />
     <Compile Include="DTO\SeniaDTO.cs" />
     <Compile Include="DTO\VentaDTO.cs" />
     <Compile Include="Migrations\202010091849091_init.cs" />
