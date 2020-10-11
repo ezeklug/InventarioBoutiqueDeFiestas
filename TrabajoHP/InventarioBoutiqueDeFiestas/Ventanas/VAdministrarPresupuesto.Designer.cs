@@ -68,30 +68,31 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(192, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(422, 39);
+            this.label1.Size = new System.Drawing.Size(419, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "Administrar Presupuesto";
             // 
             // Cliente
             // 
             this.Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Cliente.Location = new System.Drawing.Point(96, 578);
+            this.Cliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cliente.Location = new System.Drawing.Point(96, 583);
             this.Cliente.Name = "Cliente";
             this.Cliente.ReadOnly = true;
-            this.Cliente.Size = new System.Drawing.Size(144, 20);
+            this.Cliente.Size = new System.Drawing.Size(144, 22);
             this.Cliente.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 582);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(28, 585);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
+            this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Cliente: ";
             // 
@@ -103,7 +104,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.BuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuscarCliente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BuscarCliente.Location = new System.Drawing.Point(61, 606);
+            this.BuscarCliente.Location = new System.Drawing.Point(61, 611);
             this.BuscarCliente.Name = "BuscarCliente";
             this.BuscarCliente.Size = new System.Drawing.Size(113, 23);
             this.BuscarCliente.TabIndex = 17;
@@ -115,19 +116,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(276, 582);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(257, 586);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 16);
+            this.label3.Size = new System.Drawing.Size(142, 17);
             this.label3.TabIndex = 18;
             this.label3.Text = "Descuento al total %";
             // 
             // DescuentoTotal
             // 
             this.DescuentoTotal.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DescuentoTotal.Location = new System.Drawing.Point(412, 582);
+            this.DescuentoTotal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescuentoTotal.Location = new System.Drawing.Point(405, 585);
             this.DescuentoTotal.Name = "DescuentoTotal";
-            this.DescuentoTotal.Size = new System.Drawing.Size(34, 20);
+            this.DescuentoTotal.Size = new System.Drawing.Size(34, 22);
             this.DescuentoTotal.TabIndex = 19;
             this.DescuentoTotal.Text = "0";
             this.DescuentoTotal.TextChanged += new System.EventHandler(this.DescuentoTotal_TextChanged);
@@ -137,20 +139,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(511, 583);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(524, 585);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 16);
+            this.label4.Size = new System.Drawing.Size(54, 17);
             this.label4.TabIndex = 20;
             this.label4.Text = "Total: $";
             // 
             // Total
             // 
             this.Total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Total.Location = new System.Drawing.Point(584, 583);
+            this.Total.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total.Location = new System.Drawing.Point(584, 582);
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
-            this.Total.Size = new System.Drawing.Size(106, 20);
+            this.Total.Size = new System.Drawing.Size(106, 22);
             this.Total.TabIndex = 21;
             // 
             // Guardar
@@ -161,7 +164,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guardar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Guardar.Location = new System.Drawing.Point(679, 606);
+            this.Guardar.Location = new System.Drawing.Point(679, 611);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -177,7 +180,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Seniar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Seniar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Seniar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Seniar.Location = new System.Drawing.Point(488, 606);
+            this.Seniar.Location = new System.Drawing.Point(488, 611);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
@@ -193,7 +196,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Vender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Vender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Vender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Vender.Location = new System.Drawing.Point(584, 606);
+            this.Vender.Location = new System.Drawing.Point(584, 611);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
@@ -225,7 +228,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Cancelar.Location = new System.Drawing.Point(776, 606);
+            this.Cancelar.Location = new System.Drawing.Point(776, 611);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 26;
@@ -235,9 +238,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(199, 98);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker1.TabIndex = 35;
             this.dateTimePicker1.Value = new System.DateTime(2020, 9, 29, 15, 35, 11, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
@@ -245,20 +249,24 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(58, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.Size = new System.Drawing.Size(130, 16);
             this.label5.TabIndex = 36;
             this.label5.Text = "Fecha de Vencimiento";
             // 
             // Principal
             // 
+            this.Principal.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Principal.FlatAppearance.BorderSize = 0;
+            this.Principal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.ccae0744_6be7_4659_84a8_a597aa2764f1;
             this.Principal.Location = new System.Drawing.Point(38, 9);
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(74, 74);
             this.Principal.TabIndex = 14;
-            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.UseVisualStyleBackColor = false;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // VAdministrarPresupuesto

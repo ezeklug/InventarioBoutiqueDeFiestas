@@ -47,96 +47,101 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(245, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 39);
+            this.label1.Size = new System.Drawing.Size(136, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(116, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
             // Nombre
             // 
+            this.Nombre.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nombre.Location = new System.Drawing.Point(218, 100);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(262, 20);
+            this.Nombre.Size = new System.Drawing.Size(262, 22);
             this.Nombre.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(116, 154);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Apellido";
             // 
             // Apellido
             // 
+            this.Apellido.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Apellido.Location = new System.Drawing.Point(218, 153);
             this.Apellido.Name = "Apellido";
-            this.Apellido.Size = new System.Drawing.Size(262, 20);
+            this.Apellido.Size = new System.Drawing.Size(262, 22);
             this.Apellido.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(116, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Telefono";
             // 
             // Telefono
             // 
+            this.Telefono.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Telefono.Location = new System.Drawing.Point(218, 206);
             this.Telefono.Name = "Telefono";
-            this.Telefono.Size = new System.Drawing.Size(262, 20);
+            this.Telefono.Size = new System.Drawing.Size(262, 22);
             this.Telefono.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(116, 262);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 16);
+            this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Direccion";
             // 
             // Direccion
             // 
+            this.Direccion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Direccion.Location = new System.Drawing.Point(218, 261);
             this.Direccion.Name = "Direccion";
-            this.Direccion.Size = new System.Drawing.Size(262, 20);
+            this.Direccion.Size = new System.Drawing.Size(262, 22);
             this.Direccion.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(116, 312);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 16);
+            this.label6.Size = new System.Drawing.Size(46, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Email";
             // 
             // Email
             // 
+            this.Email.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.Location = new System.Drawing.Point(218, 311);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(262, 20);
+            this.Email.Size = new System.Drawing.Size(262, 22);
             this.Email.TabIndex = 10;
             // 
             // Confirmar
@@ -169,12 +174,16 @@
             // 
             // Principal
             // 
+            this.Principal.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Principal.FlatAppearance.BorderSize = 0;
+            this.Principal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Principal.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.ccae0744_6be7_4659_84a8_a597aa2764f1;
             this.Principal.Location = new System.Drawing.Point(71, 12);
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(70, 74);
             this.Principal.TabIndex = 13;
-            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.UseVisualStyleBackColor = false;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // VAgregarModificarCliente

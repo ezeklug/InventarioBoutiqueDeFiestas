@@ -45,40 +45,40 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(162, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 39);
+            this.label1.Size = new System.Drawing.Size(187, 41);
             this.label1.TabIndex = 2;
             this.label1.Text = "Categoría";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 20);
+            this.label2.Size = new System.Drawing.Size(151, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre Categoria:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(27, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(100, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Descripción:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(27, 234);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.Size = new System.Drawing.Size(67, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Vence: ";
             // 
@@ -127,9 +127,10 @@
             // siVence
             // 
             this.siVence.AutoSize = true;
+            this.siVence.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siVence.Location = new System.Drawing.Point(215, 237);
             this.siVence.Name = "siVence";
-            this.siVence.Size = new System.Drawing.Size(34, 17);
+            this.siVence.Size = new System.Drawing.Size(34, 20);
             this.siVence.TabIndex = 12;
             this.siVence.TabStop = true;
             this.siVence.Text = "Si";
@@ -138,9 +139,10 @@
             // noVence
             // 
             this.noVence.AutoSize = true;
+            this.noVence.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noVence.Location = new System.Drawing.Point(299, 237);
             this.noVence.Name = "noVence";
-            this.noVence.Size = new System.Drawing.Size(39, 17);
+            this.noVence.Size = new System.Drawing.Size(41, 20);
             this.noVence.TabIndex = 13;
             this.noVence.TabStop = true;
             this.noVence.Text = "No";
@@ -148,12 +150,16 @@
             // 
             // Principal
             // 
+            this.Principal.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Principal.FlatAppearance.BorderSize = 0;
+            this.Principal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Principal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.ccae0744_6be7_4659_84a8_a597aa2764f1;
             this.Principal.Location = new System.Drawing.Point(46, 15);
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(70, 74);
             this.Principal.TabIndex = 14;
-            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.UseVisualStyleBackColor = false;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // VAgregarModificiarCategoria
