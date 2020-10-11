@@ -65,28 +65,37 @@
             // 
             // aceptar
             // 
+            this.aceptar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.aceptar.FlatAppearance.BorderSize = 0;
+            this.aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aceptar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aceptar.Location = new System.Drawing.Point(221, 172);
             this.aceptar.Name = "aceptar";
             this.aceptar.Size = new System.Drawing.Size(75, 23);
             this.aceptar.TabIndex = 5;
             this.aceptar.Text = "Aceptar";
-            this.aceptar.UseVisualStyleBackColor = true;
+            this.aceptar.UseVisualStyleBackColor = false;
             this.aceptar.Click += new System.EventHandler(this.aceptar_Click);
             // 
             // cancelar
             // 
+            this.cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cancelar.FlatAppearance.BorderSize = 0;
+            this.cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar.Location = new System.Drawing.Point(329, 172);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 23);
             this.cancelar.TabIndex = 6;
             this.cancelar.Text = "Cancelar";
-            this.cancelar.UseVisualStyleBackColor = true;
+            this.cancelar.UseVisualStyleBackColor = false;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // VPorcentajeIncremento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(429, 221);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.aceptar);

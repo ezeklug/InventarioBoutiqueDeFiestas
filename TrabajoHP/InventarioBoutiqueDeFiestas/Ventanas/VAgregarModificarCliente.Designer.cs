@@ -141,22 +141,30 @@
             // 
             // Confirmar
             // 
+            this.Confirmar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Confirmar.FlatAppearance.BorderSize = 0;
+            this.Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Confirmar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Confirmar.Location = new System.Drawing.Point(159, 358);
             this.Confirmar.Name = "Confirmar";
             this.Confirmar.Size = new System.Drawing.Size(75, 23);
             this.Confirmar.TabIndex = 11;
             this.Confirmar.Text = "Confirmar";
-            this.Confirmar.UseVisualStyleBackColor = true;
+            this.Confirmar.UseVisualStyleBackColor = false;
             this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
             // 
             // Cancelar
             // 
+            this.Cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Cancelar.FlatAppearance.BorderSize = 0;
+            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancelar.Location = new System.Drawing.Point(388, 358);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 12;
             this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.UseVisualStyleBackColor = false;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // Principal

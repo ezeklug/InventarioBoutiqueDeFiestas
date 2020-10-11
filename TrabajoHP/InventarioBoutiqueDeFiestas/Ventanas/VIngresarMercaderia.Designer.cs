@@ -68,32 +68,44 @@
             // 
             // Listo
             // 
+            this.Listo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Listo.FlatAppearance.BorderSize = 0;
+            this.Listo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Listo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Listo.Location = new System.Drawing.Point(594, 438);
             this.Listo.Name = "Listo";
             this.Listo.Size = new System.Drawing.Size(75, 23);
             this.Listo.TabIndex = 9;
             this.Listo.Text = "Listo";
-            this.Listo.UseVisualStyleBackColor = true;
+            this.Listo.UseVisualStyleBackColor = false;
             this.Listo.Click += new System.EventHandler(this.Listo_Click);
             // 
             // Cancelar
             // 
+            this.Cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Cancelar.FlatAppearance.BorderSize = 0;
+            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancelar.Location = new System.Drawing.Point(710, 438);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 10;
             this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.UseVisualStyleBackColor = false;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // Agregar
             // 
+            this.Agregar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Agregar.FlatAppearance.BorderSize = 0;
+            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregar.Location = new System.Drawing.Point(655, 60);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(130, 23);
             this.Agregar.TabIndex = 11;
             this.Agregar.Text = "Agregar Mercaderia";
-            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.UseVisualStyleBackColor = false;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
             // VIngresarMercaderia

@@ -50,12 +50,16 @@
             // 
             // Principal
             // 
+            this.Principal.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Principal.FlatAppearance.BorderSize = 0;
+            this.Principal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Principal.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Principal.Image = global::InventarioBoutiqueDeFiestas.Properties.Resources.ccae0744_6be7_4659_84a8_a597aa2764f1;
             this.Principal.Location = new System.Drawing.Point(44, 0);
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(70, 74);
             this.Principal.TabIndex = 7;
-            this.Principal.UseVisualStyleBackColor = true;
+            this.Principal.UseVisualStyleBackColor = false;
             this.Principal.Click += new System.EventHandler(this.Principal_Click);
             // 
             // dataGridView1
@@ -93,23 +97,31 @@
             // Agregar
             // 
             this.Agregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Agregar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Agregar.FlatAppearance.BorderSize = 0;
+            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregar.Location = new System.Drawing.Point(39, 367);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 12;
             this.Agregar.Text = "Agregar";
-            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.UseVisualStyleBackColor = false;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
             // Administrar
             // 
             this.Administrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Administrar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Administrar.FlatAppearance.BorderSize = 0;
+            this.Administrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Administrar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Administrar.Location = new System.Drawing.Point(132, 367);
             this.Administrar.Name = "Administrar";
             this.Administrar.Size = new System.Drawing.Size(81, 23);
             this.Administrar.TabIndex = 13;
             this.Administrar.Text = "Administrar";
-            this.Administrar.UseVisualStyleBackColor = true;
+            this.Administrar.UseVisualStyleBackColor = false;
             this.Administrar.Click += new System.EventHandler(this.Administrar_Click);
             // 
             // VControlPresupuestos

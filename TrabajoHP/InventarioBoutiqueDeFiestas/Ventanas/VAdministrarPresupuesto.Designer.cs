@@ -98,12 +98,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // BuscarCliente
             // 
             this.BuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BuscarCliente.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BuscarCliente.FlatAppearance.BorderSize = 0;
+            this.BuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarCliente.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BuscarCliente.Location = new System.Drawing.Point(61, 606);
             this.BuscarCliente.Name = "BuscarCliente";
             this.BuscarCliente.Size = new System.Drawing.Size(113, 23);
             this.BuscarCliente.TabIndex = 17;
             this.BuscarCliente.Text = "Buscar Cliente";
-            this.BuscarCliente.UseVisualStyleBackColor = true;
+            this.BuscarCliente.UseVisualStyleBackColor = false;
             this.BuscarCliente.Click += new System.EventHandler(this.BuscarCliente_Click);
             // 
             // label3
@@ -151,56 +156,81 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Guardar
             // 
             this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Guardar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Guardar.FlatAppearance.BorderSize = 0;
+            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Guardar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Guardar.Location = new System.Drawing.Point(679, 606);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
             this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = true;
+            this.Guardar.UseVisualStyleBackColor = false;
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
             // 
             // Seniar
             // 
             this.Seniar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Seniar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Seniar.FlatAppearance.BorderSize = 0;
+            this.Seniar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Seniar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seniar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Seniar.Location = new System.Drawing.Point(488, 606);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
             this.Seniar.Text = "Señar";
-            this.Seniar.UseVisualStyleBackColor = true;
+            this.Seniar.UseVisualStyleBackColor = false;
             this.Seniar.Click += new System.EventHandler(this.Seniar_Click);
             // 
             // Vender
             // 
             this.Vender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Vender.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Vender.FlatAppearance.BorderSize = 0;
+            this.Vender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Vender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Vender.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Vender.Location = new System.Drawing.Point(584, 606);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
             this.Vender.Text = "Vender";
-            this.Vender.UseVisualStyleBackColor = true;
+            this.Vender.UseVisualStyleBackColor = false;
             this.Vender.Click += new System.EventHandler(this.Vender_Click);
             // 
             // CargarProductos
             // 
             this.CargarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CargarProductos.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.CargarProductos.FlatAppearance.BorderSize = 0;
+            this.CargarProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CargarProductos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargarProductos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CargarProductos.Location = new System.Drawing.Point(728, 131);
             this.CargarProductos.Name = "CargarProductos";
             this.CargarProductos.Size = new System.Drawing.Size(123, 23);
             this.CargarProductos.TabIndex = 25;
             this.CargarProductos.Text = "Cargar Productos";
-            this.CargarProductos.UseVisualStyleBackColor = true;
+            this.CargarProductos.UseVisualStyleBackColor = false;
             this.CargarProductos.Click += new System.EventHandler(this.CargarProductos_Click);
             // 
             // Cancelar
             // 
             this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Cancelar.FlatAppearance.BorderSize = 0;
+            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Cancelar.Location = new System.Drawing.Point(776, 606);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 26;
             this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.UseVisualStyleBackColor = false;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // dateTimePicker1

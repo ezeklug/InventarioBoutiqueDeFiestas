@@ -35,35 +35,47 @@
             // 
             // ControlClientes
             // 
-            this.ControlClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ControlClientes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ControlClientes.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ControlClientes.FlatAppearance.BorderSize = 0;
+            this.ControlClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ControlClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ControlClientes.Location = new System.Drawing.Point(287, 198);
             this.ControlClientes.Name = "ControlClientes";
             this.ControlClientes.Size = new System.Drawing.Size(194, 65);
             this.ControlClientes.TabIndex = 0;
             this.ControlClientes.Text = "Control Clientes";
-            this.ControlClientes.UseVisualStyleBackColor = true;
+            this.ControlClientes.UseVisualStyleBackColor = false;
             this.ControlClientes.Click += new System.EventHandler(this.ControlClientes_Click);
             // 
             // ControlPresupuesto
             // 
-            this.ControlPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ControlPresupuesto.Location = new System.Drawing.Point(545, 186);
+            this.ControlPresupuesto.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ControlPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ControlPresupuesto.FlatAppearance.BorderSize = 0;
+            this.ControlPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ControlPresupuesto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlPresupuesto.Location = new System.Drawing.Point(542, 194);
             this.ControlPresupuesto.Name = "ControlPresupuesto";
-            this.ControlPresupuesto.Size = new System.Drawing.Size(141, 77);
+            this.ControlPresupuesto.Size = new System.Drawing.Size(141, 65);
             this.ControlPresupuesto.TabIndex = 1;
             this.ControlPresupuesto.Text = "Control Presupuesto";
-            this.ControlPresupuesto.UseVisualStyleBackColor = true;
+            this.ControlPresupuesto.UseVisualStyleBackColor = false;
             this.ControlPresupuesto.Click += new System.EventHandler(this.ControlPresupuesto_Click);
             // 
             // ControlProductos
             // 
-            this.ControlProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ControlProductos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ControlProductos.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ControlProductos.FlatAppearance.BorderSize = 0;
+            this.ControlProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ControlProductos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ControlProductos.Location = new System.Drawing.Point(84, 194);
             this.ControlProductos.Name = "ControlProductos";
             this.ControlProductos.Size = new System.Drawing.Size(129, 72);
             this.ControlProductos.TabIndex = 2;
             this.ControlProductos.Text = "Control Productos";
-            this.ControlProductos.UseVisualStyleBackColor = true;
+            this.ControlProductos.UseVisualStyleBackColor = false;
             this.ControlProductos.Click += new System.EventHandler(this.ControlProductos_Click);
             // 
             // VPrincipal

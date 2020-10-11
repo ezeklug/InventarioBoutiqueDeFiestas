@@ -180,22 +180,30 @@
             // 
             // seniarButton
             // 
+            this.seniarButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.seniarButton.FlatAppearance.BorderSize = 0;
+            this.seniarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seniarButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seniarButton.Location = new System.Drawing.Point(60, 378);
             this.seniarButton.Name = "seniarButton";
             this.seniarButton.Size = new System.Drawing.Size(75, 23);
             this.seniarButton.TabIndex = 15;
             this.seniarButton.Text = "Señar";
-            this.seniarButton.UseVisualStyleBackColor = true;
+            this.seniarButton.UseVisualStyleBackColor = false;
             this.seniarButton.Click += new System.EventHandler(this.Seniar_Click);
             // 
             // cancelarButton
             // 
+            this.cancelarButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cancelarButton.FlatAppearance.BorderSize = 0;
+            this.cancelarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelarButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelarButton.Location = new System.Drawing.Point(697, 378);
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.Size = new System.Drawing.Size(75, 23);
             this.cancelarButton.TabIndex = 17;
             this.cancelarButton.Text = "Cancelar";
-            this.cancelarButton.UseVisualStyleBackColor = true;
+            this.cancelarButton.UseVisualStyleBackColor = false;
             this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // dateTimePicker1

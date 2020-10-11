@@ -80,67 +80,91 @@
             // Agregar
             // 
             this.Agregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Agregar.Location = new System.Drawing.Point(26, 385);
+            this.Agregar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Agregar.FlatAppearance.BorderSize = 0;
+            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Agregar.Location = new System.Drawing.Point(27, 385);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 9;
             this.Agregar.Text = "Agregar";
-            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.UseVisualStyleBackColor = false;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
             // Modificar
             // 
             this.Modificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Modificar.Location = new System.Drawing.Point(144, 385);
+            this.Modificar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Modificar.FlatAppearance.BorderSize = 0;
+            this.Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Modificar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Modificar.Location = new System.Drawing.Point(121, 385);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(75, 23);
             this.Modificar.TabIndex = 10;
             this.Modificar.Text = "Modificar";
-            this.Modificar.UseVisualStyleBackColor = true;
+            this.Modificar.UseVisualStyleBackColor = false;
             this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
             // 
             // IngresoMercaderia
             // 
             this.IngresoMercaderia.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.IngresoMercaderia.Location = new System.Drawing.Point(256, 385);
+            this.IngresoMercaderia.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.IngresoMercaderia.FlatAppearance.BorderSize = 0;
+            this.IngresoMercaderia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IngresoMercaderia.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IngresoMercaderia.Location = new System.Drawing.Point(224, 385);
             this.IngresoMercaderia.Name = "IngresoMercaderia";
-            this.IngresoMercaderia.Size = new System.Drawing.Size(120, 23);
+            this.IngresoMercaderia.Size = new System.Drawing.Size(156, 23);
             this.IngresoMercaderia.TabIndex = 11;
             this.IngresoMercaderia.Text = "Ingreso Mercaderia";
-            this.IngresoMercaderia.UseVisualStyleBackColor = true;
+            this.IngresoMercaderia.UseVisualStyleBackColor = false;
             this.IngresoMercaderia.Click += new System.EventHandler(this.IngresoMercaderia_Click);
             // 
             // PorcentajeIncremento
             // 
             this.PorcentajeIncremento.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PorcentajeIncremento.Location = new System.Drawing.Point(419, 385);
+            this.PorcentajeIncremento.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PorcentajeIncremento.FlatAppearance.BorderSize = 0;
+            this.PorcentajeIncremento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PorcentajeIncremento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PorcentajeIncremento.Location = new System.Drawing.Point(407, 385);
             this.PorcentajeIncremento.Name = "PorcentajeIncremento";
-            this.PorcentajeIncremento.Size = new System.Drawing.Size(133, 23);
+            this.PorcentajeIncremento.Size = new System.Drawing.Size(154, 23);
             this.PorcentajeIncremento.TabIndex = 12;
             this.PorcentajeIncremento.Text = "Porcentaje incremento";
-            this.PorcentajeIncremento.UseVisualStyleBackColor = true;
+            this.PorcentajeIncremento.UseVisualStyleBackColor = false;
             this.PorcentajeIncremento.Click += new System.EventHandler(this.PorcentajeIncremento_Click);
             // 
             // Categoria
             // 
             this.Categoria.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Categoria.Location = new System.Drawing.Point(579, 385);
+            this.Categoria.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Categoria.FlatAppearance.BorderSize = 0;
+            this.Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Categoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Categoria.Location = new System.Drawing.Point(577, 385);
             this.Categoria.Name = "Categoria";
             this.Categoria.Size = new System.Drawing.Size(110, 23);
             this.Categoria.TabIndex = 13;
             this.Categoria.Text = "Categorias";
-            this.Categoria.UseVisualStyleBackColor = true;
+            this.Categoria.UseVisualStyleBackColor = false;
             this.Categoria.Click += new System.EventHandler(this.AgregarCategoria_Click);
             // 
             // botonStockMinimo
             // 
-            this.botonStockMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.botonStockMinimo.Location = new System.Drawing.Point(706, 376);
+            this.botonStockMinimo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.botonStockMinimo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.botonStockMinimo.FlatAppearance.BorderSize = 0;
+            this.botonStockMinimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonStockMinimo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonStockMinimo.Location = new System.Drawing.Point(707, 385);
             this.botonStockMinimo.Name = "botonStockMinimo";
-            this.botonStockMinimo.Size = new System.Drawing.Size(144, 40);
+            this.botonStockMinimo.Size = new System.Drawing.Size(165, 23);
             this.botonStockMinimo.TabIndex = 14;
             this.botonStockMinimo.Text = "Productos debajo stock minimo";
-            this.botonStockMinimo.UseVisualStyleBackColor = true;
+            this.botonStockMinimo.UseVisualStyleBackColor = false;
             this.botonStockMinimo.Click += new System.EventHandler(this.botonStockMinimo_Click);
             // 
             // buscar
@@ -164,13 +188,17 @@
             // 
             // CargarPresupuesto
             // 
-            this.CargarPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CargarPresupuesto.Location = new System.Drawing.Point(245, 385);
+            this.CargarPresupuesto.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.CargarPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.CargarPresupuesto.FlatAppearance.BorderSize = 0;
+            this.CargarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CargarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CargarPresupuesto.Location = new System.Drawing.Point(224, 385);
             this.CargarPresupuesto.Name = "CargarPresupuesto";
-            this.CargarPresupuesto.Size = new System.Drawing.Size(140, 23);
+            this.CargarPresupuesto.Size = new System.Drawing.Size(156, 23);
             this.CargarPresupuesto.TabIndex = 17;
             this.CargarPresupuesto.Text = "Cargar en presupuesto";
-            this.CargarPresupuesto.UseVisualStyleBackColor = true;
+            this.CargarPresupuesto.UseVisualStyleBackColor = false;
             this.CargarPresupuesto.Click += new System.EventHandler(this.CargarPresupuesto_Click);
             // 
             // VControlProducto

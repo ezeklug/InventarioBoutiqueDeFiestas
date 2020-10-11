@@ -98,22 +98,30 @@
             // 
             // guardar
             // 
+            this.guardar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.guardar.FlatAppearance.BorderSize = 0;
+            this.guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar.Location = new System.Drawing.Point(241, 293);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(75, 23);
             this.guardar.TabIndex = 10;
             this.guardar.Text = "Guardar";
-            this.guardar.UseVisualStyleBackColor = true;
+            this.guardar.UseVisualStyleBackColor = false;
             this.guardar.Click += new System.EventHandler(this.guardar_Click);
             // 
             // cancelar
             // 
+            this.cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cancelar.FlatAppearance.BorderSize = 0;
+            this.cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar.Location = new System.Drawing.Point(348, 293);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 23);
             this.cancelar.TabIndex = 11;
             this.cancelar.Text = "Cancelar";
-            this.cancelar.UseVisualStyleBackColor = true;
+            this.cancelar.UseVisualStyleBackColor = false;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // siVence

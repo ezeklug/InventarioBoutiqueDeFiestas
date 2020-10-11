@@ -69,23 +69,31 @@
             // Modificar
             // 
             this.Modificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Modificar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Modificar.FlatAppearance.BorderSize = 0;
+            this.Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Modificar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Modificar.Location = new System.Drawing.Point(113, 367);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(67, 32);
             this.Modificar.TabIndex = 2;
             this.Modificar.Text = "Modificar";
-            this.Modificar.UseVisualStyleBackColor = true;
+            this.Modificar.UseVisualStyleBackColor = false;
             this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
             // 
             // Agregar
             // 
             this.Agregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Agregar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Agregar.FlatAppearance.BorderSize = 0;
+            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregar.Location = new System.Drawing.Point(24, 367);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(69, 32);
             this.Agregar.TabIndex = 5;
             this.Agregar.Text = "Agregar";
-            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.UseVisualStyleBackColor = false;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
             // Principal
@@ -101,12 +109,16 @@
             // Guardar
             // 
             this.Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Guardar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Guardar.FlatAppearance.BorderSize = 0;
+            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guardar.Location = new System.Drawing.Point(775, 367);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 32);
             this.Guardar.TabIndex = 7;
             this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = true;
+            this.Guardar.UseVisualStyleBackColor = false;
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
             // 
             // label2
@@ -131,23 +143,31 @@
             // botonExportar
             // 
             this.botonExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.botonExportar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.botonExportar.FlatAppearance.BorderSize = 0;
+            this.botonExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonExportar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonExportar.Location = new System.Drawing.Point(201, 367);
             this.botonExportar.Name = "botonExportar";
             this.botonExportar.Size = new System.Drawing.Size(131, 32);
             this.botonExportar.TabIndex = 11;
             this.botonExportar.Text = "Exportar a pdf";
-            this.botonExportar.UseVisualStyleBackColor = true;
+            this.botonExportar.UseVisualStyleBackColor = false;
             this.botonExportar.Click += new System.EventHandler(this.button1_Click);
             // 
             // AsociarPresupuesto
             // 
             this.AsociarPresupuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AsociarPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AsociarPresupuesto.FlatAppearance.BorderSize = 0;
+            this.AsociarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AsociarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AsociarPresupuesto.Location = new System.Drawing.Point(348, 372);
             this.AsociarPresupuesto.Name = "AsociarPresupuesto";
             this.AsociarPresupuesto.Size = new System.Drawing.Size(149, 23);
             this.AsociarPresupuesto.TabIndex = 12;
             this.AsociarPresupuesto.Text = "Asociar a Presupuesto";
-            this.AsociarPresupuesto.UseVisualStyleBackColor = true;
+            this.AsociarPresupuesto.UseVisualStyleBackColor = false;
             this.AsociarPresupuesto.Click += new System.EventHandler(this.AsociarPresupuesto_Click);
             // 
             // VControlClientes
