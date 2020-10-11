@@ -40,6 +40,7 @@
             this.buscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CargarPresupuesto = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,7 +115,7 @@
             this.IngresoMercaderia.FlatAppearance.BorderSize = 0;
             this.IngresoMercaderia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IngresoMercaderia.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IngresoMercaderia.Location = new System.Drawing.Point(224, 385);
+            this.IngresoMercaderia.Location = new System.Drawing.Point(353, 385);
             this.IngresoMercaderia.Name = "IngresoMercaderia";
             this.IngresoMercaderia.Size = new System.Drawing.Size(156, 23);
             this.IngresoMercaderia.TabIndex = 11;
@@ -129,7 +130,7 @@
             this.PorcentajeIncremento.FlatAppearance.BorderSize = 0;
             this.PorcentajeIncremento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PorcentajeIncremento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PorcentajeIncremento.Location = new System.Drawing.Point(407, 385);
+            this.PorcentajeIncremento.Location = new System.Drawing.Point(538, 385);
             this.PorcentajeIncremento.Name = "PorcentajeIncremento";
             this.PorcentajeIncremento.Size = new System.Drawing.Size(154, 23);
             this.PorcentajeIncremento.TabIndex = 12;
@@ -144,7 +145,7 @@
             this.Categoria.FlatAppearance.BorderSize = 0;
             this.Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Categoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Categoria.Location = new System.Drawing.Point(577, 385);
+            this.Categoria.Location = new System.Drawing.Point(723, 385);
             this.Categoria.Name = "Categoria";
             this.Categoria.Size = new System.Drawing.Size(110, 23);
             this.Categoria.TabIndex = 13;
@@ -154,12 +155,12 @@
             // 
             // botonStockMinimo
             // 
-            this.botonStockMinimo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.botonStockMinimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botonStockMinimo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.botonStockMinimo.FlatAppearance.BorderSize = 0;
             this.botonStockMinimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonStockMinimo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonStockMinimo.Location = new System.Drawing.Point(707, 385);
+            this.botonStockMinimo.Location = new System.Drawing.Point(499, 55);
             this.botonStockMinimo.Name = "botonStockMinimo";
             this.botonStockMinimo.Size = new System.Drawing.Size(165, 23);
             this.botonStockMinimo.TabIndex = 14;
@@ -194,7 +195,7 @@
             this.CargarPresupuesto.FlatAppearance.BorderSize = 0;
             this.CargarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CargarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CargarPresupuesto.Location = new System.Drawing.Point(224, 385);
+            this.CargarPresupuesto.Location = new System.Drawing.Point(353, 385);
             this.CargarPresupuesto.Name = "CargarPresupuesto";
             this.CargarPresupuesto.Size = new System.Drawing.Size(156, 23);
             this.CargarPresupuesto.TabIndex = 17;
@@ -202,11 +203,27 @@
             this.CargarPresupuesto.UseVisualStyleBackColor = false;
             this.CargarPresupuesto.Click += new System.EventHandler(this.CargarPresupuesto_Click);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Eliminar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Eliminar.FlatAppearance.BorderSize = 0;
+            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eliminar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Eliminar.Location = new System.Drawing.Point(226, 385);
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Size = new System.Drawing.Size(96, 23);
+            this.Eliminar.TabIndex = 18;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseVisualStyleBackColor = false;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 420);
+            this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.CargarPresupuesto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buscar);
@@ -243,5 +260,6 @@
         private System.Windows.Forms.TextBox buscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button CargarPresupuesto;
+        private System.Windows.Forms.Button Eliminar;
     }
 }

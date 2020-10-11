@@ -168,6 +168,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 PorcentajeIncremento.Visible = true;
                 Categoria.Visible = true;
                 botonStockMinimo.Visible = true;
+                Agregar.Visible = true;
+                Modificar.Visible = true;
             }
             else
             {
@@ -176,6 +178,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 PorcentajeIncremento.Visible = false;
                 Categoria.Visible = false;
                 botonStockMinimo.Visible = false;
+                Agregar.Visible = false;
+                Modificar.Visible = false;
             }
             DataGridViewCheckBoxColumn cb = new DataGridViewCheckBoxColumn();
             cb.ValueType = typeof(bool);
@@ -287,6 +291,34 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void botonStockMinimo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            Boolean seleccion = false;
+            List<int> idProductos = new List<int>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["Cb"].Value);
+                if (isSelected)
+                {
+                    seleccion = true;
+                    int idProducto = Convert.ToInt32(row.Cells[1].Value);
+                    idProductos.Add(idProducto);
+                }
+            }
+            if (seleccion)
+            {
+                foreach (int idProducto in idProductos)
+                {
+                    controladorFachada.BajaProducto(idProducto);
+                }
+                MessageBox.Show("Se dieron de baja el/los producto/s seleccionado/s");
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar al menos un producto");
+            }
         }
     }
 }

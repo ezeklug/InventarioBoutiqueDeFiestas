@@ -167,6 +167,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 proAAgregar.Categoria = cat;
                 if (pro == null)
                 {
+                    proAAgregar.Activo = true;
                     repo.Productos.Add(proAAgregar);
                     repo.SaveChanges();
                     return proAAgregar.Id;
@@ -233,7 +234,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<Producto> Adevolver = new List<Producto>();
             using (var repo = new Repositorio())
             {
-                foreach (Producto producto in repo.Productos.Include("Categoria").ToList<Producto>())
+                foreach (Producto producto in repo.Productos.Include("Categoria").Where(p=>p.Activo).ToList<Producto>())
                 {
                     if (producto.Categoria.Vence)
                     {
