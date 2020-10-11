@@ -12,7 +12,6 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
 
-        public string Lotes { get; set; }
         public Dictionary<int, int> LoteYCantidad { get; set; }
         public int IdPresupuesto { get; set; }
         public double PrecioUnitario { get; set; }

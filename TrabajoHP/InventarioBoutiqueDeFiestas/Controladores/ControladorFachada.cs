@@ -341,9 +341,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorProducto.VerificarSiCategoriaVence(pIdProducto);
         }
 
-        public void GuardarLote(LoteDTO pLoteDTO)
+        public int GuardarLote(LoteDTO pLoteDTO)
         {
-            controladorProducto.GuardarLote(pLoteDTO);
+            return controladorProducto.GuardarLote(pLoteDTO);
         }
         public List<LineaPresupuestoDTO> ListarLineasPresupuesto(int pIdPresupuesto)
         {

@@ -28,11 +28,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Listo_Click(object sender, EventArgs e)
         {
+            int idLote = 0;
             List<ProductoDTO> ListaProductoDTO = new List<ProductoDTO>();
+            int i = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[0].Value)));
                 unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
+                unProducto.IdCategoria = unProducto.CategoriaProductoDTO.Id;
                 unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
                 if (row.Cells[4].Value != "------")
                 {
@@ -49,19 +52,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         unLote.Vencido = true;
                     }
                     unLote.IdProducto = unProducto.Id;
-                    controladorFachada.GuardarLote(unLote);
-                   
+                    idLote=controladorFachada.GuardarLote(unLote);
+                    dataGridView1.Rows[i].Cells[5].Value = idLote;
                 }
+                i++;
                 ListaProductoDTO.Add(unProducto);
-
             }
             controladorFachada.IngresoMercarderias(ListaProductoDTO);
-            this.Hide();
-            VControlProducto vControlProducto = new VControlProducto();
-            vControlProducto.ShowDialog();
-            this.Close();
-
-
+            Listo.Visible = false;
+            Cancelar.Visible = false;
+            Agregar.Visible = false;
+            Confirmar.Visible = true;
+            ConfirmarText.Visible = true;
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
@@ -87,14 +89,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
             dataGridView1.Columns.Add("PrecioCompra", "Precio de Compra");
             dataGridView1.Columns.Add("FechaVencimiento", "Fecha de Vencimiento dd/mm/aaaa");
+            dataGridView1.Columns.Add("NroLote", "Nro Lote");
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
+            dataGridView1.Columns[5].ReadOnly = true;
+            Confirmar.Visible = false;
+            ConfirmarText.Visible = false;
+            Listo.Visible = true;
+            Cancelar.Visible = true;
+            Agregar.Visible = true;
             if (Filas.RowCount != 0)
             {
                 foreach (DataGridViewRow row in Filas.Rows)
                 {
-                    string[] r = new string[] { row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString() };
+                    string[] r = new string[] { row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString() , row.Cells[5].Value.ToString()};
                     dataGridView1.Rows.Add(r);
                 }
             }
@@ -112,7 +121,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     }
                     if (!existe)
                     {
-                        string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", "0", "" };
+                        string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", "0", "", "" };
                         dataGridView1.Rows.Add(row);
                     }
                 }
@@ -136,6 +145,14 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Hide();
             VPrincipal vPrincipal = new VPrincipal();
             vPrincipal.ShowDialog();
+            this.Close();
+        }
+
+        private void Confirmar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlProducto vControlProducto = new VControlProducto();
+            vControlProducto.ShowDialog();
             this.Close();
         }
     }

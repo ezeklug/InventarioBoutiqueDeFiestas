@@ -352,13 +352,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             throw new NotImplementedException();
         }
 
-        public void GuardarLote(LoteDTO pLoteDTO)
+        public int GuardarLote(LoteDTO pLoteDTO)
         {
             using (Repositorio repo=new Repositorio())
             {
                 Lote lote = new Lote(pLoteDTO.CantidadProductos, pLoteDTO.FechaVencimiento, repo.Productos.Find(pLoteDTO.IdProducto));
-                
-                repo.Lotes.Add(lote);
+                Lote loteo=repo.Lotes.Add(lote);
+                repo.SaveChanges();
+                return loteo.Id ;
             }
         }
         /// <summary>

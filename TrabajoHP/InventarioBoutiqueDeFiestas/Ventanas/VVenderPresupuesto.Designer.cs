@@ -38,8 +38,8 @@
             this.Monto = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.ProductosSinStock = new System.Windows.Forms.Label();
-            this.OpcionVender = new System.Windows.Forms.RadioButton();
-            this.OpcionNoVender = new System.Windows.Forms.RadioButton();
+            this.AjustarYVender = new System.Windows.Forms.Button();
+            this.VenderYPresupuesto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             this.Vender.FlatAppearance.BorderSize = 0;
             this.Vender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Vender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vender.Location = new System.Drawing.Point(62, 485);
+            this.Vender.Location = new System.Drawing.Point(77, 485);
             this.Vender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(87, 30);
@@ -95,7 +95,7 @@
             this.Cancelar.FlatAppearance.BorderSize = 0;
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelar.Location = new System.Drawing.Point(751, 485);
+            this.Cancelar.Location = new System.Drawing.Point(764, 485);
             this.Cancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(87, 30);
@@ -107,10 +107,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(351, 114);
+            this.dataGridView1.Location = new System.Drawing.Point(491, 114);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(556, 307);
+            this.dataGridView1.Size = new System.Drawing.Size(421, 319);
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -135,9 +135,9 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 219);
+            this.dataGridView2.Location = new System.Drawing.Point(23, 219);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(310, 202);
+            this.dataGridView2.Size = new System.Drawing.Size(385, 202);
             this.dataGridView2.TabIndex = 20;
             // 
             // ProductosSinStock
@@ -145,33 +145,43 @@
             this.ProductosSinStock.AutoSize = true;
             this.ProductosSinStock.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductosSinStock.ForeColor = System.Drawing.Color.Red;
-            this.ProductosSinStock.Location = new System.Drawing.Point(30, 190);
+            this.ProductosSinStock.Location = new System.Drawing.Point(57, 193);
             this.ProductosSinStock.Name = "ProductosSinStock";
             this.ProductosSinStock.Size = new System.Drawing.Size(276, 23);
             this.ProductosSinStock.TabIndex = 21;
             this.ProductosSinStock.Text = "Productos sin stock suficiente";
             // 
-            // OpcionVender
+            // AjustarYVender
             // 
-            this.OpcionVender.AutoSize = true;
-            this.OpcionVender.Location = new System.Drawing.Point(61, 427);
-            this.OpcionVender.Name = "OpcionVender";
-            this.OpcionVender.Size = new System.Drawing.Size(218, 21);
-            this.OpcionVender.TabIndex = 22;
-            this.OpcionVender.TabStop = true;
-            this.OpcionVender.Text = "Vender la cantidad que se tiene";
-            this.OpcionVender.UseVisualStyleBackColor = true;
+            this.AjustarYVender.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AjustarYVender.Cursor = System.Windows.Forms.Cursors.Default;
+            this.AjustarYVender.FlatAppearance.BorderSize = 0;
+            this.AjustarYVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AjustarYVender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AjustarYVender.Location = new System.Drawing.Point(23, 428);
+            this.AjustarYVender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AjustarYVender.Name = "AjustarYVender";
+            this.AjustarYVender.Size = new System.Drawing.Size(136, 30);
+            this.AjustarYVender.TabIndex = 22;
+            this.AjustarYVender.Text = "Ajustar y Vender";
+            this.AjustarYVender.UseVisualStyleBackColor = false;
+            this.AjustarYVender.Click += new System.EventHandler(this.AjustarYVender_Click);
             // 
-            // OpcionNoVender
+            // VenderYPresupuesto
             // 
-            this.OpcionNoVender.AutoSize = true;
-            this.OpcionNoVender.Location = new System.Drawing.Point(61, 457);
-            this.OpcionNoVender.Name = "OpcionNoVender";
-            this.OpcionNoVender.Size = new System.Drawing.Size(175, 21);
-            this.OpcionNoVender.TabIndex = 23;
-            this.OpcionNoVender.TabStop = true;
-            this.OpcionNoVender.Text = "No vender los productos ";
-            this.OpcionNoVender.UseVisualStyleBackColor = true;
+            this.VenderYPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.VenderYPresupuesto.Cursor = System.Windows.Forms.Cursors.Default;
+            this.VenderYPresupuesto.FlatAppearance.BorderSize = 0;
+            this.VenderYPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VenderYPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VenderYPresupuesto.Location = new System.Drawing.Point(174, 428);
+            this.VenderYPresupuesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.VenderYPresupuesto.Name = "VenderYPresupuesto";
+            this.VenderYPresupuesto.Size = new System.Drawing.Size(234, 30);
+            this.VenderYPresupuesto.TabIndex = 23;
+            this.VenderYPresupuesto.Text = "Vender y crear presupuesto nuevo";
+            this.VenderYPresupuesto.UseVisualStyleBackColor = false;
+            this.VenderYPresupuesto.Click += new System.EventHandler(this.VenderYPresupuesto_Click);
             // 
             // VVenderPresupuesto
             // 
@@ -179,8 +189,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 588);
-            this.Controls.Add(this.OpcionNoVender);
-            this.Controls.Add(this.OpcionVender);
+            this.Controls.Add(this.VenderYPresupuesto);
+            this.Controls.Add(this.AjustarYVender);
             this.Controls.Add(this.ProductosSinStock);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.Monto);
@@ -215,7 +225,7 @@
         private System.Windows.Forms.Label Monto;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label ProductosSinStock;
-        private System.Windows.Forms.RadioButton OpcionVender;
-        private System.Windows.Forms.RadioButton OpcionNoVender;
+        private System.Windows.Forms.Button AjustarYVender;
+        private System.Windows.Forms.Button VenderYPresupuesto;
     }
 }

@@ -34,6 +34,8 @@
             this.Listo = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
             this.Agregar = new System.Windows.Forms.Button();
+            this.Confirmar = new System.Windows.Forms.Button();
+            this.ConfirmarText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,11 +110,37 @@
             this.Agregar.UseVisualStyleBackColor = false;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
+            // Confirmar
+            // 
+            this.Confirmar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Confirmar.FlatAppearance.BorderSize = 0;
+            this.Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Confirmar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Confirmar.Location = new System.Drawing.Point(594, 438);
+            this.Confirmar.Name = "Confirmar";
+            this.Confirmar.Size = new System.Drawing.Size(75, 23);
+            this.Confirmar.TabIndex = 12;
+            this.Confirmar.Text = "Confirmar";
+            this.Confirmar.UseVisualStyleBackColor = false;
+            this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
+            // 
+            // ConfirmarText
+            // 
+            this.ConfirmarText.AutoSize = true;
+            this.ConfirmarText.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmarText.Location = new System.Drawing.Point(430, 418);
+            this.ConfirmarText.Name = "ConfirmarText";
+            this.ConfirmarText.Size = new System.Drawing.Size(355, 17);
+            this.ConfirmarText.TabIndex = 13;
+            this.ConfirmarText.Text = "Ingrese los numeros en cada lote y presione confirmar";
+            // 
             // VIngresarMercaderia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 491);
+            this.Controls.Add(this.ConfirmarText);
+            this.Controls.Add(this.Confirmar);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Listo);
@@ -136,5 +164,7 @@
         private System.Windows.Forms.Button Listo;
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button Agregar;
+        private System.Windows.Forms.Button Confirmar;
+        private System.Windows.Forms.Label ConfirmarText;
     }
 }

@@ -486,19 +486,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     LineaPresupuestoDTO lineaPresupuestoDTO = new LineaPresupuestoDTO();
                     lineaPresupuestoDTO.NombreProducto = lin.Producto.Nombre;
                     lineaPresupuestoDTO.Cantidad = lin.Cantidad;
-                    Tuple<string, Dictionary<int, int>> Lotes = DeterminarLotes(lin.Producto.Id, lin.Cantidad);
-                    lineaPresupuestoDTO.Lotes = Lotes.Item1;
-                    lineaPresupuestoDTO.LoteYCantidad = Lotes.Item2;
+                    lineaPresupuestoDTO.LoteYCantidad= DeterminarLotes(lin.Producto.Id, lin.Cantidad);
                     ADevolver.Add(lineaPresupuestoDTO);
                 }
             }
             return ADevolver;
         }
 
-        public Tuple<string,Dictionary<int,int>> DeterminarLotes(int pIdProducto, int pCantidad)
+        public Dictionary<int,int> DeterminarLotes(int pIdProducto, int pCantidad)
         {
             Dictionary<int, int> loteYCantidad = new Dictionary<int, int>();
-            string ADevolver = "";
             List<Lote> lotes = new List<Lote>();
             using (var repo=new Repositorio())
             {
@@ -517,18 +514,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     loteYCantidad.Add(lotes[i].Id, pCantidad);
                     pCantidad -= pCantidad;
                 }
-                ADevolver += lotes[i].Id.ToString();
-                if (pCantidad>0)
-                {
-                    ADevolver += ", ";
-                }
-                else
-                {
-                    ADevolver += ".";
-                }
                 i++;
             }
-            return Tuple.Create(ADevolver,loteYCantidad);
+            return loteYCantidad;
         }
     }
 }

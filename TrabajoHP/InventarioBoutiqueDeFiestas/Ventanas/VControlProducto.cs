@@ -170,7 +170,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 IngresoMercaderia.Visible = true;
                 PorcentajeIncremento.Visible = true;
                 Categoria.Visible = true;
-                botonStockMinimo.Visible = true;
                 Agregar.Visible = true;
                 Modificar.Visible = true;
                 Eliminar.Visible = true;
@@ -181,7 +180,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 IngresoMercaderia.Visible = false;
                 PorcentajeIncremento.Visible = false;
                 Categoria.Visible = false;
-                botonStockMinimo.Visible = false;
                 Agregar.Visible = false;
                 Modificar.Visible = false;
                 Eliminar.Visible = false;
