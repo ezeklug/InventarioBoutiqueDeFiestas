@@ -265,9 +265,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Vende un presupuesto y guarda la venta en la base de datos
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
-        public List<string> Vender(int pIdPresupuesto)
+        public List<Tuple<string, int, int>> Vender(int pIdPresupuesto)
         {
-            List<string> productosSinStockSuficiente = new List<string>();
+            List<Tuple<string,int,int>> productosSinStockSuficiente = new List<Tuple<string,int,int>>();
             using (var repo = new Repositorio()) {
                 Presupuesto presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
                 if (presupuesto == null)
@@ -284,12 +284,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     }
                     else
                     {
-                        productosSinStockSuficiente.Add(producto.Nombre);
+                        productosSinStockSuficiente.Add(Tuple.Create(producto.Nombre,producto.CantidadEnStock,linea.Cantidad-producto.CantidadEnStock));
                     }
                 }
-                Venta venta = new Venta(presupuesto);
-                presupuesto.Estado = EstadoPresupuesto.Vendido;
-                repo.Ventas.Add(venta);
+                if (productosSinStockSuficiente.Count==0)
+                {
+                    Venta venta = new Venta(presupuesto);
+                    presupuesto.Estado = EstadoPresupuesto.Vendido;
+                    repo.Ventas.Add(venta);
+                }
                 return productosSinStockSuficiente;
             }
         }
@@ -446,8 +449,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
                 else
                 {
-                    pCantidad -= pCantidad;
                     loteYCantidad.Add(lotes[i].Id, pCantidad);
+                    pCantidad -= pCantidad;
                 }
                 ADevolver += lotes[i].Id.ToString();
                 if (pCantidad>0)

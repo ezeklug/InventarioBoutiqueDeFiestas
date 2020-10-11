@@ -120,6 +120,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     string[] row = new string[] { lin.IdProducto.ToString(), lin.NombreProducto, lin.Cantidad.ToString(), lin.PrecioUnitario.ToString(), lin.PorcentajeDescuento.ToString(), lin.Subtotal.ToString() };
                     dataGridView1.Rows.Add(row);
                 }
+                if (Presupuesto.Estado == "Vendido")
+                {
+                    dataGridView1.Columns[2].ReadOnly = true;
+                    dataGridView1.Columns[4].ReadOnly = true;
+                    DescuentoTotal.ReadOnly = true;
+                    Seniar.Visible = false;
+                    Guardar.Visible = false;
+                    Vender.Text = "Venta";
+                    Cancelar.Visible = false;
+                    BuscarCliente.Visible = false;
+                    CargarProductos.Visible = false;
+                    dateTimePicker1.Visible = false;
+                    label5.Visible = false;
+                }
             }
             Total.Text = PrecioVenta().ToString();
         }
@@ -261,6 +275,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Vender_Click(object sender, EventArgs e)
         {
+            
             this.GuardarPresupuesto(sender, e);
 
             if (IdCliente == 0)

@@ -180,6 +180,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VAgregarModificiarCategoria";
             this.Text = "VAgregarModificarCategoria";
+            this.Load += new System.EventHandler(this.VAgregarModificiarCategoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

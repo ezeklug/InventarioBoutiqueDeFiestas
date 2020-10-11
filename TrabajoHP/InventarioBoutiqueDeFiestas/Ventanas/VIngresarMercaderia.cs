@@ -34,13 +34,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[0].Value)));
                 unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
                 unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
-                if (!(row.Cells[4].Value == null))
+                if (row.Cells[4].Value != "------")
                 {
                     LoteDTO unLote = new LoteDTO();
                     unLote.CantidadProductos = Convert.ToInt32(row.Cells[2].Value);
                     unLote.FechaCompra = DateTime.Now; // ARREGLAME
                     unLote.FechaVencimiento = Convert.ToDateTime(row.Cells[4].Value);
-                    unLote.Vencido = false;
+                    if (unLote.FechaCompra < unLote.FechaVencimiento)
+                    {
+                        unLote.Vencido = false;
+                    }
+                    else
+                    {
+                        unLote.Vencido = true;
+                    }
                     unLote.IdProducto = unProducto.Id;
                     controladorFachada.GuardarLote(unLote);
                    
@@ -108,6 +115,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", "0", "" };
                         dataGridView1.Rows.Add(row);
                     }
+                }
+            }
+            foreach (DataGridViewRow row3 in dataGridView1.Rows)
+            {
+                if (controladorFachada.VerificarSiCategoriaVence(Convert.ToInt32(row3.Cells[0].Value)))
+                {
+                    row3.Cells[4].ReadOnly = false;
+                }
+                else
+                {
+                    row3.Cells[4].Value = "------";
+                    row3.Cells[4].ReadOnly = true;
                 }
             }
         }

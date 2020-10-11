@@ -99,6 +99,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             vPrincipal.ShowDialog();
             this.Close();
         }
+
+        private void VAgregarModificiarCategoria_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

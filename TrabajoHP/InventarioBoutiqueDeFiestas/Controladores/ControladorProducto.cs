@@ -226,7 +226,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         /// <summary>
-        /// Este método permite listar todos los productos que están guardados en base de datos.
+        /// Este método permite listar todos los productos activos que están guardados en base de datos.
         /// </summary>
         /// <returns></returns>
         public List<Producto> ListarTodosLosProductos()

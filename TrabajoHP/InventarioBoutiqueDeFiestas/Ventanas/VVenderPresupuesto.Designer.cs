@@ -36,7 +36,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NombreCliente = new System.Windows.Forms.Label();
             this.Monto = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ProductosSinStock = new System.Windows.Forms.Label();
+            this.OpcionVender = new System.Windows.Forms.RadioButton();
+            this.OpcionNoVender = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulo
@@ -52,7 +57,7 @@
             // Cliente
             // 
             this.Cliente.AutoSize = true;
-            this.Cliente.Location = new System.Drawing.Point(91, 114);
+            this.Cliente.Location = new System.Drawing.Point(68, 114);
             this.Cliente.Name = "Cliente";
             this.Cliente.Size = new System.Drawing.Size(51, 17);
             this.Cliente.TabIndex = 11;
@@ -61,7 +66,7 @@
             // TotalVenta
             // 
             this.TotalVenta.AutoSize = true;
-            this.TotalVenta.Location = new System.Drawing.Point(77, 186);
+            this.TotalVenta.Location = new System.Drawing.Point(68, 151);
             this.TotalVenta.Name = "TotalVenta";
             this.TotalVenta.Size = new System.Drawing.Size(96, 17);
             this.TotalVenta.TabIndex = 12;
@@ -121,11 +126,52 @@
             // Monto
             // 
             this.Monto.AutoSize = true;
-            this.Monto.Location = new System.Drawing.Point(191, 186);
+            this.Monto.Location = new System.Drawing.Point(191, 151);
             this.Monto.Name = "Monto";
             this.Monto.Size = new System.Drawing.Size(45, 17);
             this.Monto.TabIndex = 19;
             this.Monto.Text = "label3";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 219);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(310, 202);
+            this.dataGridView2.TabIndex = 20;
+            // 
+            // ProductosSinStock
+            // 
+            this.ProductosSinStock.AutoSize = true;
+            this.ProductosSinStock.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductosSinStock.ForeColor = System.Drawing.Color.Red;
+            this.ProductosSinStock.Location = new System.Drawing.Point(30, 190);
+            this.ProductosSinStock.Name = "ProductosSinStock";
+            this.ProductosSinStock.Size = new System.Drawing.Size(276, 23);
+            this.ProductosSinStock.TabIndex = 21;
+            this.ProductosSinStock.Text = "Productos sin stock suficiente";
+            // 
+            // OpcionVender
+            // 
+            this.OpcionVender.AutoSize = true;
+            this.OpcionVender.Location = new System.Drawing.Point(61, 427);
+            this.OpcionVender.Name = "OpcionVender";
+            this.OpcionVender.Size = new System.Drawing.Size(218, 21);
+            this.OpcionVender.TabIndex = 22;
+            this.OpcionVender.TabStop = true;
+            this.OpcionVender.Text = "Vender la cantidad que se tiene";
+            this.OpcionVender.UseVisualStyleBackColor = true;
+            // 
+            // OpcionNoVender
+            // 
+            this.OpcionNoVender.AutoSize = true;
+            this.OpcionNoVender.Location = new System.Drawing.Point(61, 457);
+            this.OpcionNoVender.Name = "OpcionNoVender";
+            this.OpcionNoVender.Size = new System.Drawing.Size(175, 21);
+            this.OpcionNoVender.TabIndex = 23;
+            this.OpcionNoVender.TabStop = true;
+            this.OpcionNoVender.Text = "No vender los productos ";
+            this.OpcionNoVender.UseVisualStyleBackColor = true;
             // 
             // VVenderPresupuesto
             // 
@@ -133,6 +179,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.Controls.Add(this.OpcionNoVender);
+            this.Controls.Add(this.OpcionVender);
+            this.Controls.Add(this.ProductosSinStock);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.Monto);
             this.Controls.Add(this.NombreCliente);
             this.Controls.Add(this.dataGridView1);
@@ -148,6 +198,7 @@
             this.Text = "VVenderPresupuesto";
             this.Load += new System.EventHandler(this.VVenderPresupuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +213,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label NombreCliente;
         private System.Windows.Forms.Label Monto;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label ProductosSinStock;
+        private System.Windows.Forms.RadioButton OpcionVender;
+        private System.Windows.Forms.RadioButton OpcionNoVender;
     }
 }

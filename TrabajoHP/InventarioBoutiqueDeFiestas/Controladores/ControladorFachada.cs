@@ -53,7 +53,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite vender un presupuesto, pasando como parámetro el id del presupuesto
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
-        public List<string> Vender(int pIdPresupuesto)
+        public List<Tuple<string, int, int>> Vender(int pIdPresupuesto)
         {
             return controladorPresupuesto.Vender(pIdPresupuesto);
         }
@@ -154,7 +154,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto.BajaCategoria(pIdCategoria);
         }
         /// <summary>
-        /// Este método permite listar todos los productos que están guardados en base de datos.
+        /// Este método permite listar todos los productos activos que están guardados en base de datos.
         /// </summary>
         /// <returns></returns>
         public List<Producto> ListarTodosLosProductos()
