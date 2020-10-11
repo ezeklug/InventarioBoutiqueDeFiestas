@@ -65,7 +65,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado=="Vendido")
             {
-                dataGridView1.Columns[3].ReadOnly = true;
                 Cancelar.Text = "Volver";
                 Vender.Visible = false;
             }
