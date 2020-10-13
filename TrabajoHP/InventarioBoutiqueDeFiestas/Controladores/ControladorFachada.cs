@@ -34,9 +34,17 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorPresupuesto.AgregarModificarPresupuesto(pPresupuesotDTO);
         }
 
-        internal object GetSeniaPresupuesto(int idPresupuesto)
+        public double TotalSeniaPresupuesto(int idPresupuesto)
         {
-            throw new NotImplementedException();
+            if (controladorPresupuesto.BuscarSenia(idPresupuesto) == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return controladorPresupuesto.BuscarSenia(idPresupuesto).Monto;
+            }
+
         }
 
         /// <summary>

@@ -273,19 +273,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         }
 
         private void Vender_Click(object sender, EventArgs e)
-        {
-            
+        {            
             this.GuardarPresupuesto(sender, e);
             List<int> idLineas = controladorFachada.CheckStockPresupuesto(IdPresupuesto);
             if (IdCliente == 0)
             {
                 MessageBox.Show("Debe seleccionar un cliente");
             }
-            else if (dataGridView1.Rows.Count < 1)
+            else if (dataGridView1.Rows.Count < 1) 
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
             }
-            else if (idLineas.Count == 0)
+            else if (idLineas.Count == 0) //Hay stock de todos los productos a vender 
             {
                 new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
                 if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado == "Vendido")
@@ -308,7 +307,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     label5.Visible = false;
                 }
             }
-            else
+            else //No hay stock de todos los productos a vender
             {
                 foreach (int idLinea in idLineas)
                 {
@@ -317,7 +316,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         if (row.Cells[0].Value.ToString() == idLinea.ToString())
                         {
                             //Hacerrrrrrrrrrr
-                            throw new NotImplementedException();
+                            //MessageBox.Show("Solo hay" 0 "unidades del producto: " + dataGridView1.Rows[row.Index].Cells[1]);
+                            ProductoDTO producto= controladorFachada.BuscarProducto(Convert.ToInt32(row.Cells[0].Value));
+                            this.dataGridView1.Rows[row.Index].Cells[2].ErrorText = ("Hay en stock "+ producto.CantidadEnStock );
+                            row.Cells[2].Style.BackColor = Color.Salmon;
+                            ///throw new NotImplementedException();
                         }
                     }
                 }
