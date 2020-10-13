@@ -26,6 +26,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             ProductoDTO = pProductoDTO;
             InitializeComponent();
+            ProductoDTO.Id = pProductoDTO.Id;
             Nombre.Text = pProductoDTO.Nombre;
             Descripcion.Text = pProductoDTO.Descripcion;
             StockMinimo.Text = pProductoDTO.StockMinimo.ToString();
@@ -107,15 +108,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void AgregarCategoria_Click(object sender, EventArgs e)
         {
-            ProductoDTO pProductoDTO=new ProductoDTO();
+            /*ProductoDTO pProductoDTO=new ProductoDTO();
             pProductoDTO.Id = ProductoDTO.Id;
             pProductoDTO.Nombre = Nombre.Text;
             pProductoDTO.Descripcion= Descripcion.Text;
             pProductoDTO.StockMinimo= Convert.ToInt32(StockMinimo.Text);
             pProductoDTO.PorcentajeDeGanancia = Convert.ToDouble(PorcentajeDeGanancia.Text);
-            pProductoDTO.PrecioDeCompra= Convert.ToDouble(precioCompra.Text);
+            pProductoDTO.PrecioDeCompra= Convert.ToDouble(precioCompra.Text);*/
             this.Hide();
-            VControlCategoria vControlCategoria = new VControlCategoria(pProductoDTO);
+            VControlCategoria vControlCategoria = new VControlCategoria();//pProductoDTO);
             vControlCategoria.ShowDialog();
             this.Close();
         }

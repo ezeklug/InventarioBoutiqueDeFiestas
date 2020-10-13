@@ -65,7 +65,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
-            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[7].Visible = false; //Columna de Activo
         }
 
         private ClienteDTO RowAClienteDTO(DataGridViewRow row)
