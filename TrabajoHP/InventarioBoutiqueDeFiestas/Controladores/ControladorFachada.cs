@@ -34,6 +34,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorPresupuesto.AgregarModificarPresupuesto(pPresupuesotDTO);
         }
 
+        internal object GetSeniaPresupuesto(int idPresupuesto)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Método que permite agregar una línea correspondiente a un presupuesto y un producto, pasando los siguientes parámetros.
         /// </summary>
@@ -306,6 +311,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 precioVenta += subtotal;
             }
             return precioVenta * (1 - pPorcentajeDescuento / 100);
+        }
+
+        public List<int> CheckStockPresupuesto(int idPresupuesto)
+        {
+            return controladorPresupuesto.CheckStockPresupuesto(idPresupuesto);
         }
 
         public string GetNombreCategoriaConProductoId(int pIdProducto)

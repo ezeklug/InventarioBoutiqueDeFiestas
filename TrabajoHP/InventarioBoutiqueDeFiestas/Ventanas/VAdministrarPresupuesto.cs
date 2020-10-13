@@ -276,7 +276,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             
             this.GuardarPresupuesto(sender, e);
-
+            List<int> idLineas = controladorFachada.CheckStockPresupuesto(IdPresupuesto);
             if (IdCliente == 0)
             {
                 MessageBox.Show("Debe seleccionar un cliente");
@@ -285,10 +285,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
             }
-            else
+            else if (idLineas.Count == 0)
             {
                 new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
-                if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado =="Vendido")
+                if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado == "Vendido")
                 {
                     dataGridView1.Rows.Clear();
                     foreach (LineaPresupuestoDTO lin in controladorFachada.ListarLineasPresupuesto(IdPresupuesto))
@@ -306,6 +306,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
                     label5.Visible = false;
+                }
+            }
+            else
+            {
+                foreach (int idLinea in idLineas)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value.ToString() == idLinea.ToString())
+                        {
+                            //Hacerrrrrrrrrrr
+                            throw new NotImplementedException();
+                        }
+                    }
                 }
             }
         }

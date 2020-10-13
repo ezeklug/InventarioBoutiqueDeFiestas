@@ -32,19 +32,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VVenderPresupuesto_Load(object sender, EventArgs e)
         {
-            dataGridView2.Columns.Add("Producto", "Producto");
-            dataGridView2.Columns.Add("CantidadStock", "Cantidad en stock");
-            dataGridView2.Columns.Add("CantidadFaltante", "Cantidad faltante");
-            dataGridView2.Columns[0].ReadOnly = true;
-            dataGridView2.Columns[1].ReadOnly = true;
-            dataGridView2.Columns[2].ReadOnly = true;
-            dataGridView2.Visible = false;
-            ProductosSinStock.Visible = false;
-            AjustarYVender.Visible = false;
-            VenderYPresupuesto.Visible = false;
-            dataGridView2.AllowUserToAddRows = false;
             NombreCliente.Text =controladorFachada.BuscarNombreCliente(IdCliente);
-            Monto.Text = controladorFachada.TotalVentaPresupuesto(IdPresupuesto).ToString();
+            MontoVenta.Text = controladorFachada.TotalVentaPresupuesto(IdPresupuesto).ToString();
+            MontoSenia.Text = controladorFachada.GetSeniaPresupuesto(IdPresupuesto).ToString();
+            //MontoPagar.Text;
             Lineas = controladorFachada.ListarLineasConLotePresupuesto(IdPresupuesto);
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
@@ -72,48 +63,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Vender_Click(object sender, EventArgs e)
         {
-            List<Tuple<string, int, int>> productosSinStock = controladorFachada.Vender(IdPresupuesto);
-            if (productosSinStock.Count>0)
+            foreach (LineaPresupuestoDTO linea in Lineas)
             {
-                dataGridView2.Visible = true;
-                ProductosSinStock.Visible = true;
-                AjustarYVender.Visible = true;
-                VenderYPresupuesto.Visible = true;
-                Vender.Visible = false;
-                foreach (Tuple<string,int,int> tuple in productosSinStock)
+                foreach (KeyValuePair<int, int> loteyCantidad in linea.LoteYCantidad)
                 {
-                    string[] row = new string[] {tuple.Item1,tuple.Item2.ToString(),tuple.Item3.ToString()};
-                    dataGridView2.Rows.Add(row);
+                    controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value);
                 }
             }
-            else
-            {
-                foreach (LineaPresupuestoDTO linea in Lineas)
-                {
-                    foreach (KeyValuePair<int, int> loteyCantidad in linea.LoteYCantidad)
-                    {
-                        controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value);
-                    }
-                }
-                VendidoTexto.Visible = true;
-            }
+            VendidoTexto.Visible = true;
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Close();
-        }
-
-        private void AjustarYVender_Click(object sender, EventArgs e)
-        {
-            //Se vende lo que se tiene modificando las cantidades del presupuesto a lo que hay en stock
-        }
-
-        private void VenderYPresupuesto_Click(object sender, EventArgs e)
-        {
-            //Se vende lo que se tiene modificando las cantidades del presupuesto a lo que hay en stock 
-            //pero se crea un nuevo presupuesto con lo que faltó
         }
     }
 }

@@ -304,6 +304,24 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public List<int> CheckStockPresupuesto(int idPresupuesto)
+        {
+            List<int> idLineas = new List<int>();
+            using (var repo=new Repositorio())
+            {
+                Presupuesto presupuesto=repo.Presupuestos.Include("Lineas").Where(p => p.Id == idPresupuesto).First();
+                foreach (LineaPresupuesto linea in presupuesto.Lineas)
+                {
+                   Producto producto=repo.Productos.Find(repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.Id);
+                    if(linea.Cantidad > producto.CantidadEnStock)
+                    {
+                        idLineas.Add(producto.Id);
+                    }
+                }
+            }
+            return idLineas;
+        }
+
         /// <summary>
         /// Este metodo permite señar un presupuesto pasando como parámetro el id del presupuesto y el monto de la seña.
         /// </summary>

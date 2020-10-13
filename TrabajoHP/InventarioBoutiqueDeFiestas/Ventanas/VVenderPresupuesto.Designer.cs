@@ -35,14 +35,13 @@
             this.Cancelar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NombreCliente = new System.Windows.Forms.Label();
-            this.Monto = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ProductosSinStock = new System.Windows.Forms.Label();
-            this.AjustarYVender = new System.Windows.Forms.Button();
-            this.VenderYPresupuesto = new System.Windows.Forms.Button();
+            this.MontoVenta = new System.Windows.Forms.Label();
             this.VendidoTexto = new System.Windows.Forms.Label();
+            this.TotalSenia = new System.Windows.Forms.Label();
+            this.TotalPagar = new System.Windows.Forms.Label();
+            this.MontoSenia = new System.Windows.Forms.Label();
+            this.MontoPagar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulo
@@ -67,7 +66,7 @@
             // TotalVenta
             // 
             this.TotalVenta.AutoSize = true;
-            this.TotalVenta.Location = new System.Drawing.Point(68, 151);
+            this.TotalVenta.Location = new System.Drawing.Point(67, 159);
             this.TotalVenta.Name = "TotalVenta";
             this.TotalVenta.Size = new System.Drawing.Size(96, 17);
             this.TotalVenta.TabIndex = 12;
@@ -120,69 +119,18 @@
             this.NombreCliente.AutoSize = true;
             this.NombreCliente.Location = new System.Drawing.Point(191, 114);
             this.NombreCliente.Name = "NombreCliente";
-            this.NombreCliente.Size = new System.Drawing.Size(45, 17);
+            this.NombreCliente.Size = new System.Drawing.Size(110, 17);
             this.NombreCliente.TabIndex = 18;
-            this.NombreCliente.Text = "label2";
+            this.NombreCliente.Text = "nombreyApellido";
             // 
-            // Monto
+            // MontoVenta
             // 
-            this.Monto.AutoSize = true;
-            this.Monto.Location = new System.Drawing.Point(191, 151);
-            this.Monto.Name = "Monto";
-            this.Monto.Size = new System.Drawing.Size(45, 17);
-            this.Monto.TabIndex = 19;
-            this.Monto.Text = "label3";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(23, 219);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(385, 202);
-            this.dataGridView2.TabIndex = 20;
-            // 
-            // ProductosSinStock
-            // 
-            this.ProductosSinStock.AutoSize = true;
-            this.ProductosSinStock.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductosSinStock.ForeColor = System.Drawing.Color.Red;
-            this.ProductosSinStock.Location = new System.Drawing.Point(57, 193);
-            this.ProductosSinStock.Name = "ProductosSinStock";
-            this.ProductosSinStock.Size = new System.Drawing.Size(276, 23);
-            this.ProductosSinStock.TabIndex = 21;
-            this.ProductosSinStock.Text = "Productos sin stock suficiente";
-            // 
-            // AjustarYVender
-            // 
-            this.AjustarYVender.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.AjustarYVender.Cursor = System.Windows.Forms.Cursors.Default;
-            this.AjustarYVender.FlatAppearance.BorderSize = 0;
-            this.AjustarYVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AjustarYVender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AjustarYVender.Location = new System.Drawing.Point(23, 428);
-            this.AjustarYVender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AjustarYVender.Name = "AjustarYVender";
-            this.AjustarYVender.Size = new System.Drawing.Size(136, 30);
-            this.AjustarYVender.TabIndex = 22;
-            this.AjustarYVender.Text = "Ajustar y Vender";
-            this.AjustarYVender.UseVisualStyleBackColor = false;
-            this.AjustarYVender.Click += new System.EventHandler(this.AjustarYVender_Click);
-            // 
-            // VenderYPresupuesto
-            // 
-            this.VenderYPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.VenderYPresupuesto.Cursor = System.Windows.Forms.Cursors.Default;
-            this.VenderYPresupuesto.FlatAppearance.BorderSize = 0;
-            this.VenderYPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VenderYPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VenderYPresupuesto.Location = new System.Drawing.Point(174, 428);
-            this.VenderYPresupuesto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.VenderYPresupuesto.Name = "VenderYPresupuesto";
-            this.VenderYPresupuesto.Size = new System.Drawing.Size(234, 30);
-            this.VenderYPresupuesto.TabIndex = 23;
-            this.VenderYPresupuesto.Text = "Vender y crear presupuesto nuevo";
-            this.VenderYPresupuesto.UseVisualStyleBackColor = false;
-            this.VenderYPresupuesto.Click += new System.EventHandler(this.VenderYPresupuesto_Click);
+            this.MontoVenta.AutoSize = true;
+            this.MontoVenta.Location = new System.Drawing.Point(191, 159);
+            this.MontoVenta.Name = "MontoVenta";
+            this.MontoVenta.Size = new System.Drawing.Size(60, 17);
+            this.MontoVenta.TabIndex = 19;
+            this.MontoVenta.Text = "$0000.00";
             // 
             // VendidoTexto
             // 
@@ -196,18 +144,54 @@
             this.VendidoTexto.Text = "Se ha generado una venta";
             this.VendidoTexto.Visible = false;
             // 
+            // TotalSenia
+            // 
+            this.TotalSenia.AutoSize = true;
+            this.TotalSenia.Location = new System.Drawing.Point(68, 205);
+            this.TotalSenia.Name = "TotalSenia";
+            this.TotalSenia.Size = new System.Drawing.Size(97, 17);
+            this.TotalSenia.TabIndex = 25;
+            this.TotalSenia.Text = "Monto de seña";
+            // 
+            // TotalPagar
+            // 
+            this.TotalPagar.AutoSize = true;
+            this.TotalPagar.Location = new System.Drawing.Point(67, 252);
+            this.TotalPagar.Name = "TotalPagar";
+            this.TotalPagar.Size = new System.Drawing.Size(86, 17);
+            this.TotalPagar.TabIndex = 26;
+            this.TotalPagar.Text = "Total a Pagar";
+            // 
+            // MontoSenia
+            // 
+            this.MontoSenia.AutoSize = true;
+            this.MontoSenia.Location = new System.Drawing.Point(191, 205);
+            this.MontoSenia.Name = "MontoSenia";
+            this.MontoSenia.Size = new System.Drawing.Size(60, 17);
+            this.MontoSenia.TabIndex = 27;
+            this.MontoSenia.Text = "$0000.00";
+            // 
+            // MontoPagar
+            // 
+            this.MontoPagar.AutoSize = true;
+            this.MontoPagar.Location = new System.Drawing.Point(191, 252);
+            this.MontoPagar.Name = "MontoPagar";
+            this.MontoPagar.Size = new System.Drawing.Size(60, 17);
+            this.MontoPagar.TabIndex = 28;
+            this.MontoPagar.Text = "$0000.00";
+            // 
             // VVenderPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.Controls.Add(this.MontoPagar);
+            this.Controls.Add(this.MontoSenia);
+            this.Controls.Add(this.TotalPagar);
+            this.Controls.Add(this.TotalSenia);
             this.Controls.Add(this.VendidoTexto);
-            this.Controls.Add(this.VenderYPresupuesto);
-            this.Controls.Add(this.AjustarYVender);
-            this.Controls.Add(this.ProductosSinStock);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.Monto);
+            this.Controls.Add(this.MontoVenta);
             this.Controls.Add(this.NombreCliente);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Cancelar);
@@ -222,7 +206,6 @@
             this.Text = "VVenderPresupuesto";
             this.Load += new System.EventHandler(this.VVenderPresupuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,11 +219,11 @@
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label NombreCliente;
-        private System.Windows.Forms.Label Monto;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label ProductosSinStock;
-        private System.Windows.Forms.Button AjustarYVender;
-        private System.Windows.Forms.Button VenderYPresupuesto;
+        private System.Windows.Forms.Label MontoVenta;
         private System.Windows.Forms.Label VendidoTexto;
+        private System.Windows.Forms.Label TotalSenia;
+        private System.Windows.Forms.Label TotalPagar;
+        private System.Windows.Forms.Label MontoSenia;
+        private System.Windows.Forms.Label MontoPagar;
     }
 }
