@@ -539,5 +539,25 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
             return loteYCantidad;
         }
+
+        public void AgregarLoteVendido(int pIdLote, int pIdVenta, int pCantidad)
+        {
+            using (var repo = new Repositorio())
+            {
+                var lote = repo.Lotes.Find(pIdLote);
+                var venta = repo.Ventas.Find(pIdVenta);
+                
+                if ((lote == null) || (venta == null))
+                {
+                    throw new Exception("Lote o venta son null");
+                }
+                var loteVendido = new LoteVendido();
+                loteVendido.Lote = lote;
+                loteVendido.Venta = venta;
+                loteVendido.Cantidad = pCantidad;
+                repo.SaveChanges();
+            }
+        }
+
     }
 }

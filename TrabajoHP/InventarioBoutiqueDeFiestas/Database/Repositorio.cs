@@ -56,6 +56,8 @@ namespace InventarioBoutiqueDeFiestas.Database
         public DbSet<Senia> Senias { get; private set; }
         public DbSet<Venta> Ventas { get; private set; }
 
+        public DbSet<LoteVendido> LoteVendidos { get; private set; }
+
 
 
         public Repositorio() {
@@ -68,6 +70,7 @@ namespace InventarioBoutiqueDeFiestas.Database
             Presupuestos = db.Presupuestos;
             Senias = db.Senias;
             Ventas = db.Ventas;
+            LoteVendidos = db.LoteVendidos;
         }
 
     }
