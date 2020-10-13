@@ -40,6 +40,7 @@
             this.ProductosSinStock = new System.Windows.Forms.Label();
             this.AjustarYVender = new System.Windows.Forms.Button();
             this.VenderYPresupuesto = new System.Windows.Forms.Button();
+            this.VendidoTexto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -183,12 +184,25 @@
             this.VenderYPresupuesto.UseVisualStyleBackColor = false;
             this.VenderYPresupuesto.Click += new System.EventHandler(this.VenderYPresupuesto_Click);
             // 
+            // VendidoTexto
+            // 
+            this.VendidoTexto.AutoSize = true;
+            this.VendidoTexto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VendidoTexto.ForeColor = System.Drawing.Color.Black;
+            this.VendidoTexto.Location = new System.Drawing.Point(190, 489);
+            this.VendidoTexto.Name = "VendidoTexto";
+            this.VendidoTexto.Size = new System.Drawing.Size(207, 20);
+            this.VendidoTexto.TabIndex = 24;
+            this.VendidoTexto.Text = "Se ha generado una venta";
+            this.VendidoTexto.Visible = false;
+            // 
             // VVenderPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.Controls.Add(this.VendidoTexto);
             this.Controls.Add(this.VenderYPresupuesto);
             this.Controls.Add(this.AjustarYVender);
             this.Controls.Add(this.ProductosSinStock);
@@ -227,5 +241,6 @@
         private System.Windows.Forms.Label ProductosSinStock;
         private System.Windows.Forms.Button AjustarYVender;
         private System.Windows.Forms.Button VenderYPresupuesto;
+        private System.Windows.Forms.Label VendidoTexto;
     }
 }

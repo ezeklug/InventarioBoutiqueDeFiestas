@@ -128,7 +128,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     Seniar.Visible = false;
                     Guardar.Visible = false;
                     Vender.Text = "Venta";
-                    Cancelar.Visible = false;
                     BuscarCliente.Visible = false;
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
@@ -289,6 +288,25 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
+                if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado =="Vendido")
+                {
+                    dataGridView1.Rows.Clear();
+                    foreach (LineaPresupuestoDTO lin in controladorFachada.ListarLineasPresupuesto(IdPresupuesto))
+                    {
+                        string[] row = new string[] { lin.IdProducto.ToString(), lin.NombreProducto, lin.Cantidad.ToString(), lin.PrecioUnitario.ToString(), lin.PorcentajeDescuento.ToString(), lin.Subtotal.ToString() };
+                        dataGridView1.Rows.Add(row);
+                    }
+                    dataGridView1.Columns[2].ReadOnly = true;
+                    dataGridView1.Columns[4].ReadOnly = true;
+                    DescuentoTotal.ReadOnly = true;
+                    Seniar.Visible = false;
+                    Guardar.Visible = false;
+                    Vender.Text = "Venta";
+                    BuscarCliente.Visible = false;
+                    CargarProductos.Visible = false;
+                    dateTimePicker1.Visible = false;
+                    label5.Visible = false;
+                }
             }
         }
 

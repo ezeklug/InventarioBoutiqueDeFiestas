@@ -95,8 +95,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value);
                     }
                 }
-                    this.Hide();
-                    this.Close();
+                VendidoTexto.Visible = true;
             }
         }
 

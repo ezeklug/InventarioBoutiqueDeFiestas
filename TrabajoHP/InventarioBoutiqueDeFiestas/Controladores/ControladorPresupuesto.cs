@@ -504,15 +504,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             int i = 0;
             while(pCantidad>0 && lotes.Count>i)
             {
-                if(pCantidad>= lotes[i].CantidadProductos)
+                if (lotes[i].CantidadProductos>0)
                 {
-                    pCantidad -= lotes[i].CantidadProductos;
-                    loteYCantidad.Add(lotes[i].Id, lotes[i].CantidadProductos);
-                }
-                else
-                {
-                    loteYCantidad.Add(lotes[i].Id, pCantidad);
-                    pCantidad -= pCantidad;
+                    if (pCantidad >= lotes[i].CantidadProductos)
+                    {
+                        pCantidad -= lotes[i].CantidadProductos;
+                        loteYCantidad.Add(lotes[i].Id, lotes[i].CantidadProductos);
+                    }
+                    else
+                    {
+                        loteYCantidad.Add(lotes[i].Id, pCantidad);
+                        pCantidad -= pCantidad;
+                    }
                 }
                 i++;
             }
