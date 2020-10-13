@@ -204,6 +204,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[9].Visible = false;
             dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[13].HeaderText = "Cantidad Vendida";
         }
 
         private void PorcentajeIncremento_Click(object sender, EventArgs e)
@@ -238,7 +240,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 //Más vendidos
-                listaProducto = controladorFachada.ListarProductosMasVendidos().Keys.ToList();
+                listaProducto = controladorFachada.ListarProductosMasVendidos();
             }
             try
             {
@@ -351,16 +353,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (Listas.Text==Listas.Items[0].ToString())
             {
                 //Todos
+                dataGridView1.Columns[13].Visible = false;
                 dataGridView1.DataSource = controladorFachada.ListarTodosLosProductos();
             }
             else if (Listas.Text == Listas.Items[1].ToString())
             {
                 //Debajo stock mínimo
+                dataGridView1.Columns[13].Visible = false;
                 dataGridView1.DataSource = controladorFachada.ListarProductosBajoStockMinimo();
             }
             else
             {
                 //Más vendidos
+                dataGridView1.Columns[13].Visible = true;
                 dataGridView1.DataSource = controladorFachada.ListarProductosMasVendidos();
             }
         }

@@ -313,9 +313,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar los productos que más se venden.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<ProductoDTO, int> ListarProductosMasVendidos()
+        public List<ProductoDTO> ListarProductosMasVendidos()
         {
-            Dictionary<ProductoDTO, int> aDevolver = new Dictionary<ProductoDTO, int>();
+           List<ProductoDTO> aDevolver = new List<ProductoDTO>();
             using(var repo=new Repositorio())
             {
                 foreach (Venta venta in repo.Ventas.Include("Presupuesto").Where<Venta>(v =>(DbFunctions.DiffDays(DateTime.Now, v.FechaDeVenta) <= 30)).ToList())
@@ -323,25 +323,29 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     foreach(LineaPresupuesto linea in venta.Presupuesto.Lineas)
                     {
                         Tuple<ProductoDTO, int> tupla;
-                        //producto y vendido en el mes;
                         linea.Producto=repo.LineaPresupuestos.Include("Producto").Where(l=>l.Id==linea.Id).First().Producto;
                         ProductoDTO pProductoDTO = this.ProductoADTO(linea.Producto);
                         tupla = Tuple.Create(pProductoDTO, linea.Cantidad);
-                        ProductoDTO Key=aDevolver.Keys.Where(p => p.Id == pProductoDTO.Id).First();
-                        if (Key!=null)
+                        ProductoDTO Key = new ProductoDTO();
+                        if (aDevolver.Where(p => p.Id == pProductoDTO.Id).ToList().Count>0)
                         {
-                            int cantidadActual = aDevolver.First(p => p.Key.Id == pProductoDTO.Id).Value;
+                            Key = aDevolver.Where(p => p.Id == pProductoDTO.Id).First();
+                        }
+                        if (Key.Id!=0)
+                        {
+                            pProductoDTO.CantidadVendida += aDevolver.First(p => p.Id == pProductoDTO.Id).CantidadVendida;
                             aDevolver.Remove(Key);
-                            aDevolver.Add(pProductoDTO, linea.Cantidad + cantidadActual);
+                            aDevolver.Add(pProductoDTO);
                         }
                         else
                         {
-                            aDevolver.Add(pProductoDTO, linea.Cantidad);
+                            pProductoDTO.CantidadVendida = linea.Cantidad;
+                            aDevolver.Add(pProductoDTO);
                         }
                     }
                 }
             }
-            return aDevolver;
+            return aDevolver.OrderByDescending(l=>l.CantidadVendida).ToList();
         }
 
         /// <summary>
