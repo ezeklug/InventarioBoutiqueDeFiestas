@@ -452,6 +452,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pDTO.Estado = pre.Estado;
             pDTO.IdCliente = pre.Cliente.Id;
             pDTO.Descuento = pre.Descuento;
+            pDTO.Cliente = pre.Cliente.Nombre + " " + pre.Cliente.Apellido;
+            pDTO.Total = pre.TotalVenta();
             return pDTO;
         }
 

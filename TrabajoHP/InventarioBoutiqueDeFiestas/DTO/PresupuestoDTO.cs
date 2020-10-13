@@ -12,8 +12,12 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public DateTime FechaGeneracion { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public int IdCliente { get; set; }
+
+        public String Cliente { get; set; }
         public string Estado { get; set; }
         public double Descuento { get; set; }
+
+        public double Total { get; set; }
 
 
     }
