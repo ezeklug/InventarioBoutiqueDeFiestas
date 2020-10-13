@@ -20,6 +20,8 @@ namespace InventarioBoutiqueDeFiestas.Database
         public DbSet<Senia> Senias { get; set; }
         public DbSet<Venta> Ventas { get; set; }
 
+        public DbSet<LoteVendido> LoteVendidos { get; set; }
+
 
         public InventarioDbContext() : base(nameOrConnectionString: "Default")
         {

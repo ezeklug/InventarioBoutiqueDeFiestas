@@ -179,6 +179,7 @@
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\LineaPresupuesto.cs" />
     <Compile Include="Dominio\Lote.cs" />
+    <Compile Include="Dominio\LoteVendido.cs" />
     <Compile Include="Dominio\Presupuesto.cs" />
     <Compile Include="Dominio\Producto.cs" />
     <Compile Include="Dominio\Senia.cs" />
@@ -200,6 +201,10 @@
     <Compile Include="Migrations\202010110518553_producto.cs" />
     <Compile Include="Migrations\202010110518553_producto.designer.cs">
       <DependentUpon>202010110518553_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010132141004_loteVendido.cs" />
+    <Compile Include="Migrations\202010132141004_loteVendido.designer.cs">
+      <DependentUpon>202010132141004_loteVendido.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ventanas\VAgregarModificarCategoria.cs">
@@ -287,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010110518553_producto.resx">
       <DependentUpon>202010110518553_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010132141004_loteVendido.resx">
+      <DependentUpon>202010132141004_loteVendido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
