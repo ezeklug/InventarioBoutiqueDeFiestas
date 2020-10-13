@@ -555,6 +555,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 loteVendido.Lote = lote;
                 loteVendido.Venta = venta;
                 loteVendido.Cantidad = pCantidad;
+                repo.LoteVendidos.Add(loteVendido);
                 repo.SaveChanges();
             }
         }
