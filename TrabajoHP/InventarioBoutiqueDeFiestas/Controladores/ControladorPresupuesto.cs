@@ -304,6 +304,22 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public Senia BuscarSenia(int pIdPresupuesto)
+        {
+            using (var repo = new Repositorio())
+            {
+                if (repo.Senias.Include("Presupuesto").Where(p => p.Presupuesto.Id == pIdPresupuesto).Count() != 0)
+                {
+                    return repo.Senias.Include("Presupuesto").Where(p => p.Presupuesto.Id == pIdPresupuesto).First();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+
         public List<int> CheckStockPresupuesto(int idPresupuesto)
         {
             List<int> idLineas = new List<int>();
@@ -555,7 +571,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 loteVendido.Lote = lote;
                 loteVendido.Venta = venta;
                 loteVendido.Cantidad = pCantidad;
-                repo.LoteVendidos.Add(loteVendido);
                 repo.SaveChanges();
             }
         }
