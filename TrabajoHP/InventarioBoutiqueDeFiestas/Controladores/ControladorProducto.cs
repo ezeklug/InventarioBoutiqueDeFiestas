@@ -326,11 +326,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                         //producto y vendido en el mes;
                         linea.Producto=repo.LineaPresupuestos.Include("Producto").Where(l=>l.Id==linea.Id).First().Producto;
                         ProductoDTO pProductoDTO = this.ProductoADTO(linea.Producto);
-                        tupla = Tuple.Create(pProductoDTO, linea.Cantidad); 
-                        if (aDevolver.Keys.Contains(pProductoDTO))
+                        tupla = Tuple.Create(pProductoDTO, linea.Cantidad);
+                        ProductoDTO Key=aDevolver.Keys.Where(p => p.Id == pProductoDTO.Id).First();
+                        if (Key!=null)
                         {
                             int cantidadActual = aDevolver.First(p => p.Key.Id == pProductoDTO.Id).Value;
-                            aDevolver.Remove(pProductoDTO);
+                            aDevolver.Remove(Key);
                             aDevolver.Add(pProductoDTO, linea.Cantidad + cantidadActual);
                         }
                         else

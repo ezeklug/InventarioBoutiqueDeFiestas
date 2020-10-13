@@ -34,8 +34,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             NombreCliente.Text =controladorFachada.BuscarNombreCliente(IdCliente);
             MontoVenta.Text = controladorFachada.TotalVentaPresupuesto(IdPresupuesto).ToString();
-            MontoSenia.Text = controladorFachada.GetSeniaPresupuesto(IdPresupuesto).ToString();
-            //MontoPagar.Text;
+            MontoSenia.Text = controladorFachada.TotalSeniaPresupuesto(IdPresupuesto).ToString();
+            MontoPagar.Text = (Convert.ToDouble(MontoVenta.Text) - Convert.ToDouble(MontoSenia.Text)).ToString(); 
             Lineas = controladorFachada.ListarLineasConLotePresupuesto(IdPresupuesto);
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
@@ -77,6 +77,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             this.Hide();
             this.Close();
+        }
+
+        private void MontoVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
