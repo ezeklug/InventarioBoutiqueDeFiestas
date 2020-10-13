@@ -191,7 +191,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns.Add(cb);
             dataGridView1.DataSource = controladorFachada.ListarTodosLosProductos();
             dataGridView1.Columns[0].Width = 25;
-            dataGridView1.Columns[1].Width = 35;
+            dataGridView1.Columns[1].Width = 35; //ID
             dataGridView1.Columns[2].Width = 125;
             dataGridView1.Columns[3].Width = 125;
             dataGridView1.Columns[4].Width = 60;
@@ -261,12 +261,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         Nombre = producto.Nombre,
                         Descripcion = producto.Descripcion,
                         CantidadEnStock = producto.CantidadEnStock,
-                        CategoriaProductoDTO = producto.CategoriaProductoDTO,
                         PorcentajeDeGanancia= producto.PorcentajeDeGanancia,
                         Activo = producto.Activo,
                         PrecioDeCompra= producto.PrecioDeCompra,
                         StockMinimo= producto.StockMinimo,
-                                             
+                        Categoria=producto.Categoria                                            
 
                         
                     };
@@ -274,7 +273,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
 
                 dataGridView1.DataSource = HelpList;
-                dataGridView1.Columns[9].Visible = false;
+                dataGridView1.Columns[0].Width = 25; //CB
+                dataGridView1.Columns[1].Width = 35; //ID
+                dataGridView1.Columns[9].Visible = false; //No se ve la columna ACTIVO
+                dataGridView1.Columns[11].Visible = false; //No se ve la columna CATEGORIAPRODUCTODTO
+                dataGridView1.Columns[10].Visible = false; //No se ve la columna IDCATEGORIAPRODUCTO
+                dataGridView1.Columns[8].Visible = false; //No se ve la columna PrecioVenta
 
             }
 
