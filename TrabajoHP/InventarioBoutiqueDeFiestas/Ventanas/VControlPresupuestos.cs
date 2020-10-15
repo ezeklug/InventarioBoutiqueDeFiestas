@@ -41,6 +41,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.Columns[7].Visible = false;
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -149,7 +150,52 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void buscar_TextChanged(object sender, EventArgs e)
         {
+            List<PresupuestoDTO> listaPresupuesto = controladorFachada.ListarPresupuesto();
+            try
+            {
+                var consultaNombreyApellido = from presupuesto in listaPresupuesto where presupuesto.Cliente.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select presupuesto;
+                var consultaFechaCreacion= from presupuesto in listaPresupuesto where presupuesto.FechaGeneracion.ToString().StartsWith(this.buscar.Text.Trim().ToLower()) select presupuesto;
+               
 
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+
+
+                List<PresupuestoDTO> HelpList = new List<PresupuestoDTO>();
+                List<PresupuestoDTO> distinct = (consultaNombreyApellido.Concat(consultaFechaCreacion)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
+
+                foreach (var presupuesto in distinct)
+                {
+                    PresupuestoDTO pres = new PresupuestoDTO()
+                    {
+                        Id = presupuesto.Id,
+                        FechaGeneracion= presupuesto.FechaGeneracion,
+                        Cliente= presupuesto.Cliente,
+                        Descuento= presupuesto.Descuento,
+                        Estado= presupuesto.Estado,
+                        FechaVencimiento= presupuesto.FechaVencimiento,
+                        IdCliente= presupuesto.IdCliente
+                    };
+                    HelpList.Add(pres);
+                }
+
+               dataGridView1.DataSource = HelpList;
+                dataGridView1.Columns[7].Visible = false;
+                /*dataGridView1.Columns[0].Width = 25; //CB
+               dataGridView1.Columns[1].Width = 35; //ID
+               dataGridView1.Columns[9].Visible = false; //No se ve la columna ACTIVO
+               dataGridView1.Columns[11].Visible = false; //No se ve la columna CATEGORIAPRODUCTODTO
+               dataGridView1.Columns[10].Visible = false; //No se ve la columna IDCATEGORIAPRODUCTO
+               dataGridView1.Columns[8].Visible = false; //No se ve la columna PrecioVenta
+              */
+            }
+
+
+            catch
+            {
+                throw;
+            }
         }
-    }
+        }
 }
+
