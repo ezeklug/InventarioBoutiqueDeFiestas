@@ -116,7 +116,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Listas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Listas.Text==Listas.Items[0].ToString())
+            List<PresupuestoDTO> listaPresupuesto = new List<PresupuestoDTO>();
+            if (Listas.Text == Listas.Items[0].ToString())
             {
                 //Todos
                 dataGridView1.DataSource = controladorFachada.ListarPresupuesto();
@@ -140,18 +141,42 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 dataGridView1.DataSource = controladorFachada.ListarPresupuestoVendidos();
 
             }
-            else
-            {
-                //Cancelados
-                dataGridView1.DataSource = controladorFachada.ListarPresupuestoCancelados();
-
-            }
         }
 
         private void buscar_TextChanged(object sender, EventArgs e)
         {
-            List<PresupuestoDTO> listaPresupuesto = controladorFachada.ListarPresupuesto();
-            try
+            List<PresupuestoDTO> listaPresupuesto = new List<PresupuestoDTO>();
+            if (Listas.Text == Listas.Items[0].ToString())
+            {
+                //Todos
+                listaPresupuesto = controladorFachada.ListarPresupuesto();
+
+            }
+            else if (Listas.Text == Listas.Items[1].ToString())
+            {
+                //Presupuestados
+                listaPresupuesto = controladorFachada.ListarPresupuestoPresupuestados();
+
+            }
+            else if (Listas.Text == Listas.Items[2].ToString())
+            {
+                //Señados
+                listaPresupuesto = controladorFachada.ListarPresupuestoSeniados();
+
+            }
+            else if (Listas.Text == Listas.Items[3].ToString())
+            {
+                //Vendidos
+                listaPresupuesto = controladorFachada.ListarPresupuestoVendidos();
+
+            }
+            else
+            {
+                //Cancelados
+                listaPresupuesto = controladorFachada.ListarPresupuestoCancelados();
+
+            }
+           try
             {
                 var consultaNombreyApellido = from presupuesto in listaPresupuesto where presupuesto.Cliente.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select presupuesto;
                 var consultaFechaCreacion= from presupuesto in listaPresupuesto where presupuesto.FechaGeneracion.ToString().StartsWith(this.buscar.Text.Trim().ToLower()) select presupuesto;
@@ -196,6 +221,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 throw;
             }
         }
-        }
+    }
 }
 
