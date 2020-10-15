@@ -67,7 +67,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     presupuestoDTO.FechaVencimiento = Convert.ToDateTime(row.Cells[3].Value);
                     presupuestoDTO.IdCliente = Convert.ToInt32(row.Cells[4].Value);
                     presupuestoDTO.Estado = row.Cells[5].Value.ToString();
-                    presupuestoDTO.Descuento = Convert.ToDouble(row.Cells[6].Value);
+                    presupuestoDTO.Descuento = Convert.ToDouble(row.Cells[7].Value);
                 }
             }
             if (seleccion)

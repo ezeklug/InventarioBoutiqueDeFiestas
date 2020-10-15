@@ -183,6 +183,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             CalcularSubtotal();
             Total.Text = PrecioVenta().ToString();
+            this.LimpiarError();
         }
 
         private void DescuentoTotal_TextChanged(object sender, EventArgs e)
@@ -197,6 +198,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
             }
 
+        }
+
+        private void LimpiarError()
+        {
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                this.dataGridView1.Rows[row.Index].Cells[2].ErrorText = string.Empty;
+                row.Cells[2].Style.BackColor = Color.Empty;
+            }
         }
 
         private void CargarProductos_Click(object sender, EventArgs e)
@@ -351,6 +361,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     tb.KeyPress += new KeyPressEventHandler(Column4_KeyPress);
                 }
             }
+            this.LimpiarError();
         }
 
         private void Column4_KeyPress(object sender, KeyPressEventArgs e)
