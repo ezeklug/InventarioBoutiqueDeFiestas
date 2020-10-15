@@ -333,7 +333,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                         }
                         if (Key.Id!=0)
                         {
-                            pProductoDTO.CantidadVendida += aDevolver.First(p => p.Id == pProductoDTO.Id).CantidadVendida;
+                            pProductoDTO.CantidadVendida = aDevolver.First(p => p.Id == pProductoDTO.Id).CantidadVendida;
                             aDevolver.Remove(Key);
                             aDevolver.Add(pProductoDTO);
                         }

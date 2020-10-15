@@ -267,7 +267,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         Activo = producto.Activo,
                         PrecioDeCompra= producto.PrecioDeCompra,
                         StockMinimo= producto.StockMinimo,
-                        Categoria=producto.Categoria                                            
+                        Categoria=producto.Categoria,
+                        CantidadVendida= producto.CantidadVendida
+                        
 
                         
                     };
@@ -281,8 +283,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 dataGridView1.Columns[11].Visible = false; //No se ve la columna CATEGORIAPRODUCTODTO
                 dataGridView1.Columns[10].Visible = false; //No se ve la columna IDCATEGORIAPRODUCTO
                 dataGridView1.Columns[8].Visible = false; //No se ve la columna PrecioVenta
-                dataGridView1.Columns[13].Visible = false;//No se ve columna Cantidad Vendida
-
+                if (!(Listas.Text == Listas.Items[2].ToString()))
+                {
+                    dataGridView1.Columns[13].Visible = false;//No se ve columna Cantidad Vendida
+                }
             }
 
 
