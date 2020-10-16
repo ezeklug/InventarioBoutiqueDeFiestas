@@ -15,6 +15,11 @@ namespace InventarioBoutiqueDeFiestas.Dominio
 
         public  LoteVendido() { 
         }
+        public LoteVendido(Venta venta, Lote lote)
+        {
+            Venta = venta;
+            Lote = lote;
+        }
 
     }
 }

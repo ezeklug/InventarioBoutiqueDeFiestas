@@ -66,6 +66,26 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return ven;
         }
 
+        public List<LoteVendidoDTO> GetLotesVendidosVenta(int idPresupuesto)
+        {
+            List<LoteVendidoDTO> ADevolver = new List<LoteVendidoDTO>();
+            using (var repo=new Repositorio())
+            {
+                int idVenta=repo.Ventas.Include("Presupuesto").Where(v => v.Presupuesto.Id == idPresupuesto).FirstOrDefault().Id;
+                List<LoteVendido> lotesVendidos=repo.LoteVendidos.Include("Lote").Include("Venta").Where(l => l.Venta.Id == idVenta).ToList();
+                foreach(LoteVendido loteVendido in lotesVendidos)
+                {
+                    LoteVendidoDTO loteVendidoDTO = new LoteVendidoDTO();
+                    loteVendidoDTO.Id=loteVendido.Id;
+                    loteVendidoDTO.NombreProducto=repo.Lotes.Include("Producto").Where(l=>l.Id==loteVendido.Id).FirstOrDefault().Producto.Nombre;
+                    loteVendidoDTO.Cantidad = loteVendido.Cantidad;
+                    loteVendidoDTO.idLote=loteVendido.Id;
+                    ADevolver.Add(loteVendidoDTO);
+                }
+            }
+            return ADevolver;
+        }
+
         public LineaPresupuesto DTOALineaPresupuesto(LineaPresupuestoDTO pLinea) // TESTEAR CUANDO HAYA UN PRESUPUESTO EN BASE DE DATOS
         {
             LineaPresupuesto lin = new LineaPresupuesto();
@@ -364,10 +384,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Vende un presupuesto y guarda la venta en la base de datos
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
-        public List<Tuple<string, int, int>> Vender(int pIdPresupuesto)
+        public int Vender(int pIdPresupuesto)
         {
-            List<Tuple<string,int,int>> productosSinStockSuficiente = new List<Tuple<string,int,int>>();
-            using (var repo = new Repositorio()) {
+            Venta ventadb = new Venta();
+            using (var repo = new Repositorio()) 
+            {
                 Presupuesto presupuesto = repo.Presupuestos.Find(pIdPresupuesto);
                 if (presupuesto == null)
                 {
@@ -377,23 +398,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 foreach(LineaPresupuesto linea in lineas)
                 {
                     Producto producto = repo.Productos.Find(linea.Producto.Id);
-                    if(producto.CantidadEnStock>=linea.Cantidad)
-                    {
-                        producto.CantidadEnStock -= linea.Cantidad;
-                    }
-                    else
-                    {
-                        productosSinStockSuficiente.Add(Tuple.Create(producto.Nombre,producto.CantidadEnStock,linea.Cantidad-producto.CantidadEnStock));
-                    }
+                    producto.CantidadEnStock -= linea.Cantidad;
                 }
-                if (productosSinStockSuficiente.Count==0)
-                {
-                    Venta venta = new Venta(presupuesto);
-                    presupuesto.Estado = EstadoPresupuesto.Vendido;
-                    repo.Ventas.Add(venta);
-                }
-                return productosSinStockSuficiente;
+                Venta venta = new Venta(presupuesto);
+                presupuesto.Estado = EstadoPresupuesto.Vendido;
+                ventadb=repo.Ventas.Add(venta);
+                repo.SaveChanges();
             }
+            return ventadb.Id;
         }
 
         /// <summary>
@@ -575,6 +587,24 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 repo.SaveChanges();
             }
         }
+
+        public List<Presupuesto> PresupuestosProximosAVencer(int pDiasDesdeHoy)
+        {
+            List<Presupuesto> pres;
+            DateTime fechaVencimient = DateTime.Today + TimeSpan.FromDays(pDiasDesdeHoy);
+            using (var repo = new Repositorio())
+            {
+                pres = repo.Presupuestos.Where(r =>
+                               (r.Estado == EstadoPresupuesto.Presupuestado ||
+                                r.Estado == EstadoPresupuesto.Seniado) &&
+                                (r.FechaVencimiento <= fechaVencimient)
+                                ).ToList<Presupuesto>();
+            }
+            return pres;
+        }
+
+
+
 
     }
 }

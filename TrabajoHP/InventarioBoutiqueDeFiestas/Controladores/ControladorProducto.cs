@@ -82,11 +82,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
-        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar)
+        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar, int idVenta)
         {
             using (var repo=new Repositorio())
             {
                 repo.Lotes.Find(idLote).CantidadProductos-=pCantidadADescontar;
+                Venta venta=repo.Ventas.Find(idVenta);
+                Lote lote = repo.Lotes.Find(idLote);
+                LoteVendido loteVendido = new LoteVendido(venta,lote);
+                loteVendido.Cantidad = pCantidadADescontar;
+                repo.LoteVendidos.Add(loteVendido);
                 repo.SaveChanges();
             }
         }
@@ -444,7 +449,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             using (var repo = new Repositorio())
             {
                 Producto pro = repo.Productos.Include("Categoria").Where(p => p.Id == pProducto).First();
-                return (ProductoADTO(pro));
+                return (ProductoADTO(pro)); 
             }
         }
 
@@ -454,6 +459,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 CategoriaProducto catpro = repo.Productos.Include("Categoria").Where(p => p.Id == pProductoId).First().Categoria;
                 return catpro.Vence;
+            }
+        }
+
+
+        public List<Lote> LotesProximosAVencer (int pDias)
+        {
+            using (var repo = new Repositorio())
+            {
+                return repo.Lotes.Include("Producto").Where(p => p.FechaVencimiento <= DateTime.Now.AddDays(pDias) && p.CantidadProductos>0 && p.Vencido == false).ToList();
             }
         }
 
