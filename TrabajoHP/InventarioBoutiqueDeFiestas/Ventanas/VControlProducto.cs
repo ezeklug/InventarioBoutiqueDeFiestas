@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -373,6 +375,41 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 dataGridView1.Columns[13].Visible = true;
                 dataGridView1.DataSource = controladorFachada.ListarProductosMasVendidos();
             }
+        }
+        private ProductoDTO RowAProductoDTO(DataGridViewRow row)
+        {
+            var productoDTO = new ProductoDTO()
+            {
+                Id = Convert.ToInt32(row.Cells[1].Value),
+                Nombre = Convert.ToString(row.Cells[2].Value),
+                Descripcion = Convert.ToString(row.Cells[3].Value),
+                StockMinimo = Convert.ToInt32(row.Cells[4].Value),
+                CantidadEnStock = Convert.ToInt32(row.Cells[5].Value),
+                PorcentajeDeGanancia = Convert.ToDouble(row.Cells[6].Value),
+                PrecioDeCompra = Convert.ToDouble(row.Cells[7].Value),
+                PrecioVenta = Convert.ToDouble(row.Cells[8].Value),
+                Activo = Convert.ToBoolean(row.Cells[9].Value),
+                IdCategoria = Convert.ToInt32(row.Cells[10].Value),
+                //CategoriaProductoDTO= 
+                Categoria = Convert.ToString(row.Cells[12].Value),
+                CantidadVendida = Convert.ToInt32(row.Cells[13].Value)
+            };
+
+            return productoDTO;
+        }
+           
+
+        
+
+
+        private void botonExportar_Click(object sender, EventArgs e)
+        {
+            List<ProductoDTO> productos = new List<ProductoDTO>();
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                productos.Add(RowAProductoDTO(row));
+            }
+            GenPdf.PDFProductos(productos);
         }
     }
 }

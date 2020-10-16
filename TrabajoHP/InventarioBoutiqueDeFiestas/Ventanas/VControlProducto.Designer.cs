@@ -41,6 +41,7 @@
             this.CargarPresupuesto = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
             this.Listas = new System.Windows.Forms.ComboBox();
+            this.botonExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 80);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(838, 277);
+            this.dataGridView1.Size = new System.Drawing.Size(882, 277);
             this.dataGridView1.TabIndex = 8;
             // 
             // Agregar
@@ -85,7 +86,7 @@
             this.Agregar.FlatAppearance.BorderSize = 0;
             this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Agregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Agregar.Location = new System.Drawing.Point(27, 385);
+            this.Agregar.Location = new System.Drawing.Point(12, 385);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(75, 23);
             this.Agregar.TabIndex = 9;
@@ -100,7 +101,7 @@
             this.Modificar.FlatAppearance.BorderSize = 0;
             this.Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Modificar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Modificar.Location = new System.Drawing.Point(121, 385);
+            this.Modificar.Location = new System.Drawing.Point(103, 385);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(75, 23);
             this.Modificar.TabIndex = 10;
@@ -115,7 +116,7 @@
             this.IngresoMercaderia.FlatAppearance.BorderSize = 0;
             this.IngresoMercaderia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IngresoMercaderia.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IngresoMercaderia.Location = new System.Drawing.Point(353, 385);
+            this.IngresoMercaderia.Location = new System.Drawing.Point(316, 385);
             this.IngresoMercaderia.Name = "IngresoMercaderia";
             this.IngresoMercaderia.Size = new System.Drawing.Size(156, 23);
             this.IngresoMercaderia.TabIndex = 11;
@@ -130,7 +131,7 @@
             this.PorcentajeIncremento.FlatAppearance.BorderSize = 0;
             this.PorcentajeIncremento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PorcentajeIncremento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PorcentajeIncremento.Location = new System.Drawing.Point(538, 385);
+            this.PorcentajeIncremento.Location = new System.Drawing.Point(487, 385);
             this.PorcentajeIncremento.Name = "PorcentajeIncremento";
             this.PorcentajeIncremento.Size = new System.Drawing.Size(154, 23);
             this.PorcentajeIncremento.TabIndex = 12;
@@ -145,7 +146,7 @@
             this.Categoria.FlatAppearance.BorderSize = 0;
             this.Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Categoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Categoria.Location = new System.Drawing.Point(723, 385);
+            this.Categoria.Location = new System.Drawing.Point(667, 385);
             this.Categoria.Name = "Categoria";
             this.Categoria.Size = new System.Drawing.Size(110, 23);
             this.Categoria.TabIndex = 13;
@@ -180,7 +181,7 @@
             this.CargarPresupuesto.FlatAppearance.BorderSize = 0;
             this.CargarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CargarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CargarPresupuesto.Location = new System.Drawing.Point(353, 385);
+            this.CargarPresupuesto.Location = new System.Drawing.Point(316, 385);
             this.CargarPresupuesto.Name = "CargarPresupuesto";
             this.CargarPresupuesto.Size = new System.Drawing.Size(156, 23);
             this.CargarPresupuesto.TabIndex = 17;
@@ -195,7 +196,7 @@
             this.Eliminar.FlatAppearance.BorderSize = 0;
             this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Eliminar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Eliminar.Location = new System.Drawing.Point(226, 385);
+            this.Eliminar.Location = new System.Drawing.Point(202, 385);
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(96, 23);
             this.Eliminar.TabIndex = 18;
@@ -213,11 +214,27 @@
             this.Listas.Text = "Todos";
             this.Listas.SelectedIndexChanged += new System.EventHandler(this.Listas_SelectedIndexChanged);
             // 
+            // botonExportar
+            // 
+            this.botonExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.botonExportar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.botonExportar.FlatAppearance.BorderSize = 0;
+            this.botonExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonExportar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonExportar.Location = new System.Drawing.Point(795, 380);
+            this.botonExportar.Name = "botonExportar";
+            this.botonExportar.Size = new System.Drawing.Size(112, 28);
+            this.botonExportar.TabIndex = 20;
+            this.botonExportar.Text = "Exportar a pdf";
+            this.botonExportar.UseVisualStyleBackColor = false;
+            this.botonExportar.Click += new System.EventHandler(this.botonExportar_Click);
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 420);
+            this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.Listas);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.CargarPresupuesto);
@@ -256,5 +273,6 @@
         private System.Windows.Forms.Button CargarPresupuesto;
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.ComboBox Listas;
+        private System.Windows.Forms.Button botonExportar;
     }
 }
