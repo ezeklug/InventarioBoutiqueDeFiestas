@@ -15,8 +15,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
     /// </summary>
     public class GenPdf
     {
-
-        private static string temp_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/temp.html";
+        /// <summary>
+        /// Prefix es el prefijo de cada computadora
+        /// Cambiarlo para cada pc
+        /// </summary>
+        private static string prefix = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/";
+        private static string temp_file = prefix+"temp.html";
 
 
         /// <summary>
@@ -25,7 +29,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// <param name="pProductos"></param>
         public static void  PDFProductos(List<ProductoDTO> pProductos)
         {
-            string template_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/TemplateProductos.html";
+            string template_file = prefix+"TemplateProductos.html";
 
             string doc = File.ReadAllText(template_file);
             string headers = "<tr> <th>Id</th> <th>Nombre</th> <th>Cantidad en stock</th> <th>Stock Minimo</th> <th>Check</th> </tr>";
@@ -43,7 +47,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
         public static void PDFPresupuesto(Presupuesto pPresupuesto) {
-            string template_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/TemplatePresupuesto.html";
+            string template_file =prefix+"TemplatePresupuesto.html";
 
 
             string doc = File.ReadAllText(template_file);
@@ -65,7 +69,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         public static void PDFClientes(ICollection<ClienteDTO> pClientes)
         {
-            string template_file = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/TemplateClientes.html";
+            string template_file = prefix+"TemplateClientes.html";
 
 
             string doc = File.ReadAllText(template_file);
