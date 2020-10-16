@@ -83,10 +83,5 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Hide();
             this.Close();
         }
-
-        private void MontoVenta_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

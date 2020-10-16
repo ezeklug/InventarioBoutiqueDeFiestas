@@ -67,6 +67,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void VAdministrarPresupuesto_Load(object sender, EventArgs e)
         {
+            string EstadoPresupuesto = "";
+            if (IdPresupuesto!=0)
+            {
+                EstadoPresupuesto = controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado;
+            }
             dataGridView1.Columns.Add("Id", "Id");
             dataGridView1.Columns.Add("Nombre", "Nombre");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
@@ -135,6 +140,23 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
             }
             Total.Text = PrecioVenta().ToString();
+            if (EstadoPresupuesto=="Vendido" || EstadoPresupuesto=="Cancelado")
+            {
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[4].ReadOnly = true;
+                DescuentoTotal.ReadOnly = true;
+                Seniar.Visible = false;
+                Guardar.Visible = false;
+                Vender.Text = "Venta";
+                BuscarCliente.Visible = false;
+                CargarProductos.Visible = false;
+                dateTimePicker1.Visible = false;
+                label5.Visible = false;
+            }
+            if (EstadoPresupuesto=="Cancelado")
+            {
+                Vender.Visible = false;
+            }
         }
 
         private void CalcularSubtotal()
@@ -219,11 +241,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Guardar_Click(object sender, EventArgs e)
         {
-
             this.GuardarPresupuesto(sender, e);
             MessageBox.Show("Se guardó correctamente el presupuesto");
         }
-        private void GuardarPresupuesto(object sender, EventArgs e)
+        private int GuardarPresupuesto(object sender, EventArgs e)
         {
             if (IdCliente == 0)
             {
@@ -262,6 +283,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     controladorFachada.AgregarLinea(lin);
                 }
             }
+            return IdPresupuesto;
         }
 
         private void Seniar_Click(object sender, EventArgs e)
@@ -286,6 +308,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {            
             this.GuardarPresupuesto(sender, e);
             List<int> idLineas = controladorFachada.CheckStockPresupuesto(IdPresupuesto);
+            string EstadoPresupuesto = controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado;
             if (IdCliente == 0)
             {
                 MessageBox.Show("Debe seleccionar un cliente");
@@ -294,17 +317,30 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
             }
-            else if (idLineas.Count == 0) //Hay stock de todos los productos a vender 
+            else if (idLineas.Count == 0 && EstadoPresupuesto!="Vendido" && EstadoPresupuesto != "Cancelado") //Hay stock de todos los productos a vender 
+            {
+                new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
+            }
+            else if (idLineas.Count>0 && EstadoPresupuesto != "Vendido" && EstadoPresupuesto != "Cancelado")
+            {
+                foreach (int idLinea in idLineas)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value.ToString() == idLinea.ToString())
+                        {
+                            ProductoDTO producto = controladorFachada.BuscarProducto(Convert.ToInt32(row.Cells[0].Value));
+                            this.dataGridView1.Rows[row.Index].Cells[2].ErrorText = ("Hay en stock " + producto.CantidadEnStock);
+                            row.Cells[2].Style.BackColor = Color.Salmon;
+                        }
+                    }
+                }
+            }
+            else if (EstadoPresupuesto=="Vendido")
             {
                 new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
                 if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado == "Vendido")
                 {
-                    dataGridView1.Rows.Clear();
-                    foreach (LineaPresupuestoDTO lin in controladorFachada.ListarLineasPresupuesto(IdPresupuesto))
-                    {
-                        string[] row = new string[] { lin.IdProducto.ToString(), lin.NombreProducto, lin.Cantidad.ToString(), lin.PrecioUnitario.ToString(), lin.PorcentajeDescuento.ToString(), lin.Subtotal.ToString() };
-                        dataGridView1.Rows.Add(row);
-                    }
                     dataGridView1.Columns[2].ReadOnly = true;
                     dataGridView1.Columns[4].ReadOnly = true;
                     DescuentoTotal.ReadOnly = true;
@@ -315,24 +351,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
                     label5.Visible = false;
-                }
-            }
-            else //No hay stock de todos los productos a vender
-            {
-                foreach (int idLinea in idLineas)
-                {
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        if (row.Cells[0].Value.ToString() == idLinea.ToString())
-                        {
-                            //Hacerrrrrrrrrrr
-                            //MessageBox.Show("Solo hay" 0 "unidades del producto: " + dataGridView1.Rows[row.Index].Cells[1]);
-                            ProductoDTO producto= controladorFachada.BuscarProducto(Convert.ToInt32(row.Cells[0].Value));
-                            this.dataGridView1.Rows[row.Index].Cells[2].ErrorText = ("Hay en stock "+ producto.CantidadEnStock );
-                            row.Cells[2].Style.BackColor = Color.Salmon;
-                            ///throw new NotImplementedException();
-                        }
-                    }
                 }
             }
         }
