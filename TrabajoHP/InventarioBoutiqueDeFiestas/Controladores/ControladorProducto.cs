@@ -449,7 +449,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             using (var repo = new Repositorio())
             {
                 Producto pro = repo.Productos.Include("Categoria").Where(p => p.Id == pProducto).First();
-                return (ProductoADTO(pro));
+                return (ProductoADTO(pro)); 
             }
         }
 
@@ -459,6 +459,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 CategoriaProducto catpro = repo.Productos.Include("Categoria").Where(p => p.Id == pProductoId).First().Categoria;
                 return catpro.Vence;
+            }
+        }
+
+
+        public List<Lote> LotesProximosAVencer (int pDias)
+        {
+            using (var repo = new Repositorio())
+            {
+                return repo.Lotes.Include("Producto").Where(p => p.FechaVencimiento <= DateTime.Now.AddDays(pDias) && p.CantidadProductos>0 && p.Vencido == false).ToList();
             }
         }
 

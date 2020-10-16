@@ -588,5 +588,23 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public List<Presupuesto> PresupuestosProximosAVencer(int pDiasDesdeHoy)
+        {
+            List<Presupuesto> pres;
+            DateTime fechaVencimient = DateTime.Today + TimeSpan.FromDays(pDiasDesdeHoy);
+            using (var repo = new Repositorio())
+            {
+                pres = repo.Presupuestos.Where(r =>
+                               (r.Estado == EstadoPresupuesto.Presupuestado ||
+                                r.Estado == EstadoPresupuesto.Seniado) &&
+                                (r.FechaVencimiento <= fechaVencimient)
+                                ).ToList<Presupuesto>();
+            }
+            return pres;
+        }
+
+
+
+
     }
 }

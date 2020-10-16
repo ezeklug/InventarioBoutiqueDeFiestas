@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202010132141004_loteVendido.designer.cs">
       <DependentUpon>202010132141004_loteVendido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010162202412_init3.cs" />
+    <Compile Include="Migrations\202010162202412_init3.designer.cs">
+      <DependentUpon>202010162202412_init3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ventanas\VAgregarModificarCategoria.cs">
       <SubType>Form</SubType>
@@ -296,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010132141004_loteVendido.resx">
       <DependentUpon>202010132141004_loteVendido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010162202412_init3.resx">
+      <DependentUpon>202010162202412_init3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
