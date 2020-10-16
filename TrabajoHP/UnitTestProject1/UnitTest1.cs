@@ -158,7 +158,7 @@ namespace UnitTestProject1
         {
             ControladorProducto cont = new ControladorProducto();
             var Productos = cont.ListarTodosLosProductos();
-            foreach (Producto pro in Productos)
+            foreach (ProductoDTO pro in Productos)
             {
                 Console.WriteLine(pro.Id);
             }
@@ -195,7 +195,7 @@ namespace UnitTestProject1
         public void generarPDFHTML()
         {
             ControladorProducto cont = new ControladorProducto();
-            List<Producto> pros = cont.ListarTodosLosProductos();
+            List<ProductoDTO> pros = cont.ListarTodosLosProductos();
             string doc = File.ReadAllText("C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/List.html");
             string lista = "";
 
@@ -242,7 +242,17 @@ namespace UnitTestProject1
         public void TestGenPdf() {
             var cont = new ControladorFachada();
             //GenPdf.PDFProductos(cont.ListarTodosLosProductos());
-        }        
+        }
 
+
+        //[TestMethod]
+        public void TestPresupuestosProximosAVencer() {
+            int dias = 15;
+            var pres = new ControladorPresupuesto().PresupuestosProximosAVencer(dias);
+            foreach (var pre in pres)
+            {
+                Console.WriteLine(pre.Id);
+            }
+        }
     }
 }
