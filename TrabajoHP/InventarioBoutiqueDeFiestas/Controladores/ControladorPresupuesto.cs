@@ -77,9 +77,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 {
                     LoteVendidoDTO loteVendidoDTO = new LoteVendidoDTO();
                     loteVendidoDTO.Id=loteVendido.Id;
-                    loteVendidoDTO.NombreProducto=repo.Lotes.Include("Producto").Where(l=>l.Id==loteVendido.Id).FirstOrDefault().Producto.Nombre;
+                    loteVendidoDTO.NombreProducto=repo.Lotes.Include("Producto").Where(l=>l.Id==loteVendido.Lote.Id).FirstOrDefault().Producto.Nombre;
                     loteVendidoDTO.Cantidad = loteVendido.Cantidad;
-                    loteVendidoDTO.idLote=loteVendido.Id;
+                    loteVendidoDTO.idLote=loteVendido.Lote.Id;
                     ADevolver.Add(loteVendidoDTO);
                 }
             }

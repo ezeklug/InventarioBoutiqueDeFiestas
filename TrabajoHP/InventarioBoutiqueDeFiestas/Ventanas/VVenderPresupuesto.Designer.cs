@@ -129,7 +129,6 @@
             this.MontoVenta.Size = new System.Drawing.Size(60, 17);
             this.MontoVenta.TabIndex = 19;
             this.MontoVenta.Text = "$0000.00";
-            this.MontoVenta.Click += new System.EventHandler(this.MontoVenta_Click);
             // 
             // VendidoTexto
             // 
