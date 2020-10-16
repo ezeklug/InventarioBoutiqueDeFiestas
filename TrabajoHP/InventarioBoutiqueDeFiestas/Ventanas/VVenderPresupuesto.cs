@@ -25,11 +25,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void VVenderPresupuesto_Load(object sender, EventArgs e)
         {
             NombreCliente.Text =controladorFachada.BuscarNombreCliente(IdCliente);
@@ -45,29 +40,39 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
-            foreach (LineaPresupuestoDTO linea in Lineas)
-            {
-                foreach(KeyValuePair<int,int> lote in linea.LoteYCantidad)
-                {
-                    string[] row = new string[] { linea.NombreProducto, lote.Value.ToString(),lote.Key.ToString()};
-                    dataGridView1.Rows.Add(row);
-                }
-
-            }
-            if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado=="Vendido")
+            if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado == "Vendido")
             {
                 Cancelar.Text = "Volver";
                 Vender.Visible = false;
+                List<LoteVendidoDTO> lotesVendidos=controladorFachada.GetLotesVendidosVenta(IdPresupuesto);
+                foreach (LoteVendidoDTO loteVendido in lotesVendidos)
+                {
+                    string[] row = new string[] { loteVendido.NombreProducto, loteVendido.Cantidad.ToString(),loteVendido.idLote.ToString() };
+                    dataGridView1.Rows.Add(row);
+                }
+            }
+            else
+            {
+                foreach (LineaPresupuestoDTO linea in Lineas)
+                {
+                    foreach (KeyValuePair<int, int> lote in linea.LoteYCantidad)
+                    {
+                        string[] row = new string[] { linea.NombreProducto, lote.Value.ToString(), lote.Key.ToString() };
+                        dataGridView1.Rows.Add(row);
+                    }
+
+                }
             }
         }
 
         private void Vender_Click(object sender, EventArgs e)
         {
+            int idVenta = controladorFachada.Vender(IdPresupuesto);
             foreach (LineaPresupuestoDTO linea in Lineas)
             {
                 foreach (KeyValuePair<int, int> loteyCantidad in linea.LoteYCantidad)
                 {
-                    controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value);
+                    controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value, idVenta);
                 }
             }
             VendidoTexto.Visible = true;

@@ -19,7 +19,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Prefix es el prefijo de cada computadora
         /// Cambiarlo para cada pc
         /// </summary>
-        private static string prefix = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/";
+        private static string prefix = "C:/Users/Ezequiel Klug/Source/Repos/InventarioBoutiqueDeFiestas2/TrabajoHP/UnitTestProject1/";
         private static string temp_file = prefix+"temp.html";
 
 

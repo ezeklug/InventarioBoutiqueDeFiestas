@@ -82,11 +82,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
-        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar)
+        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar, int idVenta)
         {
             using (var repo=new Repositorio())
             {
                 repo.Lotes.Find(idLote).CantidadProductos-=pCantidadADescontar;
+                Venta venta=repo.Ventas.Find(idVenta);
+                Lote lote = repo.Lotes.Find(idLote);
+                LoteVendido loteVendido = new LoteVendido(venta,lote);
+                loteVendido.Cantidad = pCantidadADescontar;
+                repo.LoteVendidos.Add(loteVendido);
                 repo.SaveChanges();
             }
         }

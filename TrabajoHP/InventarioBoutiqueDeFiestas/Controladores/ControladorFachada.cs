@@ -60,15 +60,20 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorPresupuesto.AgregarModificarLinea(pPresupuestoDTO);
         }
 
+        public List<LoteVendidoDTO> GetLotesVendidosVenta(int idPresupuesto)
+        {
+            return controladorPresupuesto.GetLotesVendidosVenta(idPresupuesto);
+        }
+
 
 
         /// <summary>
         /// Este método permite vender un presupuesto, pasando como parámetro el id del presupuesto
         /// </summary>
         /// <param name="pIdPresupuesto"></param>
-        public List<Tuple<string, int, int>> Vender(int pIdPresupuesto)
+        public int Vender(int pIdPresupuesto)
         {
-            return controladorPresupuesto.Vender(pIdPresupuesto);
+            return this.controladorPresupuesto.Vender(pIdPresupuesto);
         }
 
         /// <summary>
@@ -81,9 +86,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorPresupuesto.AsociarCliente(pIdCliente, pIdPresupuesto);
         }
 
-        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar)
+        public void DescontarProductosDeLote(int idLote, int pCantidadADescontar, int idVenta)
         {
-            controladorProducto.DescontarProductosDeLote(idLote, pCantidadADescontar);
+            controladorProducto.DescontarProductosDeLote(idLote, pCantidadADescontar, idVenta);
         }
 
         /// <summary>
