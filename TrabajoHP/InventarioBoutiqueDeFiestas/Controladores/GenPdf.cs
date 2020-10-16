@@ -19,7 +19,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Prefix es el prefijo de cada computadora
         /// Cambiarlo para cada pc
         /// </summary>
-        private static string prefix = "C:/Users/leo/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/";
+        private static string prefix = "C:/Users/victo/Source/Repos/ezeklug/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/";
         private static string temp_file = prefix+"temp.html";
 
 
@@ -32,11 +32,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             string template_file = prefix+"TemplateProductos.html";
 
             string doc = File.ReadAllText(template_file);
-            string headers = "<tr> <th>Id</th> <th>Nombre</th> <th>Cantidad en stock</th> <th>Stock Minimo</th> <th>Check</th> </tr>";
+            string headers = "<tr>  <th>Nombre</th> <th>Cantidad en stock</th> <th>Stock Minimo</th> <th>Check</th> </tr>";
             string lista = "";
             foreach (var pro in pProductos)
             {
-                lista += $"<tr><td>{pro.Id}</td><td>{pro.Nombre}</td><td>{pro.CantidadEnStock}</td> <td>{pro.StockMinimo}</td> <td></td> </tr>\n";
+                lista += $"<tr><td>{pro.Nombre}</td><td>{pro.CantidadEnStock}</td> <td>{pro.StockMinimo}</td> <td></td> </tr>\n";
             }
 
             doc = doc.Replace("[]", headers);
