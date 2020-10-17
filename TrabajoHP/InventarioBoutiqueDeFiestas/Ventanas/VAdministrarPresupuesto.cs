@@ -408,5 +408,36 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 e.Handled = true;
             }
         }
+
+        public LineaPresupuestoDTO RowALineaPresupuestoDTO(DataGridViewRow row)
+        {
+            var linea = new LineaPresupuestoDTO()
+            {
+                Id = Convert.ToInt32(row.Cells[1].Value),
+                NombreProducto = Convert.ToString(row.Cells[2].Value),
+                Cantidad = Convert.ToInt32(row.Cells[3].Value),
+                PrecioUnitario = Convert.ToDouble(row.Cells[4].Value),
+                PorcentajeDescuento = Convert.ToDouble(row.Cells[5].Value),
+                Subtotal = Convert.ToDouble(row.Cells[6].Value)
+            };
+
+            return linea;
+        }
+           
+        
+        private void botonExportar_Click(object sender, EventArgs e)
+        {
+            List<PresupuestoDTO> presupuesto= new List<PresupuestoDTO>();
+            
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                presupuesto.Add(RowALineaPresupuestoDTO(row));
+            }
+            PresupuestoDTO presupuestoDTO= new PresupuestoDTO()
+            {
+                
+            }
+            GenPdf.PDFClientes(clientes);
+        }
     }
 }
