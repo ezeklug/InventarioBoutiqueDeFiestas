@@ -141,6 +141,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 dataGridView1.DataSource = controladorFachada.ListarPresupuestoVendidos();
 
             }
+            else
+            {
+                //Cancelados
+                dataGridView1.DataSource = controladorFachada.ListarPresupuestoCancelados();
+
+            }
         }
 
         private void buscar_TextChanged(object sender, EventArgs e)

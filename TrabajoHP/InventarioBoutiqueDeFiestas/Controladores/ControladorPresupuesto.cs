@@ -173,7 +173,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p=>p.Estado=="Presupuestado").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Presupuestado").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -195,7 +195,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Seniado").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Seniado").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -211,7 +211,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Vendido").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Vendido").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -227,7 +227,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Cancelado").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Cancelado").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -345,13 +345,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<int> idLineas = new List<int>();
             using (var repo=new Repositorio())
             {
-                Presupuesto presupuesto=repo.Presupuestos.Include("Lineas").Where(p => p.Id == idPresupuesto).First();
-                foreach (LineaPresupuesto linea in presupuesto.Lineas)
+                if (idPresupuesto!=0)
                 {
-                   Producto producto=repo.Productos.Find(repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.Id);
-                    if(linea.Cantidad > producto.CantidadEnStock)
+                    Presupuesto presupuesto = repo.Presupuestos.Include("Lineas").Where(p => p.Id == idPresupuesto).First();
+                    foreach (LineaPresupuesto linea in presupuesto.Lineas)
                     {
-                        idLineas.Add(producto.Id);
+                        Producto producto = repo.Productos.Find(repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.Id);
+                        if (linea.Cantidad > producto.CantidadEnStock)
+                        {
+                            idLineas.Add(producto.Id);
+                        }
                     }
                 }
             }
@@ -445,7 +448,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").OrderByDescending(p => p.Estado == "Presupuestado").ThenByDescending(p=>p.Estado=="Seniado").ThenByDescending(p => p.Estado).ThenBy(p=>p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {

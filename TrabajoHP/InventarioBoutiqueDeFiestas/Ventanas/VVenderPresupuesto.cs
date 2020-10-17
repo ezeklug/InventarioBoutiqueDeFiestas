@@ -75,7 +75,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     controladorFachada.DescontarProductosDeLote(loteyCantidad.Key, loteyCantidad.Value, idVenta);
                 }
             }
-            VendidoTexto.Visible = true;
+            if (idVenta!=0)
+            {
+                VendidoTexto.Visible = true;
+                Vender.Visible = false;
+                Cancelar.Text="Volver";
+            }
         }
 
         private void Cancelar_Click(object sender, EventArgs e)

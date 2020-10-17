@@ -72,6 +72,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 EstadoPresupuesto = controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado;
             }
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
             dataGridView1.Columns.Add("Id", "Id");
             dataGridView1.Columns.Add("Nombre", "Nombre");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
@@ -133,6 +135,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     Seniar.Visible = false;
                     Guardar.Visible = false;
                     Vender.Text = "Venta";
+                    Cancelar.Text = "Volver";
                     BuscarCliente.Visible = false;
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
@@ -148,6 +151,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 Seniar.Visible = false;
                 Guardar.Visible = false;
                 Vender.Text = "Venta";
+                Cancelar.Text = "Volver";
                 BuscarCliente.Visible = false;
                 CargarProductos.Visible = false;
                 dateTimePicker1.Visible = false;
@@ -353,6 +357,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     label5.Visible = false;
                 }
             }
+            this.VAdministrarPresupuesto_Load(sender, e);
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
