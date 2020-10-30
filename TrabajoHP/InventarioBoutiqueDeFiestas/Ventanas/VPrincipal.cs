@@ -30,17 +30,13 @@ namespace InventarioBoutiqueDeFiestas
 
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Add("Fecha", "Fecha");
-            dataGridView1.Columns.Add("Descripcion", "Descripcion");
-            dataGridView1.Columns.Add("PresupuestoId", "PresupuestoId");
-            dataGridView1.Columns.Add("LoteId", "LoteId");
+            dataGridView1.DataSource = controladorFachada.getNotificaciones();
             dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
-            dataGridView1.DataSource = controladorFachada.getNotificaciones();
         }
 
         private void ControlPresupuesto_Click(object sender, EventArgs e)
