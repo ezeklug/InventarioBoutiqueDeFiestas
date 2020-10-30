@@ -13,21 +13,18 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VVentanaNotificacionDetalle : Form
     {
-        NotificacionDTO iNotificacion;
-        public VVentanaNotificacionDetalle()
+        public VVentanaNotificacionDetalle(DataGridViewRow iNotificacion)
         {
             InitializeComponent();
-            this.NumeroLoteLabel.Text = iNotificacion.IdLote.ToString();
-            this.NumeroPresupuestoLabel.Text = iNotificacion.IdPresupuesto.ToString();
-            this.DescripcionLabel.Text = iNotificacion.Descripcion.ToString();
-            this.VencimientoLabel.Text = iNotificacion.FechaVencimiento.ToString();
-
+            this.VencimientoLabel.Text = iNotificacion.Cells[0].Value.ToString();
+            this.DescripcionLabel.Text = iNotificacion.Cells[1].Value.ToString();
+            this.NumeroPresupuestoLabel.Text = iNotificacion.Cells[2].Value.ToString();
+            this.NumeroLoteLabel.Text = iNotificacion.Cells[3].Value.ToString();
         }
 
         private void VVentanaNotificacionDetalle_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }
