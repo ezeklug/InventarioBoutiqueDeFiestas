@@ -22,7 +22,9 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             FechaCompra = DateTime.Now;
             FechaVencimiento = pFechaVencimiento;
             Producto = pProducto;
+            Vencido = false;
         }
+        
         public Lote() { }
     }
 }
