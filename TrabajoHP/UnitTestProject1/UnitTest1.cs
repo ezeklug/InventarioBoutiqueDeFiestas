@@ -245,19 +245,16 @@ namespace UnitTestProject1
         }
 
 
-        //[TestMethod]
-        public void TestPresupuestosProximosAVencer() {
-            int dias = 15;
-            var pres = new ControladorPresupuesto().PresupuestosProximosAVencer(dias);
-            foreach (var pre in pres)
-            {
-                Console.WriteLine(pre.Id);
-            }
-        }
         [TestMethod]
-        public void TestGetNotificaciones() {
+        public void TesstGetNotificaciones() {
             var cont = new ControladorFachada();
-            Console.WriteLine(cont.getNotificaciones());
+
+            var nots = cont.getNotificaciones();
+
+            foreach(var not in nots)
+            {
+                Console.WriteLine(not.Descripcion);
+            }
 
         }
 
