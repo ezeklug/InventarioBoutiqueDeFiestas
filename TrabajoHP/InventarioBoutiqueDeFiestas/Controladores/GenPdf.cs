@@ -56,6 +56,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
             foreach(var linea in pPresupuesto.Lineas)
             {
+                
                 lista += $"<tr> <td> {linea.Producto.Nombre} </td> <th> {linea.Cantidad} </td> <td> {linea.Producto.PrecioVenta()} </td> <td> {linea.Subtotal} </td></tr>";
             }
 

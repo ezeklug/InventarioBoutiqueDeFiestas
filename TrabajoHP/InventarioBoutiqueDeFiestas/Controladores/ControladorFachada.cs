@@ -76,6 +76,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return this.controladorPresupuesto.Vender(pIdPresupuesto);
         }
 
+        public void generarPDFPresupuesto(int idPresupuesto)
+        {
+            Presupuesto presupuesto = controladorPresupuesto.BuscarPresupuesto(idPresupuesto);
+            GenPdf.PDFPresupuesto(presupuesto);
+        }
+
         /// <summary>
         /// Este metodo permite asociar un cliente a un presupuesto, pasando como parámetro el id del presupuesto y el id del cliente.
         /// </summary>
