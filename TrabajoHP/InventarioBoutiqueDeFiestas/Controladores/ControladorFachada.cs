@@ -373,5 +373,9 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return controladorPresupuesto.ListarLineasConLotePresupuesto(pIdPresupuesto);
         }
 
+
+        public List<(DateTime, String)> Notificaciones() {
+            throw new NotImplementedException();
+        }
     }
 }

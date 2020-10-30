@@ -1,5 +1,6 @@
 ﻿using InventarioBoutiqueDeFiestas.Ventanas;
 using System;
+using InventarioBoutiqueDeFiestas.Controladores;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,8 @@ namespace InventarioBoutiqueDeFiestas
 
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-
+            //var cont = new ControladorFachada();
+            //var not = cont.Notificaciones();
         }
 
         private void ControlPresupuesto_Click(object sender, EventArgs e)
@@ -45,6 +47,16 @@ namespace InventarioBoutiqueDeFiestas
             VControlProducto vControlProductos = new VControlProducto();
             vControlProductos.ShowDialog();
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
