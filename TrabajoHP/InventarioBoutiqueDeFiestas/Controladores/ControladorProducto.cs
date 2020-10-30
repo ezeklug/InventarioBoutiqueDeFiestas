@@ -458,7 +458,42 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
 
-        public List<NotificacionDTO> 
+
+        /// <summary>
+        /// Devuelve una notificacion por cada lote proximo a vencer
+        /// </summary>
+        /// <param name="pTiempoDentroDe"></param>
+        /// <returns></returns>
+        public List<NotificacionDTO> getNotificaciones(int pTiempoDentroDe)
+        {
+            var notificaciones = new List<NotificacionDTO>();
+            using (var repo = new Repositorio())
+            {
+                // Buscar lotes que no esten vencidos y 
+                // la fecha de vencimiento este dentro de 15 dias
+                var lotes = repo.Lotes.Where(l =>
+                                ((l.Vencido == false) &&
+                                (l.FechaVencimiento <= (DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe))))
+                                );
+                foreach (var lote in lotes)
+                {
+                    var notif = new NotificacionDTO();
+                    notif.IdLote = lote.Id;
+                    notif.FechaVencimiento = lote.FechaVencimiento;
+                    if (lote.FechaVencimiento <= DateTime.Now)
+                    {
+                        notif.Descripcion = $"Lote {lote.Id} vencido";
+                    }
+                    else
+                    {
+                        notif.Descripcion = $"Lote {lote.Id} proximo a vencerse";
+                    }
+                    notificaciones.Add(notif);
+                }
+            }
+
+            return notificaciones;
+        }
         
 
 
