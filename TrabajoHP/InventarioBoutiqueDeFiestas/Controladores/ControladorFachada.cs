@@ -374,8 +374,21 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
 
-        public List<(DateTime, String)> Notificaciones() {
-            throw new NotImplementedException();
+        /// <summary>
+        /// Devuelve una lista con las notificaciones
+        /// </summary>
+        /// <returns></returns>
+        public List<NotificacionDTO> getNotificaciones() {
+            // Lotes a vencer o vencidos
+            // Presupuestos a vencer o vencidos
+            int t = 7; //buscar todos las notificaciones dentro de 7 dias
+
+            var contPro = new ControladorProducto();
+            var contPresu = new ControladorPresupuesto();
+            List<NotificacionDTO> notificacionesProducto = contPro.getNotificaciones(t);
+            List<NotificacionDTO> notificacionesPresupuesto = contPresu.getNotificaciones(t);
+            notificacionesProducto.AddRange(notificacionesPresupuesto);
+            return notificacionesProducto;
         }
     }
 }
