@@ -606,10 +606,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 // Obtener los prespuestos con estado seniado o presupuestado
                 // proximos a vencer o vencidos
+                DateTime fechaDentroDe = DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe);
                 var presupuestos = repo.Presupuestos.Where(p => 
                         ((p.Estado == EstadoPresupuesto.Presupuestado) ||
                         (p.Estado == EstadoPresupuesto.Seniado)) &&
-                        (p.FechaVencimiento <= (DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe)))
+                        (p.FechaVencimiento <= fechaDentroDe)
                         );
                 foreach(var pre in presupuestos)
                 {

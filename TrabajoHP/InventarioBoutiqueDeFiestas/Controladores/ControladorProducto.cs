@@ -471,9 +471,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             {
                 // Buscar lotes que no esten vencidos y 
                 // la fecha de vencimiento este dentro de 15 dias
+                DateTime fechaDentroDe = DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe);
                 var lotes = repo.Lotes.Where(l =>
                                 ((l.Vencido == false) &&
-                                (l.FechaVencimiento <= (DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe))))
+                                (l.FechaVencimiento <= fechaDentroDe))
                                 );
                 foreach (var lote in lotes)
                 {

@@ -254,5 +254,12 @@ namespace UnitTestProject1
                 Console.WriteLine(pre.Id);
             }
         }
+        [TestMethod]
+        public void TestGetNotificaciones() {
+            var cont = new ControladorFachada();
+            Console.WriteLine(cont.getNotificaciones());
+
+        }
+
     }
 }
