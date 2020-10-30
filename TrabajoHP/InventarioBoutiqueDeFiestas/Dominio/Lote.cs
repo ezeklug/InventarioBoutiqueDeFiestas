@@ -22,15 +22,6 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             FechaCompra = DateTime.Now;
             FechaVencimiento = pFechaVencimiento;
             Producto = pProducto;
-            EstaVencido();
-        }
-        public void EstaVencido()
-        {
-            if (DateTime.Now < this.FechaVencimiento)
-            {
-                Vencido = false;
-            }
-            else { Vencido = true; }
         }
         public Lote() { }
     }
