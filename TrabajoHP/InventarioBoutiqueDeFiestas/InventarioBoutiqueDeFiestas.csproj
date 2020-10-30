@@ -188,6 +188,7 @@
     <Compile Include="DTO\ClienteDTO.cs" />
     <Compile Include="DTO\LineaPresupuestoDTO.cs" />
     <Compile Include="DTO\LoteDTO.cs" />
+    <Compile Include="DTO\NotificacionDTO.cs" />
     <Compile Include="DTO\LoteVendidoDTO.cs" />
     <Compile Include="DTO\PresupuestoDTO.cs" />
     <Compile Include="DTO\ProductoDTO.cs" />
@@ -258,6 +259,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventanas\VPorcentajeIncremento.Designer.cs">
+      <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VVentanaNotificacionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VVentanaNotificacionDetalle.Designer.cs">
       <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\VPrincipal.cs">

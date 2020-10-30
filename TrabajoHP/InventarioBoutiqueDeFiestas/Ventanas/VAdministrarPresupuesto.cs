@@ -427,17 +427,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         
         private void botonExportar_Click(object sender, EventArgs e)
         {
-            List<PresupuestoDTO> presupuesto= new List<PresupuestoDTO>();
+            //List<PresupuestoDTO> presupuesto= new List<PresupuestoDTO>();
             
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                presupuesto.Add(RowALineaPresupuestoDTO(row));
-            }
-            PresupuestoDTO presupuestoDTO= new PresupuestoDTO()
-            {
+            //foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+            //    presupuesto.Add(RowALineaPresupuestoDTO(row));
+            //}
+            //PresupuestoDTO presupuestoDTO= new PresupuestoDTO()
+            //{
                 
-            }
-            GenPdf.PDFClientes(clientes);
+            //}
+            //GenPdf.PDFClientes(clientes);
         }
     }
 }
