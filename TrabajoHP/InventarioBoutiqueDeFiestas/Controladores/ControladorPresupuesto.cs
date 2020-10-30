@@ -173,7 +173,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p=>p.Estado=="Presupuestado").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Presupuestado").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -195,7 +195,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Seniado").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Seniado").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -211,7 +211,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Vendido").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Vendido").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -227,7 +227,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Cancelado").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").Where(p => p.Estado == "Cancelado").OrderBy(p => p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -345,13 +345,16 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<int> idLineas = new List<int>();
             using (var repo=new Repositorio())
             {
-                Presupuesto presupuesto=repo.Presupuestos.Include("Lineas").Where(p => p.Id == idPresupuesto).First();
-                foreach (LineaPresupuesto linea in presupuesto.Lineas)
+                if (idPresupuesto!=0)
                 {
-                   Producto producto=repo.Productos.Find(repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.Id);
-                    if(linea.Cantidad > producto.CantidadEnStock)
+                    Presupuesto presupuesto = repo.Presupuestos.Include("Lineas").Where(p => p.Id == idPresupuesto).First();
+                    foreach (LineaPresupuesto linea in presupuesto.Lineas)
                     {
-                        idLineas.Add(producto.Id);
+                        Producto producto = repo.Productos.Find(repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.Id);
+                        if (linea.Cantidad > producto.CantidadEnStock)
+                        {
+                            idLineas.Add(producto.Id);
+                        }
                     }
                 }
             }
@@ -445,7 +448,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<PresupuestoDTO> presupuestoDTOs = new List<PresupuestoDTO>();
             using (var repo = new Repositorio())
             {
-                presupuestos = repo.Presupuestos.Include("Cliente").ToList();
+                presupuestos = repo.Presupuestos.Include("Cliente").OrderByDescending(p => p.Estado == "Presupuestado").ThenByDescending(p=>p.Estado=="Seniado").ThenByDescending(p => p.Estado).ThenBy(p=>p.Id).ToList();
             }
             foreach (Presupuesto pre in presupuestos)
             {
@@ -588,21 +591,49 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
-        public List<Presupuesto> PresupuestosProximosAVencer(int pDiasDesdeHoy)
-        {
-            List<Presupuesto> pres;
-            DateTime fechaVencimient = DateTime.Today + TimeSpan.FromDays(pDiasDesdeHoy);
-            using (var repo = new Repositorio())
-            {
-                pres = repo.Presupuestos.Where(r =>
-                               (r.Estado == EstadoPresupuesto.Presupuestado ||
-                                r.Estado == EstadoPresupuesto.Seniado) &&
-                                (r.FechaVencimiento <= fechaVencimient)
-                                ).ToList<Presupuesto>();
-            }
-            return pres;
-        }
+  
 
+
+        /// <summary>
+        /// Devuelve una notificacion por cada prespuesto que ya haya vencido
+        /// o la fecha de vencimiento este dentro de pTiempoDentroDe
+        /// </summary>
+        /// <param name="pTiempoDentroDe"></param>
+        /// <returns></returns>
+        public List<NotificacionDTO> getNotificaciones(int pTiempoDentroDe)
+        {
+            var notificaciones = new List<NotificacionDTO>();
+
+            using (var repo =  new Repositorio())
+            {
+                // Obtener los prespuestos con estado seniado o presupuestado
+                // proximos a vencer o vencidos
+                DateTime fechaDentroDe = DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe);
+                var presupuestos = repo.Presupuestos.Where(p => 
+                        ((p.Estado == EstadoPresupuesto.Presupuestado) ||
+                        (p.Estado == EstadoPresupuesto.Seniado)) &&
+                        (p.FechaVencimiento <= fechaDentroDe)
+                        );
+                foreach(var pre in presupuestos)
+                {
+                    var not = new NotificacionDTO();
+                    not.IdPresupuesto = pre.Id;
+                    not.FechaVencimiento = pre.FechaVencimiento;
+                    if (pre.FechaVencimiento <= DateTime.Now)
+                    {
+                        not.Descripcion = $"Presupuesto {pre.Id} vencido";
+                    }
+                    else
+                    {
+                        not.Descripcion = $"Presupuesto {pre.Id} proximo a vencer";
+                    }
+
+                    notificaciones.Add(not);
+                }
+            }
+
+            return notificaciones;
+        }
 
 
 

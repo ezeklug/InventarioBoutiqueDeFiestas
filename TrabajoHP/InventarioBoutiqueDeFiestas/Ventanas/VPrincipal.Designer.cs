@@ -31,6 +31,10 @@
             this.ControlClientes = new System.Windows.Forms.Button();
             this.ControlPresupuesto = new System.Windows.Forms.Button();
             this.ControlProductos = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ControlClientes
@@ -39,8 +43,8 @@
             this.ControlClientes.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ControlClientes.FlatAppearance.BorderSize = 0;
             this.ControlClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ControlClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ControlClientes.Location = new System.Drawing.Point(287, 198);
+            this.ControlClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlClientes.Location = new System.Drawing.Point(365, 341);
             this.ControlClientes.Name = "ControlClientes";
             this.ControlClientes.Size = new System.Drawing.Size(194, 65);
             this.ControlClientes.TabIndex = 0;
@@ -54,8 +58,8 @@
             this.ControlPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ControlPresupuesto.FlatAppearance.BorderSize = 0;
             this.ControlPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ControlPresupuesto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ControlPresupuesto.Location = new System.Drawing.Point(542, 194);
+            this.ControlPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlPresupuesto.Location = new System.Drawing.Point(592, 341);
             this.ControlPresupuesto.Name = "ControlPresupuesto";
             this.ControlPresupuesto.Size = new System.Drawing.Size(141, 65);
             this.ControlPresupuesto.TabIndex = 1;
@@ -69,8 +73,8 @@
             this.ControlProductos.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ControlProductos.FlatAppearance.BorderSize = 0;
             this.ControlProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ControlProductos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ControlProductos.Location = new System.Drawing.Point(84, 194);
+            this.ControlProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlProductos.Location = new System.Drawing.Point(196, 341);
             this.ControlProductos.Name = "ControlProductos";
             this.ControlProductos.Size = new System.Drawing.Size(129, 72);
             this.ControlProductos.TabIndex = 2;
@@ -78,11 +82,35 @@
             this.ControlProductos.UseVisualStyleBackColor = false;
             this.ControlProductos.Click += new System.EventHandler(this.ControlProductos_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(813, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(343, 592);
+            this.panel1.TabIndex = 3;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(343, 592);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDoubleClick);
+            // 
             // VPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1168, 616);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ControlProductos);
             this.Controls.Add(this.ControlPresupuesto);
             this.Controls.Add(this.ControlClientes);
@@ -91,6 +119,8 @@
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VPrincipal_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -100,6 +130,8 @@
         private System.Windows.Forms.Button ControlClientes;
         private System.Windows.Forms.Button ControlPresupuesto;
         private System.Windows.Forms.Button ControlProductos;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
