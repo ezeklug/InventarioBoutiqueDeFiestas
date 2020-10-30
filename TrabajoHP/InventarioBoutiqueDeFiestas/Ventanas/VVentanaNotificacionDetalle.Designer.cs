@@ -63,7 +63,7 @@
             this.NumeroPresupuestoLabel.AutoSize = true;
             this.NumeroPresupuestoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumeroPresupuestoLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.NumeroPresupuestoLabel.Location = new System.Drawing.Point(3, 0);
+            this.NumeroPresupuestoLabel.Location = new System.Drawing.Point(0, 0);
             this.NumeroPresupuestoLabel.Name = "NumeroPresupuestoLabel";
             this.NumeroPresupuestoLabel.Size = new System.Drawing.Size(194, 20);
             this.NumeroPresupuestoLabel.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             this.NumeroPresupuesto.AutoSize = true;
             this.NumeroPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumeroPresupuesto.Location = new System.Drawing.Point(243, 98);
+            this.NumeroPresupuesto.Location = new System.Drawing.Point(240, 98);
             this.NumeroPresupuesto.Name = "NumeroPresupuesto";
             this.NumeroPresupuesto.Size = new System.Drawing.Size(181, 20);
             this.NumeroPresupuesto.TabIndex = 11;
@@ -169,6 +169,7 @@
             this.Cancelar.TabIndex = 9;
             this.Cancelar.Text = "Cancelar";
             this.Cancelar.UseVisualStyleBackColor = false;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // NumeroLote
             // 
@@ -190,6 +191,7 @@
             this.Aceptar.TabIndex = 7;
             this.Aceptar.Text = "Aceptar";
             this.Aceptar.UseVisualStyleBackColor = false;
+            this.Aceptar.Click += new System.EventHandler(this.Aceptar_Click);
             // 
             // Titulo
             // 

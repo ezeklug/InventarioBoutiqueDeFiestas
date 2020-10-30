@@ -26,5 +26,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
 
         }
+
+        private void Aceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
