@@ -292,6 +292,12 @@
     <Compile Include="Ventanas\VVenderPresupuesto.Designer.cs">
       <DependentUpon>VVenderPresupuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VVentanaNotificacionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VVentanaNotificacionDetalle.Designer.cs">
+      <DependentUpon>VVentanaNotificacionDetalle.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Migrations\202010091849091_init.resx">
       <DependentUpon>202010091849091_init.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VVenderPresupuesto.resx">
       <DependentUpon>VVenderPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VVentanaNotificacionDetalle.resx">
+      <DependentUpon>VVentanaNotificacionDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
