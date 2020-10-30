@@ -19,6 +19,7 @@ namespace InventarioBoutiqueDeFiestas
             InitializeComponent();
         }
 
+        ControladorFachada controladorFachada = new ControladorFachada();
         private void ControlClientes_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -29,8 +30,6 @@ namespace InventarioBoutiqueDeFiestas
 
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-            //var cont = new ControladorFachada();
-            //var not = cont.Notificaciones();
             dataGridView1.Columns.Add("Fecha", "Fecha");
             dataGridView1.Columns.Add("Descripcion", "Descripcion");
             dataGridView1.Columns.Add("PresupuestoId", "PresupuestoId");
@@ -41,10 +40,7 @@ namespace InventarioBoutiqueDeFiestas
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
-            string[] r = new string[] { "25/12/2020", "Hola","5", "0"};
-            dataGridView1.Rows.Add(r);
-            string[] r2 = new string[] { "25/11/2015", "Hola2", "0", "7" };
-            dataGridView1.Rows.Add(r2);
+            dataGridView1.DataSource = controladorFachada.getNotificaciones();
         }
 
         private void ControlPresupuesto_Click(object sender, EventArgs e)
