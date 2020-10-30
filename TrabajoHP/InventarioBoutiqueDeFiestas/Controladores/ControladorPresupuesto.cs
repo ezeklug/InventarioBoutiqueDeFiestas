@@ -592,6 +592,46 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         }
 
 
+        /// <summary>
+        /// Devuelve una notificacion por cada prespuesto que ya haya vencido
+        /// o la fecha de vencimiento este dentro de pTiempoDentroDe
+        /// </summary>
+        /// <param name="pTiempoDentroDe"></param>
+        /// <returns></returns>
+        public List<NotificacionDTO> getNotificaciones(int pTiempoDentroDe)
+        {
+            var notificaciones = new List<NotificacionDTO>();
+
+            using (var repo =  new Repositorio())
+            {
+                // Obtener los prespuestos con estado seniado o presupuestado
+                // proximos a vencer o vencidos
+                var presupuestos = repo.Presupuestos.Where(p => 
+                        ((p.Estado == EstadoPresupuesto.Presupuestado) ||
+                        (p.Estado == EstadoPresupuesto.Seniado)) &&
+                        (p.FechaVencimiento <= (DateTime.Now + TimeSpan.FromDays(pTiempoDentroDe)))
+                        );
+                foreach(var pre in presupuestos)
+                {
+                    var not = new NotificacionDTO();
+                    not.IdPresupuesto = pre.Id;
+                    not.FechaVencimiento = pre.FechaVencimiento;
+                    if (pre.FechaVencimiento <= DateTime.Now)
+                    {
+                        not.Descripcion = $"Presupuesto {pre.Id} vencido";
+                    }
+                    else
+                    {
+                        not.Descripcion = $"Presupuesto {pre.Id} proximo a vencer";
+                    }
+
+                    notificaciones.Add(not);
+                }
+            }
+
+            return notificaciones;
+        }
+
 
 
     }
