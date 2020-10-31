@@ -61,6 +61,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
         }
 
+        public void EliminarLote(int idLote)
+        {
+            controladorProducto.EliminarLote(idLote);
+        }
+
         /// <summary>
         /// Método que permite agregar una línea correspondiente a un presupuesto y un producto, pasando los siguientes parámetros.
         /// </summary>
@@ -427,6 +432,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             List<NotificacionDTO> notificacionesPresupuesto = contPresu.getNotificaciones(t);
             notificacionesProducto.AddRange(notificacionesPresupuesto);
             return notificacionesProducto;
+        }
+
+        public void CancelarPresupuesto(int idPresupuesto)
+        {
+            controladorPresupuesto.CancelarPresupuesto(idPresupuesto);
         }
     }
 }

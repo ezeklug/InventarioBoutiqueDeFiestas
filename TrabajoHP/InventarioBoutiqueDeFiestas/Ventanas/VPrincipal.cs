@@ -59,6 +59,7 @@ namespace InventarioBoutiqueDeFiestas
         {
             VNotificacionDetalle vNotificacionDetalle = new VNotificacionDetalle(dataGridView1.Rows[e.RowIndex]);
             vNotificacionDetalle.ShowDialog();
+            VPrincipal_Load(sender, e);
         }
     }
 }

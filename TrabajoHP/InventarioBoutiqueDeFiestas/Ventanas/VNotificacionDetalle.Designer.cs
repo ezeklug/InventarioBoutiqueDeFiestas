@@ -42,7 +42,6 @@
             this.ProductoLabel = new System.Windows.Forms.Label();
             this.CantidadLabel = new System.Windows.Forms.Label();
             this.Continuar = new System.Windows.Forms.Button();
-            this.CancelarPresupuesto = new System.Windows.Forms.Button();
             this.AdministrarPresupuesto = new System.Windows.Forms.Button();
             this.EliminarLote = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -183,7 +182,7 @@
             this.Continuar.FlatAppearance.BorderSize = 0;
             this.Continuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Continuar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Continuar.Location = new System.Drawing.Point(101, 413);
+            this.Continuar.Location = new System.Drawing.Point(128, 413);
             this.Continuar.Name = "Continuar";
             this.Continuar.Size = new System.Drawing.Size(84, 23);
             this.Continuar.TabIndex = 24;
@@ -191,27 +190,13 @@
             this.Continuar.UseVisualStyleBackColor = false;
             this.Continuar.Click += new System.EventHandler(this.Continuar_Click);
             // 
-            // CancelarPresupuesto
-            // 
-            this.CancelarPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.CancelarPresupuesto.FlatAppearance.BorderSize = 0;
-            this.CancelarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelarPresupuesto.Location = new System.Drawing.Point(214, 413);
-            this.CancelarPresupuesto.Name = "CancelarPresupuesto";
-            this.CancelarPresupuesto.Size = new System.Drawing.Size(148, 23);
-            this.CancelarPresupuesto.TabIndex = 25;
-            this.CancelarPresupuesto.Text = "Cancelar Presupuesto";
-            this.CancelarPresupuesto.UseVisualStyleBackColor = false;
-            this.CancelarPresupuesto.Click += new System.EventHandler(this.CancelarPresupuesto_Click);
-            // 
             // AdministrarPresupuesto
             // 
             this.AdministrarPresupuesto.BackColor = System.Drawing.SystemColors.ControlDark;
             this.AdministrarPresupuesto.FlatAppearance.BorderSize = 0;
             this.AdministrarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdministrarPresupuesto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdministrarPresupuesto.Location = new System.Drawing.Point(383, 413);
+            this.AdministrarPresupuesto.Location = new System.Drawing.Point(312, 413);
             this.AdministrarPresupuesto.Name = "AdministrarPresupuesto";
             this.AdministrarPresupuesto.Size = new System.Drawing.Size(160, 23);
             this.AdministrarPresupuesto.TabIndex = 26;
@@ -225,7 +210,7 @@
             this.EliminarLote.FlatAppearance.BorderSize = 0;
             this.EliminarLote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarLote.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarLote.Location = new System.Drawing.Point(295, 413);
+            this.EliminarLote.Location = new System.Drawing.Point(312, 413);
             this.EliminarLote.Name = "EliminarLote";
             this.EliminarLote.Size = new System.Drawing.Size(161, 23);
             this.EliminarLote.TabIndex = 27;
@@ -240,7 +225,6 @@
             this.ClientSize = new System.Drawing.Size(685, 472);
             this.Controls.Add(this.EliminarLote);
             this.Controls.Add(this.AdministrarPresupuesto);
-            this.Controls.Add(this.CancelarPresupuesto);
             this.Controls.Add(this.Continuar);
             this.Controls.Add(this.CantidadLabel);
             this.Controls.Add(this.ProductoLabel);
@@ -278,7 +262,6 @@
         private System.Windows.Forms.Label ProductoLabel;
         private System.Windows.Forms.Label CantidadLabel;
         private System.Windows.Forms.Button Continuar;
-        private System.Windows.Forms.Button CancelarPresupuesto;
         private System.Windows.Forms.Button AdministrarPresupuesto;
         private System.Windows.Forms.Button EliminarLote;
     }

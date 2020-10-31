@@ -90,6 +90,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public void EliminarLote(int idLote)
+        {
+            using (var repo= new Repositorio())
+            {
+                repo.Lotes.Find(idLote).Vencido = true;
+                repo.SaveChanges();
+            }
+        }
+
         public void DescontarProductosDeLote(int idLote, int pCantidadADescontar, int idVenta)
         {
             using (var repo=new Repositorio())

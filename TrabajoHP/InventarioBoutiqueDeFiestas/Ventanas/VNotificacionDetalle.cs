@@ -28,7 +28,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 CantidadLabel.Text = lote.CantidadProductos.ToString();
                 ProductoLabel.Text = lote.NombreProducto;
                 AdministrarPresupuesto.Visible = false;
-                CancelarPresupuesto.Visible = false;
             }
             else if (row.Cells[2].Value.ToString() != "0") //Presupuesto
             {
@@ -53,12 +52,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void EliminarLote_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void CancelarPresupuesto_Click(object sender, EventArgs e)
-        {
-
+            controladorFachada.EliminarLote(Convert.ToInt32(NumeroLoteOPresupuestoLabel.Text));
+            MessageBox.Show("Lote eliminado");
         }
 
         private void AdministrarPresupuesto_Click(object sender, EventArgs e)

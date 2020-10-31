@@ -411,6 +411,15 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return ventadb.Id;
         }
 
+        public void CancelarPresupuesto(int idPresupuesto)
+        {
+            using (var repo=new Repositorio())
+            {
+                repo.Presupuestos.Find(idPresupuesto).Estado = "Cancelado";
+                repo.SaveChanges();
+            }
+        }
+
         /// <summary>
         /// Este metodo permite asociar un cliente a un presupuesto, pasando como parámetro el id del presupuesto y el id del cliente.
         /// </summary>

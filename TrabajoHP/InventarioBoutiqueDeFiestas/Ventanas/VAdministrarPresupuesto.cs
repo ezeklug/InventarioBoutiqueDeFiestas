@@ -146,7 +146,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     Seniar.Visible = false;
                     Guardar.Visible = false;
                     Vender.Text = "Venta";
-                    Cancelar.Text = "Volver";
+                    Volver.Text = "Volver";
                     BuscarCliente.Visible = false;
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
@@ -162,7 +162,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 Seniar.Visible = false;
                 Guardar.Visible = false;
                 Vender.Text = "Venta";
-                Cancelar.Text = "Volver";
+                Volver.Text = "Volver";
                 BuscarCliente.Visible = false;
                 CargarProductos.Visible = false;
                 dateTimePicker1.Visible = false;
@@ -371,14 +371,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.VAdministrarPresupuesto_Load(sender, e);
         }
 
-        private void Cancelar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            VControlPresupuestos vControlPresupuestos = new VControlPresupuestos();
-            vControlPresupuestos.ShowDialog();
-            this.Close();
-        }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             FechaVencimiento = dateTimePicker1.Value;
@@ -439,6 +431,20 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void botonExportar_Click(object sender, EventArgs e)
         {
             controladorFachada.generarPDFPresupuesto(IdPresupuesto);
+        }
+
+        private void Volver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VControlPresupuestos vControlPresupuestos = new VControlPresupuestos();
+            vControlPresupuestos.ShowDialog();
+            this.Close();
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            controladorFachada.CancelarPresupuesto(IdPresupuesto);
+            MessageBox.Show("Se ha cancelado el Presupuesto");
         }
     }
 }

@@ -44,12 +44,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Seniar = new System.Windows.Forms.Button();
             this.Vender = new System.Windows.Forms.Button();
             this.CargarProductos = new System.Windows.Forms.Button();
-            this.Cancelar = new System.Windows.Forms.Button();
+            this.Volver = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.Principal = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonExportar = new System.Windows.Forms.Button();
+            this.Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -168,7 +169,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guardar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Guardar.Location = new System.Drawing.Point(679, 611);
+            this.Guardar.Location = new System.Drawing.Point(647, 611);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -184,7 +185,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Seniar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Seniar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Seniar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Seniar.Location = new System.Drawing.Point(488, 611);
+            this.Seniar.Location = new System.Drawing.Point(461, 611);
             this.Seniar.Name = "Seniar";
             this.Seniar.Size = new System.Drawing.Size(75, 23);
             this.Seniar.TabIndex = 23;
@@ -200,7 +201,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Vender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Vender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Vender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Vender.Location = new System.Drawing.Point(584, 611);
+            this.Vender.Location = new System.Drawing.Point(555, 611);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
@@ -224,21 +225,21 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.CargarProductos.UseVisualStyleBackColor = false;
             this.CargarProductos.Click += new System.EventHandler(this.CargarProductos_Click);
             // 
-            // Cancelar
+            // Volver
             // 
-            this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.Cancelar.FlatAppearance.BorderSize = 0;
-            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Cancelar.Location = new System.Drawing.Point(776, 611);
-            this.Cancelar.Name = "Cancelar";
-            this.Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.Cancelar.TabIndex = 26;
-            this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = false;
-            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            this.Volver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Volver.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Volver.FlatAppearance.BorderSize = 0;
+            this.Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Volver.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Volver.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Volver.Location = new System.Drawing.Point(828, 611);
+            this.Volver.Name = "Volver";
+            this.Volver.Size = new System.Drawing.Size(75, 23);
+            this.Volver.TabIndex = 26;
+            this.Volver.Text = "Volver";
+            this.Volver.UseVisualStyleBackColor = false;
+            this.Volver.Click += new System.EventHandler(this.Volver_Click);
             // 
             // dateTimePicker1
             // 
@@ -284,23 +285,40 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.botonExportar.FlatAppearance.BorderSize = 0;
             this.botonExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonExportar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonExportar.Location = new System.Drawing.Point(374, 611);
+            this.botonExportar.Location = new System.Drawing.Point(323, 611);
             this.botonExportar.Name = "botonExportar";
-            this.botonExportar.Size = new System.Drawing.Size(98, 23);
+            this.botonExportar.Size = new System.Drawing.Size(116, 23);
             this.botonExportar.TabIndex = 37;
             this.botonExportar.Text = "Exportar a pdf";
             this.botonExportar.UseVisualStyleBackColor = false;
             this.botonExportar.Click += new System.EventHandler(this.botonExportar_Click);
+            // 
+            // Cancelar
+            // 
+            this.Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancelar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Cancelar.FlatAppearance.BorderSize = 0;
+            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Cancelar.Location = new System.Drawing.Point(737, 611);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar.TabIndex = 38;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = false;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 671);
+            this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.Cancelar);
+            this.Controls.Add(this.Volver);
             this.Controls.Add(this.CargarProductos);
             this.Controls.Add(this.Vender);
             this.Controls.Add(this.Seniar);
@@ -362,10 +380,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.Button Seniar;
         private System.Windows.Forms.Button Vender;
         private System.Windows.Forms.Button CargarProductos;
-        private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button Volver;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button botonExportar;
+        private System.Windows.Forms.Button Cancelar;
     }
 }
