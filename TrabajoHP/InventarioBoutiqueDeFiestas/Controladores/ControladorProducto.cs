@@ -340,12 +340,13 @@ namespace InventarioBoutiqueDeFiestas.Controladores
            List<ProductoDTO> aDevolver = new List<ProductoDTO>();
             using(var repo=new Repositorio())
             {
-                foreach (Venta venta in repo.Ventas.Include("Presupuesto").Where<Venta>(v =>(DbFunctions.DiffDays(DateTime.Now, v.FechaDeVenta) <= 30)).ToList())
+                List<Venta> ventas = repo.Ventas.Include("Presupuesto").Where(v => DbFunctions.DiffDays(DateTime.Now, v.FechaDeVenta) <= 30).ToList();
+                foreach (Venta venta in ventas)
                 {
-                    foreach(LineaPresupuesto linea in venta.Presupuesto.Lineas)
+                    List<LineaPresupuesto> lineas=this.GetLineasPresupuesto(venta.Presupuesto.Id);
+                    foreach (LineaPresupuesto linea in lineas)
                     {
                         Tuple<ProductoDTO, int> tupla;
-                        linea.Producto=repo.LineaPresupuestos.Include("Producto").Where(l=>l.Id==linea.Id).First().Producto;
                         ProductoDTO pProductoDTO = this.ProductoADTO(linea.Producto);
                         tupla = Tuple.Create(pProductoDTO, linea.Cantidad);
                         ProductoDTO Key = new ProductoDTO();
@@ -355,7 +356,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                         }
                         if (Key.Id!=0)
                         {
-                            pProductoDTO.CantidadVendida = aDevolver.First(p => p.Id == pProductoDTO.Id).CantidadVendida;
+                            pProductoDTO.CantidadVendida = aDevolver.First(p => p.Id == pProductoDTO.Id).CantidadVendida+linea.Cantidad;
                             aDevolver.Remove(Key);
                             aDevolver.Add(pProductoDTO);
                         }
@@ -368,6 +369,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 }
             }
             return aDevolver.OrderByDescending(l=>l.CantidadVendida).ToList();
+        }
+
+        private List<LineaPresupuesto> GetLineasPresupuesto(int idPresupuesto)
+        {
+            using (var repo = new Repositorio())
+            {
+                return repo.LineaPresupuestos.Include("Producto").Include("Presupuesto").Where(l => l.Presupuesto.Id == idPresupuesto).ToList();
+            }
         }
 
         /// <summary>
