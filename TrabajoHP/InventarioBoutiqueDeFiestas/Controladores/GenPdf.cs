@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InventarioBoutiqueDeFiestas.Database;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 
@@ -19,7 +20,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Prefix es el prefijo de cada computadora
         /// Cambiarlo para cada pc
         /// </summary>
-        private static string prefix = "C:/Users/victo/Source/Repos/ezeklug/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/";
+        private static string prefix = "C:/Users/Ezequiel Klug/Source/Repos/InventarioBoutiqueDeFiestas/TrabajoHP/UnitTestProject1/";
         private static string temp_file = prefix+"temp.html";
 
 
@@ -56,8 +57,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
 
             foreach(var linea in pPresupuesto.Lineas)
             {
-                
-                lista += $"<tr> <td> {linea.Producto.Nombre} </td> <th> {linea.Cantidad} </td> <td> {linea.Producto.PrecioVenta()} </td> <td> {linea.Subtotal} </td></tr>";
+                using (var repo=new Repositorio())
+                {
+                    string NombreProducto = repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.Nombre;
+                    double PrecioVentaProducto = repo.LineaPresupuestos.Include("Producto").Where(l => l.Id == linea.Id).First().Producto.PrecioVenta();
+                    lista += $"<tr> <td> {NombreProducto} </td> <th> {linea.Cantidad} </td> <td> {PrecioVentaProducto} </td> <td> {linea.Subtotal} </td></tr>";
+                }
             }
 
             doc = doc.Replace("[]", headers);
