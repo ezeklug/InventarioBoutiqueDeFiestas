@@ -320,7 +320,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             using (var repo = new Repositorio())
             {
-                return repo.Presupuestos.Include("Lineas").Where(p => p.Id == pIdPresupuesto).First();
+                return repo.Presupuestos.Include("Lineas").Include("Cliente").Where(p => p.Id == pIdPresupuesto).First();
             }
         }
 

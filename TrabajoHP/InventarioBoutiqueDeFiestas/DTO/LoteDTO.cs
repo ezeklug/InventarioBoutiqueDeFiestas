@@ -14,6 +14,7 @@ namespace InventarioBoutiqueDeFiestas.DTO
         public DateTime FechaVencimiento { get; set; }
         public Boolean Vencido { get; set; }
         public int IdProducto { get; set; }
+        public string NombreProducto { get; set; }
 
       
 

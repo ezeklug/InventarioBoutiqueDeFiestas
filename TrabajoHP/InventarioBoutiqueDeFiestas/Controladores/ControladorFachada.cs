@@ -25,9 +25,18 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto = new ControladorProducto();
         }
 
-        public Lote BuscarLote(int pIdLote)
+        public LoteDTO BuscarLote(int pIdLote)
         {
-            return controladorProducto.BuscarLote(pIdLote);
+            Lote lote= controladorProducto.BuscarLote(pIdLote);
+            LoteDTO loteDTO = new LoteDTO();
+            loteDTO.Id = lote.Id;
+            loteDTO.FechaCompra = lote.FechaCompra;
+            loteDTO.FechaVencimiento = lote.FechaVencimiento;
+            loteDTO.CantidadProductos = lote.CantidadProductos;
+            loteDTO.IdProducto = lote.Producto.Id;
+            loteDTO.NombreProducto = lote.Producto.Nombre;
+            loteDTO.Vencido = lote.Vencido;
+            return loteDTO;
         }
 
         /// <summary>
@@ -307,6 +316,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         public Presupuesto BuscarPresupuesto(int pIdPresupuesto)
         {
             return controladorPresupuesto.BuscarPresupuesto(pIdPresupuesto);
+        }
+        public PresupuestoDTO BuscarPresupuestoDTO(int pIdPresupuesto)
+        {
+            Presupuesto presupuesto=this.BuscarPresupuesto(pIdPresupuesto);
+            PresupuestoDTO pres = new PresupuestoDTO();
+            pres.Id = presupuesto.Id;
+            pres.IdCliente = presupuesto.Cliente.Id;
+            pres.Estado = presupuesto.Estado;
+            pres.Descuento = presupuesto.Descuento;
+            pres.FechaGeneracion = presupuesto.FechaGeneracion;
+            pres.FechaVencimiento = presupuesto.FechaVencimiento;
+            pres.Cliente = presupuesto.Cliente.Nombre;
+            return pres;
         }
         public double TotalVentaPresupuesto(int pIdPresupuesto)
         {

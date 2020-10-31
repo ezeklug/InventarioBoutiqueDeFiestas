@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InventarioBoutiqueDeFiestas.Dominio;
+using InventarioBoutiqueDeFiestas.DTO;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -23,17 +23,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (row.Cells[3].Value.ToString() != "0") //Lote
             {
                 NumeroLoteOPresupuestoLabel.Text = row.Cells[3].Value.ToString();
-                Lote lote = controladorFachada.BuscarLote(Convert.ToInt32(row.Cells[3].Value));
+                LoteDTO lote = controladorFachada.BuscarLote(Convert.ToInt32(row.Cells[3].Value));
                 FechaCompraLabel.Text = lote.FechaCompra.ToString();
                 CantidadLabel.Text = lote.CantidadProductos.ToString();
-                ProductoLabel.Text = lote.Producto.Nombre;
+                ProductoLabel.Text = lote.NombreProducto;
                 AdministrarPresupuesto.Visible = false;
                 CancelarPresupuesto.Visible = false;
             }
             else if (row.Cells[2].Value.ToString() != "0") //Presupuesto
             {
                 NumeroLoteOPresupuestoLabel.Text = row.Cells[2].Value.ToString();
-                Presupuesto pres = controladorFachada.BuscarPresupuesto(Convert.ToInt32(row.Cells[2].Value));
+                PresupuestoDTO pres = controladorFachada.BuscarPresupuestoDTO(Convert.ToInt32(row.Cells[2].Value));
                 FechaCompraLabel.Text = pres.FechaGeneracion.ToString();
                 NumeroLote.Text = "Numero Presupuesto";
                 FechaCompra.Text = "Fecha de Creación";
@@ -63,6 +63,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void AdministrarPresupuesto_Click(object sender, EventArgs e)
         {
+            VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(Convert.ToInt32(NumeroLoteOPresupuestoLabel.Text));
+            vAdministrarPresupuesto.ShowDialog();
 
         }
     }
