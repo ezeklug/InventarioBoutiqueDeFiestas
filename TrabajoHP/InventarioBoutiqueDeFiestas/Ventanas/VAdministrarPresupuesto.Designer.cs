@@ -51,6 +51,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonExportar = new System.Windows.Forms.Button();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.Venta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -309,11 +310,28 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Cancelar.UseVisualStyleBackColor = false;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // Venta
+            // 
+            this.Venta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Venta.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Venta.FlatAppearance.BorderSize = 0;
+            this.Venta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Venta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Venta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Venta.Location = new System.Drawing.Point(555, 611);
+            this.Venta.Name = "Venta";
+            this.Venta.Size = new System.Drawing.Size(75, 23);
+            this.Venta.TabIndex = 39;
+            this.Venta.Text = "Venta";
+            this.Venta.UseVisualStyleBackColor = false;
+            this.Venta.Click += new System.EventHandler(this.Venta_Click);
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 671);
+            this.Controls.Add(this.Venta);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.label5);
@@ -386,5 +404,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button botonExportar;
         private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button Venta;
     }
 }

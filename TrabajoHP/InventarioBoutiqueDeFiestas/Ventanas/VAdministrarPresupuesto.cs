@@ -98,6 +98,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.AllowUserToAddRows = false;
             Total.ReadOnly = true;
             Cliente.ReadOnly = true;
+            Venta.Visible = false;
             dateTimePicker1.Value = FechaVencimiento;
             DescuentoTotal.Text = Descuento;
             if (IdCliente != 0)
@@ -145,8 +146,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     DescuentoTotal.ReadOnly = true;
                     Seniar.Visible = false;
                     Guardar.Visible = false;
-                    Vender.Text = "Venta";
-                    Volver.Text = "Volver";
+                    Vender.Visible = false;
+                    Venta.Visible = true;
+                    Cancelar.Visible = false;
                     BuscarCliente.Visible = false;
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
@@ -154,23 +156,35 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
             }
             Total.Text = PrecioVenta().ToString();
-            if (EstadoPresupuesto=="Vendido" || EstadoPresupuesto=="Cancelado")
+            if (EstadoPresupuesto=="Vendido")
             {
                 dataGridView1.Columns[2].ReadOnly = true;
                 dataGridView1.Columns[4].ReadOnly = true;
                 DescuentoTotal.ReadOnly = true;
                 Seniar.Visible = false;
                 Guardar.Visible = false;
-                Vender.Text = "Venta";
-                Volver.Text = "Volver";
+                Vender.Visible = false;
+                Venta.Visible = true;
+                Cancelar.Visible = false;
                 BuscarCliente.Visible = false;
                 CargarProductos.Visible = false;
                 dateTimePicker1.Visible = false;
                 label5.Visible = false;
             }
-            if (EstadoPresupuesto=="Cancelado")
+            else if (EstadoPresupuesto=="Cancelado")
             {
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[4].ReadOnly = true;
+                DescuentoTotal.ReadOnly = true;
+                Seniar.Visible = false;
+                Guardar.Visible = false;
                 Vender.Visible = false;
+                Venta.Visible = false;
+                Cancelar.Visible = false;
+                BuscarCliente.Visible = false;
+                CargarProductos.Visible = false;
+                dateTimePicker1.Visible = false;
+                label5.Visible = false;
             }
         }
 
@@ -346,29 +360,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         {
                             ProductoDTO producto = controladorFachada.BuscarProducto(Convert.ToInt32(row.Cells[0].Value));
                             this.dataGridView1.Rows[row.Index].Cells[2].ErrorText = ("Hay en stock " + producto.CantidadEnStock);
+                            Console.WriteLine(dataGridView1.Rows[row.Index].Cells[2].Value);
                             row.Cells[2].Style.BackColor = Color.Salmon;
                         }
                     }
                 }
             }
-            else if (EstadoPresupuesto=="Vendido")
-            {
-                new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
-                if (controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado == "Vendido")
-                {
-                    dataGridView1.Columns[2].ReadOnly = true;
-                    dataGridView1.Columns[4].ReadOnly = true;
-                    DescuentoTotal.ReadOnly = true;
-                    Seniar.Visible = false;
-                    Guardar.Visible = false;
-                    Vender.Text = "Venta";
-                    BuscarCliente.Visible = false;
-                    CargarProductos.Visible = false;
-                    dateTimePicker1.Visible = false;
-                    label5.Visible = false;
-                }
-            }
-            this.VAdministrarPresupuesto_Load(sender, e);
+        }
+
+        private void Venta_Click(object sender, EventArgs e)
+        {
+            new VVenderPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
