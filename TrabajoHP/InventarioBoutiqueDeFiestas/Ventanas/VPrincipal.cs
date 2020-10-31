@@ -57,8 +57,8 @@ namespace InventarioBoutiqueDeFiestas
 
         private void CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            VVentanaNotificacionDetalle vVentanaNotificacionDetalle = new VVentanaNotificacionDetalle(dataGridView1.Rows[e.RowIndex]);
-            vVentanaNotificacionDetalle.ShowDialog();
+            VNotificacionDetalle vNotificacionDetalle = new VNotificacionDetalle(dataGridView1.Rows[e.RowIndex]);
+            vNotificacionDetalle.ShowDialog();
         }
     }
 }

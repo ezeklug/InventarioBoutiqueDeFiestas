@@ -25,6 +25,11 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             controladorProducto = new ControladorProducto();
         }
 
+        public Lote BuscarLote(int pIdLote)
+        {
+            return controladorProducto.BuscarLote(pIdLote);
+        }
+
         /// <summary>
         /// Método que permite agregar un presupuesto pasando sus parámetros para crearlo y guardarlo en db.
         /// </summary>

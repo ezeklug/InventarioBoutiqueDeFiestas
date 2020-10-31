@@ -256,14 +256,17 @@
     <Compile Include="Ventanas\VIngresarMercaderia.Designer.cs">
       <DependentUpon>VIngresarMercaderia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\VNotificacionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VNotificacionDetalle.Designer.cs">
+      <DependentUpon>VNotificacionDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VPorcentajeIncremento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventanas\VPorcentajeIncremento.Designer.cs">
       <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ventanas\VVentanaNotificacionDetalle.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ventanas\VVentanaNotificacionDetalle.Designer.cs">
       <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>
@@ -348,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VIngresarMercaderia.resx">
       <DependentUpon>VIngresarMercaderia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\VNotificacionDetalle.resx">
+      <DependentUpon>VNotificacionDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\VPorcentajeIncremento.resx">
       <DependentUpon>VPorcentajeIncremento.cs</DependentUpon>

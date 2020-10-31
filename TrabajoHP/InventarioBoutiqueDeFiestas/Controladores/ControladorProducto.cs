@@ -33,6 +33,14 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             }
         }
 
+        public Lote BuscarLote(int pIdLote)
+        {
+            using (var repo=new Repositorio())
+            {
+                return repo.Lotes.Include("Producto").Where(l => l.Id == pIdLote).First();
+            }
+        }
+
         /// <summary>
         /// Convierte de DTOCategoria a Categoria 
         /// </summary>
