@@ -42,6 +42,8 @@
             this.Eliminar = new System.Windows.Forms.Button();
             this.Listas = new System.Windows.Forms.ComboBox();
             this.botonExportar = new System.Windows.Forms.Button();
+            this.MesValor = new System.Windows.Forms.TextBox();
+            this.Mes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,7 +209,7 @@
             // Listas
             // 
             this.Listas.FormattingEnabled = true;
-            this.Listas.Location = new System.Drawing.Point(156, 53);
+            this.Listas.Location = new System.Drawing.Point(142, 51);
             this.Listas.Name = "Listas";
             this.Listas.Size = new System.Drawing.Size(121, 21);
             this.Listas.TabIndex = 19;
@@ -229,11 +231,35 @@
             this.botonExportar.UseVisualStyleBackColor = false;
             this.botonExportar.Click += new System.EventHandler(this.botonExportar_Click);
             // 
+            // MesValor
+            // 
+            this.MesValor.Location = new System.Drawing.Point(284, 52);
+            this.MesValor.Name = "MesValor";
+            this.MesValor.Size = new System.Drawing.Size(24, 20);
+            this.MesValor.TabIndex = 21;
+            this.MesValor.Text = "1";
+            this.MesValor.Visible = false;
+            this.MesValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MesValor_KeyDown);
+            this.MesValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MesValor_KeyPress);
+            // 
+            // Mes
+            // 
+            this.Mes.AutoSize = true;
+            this.Mes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mes.Location = new System.Drawing.Point(314, 52);
+            this.Mes.Name = "Mes";
+            this.Mes.Size = new System.Drawing.Size(37, 18);
+            this.Mes.TabIndex = 22;
+            this.Mes.Text = "Mes";
+            this.Mes.Visible = false;
+            // 
             // VControlProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 420);
+            this.Controls.Add(this.Mes);
+            this.Controls.Add(this.MesValor);
             this.Controls.Add(this.botonExportar);
             this.Controls.Add(this.Listas);
             this.Controls.Add(this.Eliminar);
@@ -274,5 +300,7 @@
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.ComboBox Listas;
         private System.Windows.Forms.Button botonExportar;
+        private System.Windows.Forms.TextBox MesValor;
+        private System.Windows.Forms.Label Mes;
     }
 }

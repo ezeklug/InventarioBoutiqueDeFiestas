@@ -242,7 +242,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else
             {
                 //Más vendidos
-                listaProducto = controladorFachada.ListarProductosMasVendidos();
+                listaProducto = controladorFachada.ListarProductosMasVendidos(Convert.ToDouble(MesValor.Text));
             }
             try
             {
@@ -373,7 +373,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 //Más vendidos
                 dataGridView1.Columns[13].Visible = true;
-                dataGridView1.DataSource = controladorFachada.ListarProductosMasVendidos();
+                Mes.Visible = true;
+                MesValor.Visible = true;
+                dataGridView1.DataSource = controladorFachada.ListarProductosMasVendidos(Convert.ToDouble(MesValor.Text));
             }
         }
         private ProductoDTO RowAProductoDTO(DataGridViewRow row)
@@ -410,6 +412,30 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 productos.Add(RowAProductoDTO(row));
             }
             GenPdf.PDFProductos(productos);
+        }
+
+        private void MesValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MesValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                if (MesValor.Text != "")
+                {
+                    dataGridView1.DataSource = controladorFachada.ListarProductosMasVendidos(Convert.ToDouble(MesValor.Text));
+                    if (MesValor.Text != "1")
+                    {
+                        Mes.Text = "Meses";
+                    }
+                    else { Mes.Text = "Mes"; }
+                }
+            }
         }
     }
 }

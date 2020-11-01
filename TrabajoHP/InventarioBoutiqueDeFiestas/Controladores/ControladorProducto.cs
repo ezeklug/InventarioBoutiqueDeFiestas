@@ -335,12 +335,12 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         /// Este método permite listar los productos que más se venden.
         /// </summary>
         /// <returns></returns>
-        public List<ProductoDTO> ListarProductosMasVendidos()
+        public List<ProductoDTO> ListarProductosMasVendidos(double pMeses)
         {
            List<ProductoDTO> aDevolver = new List<ProductoDTO>();
             using(var repo=new Repositorio())
             {
-                List<Venta> ventas = repo.Ventas.Include("Presupuesto").Where(v => DbFunctions.DiffDays(DateTime.Now, v.FechaDeVenta) <= 30).ToList();
+                List<Venta> ventas = repo.Ventas.Include("Presupuesto").Where(v => DbFunctions.DiffDays(v.FechaDeVenta,DateTime.Now)<=pMeses*30).ToList();
                 foreach (Venta venta in ventas)
                 {
                     List<LineaPresupuesto> lineas=this.GetLineasPresupuesto(venta.Presupuesto.Id);
@@ -410,12 +410,6 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 foreach (ProductoDTO p in pProductoDTOs)
                 {
                     int idProducto = AgregarModificarProducto(p);
-                    
-                   /* foreach (LoteDTO loteDto in p.LotesDTO)
-                    {
-                        loteDto.IdProducto = idProducto;
-                        GuardarLote(loteDto);
-                    }*/
                 }
             }
         }
