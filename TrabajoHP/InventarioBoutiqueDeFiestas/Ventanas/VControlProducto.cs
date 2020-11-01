@@ -229,7 +229,25 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void buscar_TextChanged(object sender, EventArgs e)
         {
             List<ProductoDTO> listaProducto = new List<ProductoDTO>();
-            if (Listas.Text == Listas.Items[0].ToString())
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
+            {
+                ProductoDTO producto = new ProductoDTO();
+                producto.Id = Convert.ToInt32(dr.Cells[1].Value);
+                producto.Nombre=dr.Cells[2].Value.ToString();
+                producto.Descripcion = dr.Cells[3].Value.ToString();
+                producto.StockMinimo = Convert.ToInt32(dr.Cells[4].Value);
+                producto.CantidadEnStock = Convert.ToInt32(dr.Cells[5].Value);
+                producto.PorcentajeDeGanancia = Convert.ToInt32(dr.Cells[6].Value);
+                producto.PrecioDeCompra = Convert.ToInt32(dr.Cells[7].Value);
+                producto.PrecioVenta = Convert.ToInt32(dr.Cells[8].Value);
+                producto.Activo = Convert.ToBoolean(dr.Cells[9].Value);
+                producto.IdCategoria = Convert.ToInt32(dr.Cells[10].Value);
+                producto.CategoriaProductoDTO = (CategoriaProductoDTO)dr.Cells[11].Value;
+                producto.Categoria = dr.Cells[12].Value.ToString();
+                producto.CantidadVendida = Convert.ToInt32(dr.Cells[13].Value);
+                listaProducto.Add(producto);
+            }
+        /*    if (Listas.Text == Listas.Items[0].ToString())
             {
                 //Todos
                 listaProducto = controladorFachada.ListarTodosLosProductos();
@@ -243,51 +261,58 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 //Más vendidos
                 listaProducto = controladorFachada.ListarProductosMasVendidos(Convert.ToDouble(MesValor.Text));
-            }
+            }*/
             try
             {
-                var consultaNombre = from producto in listaProducto where producto.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
-                var consultaDescripcion = from producto in listaProducto where producto.Descripcion.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
-                var consultaCategoria = from producto in listaProducto where producto.CategoriaProductoDTO.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
-
-                dataGridView1.DataSource = null;
-                dataGridView1.Rows.Clear();
-
-
-                List<ProductoDTO> HelpList = new List<ProductoDTO>();
-                List<ProductoDTO> distinct = (consultaNombre.Concat(consultaDescripcion).Concat(consultaCategoria)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
-
-                foreach (var producto in distinct)
+                if (buscar.Text!="")
                 {
-                    ProductoDTO prod = new ProductoDTO()
+                    var consultaNombre = from producto in listaProducto where producto.Nombre.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+                    var consultaDescripcion = from producto in listaProducto where producto.Descripcion.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+                    var consultaCategoria = from producto in listaProducto where producto.Categoria.ToLower().StartsWith(this.buscar.Text.Trim().ToLower()) select producto;
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+
+
+                    List<ProductoDTO> HelpList = new List<ProductoDTO>();
+                    List<ProductoDTO> distinct = (consultaNombre.Concat(consultaDescripcion).Concat(consultaCategoria)).GroupBy(p => p.Id).Select(g => g.First()).ToList();
+
+                    foreach (var producto in distinct)
                     {
-                        Id = producto.Id,
-                        Nombre = producto.Nombre,
-                        Descripcion = producto.Descripcion,
-                        CantidadEnStock = producto.CantidadEnStock,
-                        PorcentajeDeGanancia= producto.PorcentajeDeGanancia,
-                        Activo = producto.Activo,
-                        PrecioDeCompra= producto.PrecioDeCompra,
-                        StockMinimo= producto.StockMinimo,
-                        Categoria=producto.Categoria,
-                        CantidadVendida= producto.CantidadVendida
-                        
+                        ProductoDTO prod = new ProductoDTO()
+                        {
+                            Id = producto.Id,
+                            Nombre = producto.Nombre,
+                            Descripcion = producto.Descripcion,
+                            CantidadEnStock = producto.CantidadEnStock,
+                            PorcentajeDeGanancia = producto.PorcentajeDeGanancia,
+                            Activo = producto.Activo,
+                            PrecioDeCompra = producto.PrecioDeCompra,
+                            StockMinimo = producto.StockMinimo,
+                            Categoria = producto.Categoria,
+                            CantidadVendida = producto.CantidadVendida
 
-                        
-                    };
-                    HelpList.Add(prod);
+
+
+                        };
+                        HelpList.Add(prod);
+                    }
+
+                    dataGridView1.DataSource = HelpList;
+                    dataGridView1.Columns[0].Width = 25; //CB
+                    dataGridView1.Columns[1].Width = 35; //ID
+                    dataGridView1.Columns[9].Visible = false; //No se ve la columna ACTIVO
+                    dataGridView1.Columns[11].Visible = false; //No se ve la columna CATEGORIAPRODUCTODTO
+                    dataGridView1.Columns[10].Visible = false; //No se ve la columna IDCATEGORIAPRODUCTO
+                    dataGridView1.Columns[8].Visible = false; //No se ve la columna PrecioVenta
+                    if (!(Listas.Text == Listas.Items[2].ToString()))
+                    {
+                        dataGridView1.Columns[13].Visible = false;//No se ve columna Cantidad Vendida
+                    }
                 }
-
-                dataGridView1.DataSource = HelpList;
-                dataGridView1.Columns[0].Width = 25; //CB
-                dataGridView1.Columns[1].Width = 35; //ID
-                dataGridView1.Columns[9].Visible = false; //No se ve la columna ACTIVO
-                dataGridView1.Columns[11].Visible = false; //No se ve la columna CATEGORIAPRODUCTODTO
-                dataGridView1.Columns[10].Visible = false; //No se ve la columna IDCATEGORIAPRODUCTO
-                dataGridView1.Columns[8].Visible = false; //No se ve la columna PrecioVenta
-                if (!(Listas.Text == Listas.Items[2].ToString()))
+                else
                 {
-                    dataGridView1.Columns[13].Visible = false;//No se ve columna Cantidad Vendida
+                    this.Listas_SelectedIndexChanged(sender, e);
                 }
             }
 
