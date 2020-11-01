@@ -81,7 +81,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             string EstadoPresupuesto = "";
             if (IdPresupuesto!=0)
             {
-                EstadoPresupuesto = controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado;
+                EstadoPresupuesto=controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado;
+                if (EstadoPresupuesto=="Seniado")
+                {
+                    EstadoPresupuestoLabel.Text += "Señado";
+                }
+                else
+                {
+                    EstadoPresupuestoLabel.Text += EstadoPresupuesto;
+                }
             }
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
@@ -185,6 +193,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 CargarProductos.Visible = false;
                 dateTimePicker1.Visible = false;
                 label5.Visible = false;
+            }
+            else if (EstadoPresupuesto=="Seniado")
+            {
+                Seniar.Visible = false;
             }
         }
 

@@ -41,6 +41,7 @@
             this.TotalPagar = new System.Windows.Forms.Label();
             this.MontoSenia = new System.Windows.Forms.Label();
             this.MontoPagar = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.Vender.FlatAppearance.BorderSize = 0;
             this.Vender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Vender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Vender.Location = new System.Drawing.Point(77, 485);
+            this.Vender.Location = new System.Drawing.Point(71, 434);
             this.Vender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(87, 30);
@@ -95,7 +96,7 @@
             this.Cancelar.FlatAppearance.BorderSize = 0;
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancelar.Location = new System.Drawing.Point(764, 485);
+            this.Cancelar.Location = new System.Drawing.Point(800, 434);
             this.Cancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(87, 30);
@@ -107,11 +108,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(491, 114);
+            this.dataGridView1.Location = new System.Drawing.Point(466, 98);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(421, 319);
-            this.dataGridView1.TabIndex = 17;            // 
+            this.dataGridView1.TabIndex = 17;
+            // 
             // NombreCliente
             // 
             this.NombreCliente.AutoSize = true;
@@ -135,7 +137,7 @@
             this.VendidoTexto.AutoSize = true;
             this.VendidoTexto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VendidoTexto.ForeColor = System.Drawing.Color.Black;
-            this.VendidoTexto.Location = new System.Drawing.Point(190, 489);
+            this.VendidoTexto.Location = new System.Drawing.Point(190, 438);
             this.VendidoTexto.Name = "VendidoTexto";
             this.VendidoTexto.Size = new System.Drawing.Size(207, 20);
             this.VendidoTexto.TabIndex = 24;
@@ -178,12 +180,25 @@
             this.MontoPagar.TabIndex = 28;
             this.MontoPagar.Text = "$0000.00";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(603, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 18);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Productos que vencen";
+            this.label1.Visible = false;
+            // 
             // VVenderPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 588);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.MontoPagar);
             this.Controls.Add(this.MontoSenia);
             this.Controls.Add(this.TotalPagar);
@@ -223,5 +238,6 @@
         private System.Windows.Forms.Label TotalPagar;
         private System.Windows.Forms.Label MontoSenia;
         private System.Windows.Forms.Label MontoPagar;
+        private System.Windows.Forms.Label label1;
     }
 }
