@@ -213,6 +213,10 @@
     <Compile Include="Migrations\202010162202412_init3.designer.cs">
       <DependentUpon>202010162202412_init3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011022103490_PresupestoObservacion.cs" />
+    <Compile Include="Migrations\202011022103490_PresupestoObservacion.designer.cs">
+      <DependentUpon>202011022103490_PresupestoObservacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ventanas\VAgregarModificarCategoria.cs">
       <SubType>Form</SubType>
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010162202412_init3.resx">
       <DependentUpon>202010162202412_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011022103490_PresupestoObservacion.resx">
+      <DependentUpon>202011022103490_PresupestoObservacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

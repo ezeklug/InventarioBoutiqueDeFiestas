@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,6 +23,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         DateTime FechaVencimiento { get; set; }
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
+        string PObservacion { get; set; }
         PresupuestoDTO Presupuesto { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
         public VAdministrarPresupuesto(int pIdPresupuesto)
@@ -33,7 +35,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = Presupuesto.FechaVencimiento;
             Descuento = Presupuesto.Descuento.ToString();
             IdPresupuesto = Presupuesto.Id;
-            Observacion.Text = Presupuesto.Observacion;
+            PObservacion = Presupuesto.Observacion;
             InitializeComponent();
         }
         public VAdministrarPresupuesto(PresupuestoDTO pPresupuestoDTO)
@@ -44,7 +46,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdCliente = pPresupuestoDTO.IdCliente;
             FechaVencimiento = pPresupuestoDTO.FechaVencimiento;
             Descuento = pPresupuestoDTO.Descuento.ToString();
-            Observacion.Text = pPresupuestoDTO.Observacion;
+            PObservacion = pPresupuestoDTO.Observacion;
             IdPresupuesto = pPresupuestoDTO.Id;
 
             InitializeComponent();
@@ -66,7 +68,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
-            Observacion.Text = observacion;
+            PObservacion = observacion;
             InitializeComponent();
         }
         public VAdministrarPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto,string descuento,string observacion)
@@ -76,7 +78,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
-            Observacion.Text = observacion;
+            PObservacion = observacion;
             InitializeComponent();
         }
 
@@ -113,6 +115,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Venta.Visible = false;
             dateTimePicker1.Value = FechaVencimiento;
             DescuentoTotal.Text = Descuento;
+            Observacion.Text = PObservacion;
             if (IdCliente != 0)
             {
                 Cliente.Text = controladorFachada.BuscarCliente(IdCliente).ToString();
@@ -315,6 +318,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 pre.FechaVencimiento = FechaVencimiento;
                 pre.Id = IdPresupuesto;
                 pre.Descuento = Convert.ToDouble(DescuentoTotal.Text);
+                pre.Observacion = Observacion.Text;
                 IdPresupuesto = controladorFachada.AgregarModificarPresupuesto(pre);
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)

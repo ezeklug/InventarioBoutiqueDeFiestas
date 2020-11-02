@@ -22,6 +22,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pres.FechaGeneracion = pPresupuesto.FechaGeneracion;
             pres.FechaVencimiento = pPresupuesto.FechaVencimiento;
             pres.Descuento = pPresupuesto.Descuento;
+            pres.Observacion = pPresupuesto.Observacion;
             Cliente cliente = repo.Clientes.Find(pPresupuesto.IdCliente);
             if (cliente == null)
             {
@@ -263,6 +264,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                     pres.FechaVencimiento = presAAgregar.FechaVencimiento;
                     pres.FechaGeneracion = presAAgregar.FechaGeneracion;
                     pres.Descuento = presAAgregar.Descuento;
+                    pres.Observacion = presAAgregar.Observacion;
                     repo.SaveChanges();
                     return pres.Id;
                 }
@@ -477,6 +479,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             pDTO.IdCliente = pre.Cliente.Id;
             pDTO.Descuento = pre.Descuento;
             pDTO.Cliente = pre.Cliente.Nombre + " " + pre.Cliente.Apellido;
+            pDTO.Observacion = pre.Observacion;
             return pDTO;
         }
 
