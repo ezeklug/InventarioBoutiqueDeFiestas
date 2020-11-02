@@ -22,8 +22,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         DateTime FechaVencimiento { get; set; }
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
+        string Observacion { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
-        public VControlProducto(int pIdCliente, DataGridView filas, DateTime fechaVencimiento, int idPresupuesto, string descuento)
+        public VControlProducto(int pIdCliente, DataGridView filas, DateTime fechaVencimiento, int idPresupuesto, string descuento,string observacion)
         {
             InitializeComponent();
             Filas = filas;
@@ -31,6 +32,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
+            Observacion = observacion;
         }
 
         public static VControlProducto instancia;
@@ -341,7 +343,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (seleccion)
             {
                 this.Hide();
-                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente, idProductos, Filas, FechaEvento, FechaVencimiento, IdPresupuesto, Descuento);
+                VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(IdCliente, idProductos, Filas, FechaEvento, FechaVencimiento, IdPresupuesto, Descuento,Observacion);
                 vAdministrarPresupuesto.ShowDialog();
                 this.Close();
             }

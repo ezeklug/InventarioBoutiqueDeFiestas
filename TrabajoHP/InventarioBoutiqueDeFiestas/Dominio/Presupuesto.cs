@@ -54,6 +54,7 @@ namespace InventarioBoutiqueDeFiestas.Dominio
             }
             return precio * (1 - Descuento/100);
         }
+        public string Observacion { get; set; }
         public Presupuesto(DateTime pFechaGeneracion, DateTime pFechaVencimiento, DateTime pFechaEvento, Cliente pCliente)
         {
             FechaGeneracion = pFechaGeneracion;

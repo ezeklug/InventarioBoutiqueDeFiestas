@@ -33,6 +33,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = Presupuesto.FechaVencimiento;
             Descuento = Presupuesto.Descuento.ToString();
             IdPresupuesto = Presupuesto.Id;
+            Observacion.Text = Presupuesto.Observacion;
             InitializeComponent();
         }
         public VAdministrarPresupuesto(PresupuestoDTO pPresupuestoDTO)
@@ -43,6 +44,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             IdCliente = pPresupuestoDTO.IdCliente;
             FechaVencimiento = pPresupuestoDTO.FechaVencimiento;
             Descuento = pPresupuestoDTO.Descuento.ToString();
+            Observacion.Text = pPresupuestoDTO.Observacion;
             IdPresupuesto = pPresupuestoDTO.Id;
 
             InitializeComponent();
@@ -56,7 +58,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Descuento = "0";
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas, DateTime fechaEvento, DateTime fechaVencimiento, int idPresupuesto,string descuento)
+        public VAdministrarPresupuesto(int pIdCliente, List<int> idProductos, DataGridView filas, DateTime fechaEvento, DateTime fechaVencimiento, int idPresupuesto,string descuento, string observacion)
         {
             IdCliente = pIdCliente;
             IdProductos = idProductos;
@@ -64,15 +66,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
+            Observacion.Text = observacion;
             InitializeComponent();
         }
-        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto,string descuento)
+        public VAdministrarPresupuesto(int pIdCliente, DataGridView filas,DateTime fechaEvento,DateTime fechaVencimiento,int idPresupuesto,string descuento,string observacion)
         {
             IdCliente = pIdCliente;
             Filas = filas;
             FechaVencimiento = fechaVencimiento;
             IdPresupuesto = idPresupuesto;
             Descuento = descuento;
+            Observacion.Text = observacion;
             InitializeComponent();
         }
 
@@ -229,7 +233,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void BuscarCliente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            VControlClientes vControlClientes= new VControlClientes(IdCliente,dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
+            VControlClientes vControlClientes= new VControlClientes(IdCliente,dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text,Observacion.Text);
             vControlClientes.ShowDialog();
             this.Close();
         }
@@ -275,7 +279,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void CargarProductos_Click(object sender, EventArgs e)
         {
                 this.Hide();
-                VControlProducto vControlProducto = new VControlProducto(IdCliente, dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text);
+                VControlProducto vControlProducto = new VControlProducto(IdCliente, dataGridView1,FechaVencimiento,IdPresupuesto,DescuentoTotal.Text,Observacion.Text);
                 vControlProducto.ShowDialog();
                 this.Close(); 
         }
