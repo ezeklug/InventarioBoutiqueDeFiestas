@@ -90,11 +90,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 EstadoPresupuesto=controladorFachada.BuscarPresupuesto(IdPresupuesto).Estado;
                 if (EstadoPresupuesto=="Seniado")
                 {
-                    EstadoPresupuestoLabel.Text += "Señado";
+                    EstadoPresupuestoLabel.Text ="Estado:  " + "Señado";
                 }
                 else
                 {
-                    EstadoPresupuestoLabel.Text += EstadoPresupuesto;
+                    EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
                 }
             }
             dataGridView1.Columns.Clear();
@@ -295,7 +295,17 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Guardar_Click(object sender, EventArgs e)
         {
-            this.GuardarPresupuesto(sender, e);
+            int id=this.GuardarPresupuesto(sender, e);
+            string EstadoPresupuesto = "";
+            EstadoPresupuesto = controladorFachada.BuscarPresupuesto(id).Estado;
+            if (EstadoPresupuesto == "Seniado")
+            {
+                EstadoPresupuestoLabel.Text = "Estado:  " + "Señado";
+            }
+            else
+            {
+                EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
+            }
             MessageBox.Show("Se guardó correctamente el presupuesto");
         }
         private int GuardarPresupuesto(object sender, EventArgs e)
@@ -480,7 +490,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             int idPresupuesto=this.GuardarPresupuesto(sender, e);
             controladorFachada.ActualizarPreciosPresupuesto(idPresupuesto);
             this.VAdministrarPresupuesto_Load(sender,e);
-
+            this.GuardarPresupuesto(sender, e);
+            MessageBox.Show("Se han actualizado los precios a los actuales");
 
         }
     }
