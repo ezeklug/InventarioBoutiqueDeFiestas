@@ -171,6 +171,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     CargarProductos.Visible = false;
                     dateTimePicker1.Visible = false;
                     label5.Visible = false;
+                    ActualizarPrecios.Visible = false;
                 }
             }
             Total.Text = PrecioVenta().ToString();
@@ -188,6 +189,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 CargarProductos.Visible = false;
                 dateTimePicker1.Visible = false;
                 label5.Visible = false;
+                ActualizarPrecios.Visible = false;
             }
             else if (EstadoPresupuesto=="Cancelado")
             {
@@ -203,6 +205,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 CargarProductos.Visible = false;
                 dateTimePicker1.Visible = false;
                 label5.Visible = false;
+                ActualizarPrecios.Visible = false;
             }
             else if (EstadoPresupuesto=="Seniado")
             {
@@ -470,6 +473,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             controladorFachada.CancelarPresupuesto(IdPresupuesto);
             MessageBox.Show("Se ha cancelado el Presupuesto");
+        }
+
+        private void ActualizarPrecios_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

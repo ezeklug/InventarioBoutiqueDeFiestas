@@ -55,6 +55,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.EstadoPresupuestoLabel = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.Observacion = new System.Windows.Forms.TextBox();
+            this.ActualizarPrecios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -357,11 +358,27 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Observacion.Size = new System.Drawing.Size(211, 84);
             this.Observacion.TabIndex = 42;
             // 
+            // ActualizarPrecios
+            // 
+            this.ActualizarPrecios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActualizarPrecios.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ActualizarPrecios.FlatAppearance.BorderSize = 0;
+            this.ActualizarPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ActualizarPrecios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActualizarPrecios.Location = new System.Drawing.Point(491, 771);
+            this.ActualizarPrecios.Name = "ActualizarPrecios";
+            this.ActualizarPrecios.Size = new System.Drawing.Size(139, 23);
+            this.ActualizarPrecios.TabIndex = 43;
+            this.ActualizarPrecios.Text = "Actualizar precios";
+            this.ActualizarPrecios.UseVisualStyleBackColor = false;
+            this.ActualizarPrecios.Click += new System.EventHandler(this.ActualizarPrecios_Click);
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1353, 831);
+            this.Controls.Add(this.ActualizarPrecios);
             this.Controls.Add(this.Observacion);
             this.Controls.Add(this.label);
             this.Controls.Add(this.EstadoPresupuestoLabel);
@@ -442,5 +459,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label EstadoPresupuestoLabel;
         private System.Windows.Forms.TextBox Observacion;
+        private System.Windows.Forms.Button ActualizarPrecios;
     }
 }
