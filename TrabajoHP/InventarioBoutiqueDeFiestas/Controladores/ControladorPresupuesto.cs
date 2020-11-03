@@ -528,7 +528,8 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             linea.IdProducto = lineaPresupuesto.Producto.Id;
             linea.Subtotal = lineaPresupuesto.Subtotal;
             linea.NombreProducto = lineaPresupuesto.Producto.Nombre;
-            linea.PrecioUnitario = lineaPresupuesto.Producto.PrecioVenta();
+            //Precio unitario se calcula en base al subtotal precio de descuento y cantidad.
+            linea.PrecioUnitario = linea.Subtotal/(linea.Cantidad*(1-(linea.PorcentajeDescuento/100)));
             return linea;
         }
 

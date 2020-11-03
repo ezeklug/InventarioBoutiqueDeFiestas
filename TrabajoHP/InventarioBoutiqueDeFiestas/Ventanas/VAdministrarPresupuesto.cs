@@ -120,6 +120,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 Cliente.Text = controladorFachada.BuscarCliente(IdCliente).ToString();
             }
+            //Lineas de presupuesto que vienen de otra pantalla (VControlProductos o VControlClientes)
             if (Filas.RowCount != 0)
             {
                 foreach (DataGridViewRow row in Filas.Rows)
@@ -128,6 +129,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     dataGridView1.Rows.Add(r);
                 }
             }
+            //Productos nuevos ingresados desde CARGAR PRODUCTOS 
             if(IdProductos!=null)
             {
                 Boolean existe = false;
@@ -147,6 +149,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     }
                 }
             }
+            // Presupuesto que viene seleccionado de VControlPresupuestos (se seleccionó un presupuesto y se clickeo administrar)
             if(Presupuesto!=null)
             {
                 foreach (LineaPresupuestoDTO lin in controladorFachada.ListarLineasPresupuesto(Presupuesto.Id))
