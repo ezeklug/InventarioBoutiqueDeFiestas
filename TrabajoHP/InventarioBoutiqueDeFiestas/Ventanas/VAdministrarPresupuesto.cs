@@ -296,8 +296,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private void Guardar_Click(object sender, EventArgs e)
         {
             int id=this.GuardarPresupuesto(sender, e);
-            string EstadoPresupuesto = "";
-            EstadoPresupuesto = controladorFachada.BuscarPresupuesto(id).Estado;
+            string EstadoPresupuesto = controladorFachada.BuscarPresupuesto(id).Estado;
             if (EstadoPresupuesto == "Seniado")
             {
                 EstadoPresupuestoLabel.Text = "Estado:  " + "Señado";
@@ -306,7 +305,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
             }
-            MessageBox.Show("Se guardó correctamente el presupuesto");
         }
         private int GuardarPresupuesto(object sender, EventArgs e)
         {
@@ -347,6 +345,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
                     controladorFachada.AgregarLinea(lin);
                 }
+                MessageBox.Show("Se guardó correctamente el presupuesto");
             }
             return IdPresupuesto;
         }
