@@ -413,6 +413,19 @@ namespace InventarioBoutiqueDeFiestas.Controladores
             return ventadb.Id;
         }
 
+        public void ActualizarPreciosPresupuesto(int idPresupuesto)
+        {
+            using (var repo=new Repositorio())
+            {
+                List<LineaPresupuesto> lineas=repo.LineaPresupuestos.Include("Presupuesto").Include("Producto").Where(p => p.Presupuesto.Id==idPresupuesto).ToList();
+                foreach (LineaPresupuesto lin in lineas)
+                {
+                    lin.Subtotal = lin.Producto.PrecioVenta()*lin.Cantidad * (1 - (lin.PorcentajeDescuento / 100));
+                    repo.SaveChanges();
+                }
+            }
+        }
+
         public void CancelarPresupuesto(int idPresupuesto)
         {
             using (var repo=new Repositorio())

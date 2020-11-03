@@ -477,6 +477,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void ActualizarPrecios_Click(object sender, EventArgs e)
         {
+            int idPresupuesto=this.GuardarPresupuesto(sender, e);
+            controladorFachada.ActualizarPreciosPresupuesto(idPresupuesto);
+            this.VAdministrarPresupuesto_Load(sender,e);
+
 
         }
     }

@@ -438,5 +438,10 @@ namespace InventarioBoutiqueDeFiestas.Controladores
         {
             controladorPresupuesto.CancelarPresupuesto(idPresupuesto);
         }
+
+        public void ActualizarPreciosPresupuesto(int idPresupuesto)
+        {
+            controladorPresupuesto.ActualizarPreciosPresupuesto(idPresupuesto);
+        }
     }
 }

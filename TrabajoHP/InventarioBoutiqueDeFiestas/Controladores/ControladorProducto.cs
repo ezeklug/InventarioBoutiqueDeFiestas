@@ -162,6 +162,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 pro.CantidadEnStock = pProducto.CantidadEnStock;
                 pro.PorcentajeDeGanancia = pProducto.PorcentajeDeGanancia;
                 pro.PrecioDeCompra = pProducto.PrecioDeCompra;
+                pro.PrecioVenta = pProducto.PrecioVenta();
                 pro.Activo = pProducto.Activo;
                 pro.CategoriaProductoDTO = this.CategoriaADTO(repo.Productos.Include("Categoria").Where(p => p.Id == pProducto.Id).First().Categoria);
                 pro.Categoria = pro.CategoriaProductoDTO.Nombre;
