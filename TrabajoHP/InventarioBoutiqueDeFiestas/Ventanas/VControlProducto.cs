@@ -56,8 +56,22 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
             dataGridView1.DataSource = controladorFachada.ListarTodosLosProductos();
+            dataGridView1.Columns[0].Width = 25;
+            dataGridView1.Columns[1].Width = 35; //ID
+            dataGridView1.Columns[2].Width = 125;
+            dataGridView1.Columns[3].Width = 125;
+            dataGridView1.Columns[4].Width = 60;
+            dataGridView1.Columns[5].Width = 95;
+            dataGridView1.Columns[6].Width = 125;
+            dataGridView1.Columns[7].Width = 95;
+            dataGridView1.Columns[8].Width = 60;
+            dataGridView1.Columns[12].Width = 90;
+            dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
-            
+            dataGridView1.Columns[10].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[13].HeaderText = "Cantidad Vendida";
 
         }
   
@@ -249,21 +263,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 producto.CantidadVendida = Convert.ToInt32(dr.Cells[13].Value);
                 listaProducto.Add(producto);
             }
-        /*    if (Listas.Text == Listas.Items[0].ToString())
-            {
-                //Todos
-                listaProducto = controladorFachada.ListarTodosLosProductos();
-            }
-            else if (Listas.Text == Listas.Items[1].ToString())
-            {
-                //Debajo stock mínimo
-                listaProducto = controladorFachada.ListarProductosBajoStockMinimo();
-            }
-            else
-            {
-                //Más vendidos
-                listaProducto = controladorFachada.ListarProductosMasVendidos(Convert.ToDouble(MesValor.Text));
-            }*/
             try
             {
                 if (buscar.Text!="")
