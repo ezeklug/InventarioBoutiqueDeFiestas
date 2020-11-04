@@ -7,10 +7,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
@@ -295,19 +297,44 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void Guardar_Click(object sender, EventArgs e)
         {
-            int id=this.GuardarPresupuesto(sender, e);
-            string EstadoPresupuesto = controladorFachada.BuscarPresupuesto(id).Estado;
-            if (EstadoPresupuesto == "Seniado")
+            Tuple<int,Boolean> tupla=this.GuardarPresupuesto(sender, e);
+            if(tupla.Item1!=0)
             {
-                EstadoPresupuestoLabel.Text = "Estado:  " + "Señado";
+                string EstadoPresupuesto = controladorFachada.BuscarPresupuesto(tupla.Item1).Estado;
+                if (EstadoPresupuesto == "Seniado")
+                {
+                    EstadoPresupuestoLabel.Text = "Estado:  " + "Señado";
+                }
+                else
+                {
+                    EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
+                }
             }
-            else
+            if (tupla.Item2)
             {
-                EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
+                MessageBox.Show("Se guardó el presupuesto correctamente");
             }
+
         }
-        private int GuardarPresupuesto(object sender, EventArgs e)
+        /// <summary>
+        /// El primer elemento de la tupla indica el idPresupuesto, el segundo indica si se guardó correctamente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        private Tuple<int,Boolean> GuardarPresupuesto(object sender, EventArgs e)
         {
+            Boolean Guardado = false;
+            Boolean errorCantidad = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[2].Value.ToString() =="0" && !errorCantidad)
+                {
+                    errorCantidad = true;
+                }
+            }
+
+
             if (IdCliente == 0)
             {
                 MessageBox.Show("Debe seleccionar un cliente");
@@ -315,6 +342,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             else if (dataGridView1.Rows.Count < 1)
             {
                 MessageBox.Show("Debe seleccionar al menos un producto");
+            }
+            else if (errorCantidad)
+            {
+                MessageBox.Show("Hay al menos un producto que tiene cantidad 0, modifiquelo");
             }
             else if (FechaVencimiento.Date < DateTime.Now.Date)
             {
@@ -345,9 +376,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     lin.Subtotal = double.Parse(row.Cells[5].Value.ToString());
                     controladorFachada.AgregarLinea(lin);
                 }
-                MessageBox.Show("Se guardó correctamente el presupuesto");
+                Guardado = true;
             }
-            return IdPresupuesto;
+            return Tuple.Create(IdPresupuesto,Guardado);
         }
 
         private void Seniar_Click(object sender, EventArgs e)
@@ -486,12 +517,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void ActualizarPrecios_Click(object sender, EventArgs e)
         {
-            int idPresupuesto=this.GuardarPresupuesto(sender, e);
-            controladorFachada.ActualizarPreciosPresupuesto(idPresupuesto);
-            this.VAdministrarPresupuesto_Load(sender,e);
-            this.GuardarPresupuesto(sender, e);
-            MessageBox.Show("Se han actualizado los precios a los actuales");
-
+            Tuple<int,Boolean> tupla=this.GuardarPresupuesto(sender, e);
+            if(tupla.Item2)
+            {
+                controladorFachada.ActualizarPreciosPresupuesto(tupla.Item1);
+                this.VAdministrarPresupuesto_Load(sender, e);
+                MessageBox.Show("Se han actualizado los precios a los actuales");
+            }
         }
     }
 }
