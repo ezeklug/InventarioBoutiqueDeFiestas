@@ -174,7 +174,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Guardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guardar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Guardar.Location = new System.Drawing.Point(969, 771);
+            this.Guardar.Location = new System.Drawing.Point(918, 771);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(75, 23);
             this.Guardar.TabIndex = 22;
@@ -185,14 +185,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // Seniar
             // 
             this.Seniar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Seniar.AutoSize = true;
             this.Seniar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Seniar.FlatAppearance.BorderSize = 0;
             this.Seniar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Seniar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Seniar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Seniar.Location = new System.Drawing.Point(785, 771);
+            this.Seniar.Location = new System.Drawing.Point(728, 769);
             this.Seniar.Name = "Seniar";
-            this.Seniar.Size = new System.Drawing.Size(75, 23);
+            this.Seniar.Size = new System.Drawing.Size(69, 27);
             this.Seniar.TabIndex = 23;
             this.Seniar.Text = "Señar";
             this.Seniar.UseVisualStyleBackColor = false;
@@ -206,7 +207,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Vender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Vender.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Vender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Vender.Location = new System.Drawing.Point(878, 771);
+            this.Vender.Location = new System.Drawing.Point(819, 771);
             this.Vender.Name = "Vender";
             this.Vender.Size = new System.Drawing.Size(75, 23);
             this.Vender.TabIndex = 24;
@@ -238,7 +239,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Volver.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Volver.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Volver.Location = new System.Drawing.Point(1154, 771);
+            this.Volver.Location = new System.Drawing.Point(1123, 771);
             this.Volver.Name = "Volver";
             this.Volver.Size = new System.Drawing.Size(75, 23);
             this.Volver.TabIndex = 26;
@@ -290,7 +291,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.botonExportar.FlatAppearance.BorderSize = 0;
             this.botonExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonExportar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonExportar.Location = new System.Drawing.Point(652, 771);
+            this.botonExportar.Location = new System.Drawing.Point(474, 771);
             this.botonExportar.Name = "botonExportar";
             this.botonExportar.Size = new System.Drawing.Size(116, 23);
             this.botonExportar.TabIndex = 37;
@@ -306,7 +307,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Cancelar.Location = new System.Drawing.Point(1059, 771);
+            this.Cancelar.Location = new System.Drawing.Point(1019, 771);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 38;
@@ -322,7 +323,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Venta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Venta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Venta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Venta.Location = new System.Drawing.Point(878, 771);
+            this.Venta.Location = new System.Drawing.Point(819, 771);
             this.Venta.Name = "Venta";
             this.Venta.Size = new System.Drawing.Size(75, 23);
             this.Venta.TabIndex = 39;
@@ -365,7 +366,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.ActualizarPrecios.FlatAppearance.BorderSize = 0;
             this.ActualizarPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ActualizarPrecios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActualizarPrecios.Location = new System.Drawing.Point(491, 771);
+            this.ActualizarPrecios.Location = new System.Drawing.Point(309, 771);
             this.ActualizarPrecios.Name = "ActualizarPrecios";
             this.ActualizarPrecios.Size = new System.Drawing.Size(139, 23);
             this.ActualizarPrecios.TabIndex = 43;

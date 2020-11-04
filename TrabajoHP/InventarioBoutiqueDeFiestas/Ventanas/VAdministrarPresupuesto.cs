@@ -211,7 +211,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             else if (EstadoPresupuesto=="Seniado")
             {
-                Seniar.Visible = false;
+                Seniar.Text = "Ver/Modificar Seña";
             }
         }
 

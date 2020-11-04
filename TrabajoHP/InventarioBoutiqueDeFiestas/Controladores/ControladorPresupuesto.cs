@@ -160,6 +160,7 @@ namespace InventarioBoutiqueDeFiestas.Controladores
                 dto.IdPresupuesto = senia.Presupuesto.Id;
                 dto.Monto = senia.Monto;
                 dto.Fecha = senia.Fecha;
+                dto.ValidoHasta = senia.ValidoHasta;
                 return dto;
             }
             else
