@@ -63,8 +63,30 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Listo.Visible = false;
             Cancelar.Visible = false;
             Agregar.Visible = false;
-            Confirmar.Visible = true;
-            ConfirmarText.Visible = true;
+            Boolean vencen = false;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!vencen)
+                {
+                    if (row.Cells[4].Value != "------")
+                    {
+                        vencen = true;
+                    }
+                }
+            }
+            if (vencen)
+            {
+                Confirmar.Visible = true;
+                ConfirmarText.Visible = true;
+            }
+            else
+            {
+                this.Hide();
+                VControlProducto vControlProducto = new VControlProducto();
+                vControlProducto.ShowDialog();
+                this.Close();
+            }
+
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
@@ -110,10 +132,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (Productos != null)
             {
-                Boolean existe = false;
+            //    Boolean existe = false;
                 foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(Productos))
                 {
-                    foreach (DataGridViewRow row1 in dataGridView1.Rows)
+           /*         foreach (DataGridViewRow row1 in dataGridView1.Rows)
                     {
                         if (row1.Cells[0].Value.ToString() == p.Id.ToString())
                         {
@@ -121,11 +143,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                         }
                     }
                     if (!existe)
-                    {
+                    {*/
                         string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", "0", "", "" };
                         dataGridView1.Rows.Add(row);
                     }
-                }
+             //   }
             }
             foreach (DataGridViewRow row3 in dataGridView1.Rows)
             {
