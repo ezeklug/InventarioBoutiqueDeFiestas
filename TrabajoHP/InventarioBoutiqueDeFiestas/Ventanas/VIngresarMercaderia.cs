@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.DTO;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -138,6 +139,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     row3.Cells[4].ReadOnly = true;
                 }
             }
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private void Principal_Click(object sender, EventArgs e)

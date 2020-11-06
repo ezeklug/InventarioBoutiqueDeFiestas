@@ -11,6 +11,7 @@ using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -68,6 +69,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
             dataGridView1.Columns[7].Visible = false; //Columna de Activo
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private ClienteDTO RowAClienteDTO(DataGridViewRow row)

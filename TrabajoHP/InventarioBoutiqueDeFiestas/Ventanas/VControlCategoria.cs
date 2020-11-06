@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.DTO;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -51,6 +52,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[3].ReadOnly = true;
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private void Agregar_Click(object sender, EventArgs e)

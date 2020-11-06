@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -28,6 +29,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         string PObservacion { get; set; }
         PresupuestoDTO Presupuesto { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
+
         public VAdministrarPresupuesto(int pIdPresupuesto)
         {
             IdProductos = new List<int>();
@@ -213,6 +215,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 Seniar.Text = "Ver/Modificar Seña";
             }
+
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private void CalcularSubtotal()

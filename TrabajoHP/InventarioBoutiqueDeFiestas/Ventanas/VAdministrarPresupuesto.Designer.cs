@@ -378,6 +378,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1353, 831);
             this.Controls.Add(this.ActualizarPrecios);
             this.Controls.Add(this.Observacion);

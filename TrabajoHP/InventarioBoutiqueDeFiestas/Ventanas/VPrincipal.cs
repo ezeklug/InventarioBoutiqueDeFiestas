@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas
 {
@@ -37,6 +38,7 @@ namespace InventarioBoutiqueDeFiestas
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private void ControlPresupuesto_Click(object sender, EventArgs e)

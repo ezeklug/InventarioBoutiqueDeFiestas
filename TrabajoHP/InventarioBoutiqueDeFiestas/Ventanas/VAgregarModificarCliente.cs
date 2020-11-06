@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -74,5 +75,9 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
+        private void VAgregarModificarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

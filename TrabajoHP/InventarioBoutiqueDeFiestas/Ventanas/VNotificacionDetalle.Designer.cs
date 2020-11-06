@@ -241,6 +241,7 @@
             this.Controls.Add(this.Notificación);
             this.Name = "VNotificacionDetalle";
             this.Text = "VNotificacionDetalle";
+            this.Load += new System.EventHandler(this.VNotificacionDetalle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

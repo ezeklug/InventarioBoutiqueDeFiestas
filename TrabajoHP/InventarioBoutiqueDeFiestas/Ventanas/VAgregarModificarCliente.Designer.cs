@@ -207,6 +207,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VAgregarModificarCliente";
             this.Text = "Cliente";
+            this.Load += new System.EventHandler(this.VAgregarModificarCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

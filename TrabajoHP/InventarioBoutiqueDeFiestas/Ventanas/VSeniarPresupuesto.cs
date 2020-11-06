@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
 using InventarioBoutiqueDeFiestas.Controladores;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {

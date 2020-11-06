@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.DTO;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -60,6 +61,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             VAdministrarPresupuesto vAdministrarPresupuesto = new VAdministrarPresupuesto(Convert.ToInt32(NumeroLoteOPresupuestoLabel.Text));
             vAdministrarPresupuesto.ShowDialog();
+
+        }
+
+        private void VNotificacionDetalle_Load(object sender, EventArgs e)
+        {
 
         }
     }

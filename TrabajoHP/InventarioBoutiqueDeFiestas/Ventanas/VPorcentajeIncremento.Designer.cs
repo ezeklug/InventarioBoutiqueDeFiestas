@@ -104,6 +104,7 @@
             this.Controls.Add(this.label1);
             this.Name = "VPorcentajeIncremento";
             this.Text = "VPorcentajeIncremento";
+            this.Load += new System.EventHandler(this.VPorcentajeIncremento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

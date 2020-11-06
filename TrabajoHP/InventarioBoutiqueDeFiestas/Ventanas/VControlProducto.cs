@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
 using InventarioBoutiqueDeFiestas.Dominio;
 using InventarioBoutiqueDeFiestas.DTO;
+using InventarioBoutiqueDeFiestas.Style;
+
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
     public partial class VControlProducto : Form
@@ -224,6 +226,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[13].HeaderText = "Cantidad Vendida";
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private void PorcentajeIncremento_Click(object sender, EventArgs e)

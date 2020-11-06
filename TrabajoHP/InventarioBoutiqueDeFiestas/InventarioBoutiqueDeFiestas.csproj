@@ -218,6 +218,7 @@
       <DependentUpon>202011022103490_PresupestoObservacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Style\DatagridStyle.cs" />
     <Compile Include="Ventanas\VAgregarModificarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>

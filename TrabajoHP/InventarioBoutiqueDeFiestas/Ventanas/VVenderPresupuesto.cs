@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -63,6 +64,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
                 }
             }
+            _ = new DatagridStyle(dataGridView1);
         }
 
         private void Vender_Click(object sender, EventArgs e)

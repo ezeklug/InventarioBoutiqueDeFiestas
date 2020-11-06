@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventarioBoutiqueDeFiestas.Controladores;
-
+using InventarioBoutiqueDeFiestas.Style;
 
 namespace InventarioBoutiqueDeFiestas.Ventanas
 {
@@ -42,6 +42,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             this.Hide();
             this.Close();
+        }
+
+        private void VPorcentajeIncremento_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
