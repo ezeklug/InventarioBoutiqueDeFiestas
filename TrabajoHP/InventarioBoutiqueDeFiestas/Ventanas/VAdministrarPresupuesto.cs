@@ -529,5 +529,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 MessageBox.Show("Se han actualizado los precios a los actuales");
             }
         }
+
+        private void VAdministrarPresupuesto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            VPrincipal vPrincipal = new VPrincipal();
+            vPrincipal.ShowDialog();
+            this.Hide();
+            this.Close();
+        }
     }
 }

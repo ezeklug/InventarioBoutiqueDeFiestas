@@ -407,6 +407,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Name = "VAdministrarPresupuesto";
             this.Text = "VAdministrarPresupuesto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAdministrarPresupuesto_FormClosing);
             this.Load += new System.EventHandler(this.VAdministrarPresupuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
