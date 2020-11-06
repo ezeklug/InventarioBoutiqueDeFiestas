@@ -32,9 +32,9 @@
             this.ControlPresupuesto = new System.Windows.Forms.Button();
             this.ControlProductos = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NohayNotificaciones = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.NohayNotificaciones = new System.Windows.Forms.Label();
             this.DiasNotificaciones = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -97,6 +97,19 @@
             this.panel1.Size = new System.Drawing.Size(417, 571);
             this.panel1.TabIndex = 3;
             // 
+            // NohayNotificaciones
+            // 
+            this.NohayNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NohayNotificaciones.AutoSize = true;
+            this.NohayNotificaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NohayNotificaciones.Location = new System.Drawing.Point(88, 29);
+            this.NohayNotificaciones.Name = "NohayNotificaciones";
+            this.NohayNotificaciones.Size = new System.Drawing.Size(177, 21);
+            this.NohayNotificaciones.TabIndex = 1;
+            this.NohayNotificaciones.Text = "No hay notificaciones";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -123,19 +136,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Notificaciones";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // NohayNotificaciones
-            // 
-            this.NohayNotificaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NohayNotificaciones.AutoSize = true;
-            this.NohayNotificaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NohayNotificaciones.Location = new System.Drawing.Point(88, 29);
-            this.NohayNotificaciones.Name = "NohayNotificaciones";
-            this.NohayNotificaciones.Size = new System.Drawing.Size(177, 21);
-            this.NohayNotificaciones.TabIndex = 1;
-            this.NohayNotificaciones.Text = "No hay notificaciones";
             // 
             // DiasNotificaciones
             // 

@@ -27,6 +27,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
         string PObservacion { get; set; }
+        Boolean Notificacion { get; set; }
         PresupuestoDTO Presupuesto { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
 
@@ -40,6 +41,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Descuento = Presupuesto.Descuento.ToString();
             IdPresupuesto = Presupuesto.Id;
             PObservacion = Presupuesto.Observacion;
+            Notificacion = true;
             InitializeComponent();
         }
         public VAdministrarPresupuesto(PresupuestoDTO pPresupuestoDTO)
@@ -52,7 +54,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Descuento = pPresupuestoDTO.Descuento.ToString();
             PObservacion = pPresupuestoDTO.Observacion;
             IdPresupuesto = pPresupuestoDTO.Id;
-
+            Notificacion = false;
             InitializeComponent();
         }
         public VAdministrarPresupuesto()
@@ -100,6 +102,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
                 }
+            }
+            if (Notificacion)
+            {
+                VolverNotificacion.Visible = true;
+                Volver.Visible = false;
+            }
+            else
+            {
+                Volver.Visible = true;
+                VolverNotificacion.Visible = false;
             }
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
@@ -317,6 +329,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             if (tupla.Item2)
             {
                 MessageBox.Show("Se guardó el presupuesto correctamente");
+                this.VAdministrarPresupuesto_Load(sender, e);
             }
 
         }
@@ -401,6 +414,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             {
                 new VSeniarPresupuesto(IdCliente, IdPresupuesto).ShowDialog();
             }
+            this.VAdministrarPresupuesto_Load(sender, e);
         }
 
         private void Vender_Click(object sender, EventArgs e)
@@ -436,6 +450,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     }
                 }
             }
+            this.VAdministrarPresupuesto_Load(sender, e);
         }
 
         private void Venta_Click(object sender, EventArgs e)
@@ -517,6 +532,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         {
             controladorFachada.CancelarPresupuesto(IdPresupuesto);
             MessageBox.Show("Se ha cancelado el Presupuesto");
+            this.VAdministrarPresupuesto_Load(sender, e);
         }
 
         private void ActualizarPrecios_Click(object sender, EventArgs e)
@@ -528,6 +544,12 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.VAdministrarPresupuesto_Load(sender, e);
                 MessageBox.Show("Se han actualizado los precios a los actuales");
             }
+        }
+
+        private void VolverNotificacion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
         }
     }
 }

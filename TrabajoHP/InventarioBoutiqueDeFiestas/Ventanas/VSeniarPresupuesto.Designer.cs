@@ -184,7 +184,7 @@
             this.seniarButton.FlatAppearance.BorderSize = 0;
             this.seniarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seniarButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seniarButton.Location = new System.Drawing.Point(60, 378);
+            this.seniarButton.Location = new System.Drawing.Point(686, 382);
             this.seniarButton.Name = "seniarButton";
             this.seniarButton.Size = new System.Drawing.Size(75, 23);
             this.seniarButton.TabIndex = 15;
@@ -198,7 +198,7 @@
             this.cancelarButton.FlatAppearance.BorderSize = 0;
             this.cancelarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelarButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelarButton.Location = new System.Drawing.Point(697, 378);
+            this.cancelarButton.Location = new System.Drawing.Point(45, 382);
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.Size = new System.Drawing.Size(75, 23);
             this.cancelarButton.TabIndex = 17;
