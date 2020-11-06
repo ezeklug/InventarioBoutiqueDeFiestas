@@ -28,7 +28,7 @@ namespace InventarioBoutiqueDeFiestas.Style
             datagridview1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10);
             datagridview1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(37, 37, 38);
             datagridview1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            datagridview1.DefaultCellStyle.Font = new Font("Century Gothic",8);
+            datagridview1.DefaultCellStyle.Font = new Font("Century Gothic",9.5F);
         }
     }
 }
