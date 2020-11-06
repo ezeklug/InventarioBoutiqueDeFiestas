@@ -32,60 +32,90 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             int idLote = 0;
             List<ProductoDTO> ListaProductoDTO = new List<ProductoDTO>();
             int i = 0;
+            Boolean controlVence = false;
+            Boolean controlDatos = false;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[0].Value)));
-                unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
-                unProducto.IdCategoria = unProducto.CategoriaProductoDTO.Id;
-                unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
-                if (row.Cells[4].Value != "------")
+                if (Convert.ToInt32(row.Cells[2].Value) == 0 | Convert.ToDouble(row.Cells[3].Value) == 0)
                 {
-                    LoteDTO unLote = new LoteDTO();
-                    unLote.CantidadProductos = Convert.ToInt32(row.Cells[2].Value);
-                    unLote.FechaCompra = DateTime.Now; // ARREGLAME
-                    unLote.FechaVencimiento = Convert.ToDateTime(row.Cells[4].Value);
-                    if (unLote.FechaCompra < unLote.FechaVencimiento)
-                    {
-                        unLote.Vencido = false;
-                    }
-                    else
-                    {
-                        unLote.Vencido = true;
-                    }
-                    unLote.IdProducto = unProducto.Id;
-                    idLote=controladorFachada.GuardarLote(unLote);
-                    dataGridView1.Rows[i].Cells[5].Value = idLote;
+                    MessageBox.Show("Debe completar la cantidad a ingresar y el Precio de Compra");
+                    controlDatos = false;
                 }
-                i++;
-                ListaProductoDTO.Add(unProducto);
-            }
-            controladorFachada.IngresoMercarderias(ListaProductoDTO);
-            Listo.Visible = false;
-            Cancelar.Visible = false;
-            Agregar.Visible = false;
-            Boolean vencen = false;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (!vencen)
+                else
                 {
+                    ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[0].Value)));
+                    unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
+                    unProducto.IdCategoria = unProducto.CategoriaProductoDTO.Id;
+                    unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
                     if (row.Cells[4].Value != "------")
                     {
-                        vencen = true;
+                        if (string.IsNullOrEmpty((row.Cells[4].Value).ToString()))
+                        {
+                            controlVence = false;
+                            MessageBox.Show("Debe ingresar una fecha de vencimiento");
+                        }
+                        else
+                        {
+                            LoteDTO unLote = new LoteDTO();
+                            unLote.CantidadProductos = Convert.ToInt32(row.Cells[2].Value);
+                            unLote.FechaCompra = DateTime.Now; // ARREGLAME
+                            unLote.FechaVencimiento = Convert.ToDateTime(row.Cells[4].Value);
+                            controlVence = true;
+                            if (unLote.FechaCompra < unLote.FechaVencimiento)
+                            {
+                                unLote.Vencido = false;
+                            }
+                            else
+                            {
+                                unLote.Vencido = true;
+                            }
+
+                            unLote.IdProducto = unProducto.Id;
+                            idLote = controladorFachada.GuardarLote(unLote);
+                            dataGridView1.Rows[i].Cells[5].Value = idLote;
+
+                        }
+                    }
+                    i++;
+
+                    ListaProductoDTO.Add(unProducto);
+                    controlDatos = true;
+                }
+                controladorFachada.IngresoMercarderias(ListaProductoDTO);
+            }
+                Listo.Visible = false;
+                Cancelar.Visible = false;
+                Agregar.Visible = false;
+                Boolean vencen = false;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (!vencen)
+                    {
+                        if ((row.Cells[4].Value != "------") && (controlVence != true))
+                        {
+                            vencen = true;
+                        }
                     }
                 }
-            }
-            if (vencen)
-            {
-                Confirmar.Visible = true;
-                ConfirmarText.Visible = true;
-            }
+                if (vencen & controlDatos & controlVence)
+                {
+                    Confirmar.Visible = true;
+                    ConfirmarText.Visible = true;
+                }
+                else if(controlDatos & !vencen)
+                {
+                    this.Hide();
+                    VControlProducto vControlProducto = new VControlProducto();
+                    vControlProducto.ShowDialog();
+                    this.Close();
+                }
             else
             {
-                this.Hide();
-                VControlProducto vControlProducto = new VControlProducto();
-                vControlProducto.ShowDialog();
-                this.Close();
+                Listo.Visible = true;
+                Cancelar.Visible = true;
+                Agregar.Visible = true;
             }
+            
 
         }
 
