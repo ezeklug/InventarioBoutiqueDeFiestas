@@ -40,11 +40,11 @@
             this.cantidadProductosLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.fechaDeSeniaLabel = new System.Windows.Forms.Label();
-            this.porcentajeSeniaTextBox = new System.Windows.Forms.TextBox();
             this.montoSeniaTextBox = new System.Windows.Forms.TextBox();
             this.seniarButton = new System.Windows.Forms.Button();
             this.cancelarButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.PorcentajeSeña = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +58,6 @@
             this.label1.Size = new System.Drawing.Size(376, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Señar un presupuesto";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -67,9 +66,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Cliente";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
+            this.label2.Text = "Cliente";            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -123,7 +120,6 @@
             this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 7;
             this.label8.Text = "Validez hasta";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // nombreClienteLabel
             // 
@@ -161,21 +157,13 @@
             this.fechaDeSeniaLabel.TabIndex = 11;
             this.fechaDeSeniaLabel.Text = "label12";
             // 
-            // porcentajeSeniaTextBox
-            // 
-            this.porcentajeSeniaTextBox.Location = new System.Drawing.Point(178, 208);
-            this.porcentajeSeniaTextBox.Name = "porcentajeSeniaTextBox";
-            this.porcentajeSeniaTextBox.Size = new System.Drawing.Size(100, 20);
-            this.porcentajeSeniaTextBox.TabIndex = 12;
-            this.porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_TextChanged);
-            this.porcentajeSeniaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.porcentajeSeniaTextBox_KeyPress);
-            // 
             // montoSeniaTextBox
             // 
             this.montoSeniaTextBox.Location = new System.Drawing.Point(178, 235);
             this.montoSeniaTextBox.Name = "montoSeniaTextBox";
             this.montoSeniaTextBox.Size = new System.Drawing.Size(100, 20);
             this.montoSeniaTextBox.TabIndex = 13;
+            this.montoSeniaTextBox.Text = "0";
             this.montoSeniaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.montoSeniaTextBox_KeyPress);
             // 
             // seniarButton
@@ -214,16 +202,25 @@
             this.dateTimePicker1.TabIndex = 18;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
+            // PorcentajeSeña
+            // 
+            this.PorcentajeSeña.AutoSize = true;
+            this.PorcentajeSeña.Location = new System.Drawing.Point(175, 208);
+            this.PorcentajeSeña.Name = "PorcentajeSeña";
+            this.PorcentajeSeña.Size = new System.Drawing.Size(35, 13);
+            this.PorcentajeSeña.TabIndex = 19;
+            this.PorcentajeSeña.Text = "label9";
+            // 
             // VSeniarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PorcentajeSeña);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.seniarButton);
             this.Controls.Add(this.montoSeniaTextBox);
-            this.Controls.Add(this.porcentajeSeniaTextBox);
             this.Controls.Add(this.fechaDeSeniaLabel);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.cantidadProductosLabel);
@@ -258,10 +255,10 @@
         private System.Windows.Forms.Label cantidadProductosLabel;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label fechaDeSeniaLabel;
-        private System.Windows.Forms.TextBox porcentajeSeniaTextBox;
         private System.Windows.Forms.TextBox montoSeniaTextBox;
         private System.Windows.Forms.Button seniarButton;
         private System.Windows.Forms.Button cancelarButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label PorcentajeSeña;
     }
 }
