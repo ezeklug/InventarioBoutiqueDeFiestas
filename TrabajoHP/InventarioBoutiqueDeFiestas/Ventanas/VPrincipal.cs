@@ -31,14 +31,24 @@ namespace InventarioBoutiqueDeFiestas
 
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = controladorFachada.getNotificaciones();
-            dataGridView1.Columns[2].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[0].ReadOnly = true;
-            dataGridView1.Columns[1].ReadOnly = true;
-            dataGridView1.Columns[2].ReadOnly = true;
-            dataGridView1.Columns[3].ReadOnly = true;
-            _ = new DatagridStyle(dataGridView1);
+            dataGridView1.DataSource = controladorFachada.getNotificaciones(Convert.ToInt32(DiasNotificaciones.Text));
+            if (dataGridView1.Rows.Count==0)
+            {
+                dataGridView1.Visible = false;
+                NohayNotificaciones.Visible = true;
+            }
+            else
+            {
+                dataGridView1.Visible = true;
+                NohayNotificaciones.Visible = false;
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[0].ReadOnly = true;
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = true;
+                _ = new DatagridStyle(dataGridView1);
+            }
         }
 
         private void ControlPresupuesto_Click(object sender, EventArgs e)
@@ -62,6 +72,25 @@ namespace InventarioBoutiqueDeFiestas
             VNotificacionDetalle vNotificacionDetalle = new VNotificacionDetalle(dataGridView1.Rows[e.RowIndex]);
             vNotificacionDetalle.ShowDialog();
             VPrincipal_Load(sender, e);
+        }
+
+        private void DiasNotificaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (DiasNotificaciones.Text != "")
+                {
+                    dataGridView1.DataSource = controladorFachada.getNotificaciones(Convert.ToInt32(DiasNotificaciones.Text));
+                }
+            }
+        }
+
+        private void DiasNotificaciones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

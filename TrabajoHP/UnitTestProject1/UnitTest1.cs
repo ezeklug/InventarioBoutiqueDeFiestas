@@ -249,7 +249,7 @@ namespace UnitTestProject1
         public void TesstGetNotificaciones() {
             var cont = new ControladorFachada();
 
-            var nots = cont.getNotificaciones();
+            var nots = cont.getNotificaciones(7);
 
             foreach(var not in nots)
             {
