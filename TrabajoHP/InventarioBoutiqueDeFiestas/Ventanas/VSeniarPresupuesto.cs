@@ -21,8 +21,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         Presupuesto iPresupuesto;
         public VSeniarPresupuesto(int pIdCliente, int pPresupuestoId)
         {
-
-
             var cont = new ControladorFachada();
             var contP = new ControladorPresupuesto();
             iCliente = cont.BuscarCliente(pIdCliente);
@@ -152,8 +150,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
 
         private void cancelarButton_Click(object sender, EventArgs e)
         {
-            var home = new VPrincipal();
-            home.Show();
             this.Hide();
             this.Close();
         }
