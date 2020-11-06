@@ -39,56 +39,28 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 this.dateTimePicker1.Value = seniaDto.ValidoHasta;
                 this.fechaDeSeniaLabel.Text = seniaDto.Fecha.ToString();
                 this.montoSeniaTextBox.Text = seniaDto.Monto.ToString();
+                this.PorcentajeSeña.Text= ((Convert.ToDouble(montoSeniaTextBox.Text) * 100) / Convert.ToDouble(this.totalLabel.Text)).ToString();
             }
             else
             {
                 this.fechaDeSeniaLabel.Text = DateTime.Now.ToString();
             }
-
-
-            porcentajeSeniaTextBox.TextChanged += new System.EventHandler(this.porcentajeSeniaTextBox_HasChanged);
             montoSeniaTextBox.TextChanged += new System.EventHandler(this.montoSeniaTextBox_HasChanged);
-
-        }
-
-        private void porcentajeSeniaTextBox_HasChanged(object sender, EventArgs e)
-        {
-            var s = (sender as TextBox);
-            if (s.TextLength != 0)
-            {
-
-                if (float.Parse(s.Text) > 100)
-                {
-                    s.Text = "100";
-                    s.SelectionStart = s.Text.Length;
-                }
-                this.montoSeniaTextBox.Text = (double.Parse(this.totalLabel.Text) * (double.Parse(s.Text) / 100)).ToString();
-            }
 
         }
 
         private void montoSeniaTextBox_HasChanged(object sender, EventArgs e)
         {
-            var s = (sender as TextBox);
-            if (s.TextLength != 0)
+            if (montoSeniaTextBox.TextLength != 0)
             {
-                if (float.Parse(s.Text) >= float.Parse(this.totalLabel.Text))
+                if (Convert.ToDouble(montoSeniaTextBox.Text) >= Convert.ToDouble(this.totalLabel.Text))
                 {
-                    s.Text = this.totalLabel.Text;
-                    s.SelectionStart = s.Text.Length;
+                    montoSeniaTextBox.Text = this.totalLabel.Text;
+                    montoSeniaTextBox.SelectionStart = montoSeniaTextBox.Text.Length;
                 }
-                this.porcentajeSeniaTextBox.Text = ((double.Parse(s.Text) * 100) / double.Parse(this.totalLabel.Text)).ToString();
+                this.PorcentajeSeña.Text = ((Convert.ToDouble(montoSeniaTextBox.Text) * 100) / Convert.ToDouble(this.totalLabel.Text)).ToString();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            montoSeniaTextBox.SelectionStart = montoSeniaTextBox.Text.Length;
         }
 
         private void VSeniarPresupuesto_Load(object sender, EventArgs e)
@@ -97,50 +69,37 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.dateTimePicker1.Value = DateTime.Now + TimeSpan.FromDays(15);
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void porcentajeSeniaTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void porcentajeSeniaTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verify that the pressed key isn't CTRL or any non-numeric digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
-            // If you want, you can allow decimal (float) numbers
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-
-        }
-
         private void montoSeniaTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verify that the pressed key isn't CTRL or any non-numeric digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+                // Verify that the pressed key isn't CTRL or any non-numeric digit
+                string senderText = (sender as TextBox).Text;
+                string senderName = (sender as TextBox).Name;
+                string[] splitByDecimal = senderText.Split(',');
+                int cursorPosition = (sender as TextBox).SelectionStart;
 
-            // If you want, you can allow decimal (float) numbers
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
+                if (!char.IsControl(e.KeyChar)
+                    && !char.IsDigit(e.KeyChar)
+                    && (e.KeyChar != ','))
+                {
+                    e.Handled = true;
+                }
+
+
+                if (e.KeyChar == ','
+                    && senderText.IndexOf(',') > -1)
+                {
+                    e.Handled = true;
+                }
+
+
+                if (!char.IsControl(e.KeyChar)
+                    && senderText.IndexOf(',') < cursorPosition
+                    && splitByDecimal.Length > 1
+                    && splitByDecimal[1].Length == 2)
+                {
+                    e.Handled = true;
+                }
+
         }
 
         private void CerrarVentana()
@@ -160,13 +119,13 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     var dto = new SeniaDTO();
                     dto.Fecha = DateTime.Parse(this.fechaDeSeniaLabel.Text);
                     dto.IdPresupuesto = iPresupuesto.Id;
-                    dto.Monto = float.Parse(this.montoSeniaTextBox.Text);
+                    dto.Monto = Convert.ToDouble(this.montoSeniaTextBox.Text);
                     dto.ValidoHasta = dateTimePicker1.Value;
                     cont.SeniarPresupuesto(dto);
                 }
                 else
                 {
-                    seniaDto.Monto = float.Parse(this.montoSeniaTextBox.Text);
+                    seniaDto.Monto = Convert.ToDouble(this.montoSeniaTextBox.Text);
                     seniaDto.Fecha = DateTime.Parse(this.fechaDeSeniaLabel.Text);
                     seniaDto.ValidoHasta = dateTimePicker1.Value;
                     cont.ModificarSenia(seniaDto);
