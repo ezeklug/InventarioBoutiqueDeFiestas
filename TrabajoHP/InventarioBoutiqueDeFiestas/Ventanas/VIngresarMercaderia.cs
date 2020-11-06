@@ -32,16 +32,15 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             int idLote = 0;
             List<ProductoDTO> ListaProductoDTO = new List<ProductoDTO>();
             int i = 0;
-            Boolean controlVence = false;
-            Boolean controlDatos = false;
+            Boolean controlVence = true; //True si esta ok 
+            Boolean controlDatos = false; //True si esta ok
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (Convert.ToInt32(row.Cells[2].Value) == 0 | Convert.ToDouble(row.Cells[3].Value) == 0)
+                if (Convert.ToInt32(row.Cells[2].Value) == 0 | Convert.ToDouble(row.Cells[3].Value) == 0) //Chequeo que cantidad y precio de compra sean >0
                 {
-                    MessageBox.Show("Debe completar la cantidad a ingresar y el Precio de Compra");
                     controlDatos = false;
                 }
-                else
+                else //Cantidad y Precio de compra ok
                 {
                     ProductoDTO unProducto = controladorFachada.BuscarProducto((Convert.ToInt32(row.Cells[0].Value)));
                     unProducto.CantidadEnStock += Convert.ToInt32(row.Cells[2].Value);
@@ -49,10 +48,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                     unProducto.PrecioDeCompra = Convert.ToDouble(row.Cells[3].Value);
                     if (row.Cells[4].Value != "------")
                     {
-                        if (string.IsNullOrEmpty((row.Cells[4].Value).ToString()))
+                        if (string.IsNullOrEmpty((row.Cells[4].Value).ToString())) //Si no colocó fechaVencimiento
                         {
                             controlVence = false;
-                            MessageBox.Show("Debe ingresar una fecha de vencimiento");
+                            
                         }
                         else
                         {
@@ -60,7 +59,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                             unLote.CantidadProductos = Convert.ToInt32(row.Cells[2].Value);
                             unLote.FechaCompra = DateTime.Now; // ARREGLAME
                             unLote.FechaVencimiento = Convert.ToDateTime(row.Cells[4].Value);
-                            controlVence = true;
+                            controlVence = true; //fechaVencimiento    OK
                             if (unLote.FechaCompra < unLote.FechaVencimiento)
                             {
                                 unLote.Vencido = false;
@@ -83,37 +82,49 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 }
                 controladorFachada.IngresoMercarderias(ListaProductoDTO);
             }
+             
                 Listo.Visible = false;
                 Cancelar.Visible = false;
                 Agregar.Visible = false;
                 Boolean vencen = false;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!vencen)
                 {
-                    if (!vencen)
+                    if (row.Cells[4].Value != "------")
                     {
-                        if ((row.Cells[4].Value != "------") && (controlVence != true))
-                        {
-                            vencen = true;
-                        }
+                        vencen = true;
                     }
                 }
-                if (vencen & controlDatos & controlVence)
-                {
-                    Confirmar.Visible = true;
-                    ConfirmarText.Visible = true;
-                }
-                else if(controlDatos & !vencen)
-                {
-                    this.Hide();
-                    VControlProducto vControlProducto = new VControlProducto();
-                    vControlProducto.ShowDialog();
-                    this.Close();
-                }
-            else
+            }
+
+            if (!controlDatos | !controlVence) //Si falta algun dato
             {
+                if (!controlDatos)
+                {
+                    MessageBox.Show("Debe completar la cantidad a ingresar y el Precio de Compra");
+                }
+                if (!controlVence)
+                {
+                    MessageBox.Show("Debe ingresar una fecha de vencimiento");
+                }
+
                 Listo.Visible = true;
                 Cancelar.Visible = true;
                 Agregar.Visible = true;
+            }
+            else if (vencen)  //Esta todo Ok
+            {
+                Confirmar.Visible = true;
+                ConfirmarText.Visible = true;
+            }
+            else { 
+                this.Hide();
+                VControlProducto vControlProducto = new VControlProducto();
+                vControlProducto.ShowDialog();
+                this.Close();
+                     
             }
             
 
