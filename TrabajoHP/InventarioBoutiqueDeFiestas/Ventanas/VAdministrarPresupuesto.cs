@@ -27,6 +27,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         int IdPresupuesto { get; set; }
         string Descuento { get; set; }
         string PObservacion { get; set; }
+        Boolean Notificacion { get; set; }
         PresupuestoDTO Presupuesto { get; set; }
         ControladorFachada controladorFachada = new ControladorFachada();
 
@@ -40,6 +41,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Descuento = Presupuesto.Descuento.ToString();
             IdPresupuesto = Presupuesto.Id;
             PObservacion = Presupuesto.Observacion;
+            Notificacion = true;
             InitializeComponent();
         }
         public VAdministrarPresupuesto(PresupuestoDTO pPresupuestoDTO)
@@ -52,7 +54,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             Descuento = pPresupuestoDTO.Descuento.ToString();
             PObservacion = pPresupuestoDTO.Observacion;
             IdPresupuesto = pPresupuestoDTO.Id;
-
+            Notificacion = false;
             InitializeComponent();
         }
         public VAdministrarPresupuesto()
@@ -100,6 +102,16 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     EstadoPresupuestoLabel.Text = "Estado:  " + EstadoPresupuesto;
                 }
+            }
+            if (Notificacion)
+            {
+                VolverNotificacion.Visible = true;
+                Volver.Visible = false;
+            }
+            else
+            {
+                Volver.Visible = true;
+                VolverNotificacion.Visible = false;
             }
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
@@ -530,10 +542,8 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
         }
 
-        private void VAdministrarPresupuesto_FormClosing(object sender, FormClosingEventArgs e)
+        private void VolverNotificacion_Click(object sender, EventArgs e)
         {
-            VPrincipal vPrincipal = new VPrincipal();
-            vPrincipal.ShowDialog();
             this.Hide();
             this.Close();
         }

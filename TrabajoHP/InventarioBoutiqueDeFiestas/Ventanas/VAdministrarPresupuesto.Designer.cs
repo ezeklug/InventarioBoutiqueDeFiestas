@@ -56,6 +56,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.label = new System.Windows.Forms.Label();
             this.Observacion = new System.Windows.Forms.TextBox();
             this.ActualizarPrecios = new System.Windows.Forms.Button();
+            this.VolverNotificacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -374,12 +375,29 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.ActualizarPrecios.UseVisualStyleBackColor = false;
             this.ActualizarPrecios.Click += new System.EventHandler(this.ActualizarPrecios_Click);
             // 
+            // VolverNotificacion
+            // 
+            this.VolverNotificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolverNotificacion.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.VolverNotificacion.FlatAppearance.BorderSize = 0;
+            this.VolverNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VolverNotificacion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VolverNotificacion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.VolverNotificacion.Location = new System.Drawing.Point(1123, 689);
+            this.VolverNotificacion.Name = "VolverNotificacion";
+            this.VolverNotificacion.Size = new System.Drawing.Size(148, 23);
+            this.VolverNotificacion.TabIndex = 44;
+            this.VolverNotificacion.Text = "Volver a Notificación";
+            this.VolverNotificacion.UseVisualStyleBackColor = false;
+            this.VolverNotificacion.Click += new System.EventHandler(this.VolverNotificacion_Click);
+            // 
             // VAdministrarPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1353, 749);
+            this.Controls.Add(this.VolverNotificacion);
             this.Controls.Add(this.ActualizarPrecios);
             this.Controls.Add(this.Observacion);
             this.Controls.Add(this.label);
@@ -407,7 +425,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             this.Name = "VAdministrarPresupuesto";
             this.Text = "VAdministrarPresupuesto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAdministrarPresupuesto_FormClosing);
             this.Load += new System.EventHandler(this.VAdministrarPresupuesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -463,5 +480,6 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         private System.Windows.Forms.Label EstadoPresupuestoLabel;
         private System.Windows.Forms.TextBox Observacion;
         private System.Windows.Forms.Button ActualizarPrecios;
+        private System.Windows.Forms.Button VolverNotificacion;
     }
 }

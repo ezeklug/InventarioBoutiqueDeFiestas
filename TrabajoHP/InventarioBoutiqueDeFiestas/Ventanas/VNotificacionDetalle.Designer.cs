@@ -210,7 +210,7 @@
             this.EliminarLote.FlatAppearance.BorderSize = 0;
             this.EliminarLote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarLote.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarLote.Location = new System.Drawing.Point(312, 413);
+            this.EliminarLote.Location = new System.Drawing.Point(311, 413);
             this.EliminarLote.Name = "EliminarLote";
             this.EliminarLote.Size = new System.Drawing.Size(161, 23);
             this.EliminarLote.TabIndex = 27;
