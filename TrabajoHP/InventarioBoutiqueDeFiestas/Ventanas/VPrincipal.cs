@@ -31,8 +31,17 @@ namespace InventarioBoutiqueDeFiestas
 
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = controladorFachada.getNotificaciones(Convert.ToInt32(DiasNotificaciones.Text));
-            if (dataGridView1.Rows.Count==0)
+            this.GetNoficaciones(DiasNotificaciones.Text);
+        }
+
+        private void GetNoficaciones(string text)
+        {
+            if (text == "")
+            {
+                text = "0";
+            }
+            dataGridView1.DataSource = controladorFachada.getNotificaciones(Convert.ToInt32(text));
+            if (dataGridView1.Rows.Count == 0)
             {
                 dataGridView1.Visible = false;
                 NohayNotificaciones.Visible = true;
@@ -78,10 +87,7 @@ namespace InventarioBoutiqueDeFiestas
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (DiasNotificaciones.Text != "")
-                {
-                    dataGridView1.DataSource = controladorFachada.getNotificaciones(Convert.ToInt32(DiasNotificaciones.Text));
-                }
+                this.GetNoficaciones(DiasNotificaciones.Text);
             }
         }
 
