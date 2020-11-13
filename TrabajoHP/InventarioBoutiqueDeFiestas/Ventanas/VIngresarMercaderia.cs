@@ -18,13 +18,19 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
         ControladorFachada controladorFachada = new ControladorFachada();
         List<int> Productos { get; set; }
         DataGridView Filas { get; set; }
+        DateTimePicker dtp = new DateTimePicker();
+        Rectangle _Rectangle;
+
 
         public VIngresarMercaderia(List<int> productos, DataGridView filas)
         {
             Productos = productos;
             Filas = filas;
             InitializeComponent();
-
+            dataGridView1.Controls.Add(dtp);
+            dtp.Visible = false;
+            dtp.Format = DateTimePickerFormat.Custom;
+            dtp.TextChanged += new EventHandler(dtp_textChange);
         }
 
         private void Listo_Click(object sender, EventArgs e)
@@ -186,22 +192,11 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             }
             if (Productos != null)
             {
-            //    Boolean existe = false;
                 foreach (ProductoPresupuestoDTO p in controladorFachada.ListarProductosPresupuesto(Productos))
                 {
-           /*         foreach (DataGridViewRow row1 in dataGridView1.Rows)
-                    {
-                        if (row1.Cells[0].Value.ToString() == p.Id.ToString())
-                        {
-                            existe = true;
-                        }
-                    }
-                    if (!existe)
-                    {*/
                         string[] row = new string[] { p.Id.ToString(), p.Nombre, "0", "0", "", "" };
                         dataGridView1.Rows.Add(row);
                     }
-             //   }
             }
             foreach (DataGridViewRow row3 in dataGridView1.Rows)
             {
@@ -232,6 +227,39 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             VControlProducto vControlProducto = new VControlProducto();
             vControlProducto.ShowDialog();
             this.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != "------")
+            {
+                switch (dataGridView1.Columns[e.ColumnIndex].Name)
+                {
+
+                    case "FechaVencimiento":
+                        _Rectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                        dtp.Size = new Size(_Rectangle.Width, _Rectangle.Height);
+                        dtp.Location = new Point(_Rectangle.X, _Rectangle.Y);
+                        dtp.Visible = true;
+                    break;
+                }
+            }
+        }
+
+        private void dtp_textChange(object sender, EventArgs e)
+        {
+            dataGridView1.CurrentCell.Value = dtp.Text.ToString();
+
+        }
+
+        private void dataGridView1_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            dtp.Visible = false;
+        }
+
+        private void dataGridView1_Scroll(object sender, ScrollEventArgs e)
+        {
+            dtp.Visible = false;
         }
     }
 }
