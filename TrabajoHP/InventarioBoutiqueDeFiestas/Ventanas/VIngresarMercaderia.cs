@@ -34,6 +34,7 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
             int i = 0;
             Boolean controlVence = true; //True si esta ok 
             Boolean controlDatos = false; //True si esta ok
+            Dictionary<LoteDTO,int> lotesAGuardar = new Dictionary<LoteDTO, int>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (Convert.ToInt32(row.Cells[2].Value) == 0 | Convert.ToDouble(row.Cells[3].Value) == 0) //Chequeo que cantidad y precio de compra sean >0
@@ -70,8 +71,10 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                             }
 
                             unLote.IdProducto = unProducto.Id;
-                            idLote = controladorFachada.GuardarLote(unLote);
-                            dataGridView1.Rows[i].Cells[5].Value = idLote;
+                            lotesAGuardar.Add(unLote,i);
+
+                            //idLote = controladorFachada.GuardarLote(unLote);
+                            //dataGridView1.Rows[i].Cells[5].Value = idLote;
 
                         }
                     }
@@ -109,13 +112,23 @@ namespace InventarioBoutiqueDeFiestas.Ventanas
                 {
                     MessageBox.Show("Debe ingresar una fecha de vencimiento");
                 }
-
+                
                 Listo.Visible = true;
                 Cancelar.Visible = true;
                 Agregar.Visible = true;
             }
-            else if (vencen)  //Esta todo Ok
+            else if (vencen)  //Esta todo Ok y vencen 
             {
+                Console.WriteLine(dataGridView1.Rows.Count);
+               // int j = 0;
+                        foreach (KeyValuePair<LoteDTO,int> lote in lotesAGuardar)
+                        {
+                            idLote = controladorFachada.GuardarLote(lote.Key);
+                            dataGridView1.Rows[lote.Value].Cells[5].Value = idLote;
+                            //Console.WriteLine(lotesAGuardar.Count());
+                           
+                        }            
+                
                 Confirmar.Visible = true;
                 ConfirmarText.Visible = true;
             }
